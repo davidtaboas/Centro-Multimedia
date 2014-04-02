@@ -1,0 +1,32 @@
+{
+  "name": "socketio",
+  "description": "",
+  "author": "",
+  "version": "0.0.1",
+  "main": "server.js",
+  "private": true,
+  "repository": "",
+  "dependencies": {
+    "express": "~3.4.6",
+    "socket.io": "~0.9.16",
+    "jade": "~0.34.0",
+    "mongoose": "~3.6.14",
+    "express-device": "~0.3.7"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-develop": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-compass": "~0.6.0",
+    "request": "~2.27.0",
+    "time-grunt": "~0.1.1",
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-open": "~0.2.3",
+    "grunt-shell-spawn": "~0.3.0",
+    "grunt-contrib-imagemin": "~0.6.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

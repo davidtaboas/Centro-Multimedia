@@ -1,0 +1,55 @@
+@import 'compass/css3';
+@import 'bootstrap';
+@import 'font-awesome';
+
+body{
+
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.remote-control{
+  @include background-image(linear-gradient(left, #666, #333 50%, #333 50%, #666));
+  color: #fff;
+  height: 100%;
+  margin: 0 auto;
+  padding: 50px 0;
+  position: absolute;
+  width: 100%;
+
+  .buttons{
+
+    width: 300px;
+    margin: 0 auto;
+
+    button{
+      text-align: center;
+
+    }
+    .top{
+
+      margin: 20px 0;
+      height: 65px;
+
+      #home,
+      #goback{
+        @include border-radius(100px);
+        height: 65px;
+        width: 65px;
+        padding: 0px;
+      }
+    }
+    #left{
+
+    }
+
+    #ok{
+
+    }
+
+    #right{
+
+    }
+  }
+}
