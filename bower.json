@@ -1,0 +1,14 @@
+{
+  "name": "socketio",
+  "version": "0.0.0",
+  "dependencies": {
+    "sass-bootstrap": "~3.0.2",
+    "jquery": "*",
+    "jquery-mobile-bower": "*"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

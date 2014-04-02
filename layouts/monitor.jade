@@ -1,0 +1,29 @@
+doctype 5
+html
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+
+        title #{title}
+
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel='stylesheet', href="/css/monitor/style.css")
+        block css
+        script(src='/components/jquery/jquery.min.js')
+        block js
+        script(src='/socket.io/socket.io.js')
+        script(src='/js/monitor/app.js')
+
+    body
+
+    header
+        ol.breadcrumb
+            div.container
+                li Home
+                li.active #{title}
+
+    div#content
+        div.container
+            div.row.monitor
+                block content
+    footer

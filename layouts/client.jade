@@ -1,0 +1,21 @@
+doctype 5
+html
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        title #{title}
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        meta(name="apple-mobile-web-app-capable", content="yes")
+        block css
+            link(rel='stylesheet', href="/css/client/style.css")
+        block js
+            script(src='/components/jquery/jquery.min.js')
+            script(src='/components/jquery-mobile-bower/js/jquery.mobile-1.4.2.min.js')
+            script(src='/socket.io/socket.io.js')
+            script(src='/js/client/app.js')
+    body
+
+        div.remote-control
+            h1.text-center Remote Control
+            div.row.client
+                block content
