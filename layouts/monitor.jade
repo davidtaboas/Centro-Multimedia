@@ -1,5 +1,5 @@
 doctype 5
-html
+html(ng-app="monitorApp")
     head
         meta(charset="utf-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
@@ -10,9 +10,12 @@ html
         link(rel='stylesheet', href="/css/monitor/style.css")
         block css
         script(src='/components/jquery/jquery.min.js')
-        block js
+        script(src='/components/angular/angular.min.js')
+        script(src='/components/angular-route/angular-route.min.js')
         script(src='/socket.io/socket.io.js')
-        script(src='/js/monitor/app.js')
+        script(src='/js/monitor/monitor.js')
+        script(src='/js/monitor/app-angular.js')
+        block js
 
     body
 
@@ -24,6 +27,7 @@ html
 
     div#content
         div.container
-            div.row.monitor
-                block content
+            div.row.monitor(ng-controller='MonitorCtrl')
+
+                div#views(ng-view)
     footer

@@ -9,7 +9,6 @@
     "commit": "93940dec202766d86320fa699d46fb4666c82bb6"
   },
   "_source": "git://github.com/johndyer/mediaelement.git",
-  "_target": "~2.14.0",
-  "_originalSource": "mediaelement",
-  "_direct": true
+  "_target": "*",
+  "_originalSource": "mediaelement"
 }
