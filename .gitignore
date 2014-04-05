@@ -2,7 +2,6 @@
 .sass-cache
 
 #Módulos de node. Se instalan con npm install
-node_modules
+
 
 #Móudlos de bower
-public/components/*
