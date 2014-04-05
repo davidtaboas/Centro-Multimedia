@@ -3,20 +3,21 @@
 socket = io.connect("http://127.0.0.1:5555/")
 app = app or {}
 
-# shortcut for document.ready
-$ ->
+
+reloadControls = () ->
 
   #VIDEOS
   if typeof MediaElementPlayer is 'function'
-    $("video").mediaelementplayer()
-    player = new MediaElementPlayer("video")
-    $("video").on "play", ->
-      player.enterFullScreen()
-      return
+    if $("video").length > 0
+      $("video").mediaelementplayer()
+      player = new MediaElementPlayer("video")
+      $("video").on "play", ->
+        player.enterFullScreen()
+        return
 
-    $("video").on "ended", ->
-      player.exitFullScreen()
-      return
+      $("video").on "ended", ->
+        player.exitFullScreen()
+        return
 
 
 
@@ -28,7 +29,6 @@ $ ->
 
 
   lastTabIndex =  (Number) $("[tabindex]").length - 1
-  console.log lastTabIndex
 
   $("[tabindex=0]").addClass "current"
   current = $(".current")
@@ -37,7 +37,7 @@ $ ->
   socket.on "move", (data) ->
 
     if data.move is "ok"
-      $(current)[0].click()
+      $(current).click()
     else
       $(".current").removeClass "current"
       if data.move is "next"

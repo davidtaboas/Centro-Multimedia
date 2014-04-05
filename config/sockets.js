@@ -1,11 +1,10 @@
 
-var runningPortNumber = 1337;
-var runningPortMonitor = 5555;
 
 module.exports = function (server, serverserver) {
 
     var iousers = require('socket.io').listen(server);
     var iomonitor = require('socket.io').listen(serverserver);
+    var apimessage = require('socket.io').listen(7777);
 
     iousers.set('log level', 2);
     iomonitor.set('log level', 2);
@@ -31,8 +30,18 @@ module.exports = function (server, serverserver) {
     });
 
 
-    serverserver.listen(runningPortMonitor);
-    server.listen(runningPortNumber);
+    // Socket de API
+    apimessage.sockets.on('connection', function (socket) {
+      socket.on('message', function (event) { 
+        console.log('Received message from client!',event);
+      });
+      socket.on('disconnect', function () { 
+        console.log('Server has disconnected');
+      });
+    });
+
+
+
 
 };
 

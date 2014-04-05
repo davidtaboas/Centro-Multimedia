@@ -45,13 +45,17 @@ module.exports = function (grunt) {
       }
     },
     coffee: {
-        compile: {
-            files: {
-              // 1:1 compile
-              'public/js/client/app.js': 'assets/jsdev/client/*.coffee',
-              'public/js/monitor/app.js': 'assets/jsdev/monitor/*.coffee'
-            }
-        }
+      glob_to_multiple: {
+        options: {
+          bare: true
+        },
+        expand: true,
+        flatten: false,
+        cwd: 'assets/jsdev/',
+        src: ['**/*.coffee'],
+        dest: 'public/js/',
+        ext: '.js'
+      }
     },
     open : {
         chrome : {
