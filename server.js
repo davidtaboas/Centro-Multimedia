@@ -32,20 +32,25 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
+
+// Aplicación general
 var app = express();
+// Aplicación auxiliar para Socket
 var appmonitor = express();
+// Aplicación auxiliar para API
+var appapi = express();
 
-
+// Servidor de Cliente Usuario
 var server = require('http').createServer(app);
+// Servidor de Cliente Monitor
 var serverserver = require('http').createServer(appmonitor);
-
 
 var device  = require('express-device');
 
 require('./config/express')(app, config);
 
-/* 
-Views 
+/*
+Views
 */
 app.set('views', [
     config.root + '/app/views',
@@ -59,5 +64,21 @@ require(config.root + '/app/controllers/client')(app);
 require(config.root + '/app/controllers/monitor')(app);
 require(config.root + '/modules/videos/controller')(app);
 
+
+/*
+Configuración Sockets
+*/
 require('./config/sockets')(server, serverserver);
 
+
+
+/*
+Lanzamos servidores
+*/
+
+var runningPortNumber = 1337;
+var runningPortMonitor = 5555;
+
+
+serverserver.listen(runningPortMonitor);
+server.listen(runningPortNumber);
