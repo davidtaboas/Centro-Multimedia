@@ -12,11 +12,12 @@ app = app or {}
 $ ->
 
   #setup some common vars
-  $moveLeft = $("#left")
-  $moveRight = $("#right")
-  $sendOk = $("#ok")
-  $goHome = $("#home")
-  $goBack = $("#goback")
+  $moveLeft   = $("#left")
+  $moveRight  = $("#right")
+  $sendOk     = $("#ok")
+  $goHome     = $("#home")
+  $goBack     = $("#goback")
+  $changeMask = $("#changeMask")
 
   #SOCKET STUFF
   socket.on "left", (data) ->
@@ -45,6 +46,10 @@ $ ->
 
   $goBack.on "tap", () ->
     socket.emit "control", "back"
+    return
+
+  $changeMask.on "tap", () ->
+    socket.emit "change", "mask"
     return
 
   return

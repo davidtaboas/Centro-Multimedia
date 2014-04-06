@@ -7628,7 +7628,7 @@ td.visible-print {
     display: none !important;
   }
 }
-/* line 4, ../../../assets/sass/monitor/style.scss */
+/* line 5, ../../../assets/sass/monitor/style.scss */
 body {
   background: #183026 url("../../img/bg.jpg") no-repeat;
   background-size: cover;
@@ -7636,7 +7636,7 @@ body {
   background-position: center 0;
 }
 
-/* line 12, ../../../assets/sass/monitor/style.scss */
+/* line 13, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb {
   padding: 0;
   border-radius: 0;
@@ -7648,7 +7648,7 @@ header .breadcrumb {
   color: #fff;
   font-weight: bold;
 }
-/* line 18, ../../../assets/sass/monitor/style.scss */
+/* line 19, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb li {
   -webkit-transform: skew(-20deg);
   -moz-transform: skew(-20deg);
@@ -7657,7 +7657,7 @@ header .breadcrumb li {
   display: inline-table;
   padding: 8px;
 }
-/* line 27, ../../../assets/sass/monitor/style.scss */
+/* line 28, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb li.active {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(100%, #666666));
   background-image: -webkit-linear-gradient(#333333, #666666);
@@ -7666,7 +7666,7 @@ header .breadcrumb li.active {
   background-image: linear-gradient(#333333, #666666);
 }
 
-/* line 34, ../../../assets/sass/monitor/style.scss */
+/* line 35, ../../../assets/sass/monitor/style.scss */
 .row a {
   background: #f1f1f1;
   display: inline-table;
@@ -7680,20 +7680,50 @@ header .breadcrumb li.active {
   width: 400px;
 }
 
-/* line 47, ../../../assets/sass/monitor/style.scss */
+/* line 48, ../../../assets/sass/monitor/style.scss */
 .current {
   box-shadow: 0 0 25px DodgerBlue;
   opacity: 1 !important;
 }
 
+/* line 55, ../../../assets/sass/monitor/style.scss */
+#messages .popup {
+  background: #333;
+  border-radius: 12px;
+  color: #fff;
+  height: 150px;
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  width: 242.7051px;
+}
+/* line 66, ../../../assets/sass/monitor/style.scss */
+#messages .popup p {
+  padding: 25px;
+}
+/* line 71, ../../../assets/sass/monitor/style.scss */
+#messages .bottom {
+  background: #222;
+  bottom: 100px;
+  color: #fff;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+/* line 80, ../../../assets/sass/monitor/style.scss */
+#messages .bottom p {
+  text-align: center;
+}
+
 @media (min-width: 1200px) and (max-width: 1860px) {
-  /* line 53, ../../../assets/sass/monitor/style.scss */
+  /* line 88, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1560px;
   }
 }
 @media (min-width: 1860px) {
-  /* line 59, ../../../assets/sass/monitor/style.scss */
+  /* line 94, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1860px;
   }

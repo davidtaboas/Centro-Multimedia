@@ -1,5 +1,6 @@
 @import "bootstrap";
-@import "compass/css3";
+@import "compass";
+
 
 body {
   background: #183026 url("../../img/bg.jpg") no-repeat;
@@ -49,6 +50,40 @@ header {
   opacity: 1 !important;
 }
 
+#messages {
+
+  .popup {
+    $height: 150px;
+    $width: ($height*((1+sqrt(5))/2));
+    background: #333;
+    border-radius: 12px;
+    color: #fff;
+    height: $height;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    width: $width;
+    p {
+      padding: 25px;
+    }
+  }
+
+  .bottom {
+    background: #222;
+    bottom: 100px;
+    color: #fff;
+    height: 30px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+
+    p {
+      text-align: center;
+    }
+
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1860px) {
   .container {
     width: 1560px;
@@ -60,3 +95,4 @@ header {
     width: 1860px;
   }
 }
+
