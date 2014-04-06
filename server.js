@@ -40,10 +40,8 @@ var appmonitor = express();
 // Aplicación auxiliar para API
 var appapi = express();
 
-// Servidor de Cliente Usuario
+// Servidor de Cliente
 var server = require('http').createServer(app);
-// Servidor de Cliente Monitor
-var serverserver = require('http').createServer(appmonitor);
 
 var device  = require('express-device');
 
@@ -68,7 +66,10 @@ require(config.root + '/modules/videos/controller')(app);
 /*
 Configuración Sockets
 */
-require('./config/sockets')(server, serverserver);
+
+// Pasamos el servidor porque el cliente tiene que escuchar en esa ruta
+// Los otros sockets pueden ir en otros puertos sin crear servidores
+require('./config/sockets')(server);
 
 
 
@@ -77,8 +78,5 @@ Lanzamos servidores
 */
 
 var runningPortNumber = 1337;
-var runningPortMonitor = 5555;
 
-
-serverserver.listen(runningPortMonitor);
 server.listen(runningPortNumber);

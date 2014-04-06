@@ -26,8 +26,11 @@ html(ng-app="monitorApp")
                 li.active #{title}
 
     div#content
-        div.container
-            div.row.monitor(ng-controller='MonitorCtrl')
+        div.container(ng-controller="MonitorCtrl")
+            div.row.monitor
 
                 div#views(ng-view)
+    div#messages
+        div.none
+            p
     footer
