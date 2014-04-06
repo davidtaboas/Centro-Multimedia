@@ -7687,7 +7687,21 @@ header .breadcrumb li.active {
 }
 
 /* line 55, ../../../assets/sass/monitor/style.scss */
+#messages div {
+  box-shadow: 0 0 30px #333;
+  overflow: hidden;
+}
+/* line 59, ../../../assets/sass/monitor/style.scss */
+#messages div p {
+  display: none;
+}
+/* line 63, ../../../assets/sass/monitor/style.scss */
+#messages div p.last {
+  display: block;
+}
+/* line 68, ../../../assets/sass/monitor/style.scss */
 #messages .popup {
+  display: block;
   background: #333;
   border-radius: 12px;
   color: #fff;
@@ -7697,33 +7711,40 @@ header .breadcrumb li.active {
   top: 50px;
   width: 242.7051px;
 }
-/* line 66, ../../../assets/sass/monitor/style.scss */
+/* line 81, ../../../assets/sass/monitor/style.scss */
 #messages .popup p {
   padding: 25px;
 }
-/* line 71, ../../../assets/sass/monitor/style.scss */
+/* line 86, ../../../assets/sass/monitor/style.scss */
 #messages .bottom {
+  display: block;
   background: #222;
   bottom: 100px;
   color: #fff;
-  height: 30px;
+  height: 60px;
   left: 0;
   position: absolute;
   width: 100%;
 }
-/* line 80, ../../../assets/sass/monitor/style.scss */
+/* line 96, ../../../assets/sass/monitor/style.scss */
 #messages .bottom p {
   text-align: center;
+  line-height: 60px;
+  font-size: 30px;
+}
+/* line 104, ../../../assets/sass/monitor/style.scss */
+#messages .none {
+  display: none;
 }
 
 @media (min-width: 1200px) and (max-width: 1860px) {
-  /* line 88, ../../../assets/sass/monitor/style.scss */
+  /* line 110, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1560px;
   }
 }
 @media (min-width: 1860px) {
-  /* line 94, ../../../assets/sass/monitor/style.scss */
+  /* line 116, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1860px;
   }

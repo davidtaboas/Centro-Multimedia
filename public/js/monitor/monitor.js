@@ -1,12 +1,8 @@
-var app, changeMask, currentMask, masks, reloadControls, socket;
+var app, changeMask, currentMask, masks, messages, pushMsg, reloadControls, socket;
 
 socket = io.connect("http://127.0.0.1:5555/");
 
 app = app || {};
-
-masks = ["none", "bottom", "popup"];
-
-currentMask = 0;
 
 
 /*
@@ -46,29 +42,51 @@ socket.on("control", function(data) {
 
 socket.on("msg", function(data) {
   console.log(data);
-  if (currentMask === masks.indexOf("none")) {
-    currentMask = masks.indexOf("bottom");
-    changeMask(currentMask);
-  }
-  $("#messages div p").append("<span class=" + data.priority + ">" + decodeURI(data.msg) + "<span>");
+  changeMask(currentMask);
+  pushMsg(data);
 });
 
 socket.on("change", function(data) {
-  currentMask = (currentMask + 1) % masks.length;
-  if (masks.indexOf("none") === currentMask) {
-    if (($("#messages div p span").attr("class")) === "0") {
-      currentMask++;
-    }
-  }
   changeMask(currentMask);
 });
 
 
 /*
-Functión para cambiar máscara de mensajes
+Función para recibir mensajes
  */
 
+messages = [];
+
+pushMsg = function(data) {
+  var p;
+  messages.push(data);
+  p = document.createElement("p");
+  $("#messages div p").each(function(index) {
+    $(this).fadeOut("fast");
+  });
+  $(p).addClass("last").append("<span class='" + data.priority + "'>" + decodeURI(data.msg) + "</span>");
+  $("#messages div").append($(p).fadeIn("slow"));
+};
+
+
+/*
+Función para cambiar máscara de mensajes
+ */
+
+masks = ["none", "bottom", "popup"];
+
+currentMask = 0;
+
 changeMask = function(current) {
+
+  /*
+  
+  Si hay prioridad 0 entonces no se tiene que ocultar la máscara
+  
+  if currentMask is masks.indexOf("none")
+    currentMask = masks.indexOf("none")+1
+   */
+  currentMask = (currentMask + 1) % masks.length;
   $("#messages div").removeClass();
   $("#messages div").addClass(masks[currentMask]);
 };

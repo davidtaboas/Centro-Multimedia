@@ -52,7 +52,21 @@ header {
 
 #messages {
 
+  div {
+    box-shadow: 0 0 30px #333;
+    overflow: hidden;
+
+    p {
+      display: none;
+    }
+
+    p.last {
+      display: block;
+    }
+  }
+
   .popup {
+    display: block;
     $height: 150px;
     $width: ($height*((1+sqrt(5))/2));
     background: #333;
@@ -63,24 +77,32 @@ header {
     right: 10px;
     top: 50px;
     width: $width;
+
     p {
       padding: 25px;
     }
   }
 
   .bottom {
+    display: block;
     background: #222;
     bottom: 100px;
     color: #fff;
-    height: 30px;
+    height: 60px;
     left: 0;
     position: absolute;
     width: 100%;
 
     p {
       text-align: center;
+      line-height: 60px;
+      font-size: 30px;
     }
 
+  }
+
+  .none {
+    display: none;
   }
 }
 

@@ -3,8 +3,7 @@
 socket = io.connect("http://127.0.0.1:5555/")
 app = app or {}
 
-masks= ["none", "bottom", "popup"]
-currentMask = 0
+
 
 ###
 Los sockets van definidos de forma general
@@ -43,28 +42,53 @@ socket.on "control", (data) ->
 
 socket.on "msg", (data) ->
   console.log(data)
-  if currentMask is masks.indexOf("none")
-    currentMask = masks.indexOf("bottom")
-    changeMask(currentMask)
-  $("#messages div p").append(
-    "<span class="+data.priority+">"+decodeURI(data.msg)+"<span>"
-  )
+  changeMask(currentMask)
+  #función que recibe mensajes
+  pushMsg(data)
+
   return
 
-socket.on "change", (data) ->
 
-  currentMask = (currentMask+1)%masks.length
-  if masks.indexOf("none") is currentMask
-    if ($("#messages div p span").attr "class") == "0"
-      currentMask++
+
+socket.on "change", (data) ->
   changeMask(currentMask)
   return
 
 ###
-Functión para cambiar máscara de mensajes
+Función para recibir mensajes
 ###
+messages = []
+
+pushMsg = (data) ->
+  messages.push data
+  p = document.createElement("p")
+  $("#messages div p").each (index) ->
+    $(this).fadeOut("fast")
+    return
+  $(p)
+    .addClass("last")
+    .append "<span class='"+data.priority+"'>"+decodeURI(data.msg)+"</span>"
+  $("#messages div").append($(p).fadeIn("slow"))
+  return
+
+
+
+
+###
+Función para cambiar máscara de mensajes
+###
+masks= ["none", "bottom", "popup"]
+currentMask = 0
 
 changeMask = (current) ->
+  ###
+
+  Si hay prioridad 0 entonces no se tiene que ocultar la máscara
+
+  if currentMask is masks.indexOf("none")
+    currentMask = masks.indexOf("none")+1
+  ###
+  currentMask = (currentMask+1)%masks.length
   $("#messages div").removeClass()
   $("#messages div").addClass masks[currentMask]
   return

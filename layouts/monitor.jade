@@ -9,12 +9,12 @@ html(ng-app="monitorApp")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         link(rel='stylesheet', href="/css/monitor/style.css")
         block css
-        script(src='/components/jquery/jquery.min.js')
+        script(src='/components/jquery/jquery.js')
         script(src='/components/angular/angular.min.js')
         script(src='/components/angular-route/angular-route.min.js')
         script(src='/socket.io/socket.io.js')
-        script(src='/js/monitor/monitor.js')
         script(src='/js/monitor/app-angular.js')
+        script(src='/js/monitor/monitor.js')
         block js
 
     body
@@ -32,5 +32,4 @@ html(ng-app="monitorApp")
                 div#views(ng-view)
     div#messages
         div.none
-            p
     footer
