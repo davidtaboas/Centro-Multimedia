@@ -33,18 +33,34 @@ controllers.controller "MessagesCtrl", [
     socket.on "msg", (data) ->
 
       $scope.$apply ->
-        $http.post("/messages", data).success (messages) ->
-          $scope.messages = messages
-          return
-        $scope.lastmessage =  data
         $scope.change = () ->
           if $("#lastmessage div").hasClass("none")
             window.changeMask()
           return
-        $scope.change()
+
+        $http.post("/messages", data).success (messages) ->
+          $scope.messages = messages
+          return
+
+        $http.get("/lastmessage").success (message) ->
+          $scope.lastmessage =  message
+          $scope.change()
+          return
+
         return
 
-      return
+      return #fin $socket msg
+
+    socket.on "filter", (data) ->
+
+      $scope.$apply ->
+
+        $http.get("/messages/"+data.filter).success (messages) ->
+          $scope.messages = messages
+          return
+        return
+
+      return #end $socket msg
 
     return
 

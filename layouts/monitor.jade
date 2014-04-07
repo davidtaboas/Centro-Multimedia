@@ -46,7 +46,7 @@ html(ng-app="monitorApp")
                 div.items
                     ul
                         li(ng-repeat='message in messages')
-                            {{ message.msg }}
+                            {{ message.msg }} {{ message.priority }}
         div#lastmessage
             div.none()
                 p {{ lastmessage.msg }}

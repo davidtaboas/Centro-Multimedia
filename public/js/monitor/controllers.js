@@ -20,16 +20,25 @@ controllers.controller("MessagesCtrl", [
     });
     socket.on("msg", function(data) {
       $scope.$apply(function() {
-        $http.post("/messages", data).success(function(messages) {
-          $scope.messages = messages;
-        });
-        $scope.lastmessage = data;
         $scope.change = function() {
           if ($("#lastmessage div").hasClass("none")) {
             window.changeMask();
           }
         };
-        $scope.change();
+        $http.post("/messages", data).success(function(messages) {
+          $scope.messages = messages;
+        });
+        $http.get("/lastmessage").success(function(message) {
+          $scope.lastmessage = message;
+          $scope.change();
+        });
+      });
+    });
+    socket.on("filter", function(data) {
+      $scope.$apply(function() {
+        $http.get("/messages/" + data.filter).success(function(messages) {
+          $scope.messages = messages;
+        });
       });
     });
   }

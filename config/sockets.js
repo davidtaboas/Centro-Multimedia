@@ -34,6 +34,10 @@ module.exports = function (server) {
             iomonitor.sockets.socket(idmonitor).emit('change', {change: data});
         });
 
+        socket.on('filtermsgs', function(data) {
+            iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
+        });
+
     });
 
 
