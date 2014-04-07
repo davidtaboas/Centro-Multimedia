@@ -7686,21 +7686,62 @@ header .breadcrumb li.active {
   opacity: 1 !important;
 }
 
-/* line 55, ../../../assets/sass/monitor/style.scss */
-#messages div {
+/* line 53, ../../../assets/sass/monitor/style.scss */
+#messages {
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+/* line 63, ../../../assets/sass/monitor/style.scss */
+#messages .background {
+  background: #000;
+  height: 100%;
+  opacity: .6;
+  position: absolute;
+  width: 100%;
+}
+/* line 72, ../../../assets/sass/monitor/style.scss */
+#messages .content {
+  background: #fff;
+  border: 10px solid #333;
+  height: 60%;
+  margin: 15% auto;
+  padding: 20px;
+  position: relative;
+  width: 80%;
+}
+/* line 81, ../../../assets/sass/monitor/style.scss */
+#messages .content h1 {
+  color: #333;
+  border-bottom: 2px solid #333;
+}
+/* line 86, ../../../assets/sass/monitor/style.scss */
+#messages .content .items {
+  height: 90%;
+  overflow-y: scroll;
+  font-size: 30px;
+}
+/* line 91, ../../../assets/sass/monitor/style.scss */
+#messages .content .items ul {
+  list-style: none;
+}
+/* line 94, ../../../assets/sass/monitor/style.scss */
+#messages .content .items ul li {
+  padding: 3px;
+  border-bottom: 1px solid #efefef;
+}
+
+/* line 107, ../../../assets/sass/monitor/style.scss */
+#lastmessage div {
   box-shadow: 0 0 30px #333;
   overflow: hidden;
 }
-/* line 59, ../../../assets/sass/monitor/style.scss */
-#messages div p {
-  display: none;
-}
-/* line 63, ../../../assets/sass/monitor/style.scss */
-#messages div p.last {
-  display: block;
-}
-/* line 68, ../../../assets/sass/monitor/style.scss */
-#messages .popup {
+/* line 113, ../../../assets/sass/monitor/style.scss */
+#lastmessage .popup {
   display: block;
   background: #333;
   border-radius: 12px;
@@ -7711,12 +7752,12 @@ header .breadcrumb li.active {
   top: 50px;
   width: 242.7051px;
 }
-/* line 81, ../../../assets/sass/monitor/style.scss */
-#messages .popup p {
+/* line 126, ../../../assets/sass/monitor/style.scss */
+#lastmessage .popup p {
   padding: 25px;
 }
-/* line 86, ../../../assets/sass/monitor/style.scss */
-#messages .bottom {
+/* line 131, ../../../assets/sass/monitor/style.scss */
+#lastmessage .bottom {
   display: block;
   background: #222;
   bottom: 100px;
@@ -7726,25 +7767,25 @@ header .breadcrumb li.active {
   position: absolute;
   width: 100%;
 }
-/* line 96, ../../../assets/sass/monitor/style.scss */
-#messages .bottom p {
+/* line 141, ../../../assets/sass/monitor/style.scss */
+#lastmessage .bottom p {
   text-align: center;
   line-height: 60px;
   font-size: 30px;
 }
-/* line 104, ../../../assets/sass/monitor/style.scss */
-#messages .none {
+/* line 149, ../../../assets/sass/monitor/style.scss */
+#lastmessage .none {
   display: none;
 }
 
 @media (min-width: 1200px) and (max-width: 1860px) {
-  /* line 110, ../../../assets/sass/monitor/style.scss */
+  /* line 155, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1560px;
   }
 }
 @media (min-width: 1860px) {
-  /* line 116, ../../../assets/sass/monitor/style.scss */
+  /* line 161, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1860px;
   }

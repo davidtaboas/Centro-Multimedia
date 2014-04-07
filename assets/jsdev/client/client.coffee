@@ -18,7 +18,7 @@ $ ->
   $goHome     = $("#home")
   $goBack     = $("#goback")
   $changeMask = $("#changeMask")
-
+  $messages   = $("#messages")
   #SOCKET STUFF
   socket.on "left", (data) ->
     console.log data
@@ -50,6 +50,10 @@ $ ->
 
   $changeMask.on "tap", () ->
     socket.emit "change", "mask"
+    return
+
+  $messages.on "tap", () ->
+    socket.emit "change", "messages"
     return
 
   return

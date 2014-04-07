@@ -1,4 +1,4 @@
-var app, changeMask, currentMask, masks, messages, pushMsg, reloadControls, socket;
+var app, changeMask, currentMask, masks, reloadControls, socket;
 
 socket = io.connect("http://127.0.0.1:5555/");
 
@@ -40,33 +40,13 @@ socket.on("control", function(data) {
   }
 });
 
-socket.on("msg", function(data) {
-  console.log(data);
-  changeMask(currentMask);
-  pushMsg(data);
-});
-
 socket.on("change", function(data) {
-  changeMask(currentMask);
+  if (data.change === "mask") {
+    changeMask();
+  } else if (data.change === "messages") {
+    $("#messages").toggle();
+  }
 });
-
-
-/*
-Función para recibir mensajes
- */
-
-messages = [];
-
-pushMsg = function(data) {
-  var p;
-  messages.push(data);
-  p = document.createElement("p");
-  $("#messages div p").each(function(index) {
-    $(this).fadeOut("fast");
-  });
-  $(p).addClass("last").append("<span class='" + data.priority + "'>" + decodeURI(data.msg) + "</span>");
-  $("#messages div").append($(p).fadeIn("slow"));
-};
 
 
 /*
@@ -77,7 +57,7 @@ masks = ["none", "bottom", "popup"];
 
 currentMask = 0;
 
-changeMask = function(current) {
+changeMask = function() {
 
   /*
   
@@ -87,8 +67,8 @@ changeMask = function(current) {
     currentMask = masks.indexOf("none")+1
    */
   currentMask = (currentMask + 1) % masks.length;
-  $("#messages div").removeClass();
-  $("#messages div").addClass(masks[currentMask]);
+  $("#lastmessage div").removeClass();
+  $("#lastmessage div").addClass(masks[currentMask]);
 };
 
 

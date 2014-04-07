@@ -52,17 +52,62 @@ header {
 
 #messages {
 
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  .background {
+    background: #000;
+    height: 100%;
+    opacity: .6;
+    position: absolute;
+    width: 100%;
+
+  }
+
+  .content {
+    background: #fff;
+    border: 10px solid #333;
+    height: 60%;
+    margin: 15% auto;
+    padding: 20px;
+    position: relative;
+    width: 80%;
+
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #333;
+    }
+
+    .items {
+      height: 90%;
+      overflow-y: scroll;
+      font-size: 30px;
+
+      ul {
+        list-style: none;
+
+        li {
+          padding: 3px;
+          border-bottom: 1px solid #efefef;
+        }
+      }
+    }
+
+  }
+}
+
+
+#lastmessage {
+
   div {
     box-shadow: 0 0 30px #333;
     overflow: hidden;
 
-    p {
-      display: none;
-    }
-
-    p.last {
-      display: block;
-    }
   }
 
   .popup {

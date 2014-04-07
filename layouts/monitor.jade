@@ -13,23 +13,43 @@ html(ng-app="monitorApp")
         script(src='/components/angular/angular.min.js')
         script(src='/components/angular-route/angular-route.min.js')
         script(src='/socket.io/socket.io.js')
-        script(src='/js/monitor/app-angular.js')
+        script(src='/js/monitor/controllers.js')
+
         script(src='/js/monitor/monitor.js')
+
+        script(src='/js/monitor/factories.js')
+        script(src='/js/monitor/directives.js')
+        script(src='/js/monitor/app-angular.js')
+
+
         block js
 
-    body
+    body(ng-controller='MessagesCtrl')
+        header
+            ol.breadcrumb
+                div.container
+                    li Home
+                    li.active #{title}
 
-    header
-        ol.breadcrumb
-            div.container
-                li Home
-                li.active #{title}
+                    li.pull-right Mensajes {{ totalmessages }}
 
-    div#content
-        div.container(ng-controller="MonitorCtrl")
-            div.row.monitor
+        div#content
+            div.container(ng-controller="MonitorCtrl")
+                div.row.monitor
 
-                div#views(ng-view)
-    div#messages
-        div.none
-    footer
+                    div#views(ng-view)
+
+        div#messages
+            div.background
+            div.content
+                h1 Buzón de entrada
+                div.items
+                    ul
+                        li(ng-repeat='message in messages')
+                            {{ message.msg }}
+        div#lastmessage
+            div.none()
+                p {{ lastmessage.msg }}
+        footer
+
+

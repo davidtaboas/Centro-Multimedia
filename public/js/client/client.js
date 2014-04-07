@@ -11,13 +11,14 @@ socket = io.connect("http://127.0.0.1:1337/");
 app = app || {};
 
 $(function() {
-  var $changeMask, $goBack, $goHome, $moveLeft, $moveRight, $sendOk;
+  var $changeMask, $goBack, $goHome, $messages, $moveLeft, $moveRight, $sendOk;
   $moveLeft = $("#left");
   $moveRight = $("#right");
   $sendOk = $("#ok");
   $goHome = $("#home");
   $goBack = $("#goback");
   $changeMask = $("#changeMask");
+  $messages = $("#messages");
   socket.on("left", function(data) {
     console.log(data);
   });
@@ -41,5 +42,8 @@ $(function() {
   });
   $changeMask.on("tap", function() {
     socket.emit("change", "mask");
+  });
+  $messages.on("tap", function() {
+    socket.emit("change", "messages");
   });
 });

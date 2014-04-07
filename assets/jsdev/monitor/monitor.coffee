@@ -3,8 +3,6 @@
 socket = io.connect("http://127.0.0.1:5555/")
 app = app or {}
 
-
-
 ###
 Los sockets van definidos de forma general
 ###
@@ -40,35 +38,14 @@ socket.on "control", (data) ->
     window.history.back()
   return
 
-socket.on "msg", (data) ->
-  console.log(data)
-  changeMask(currentMask)
-  #función que recibe mensajes
-  pushMsg(data)
-
-  return
 
 
 
 socket.on "change", (data) ->
-  changeMask(currentMask)
-  return
-
-###
-Función para recibir mensajes
-###
-messages = []
-
-pushMsg = (data) ->
-  messages.push data
-  p = document.createElement("p")
-  $("#messages div p").each (index) ->
-    $(this).fadeOut("fast")
-    return
-  $(p)
-    .addClass("last")
-    .append "<span class='"+data.priority+"'>"+decodeURI(data.msg)+"</span>"
-  $("#messages div").append($(p).fadeIn("slow"))
+  if data.change is "mask"
+    changeMask()
+  else if data.change is "messages"
+    $("#messages").toggle()
   return
 
 
@@ -80,7 +57,7 @@ Función para cambiar máscara de mensajes
 masks= ["none", "bottom", "popup"]
 currentMask = 0
 
-changeMask = (current) ->
+changeMask = () ->
   ###
 
   Si hay prioridad 0 entonces no se tiene que ocultar la máscara
@@ -89,9 +66,10 @@ changeMask = (current) ->
     currentMask = masks.indexOf("none")+1
   ###
   currentMask = (currentMask+1)%masks.length
-  $("#messages div").removeClass()
-  $("#messages div").addClass masks[currentMask]
+  $("#lastmessage div").removeClass()
+  $("#lastmessage div").addClass masks[currentMask]
   return
+
 
 ###
 Separamos en una función los controles
