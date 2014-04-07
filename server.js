@@ -60,6 +60,7 @@ Controllers
 */
 require(config.root + '/app/controllers/client')(app);
 require(config.root + '/app/controllers/monitor')(app);
+require(config.root + '/app/controllers/messages')(app);
 require(config.root + '/modules/videos/controller')(app);
 
 

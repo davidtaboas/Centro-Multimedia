@@ -15,11 +15,14 @@ controllers.controller("MonitorCtrl", [
 
 controllers.controller("MessagesCtrl", [
   "$scope", "$http", function($scope, $http) {
-    $scope.messages = [];
-    $scope.totalmessages = 0;
+    $http.get("/messages").success(function(messages) {
+      $scope.messages = messages;
+    });
     socket.on("msg", function(data) {
       $scope.$apply(function() {
-        $scope.messages.push(data);
+        $http.post("/messages", data).success(function(messages) {
+          $scope.messages = messages;
+        });
         $scope.lastmessage = data;
         $scope.change = function() {
           if ($("#lastmessage div").hasClass("none")) {
@@ -27,7 +30,6 @@ controllers.controller("MessagesCtrl", [
           }
         };
         $scope.change();
-        $scope.totalmessages = $scope.messages.length;
       });
     });
   }

@@ -23,20 +23,25 @@ controllers.controller "MessagesCtrl", [
   "$scope"
   "$http"
   ($scope, $http) ->
-    $scope.messages = []
-    $scope.totalmessages = 0
+
+    $http.get("/messages").success (messages) ->
+      $scope.messages = messages
+
+      return
+
+
     socket.on "msg", (data) ->
 
       $scope.$apply ->
-
-        $scope.messages.push data
+        $http.post("/messages", data).success (messages) ->
+          $scope.messages = messages
+          return
         $scope.lastmessage =  data
         $scope.change = () ->
           if $("#lastmessage div").hasClass("none")
             window.changeMask()
           return
         $scope.change()
-        $scope.totalmessages = $scope.messages.length
         return
 
       return
