@@ -13,10 +13,10 @@ html(ng-app="monitorApp")
         script(src='/components/angular/angular.min.js')
         script(src='/components/angular-route/angular-route.min.js')
         script(src='/socket.io/socket.io.js')
-        script(src='/js/monitor/controllers.js')
 
         script(src='/js/monitor/monitor.js')
 
+        script(src='/js/monitor/controllers.js')
         script(src='/js/monitor/factories.js')
         script(src='/js/monitor/directives.js')
         script(src='/js/monitor/app-angular.js')
@@ -48,8 +48,8 @@ html(ng-app="monitorApp")
                         li(ng-repeat='message in messages')
                             {{ message.msg }} {{ message.priority }}
         div#lastmessage
-            div.none()
-                p {{ lastmessage.msg }}
+            div.bottom
+                p {{ lastmessage }}
         footer
 
 

@@ -23,3 +23,4 @@ factories.factory "socket", ($rootScope) ->
       return
 
     return
+

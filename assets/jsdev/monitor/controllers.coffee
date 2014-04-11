@@ -18,6 +18,14 @@ controllers.controller "MonitorCtrl", [
 
 ]
 
+messatesToString = (messages) ->
+  string = ""
+
+  for m, i in messages
+    string += " // " + m.msg
+
+  return string
+
 
 controllers.controller "MessagesCtrl", [
   "$scope"
@@ -26,8 +34,9 @@ controllers.controller "MessagesCtrl", [
 
     $http.get("/messages").success (messages) ->
       $scope.messages = messages
-
+      $scope.lastmessage = messatesToString(messages)
       return
+
 
 
     socket.on "msg", (data) ->
@@ -40,12 +49,9 @@ controllers.controller "MessagesCtrl", [
 
         $http.post("/messages", data).success (messages) ->
           $scope.messages = messages
+          $scope.lastmessage = messatesToString(messages)
           return
 
-        $http.get("/lastmessage").success (message) ->
-          $scope.lastmessage =  message
-          $scope.change()
-          return
 
         return
 

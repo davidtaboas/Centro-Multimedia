@@ -57,9 +57,7 @@ module.exports = function (server) {
             }
         });
         socket.on('disconnect', function () {
-            console.log('++++++');
-            console.log('Server has disconnected');
-            console.log('++++++');
+
         });
     });
 
