@@ -49,7 +49,7 @@ html(ng-app="monitorApp")
                             {{ message.msg }} {{ message.priority }}
         div#lastmessage
             div.bottom
-                p {{ lastmessage }}
+                marquee(behavior="scroll", scrollamount="10", direction="left", width="100%") {{ lastmessage }}
         footer
 
 

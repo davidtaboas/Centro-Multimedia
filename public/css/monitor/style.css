@@ -7768,7 +7768,7 @@ header .breadcrumb li.active {
   width: 100%;
 }
 /* line 141, ../../../assets/sass/monitor/style.scss */
-#lastmessage .bottom p {
+#lastmessage .bottom p, #lastmessage .bottom marquee {
   text-align: center;
   line-height: 60px;
   font-size: 30px;
