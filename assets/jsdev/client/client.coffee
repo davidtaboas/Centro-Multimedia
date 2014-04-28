@@ -12,12 +12,15 @@ app = app or {}
 $ ->
 
   #setup some common vars
-  $moveLeft = $("#left")
-  $moveRight = $("#right")
-  $sendOk = $("#ok")
-  $goHome = $("#home")
-  $goBack = $("#goback")
-
+  $moveLeft   = $("#left")
+  $moveRight  = $("#right")
+  $sendOk     = $("#ok")
+  $goHome     = $("#home")
+  $goBack     = $("#goback")
+  $changeMask = $("#changeMask")
+  $messages   = $("#messages")
+  $appMsgs    = $("#appmsgs")
+  $allMsgs    = $("#allmsgs")
   #SOCKET STUFF
   socket.on "left", (data) ->
     console.log data
@@ -45,6 +48,22 @@ $ ->
 
   $goBack.on "tap", () ->
     socket.emit "control", "back"
+    return
+
+  $changeMask.on "tap", () ->
+    socket.emit "change", "mask"
+    return
+
+  $messages.on "tap", () ->
+    socket.emit "change", "messages"
+    return
+
+  $appMsgs.on "tap", () ->
+    socket.emit "filtermsgs", "app"
+    return
+
+  $allMsgs.on "tap", () ->
+    socket.emit "filtermsgs", "all"
     return
 
   return

@@ -9,25 +9,47 @@ html(ng-app="monitorApp")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         link(rel='stylesheet', href="/css/monitor/style.css")
         block css
-        script(src='/components/jquery/jquery.min.js')
+        script(src='/components/jquery/jquery.js')
         script(src='/components/angular/angular.min.js')
         script(src='/components/angular-route/angular-route.min.js')
         script(src='/socket.io/socket.io.js')
+
         script(src='/js/monitor/monitor.js')
+
+        script(src='/js/monitor/controllers.js')
+        script(src='/js/monitor/factories.js')
+        script(src='/js/monitor/directives.js')
         script(src='/js/monitor/app-angular.js')
+
+
         block js
 
-    body
+    body(ng-controller='MessagesCtrl')
+        header
+            ol.breadcrumb
+                div.container
+                    li Home
+                    li.active #{title}
 
-    header
-        ol.breadcrumb
-            div.container
-                li Home
-                li.active #{title}
+                    li.pull-right Mensajes {{ messages.length }}
 
-    div#content
-        div.container
-            div.row.monitor(ng-controller='MonitorCtrl')
+        div#content
+            div.container(ng-controller="MonitorCtrl")
+                div.row.monitor
 
-                div#views(ng-view)
-    footer
+                    div#views(ng-view)
+
+        div#messages
+            div.background
+            div.content
+                h1 Buzón de entrada
+                div.items
+                    ul
+                        li(ng-repeat='message in messages')
+                            {{ message.msg }} {{ message.priority }}
+        div#lastmessage
+            div.bottom
+                marquee(behavior="scroll", scrollamount="10", direction="left", width="100%") {{ lastmessage }}
+        footer
+
+

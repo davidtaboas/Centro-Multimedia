@@ -1,10 +1,13 @@
 
 
-module.exports = function (server, serverserver) {
+var runningPortMonitor = 5555;
+var runningPortApi     = 7777;
+
+module.exports = function (server) {
 
     var iousers = require('socket.io').listen(server);
-    var iomonitor = require('socket.io').listen(serverserver);
-    var apimessage = require('socket.io').listen(7777);
+    var iomonitor = require('socket.io').listen(runningPortMonitor);
+    var apimessage = require('socket.io').listen(runningPortApi);
 
     iousers.set('log level', 2);
     iomonitor.set('log level', 2);
@@ -27,17 +30,35 @@ module.exports = function (server, serverserver) {
             iomonitor.sockets.socket(idmonitor).emit('control', {move: data});
         });
 
+        socket.on('change', function (data) {
+            iomonitor.sockets.socket(idmonitor).emit('change', {change: data});
+        });
+
+        socket.on('filtermsgs', function(data) {
+            iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
+        });
+
     });
 
 
     // Socket de API
     apimessage.sockets.on('connection', function (socket) {
-      socket.on('message', function (event) { 
-        console.log('Received message from client!',event);
-      });
-      socket.on('disconnect', function () { 
-        console.log('Server has disconnected');
-      });
+
+        socket.on('message', function (event) {
+            var salida = JSON.parse(event);
+            if( salida.msg && salida.prioridad ){
+                iomonitor.sockets.socket(idmonitor).emit('msg', {msg: salida.msg, priority: salida.prioridad, date: new Date()});
+            }
+            else{
+
+                console.log('Error de bulto');
+
+
+            }
+        });
+        socket.on('disconnect', function () {
+
+        });
     });
 
 
