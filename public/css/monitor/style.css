@@ -7767,25 +7767,26 @@ header .breadcrumb li.active {
   position: absolute;
   width: 100%;
 }
-/* line 141, ../../../assets/sass/monitor/style.scss */
-#lastmessage .bottom p, #lastmessage .bottom marquee {
-  text-align: center;
-  line-height: 60px;
+/* line 142, ../../../assets/sass/monitor/style.scss */
+#lastmessage .bottom p,
+#lastmessage .bottom marquee {
   font-size: 30px;
+  line-height: 60px;
+  text-align: center;
 }
-/* line 149, ../../../assets/sass/monitor/style.scss */
+/* line 150, ../../../assets/sass/monitor/style.scss */
 #lastmessage .none {
   display: none;
 }
 
 @media (min-width: 1200px) and (max-width: 1860px) {
-  /* line 155, ../../../assets/sass/monitor/style.scss */
+  /* line 156, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1560px;
   }
 }
 @media (min-width: 1860px) {
-  /* line 161, ../../../assets/sass/monitor/style.scss */
+  /* line 162, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1860px;
   }

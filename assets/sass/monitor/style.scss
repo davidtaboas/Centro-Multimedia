@@ -138,10 +138,11 @@ header {
     position: absolute;
     width: 100%;
 
-    p, marquee {
-      text-align: center;
-      line-height: 60px;
+    p,
+    marquee {
       font-size: 30px;
+      line-height: 60px;
+      text-align: center;
     }
 
   }
