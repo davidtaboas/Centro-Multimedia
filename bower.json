@@ -1,10 +1,14 @@
 {
-  "name": "socketio",
+  "name": "socialcenter",
   "version": "0.0.0",
   "dependencies": {
-    "sass-bootstrap": "~3.0.2",
+    "sass-bootstrap": "*",
     "jquery": "*",
-    "jquery-mobile-bower": "*"
+    "jquery-mobile-bower": "*",
+    "angular": "*",
+    "mediaelement": "*",
+    "components-font-awesome": "*",
+    "angular-route": "*"
   },
   "ignore": [
     "**/.*",

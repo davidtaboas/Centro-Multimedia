@@ -32,20 +32,23 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
+
+// Aplicación general
 var app = express();
+// Aplicación auxiliar para Socket
 var appmonitor = express();
+// Aplicación auxiliar para API
+var appapi = express();
 
-
+// Servidor de Cliente
 var server = require('http').createServer(app);
-var serverserver = require('http').createServer(appmonitor);
-
 
 var device  = require('express-device');
 
 require('./config/express')(app, config);
 
-/* 
-Views 
+/*
+Views
 */
 app.set('views', [
     config.root + '/app/views',
@@ -57,7 +60,24 @@ Controllers
 */
 require(config.root + '/app/controllers/client')(app);
 require(config.root + '/app/controllers/monitor')(app);
+require(config.root + '/app/controllers/messages')(app);
 require(config.root + '/modules/videos/controller')(app);
 
-require('./config/sockets')(server, serverserver);
 
+/*
+Configuración Sockets
+*/
+
+// Pasamos el servidor porque el cliente tiene que escuchar en esa ruta
+// Los otros sockets pueden ir en otros puertos sin crear servidores
+require('./config/sockets')(server);
+
+
+
+/*
+Lanzamos servidores
+*/
+
+var runningPortNumber = 1337;
+
+server.listen(runningPortNumber);

@@ -1,5 +1,6 @@
 @import "bootstrap";
-@import "compass/css3";
+@import "compass";
+
 
 body {
   background: #183026 url("../../img/bg.jpg") no-repeat;
@@ -49,6 +50,108 @@ header {
   opacity: 1 !important;
 }
 
+#messages {
+
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  .background {
+    background: #000;
+    height: 100%;
+    opacity: .6;
+    position: absolute;
+    width: 100%;
+
+  }
+
+  .content {
+    background: #fff;
+    border: 10px solid #333;
+    height: 60%;
+    margin: 15% auto;
+    padding: 20px;
+    position: relative;
+    width: 80%;
+
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #333;
+    }
+
+    .items {
+      height: 90%;
+      overflow-y: scroll;
+      font-size: 30px;
+
+      ul {
+        list-style: none;
+
+        li {
+          padding: 3px;
+          border-bottom: 1px solid #efefef;
+        }
+      }
+    }
+
+  }
+}
+
+
+#lastmessage {
+
+  div {
+    box-shadow: 0 0 30px #333;
+    overflow: hidden;
+
+  }
+
+  .popup {
+    display: block;
+    $height: 150px;
+    $width: ($height*((1+sqrt(5))/2));
+    background: #333;
+    border-radius: 12px;
+    color: #fff;
+    height: $height;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    width: $width;
+
+    p {
+      padding: 25px;
+    }
+  }
+
+  .bottom {
+    display: block;
+    background: #222;
+    bottom: 100px;
+    color: #fff;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+
+    p,
+    marquee {
+      font-size: 30px;
+      line-height: 60px;
+      text-align: center;
+    }
+
+  }
+
+  .none {
+    display: none;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1860px) {
   .container {
     width: 1560px;
@@ -60,3 +163,4 @@ header {
     width: 1860px;
   }
 }
+

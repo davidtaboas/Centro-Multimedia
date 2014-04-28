@@ -9801,16 +9801,19 @@ body {
   width: 300px;
   margin: 0 auto;
 }
-/* line 26, ../../../assets/sass/client/style.scss */
+/* line 23, ../../../assets/sass/client/style.scss */
+.remote-control .buttons div {
+  margin: 20px 0;
+}
+/* line 29, ../../../assets/sass/client/style.scss */
 .remote-control .buttons button {
   text-align: center;
 }
-/* line 30, ../../../assets/sass/client/style.scss */
+/* line 33, ../../../assets/sass/client/style.scss */
 .remote-control .buttons .top {
-  margin: 20px 0;
   height: 65px;
 }
-/* line 36, ../../../assets/sass/client/style.scss */
+/* line 38, ../../../assets/sass/client/style.scss */
 .remote-control .buttons .top #home,
 .remote-control .buttons .top #goback {
   -webkit-border-radius: 100px;
