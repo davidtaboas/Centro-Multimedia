@@ -1,4 +1,4 @@
-var controllers, messatesToString;
+var controllers;
 
 controllers = angular.module("monitorApp.controllers", []);
 
@@ -13,21 +13,10 @@ controllers.controller("MonitorCtrl", [
   }
 ]);
 
-messatesToString = function(messages) {
-  var i, m, string, _i, _len;
-  string = "";
-  for (i = _i = 0, _len = messages.length; _i < _len; i = ++_i) {
-    m = messages[i];
-    string += " // " + m.msg;
-  }
-  return string;
-};
-
 controllers.controller("MessagesCtrl", [
   "$scope", "$http", function($scope, $http) {
     $http.get("/messages").success(function(messages) {
       $scope.messages = messages;
-      $scope.lastmessage = messatesToString(messages);
     });
     socket.on("msg", function(data) {
       $scope.$apply(function() {
@@ -38,7 +27,6 @@ controllers.controller("MessagesCtrl", [
         };
         $http.post("/messages", data).success(function(messages) {
           $scope.messages = messages;
-          $scope.lastmessage = messatesToString(messages);
         });
       });
     });
