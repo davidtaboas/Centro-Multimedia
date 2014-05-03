@@ -12,7 +12,7 @@ Los sockets van definidos de forma general
 socket.on "move", (data) ->
 
   if data.move is "ok"
-    $(current).click()
+    $(".fcurrent").click()
   else
     $(".current").removeClass "current"
     if data.move is "next"
@@ -66,6 +66,7 @@ setContentHeight = () ->
     footerHeight = 0
   alturaContent =$(window).height() - ($("header").height() + footerHeight + 40)
   $("#content").height(alturaContent)
+  $(".galleria-container").height(alturaContent)
   return
 
 
@@ -95,6 +96,7 @@ que se cambia la página
 ###
 reloadControls = () ->
 
+  $("#content").css("background","none")
 
   $("#slider ul li").width($("body").width())
 
@@ -111,11 +113,26 @@ reloadControls = () ->
         player.exitFullScreen()
         return
 
+  # IMAGENES
+  if typeof Galleria is 'function'
+    if $(".galleria").length > 0
+      Galleria.loadTheme(
+        '/components/galleria/themes/classic/galleria.classic.min.js'
+      )
+      Galleria.configure({
+        height: $("#content").height(),
+        responsive: true,
+        preload: 0,
+        idleMode: false
+        })
+      Galleria.run(".galleria")
+      $("#content").css("background", "black")
 
-  $("a, video").each (index) ->
+  # Navegacion por tabindex
+  $("a, video, .galleria-image-nav div").each (index) ->
     $(this).prop "tabindex", index
     return
-  #setup some common vars
+
 
 
   lastTabIndex = (Number) $("[tabindex]").length - 1

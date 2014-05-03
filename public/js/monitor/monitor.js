@@ -15,7 +15,7 @@ Los sockets van definidos de forma general
 
 socket.on("move", function(data) {
   if (data.move === "ok") {
-    $(current).click();
+    $(".fcurrent").click();
   } else {
     $(".current").removeClass("current");
     if (data.move === "next") {
@@ -66,6 +66,7 @@ setContentHeight = function() {
   }
   alturaContent = $(window).height() - ($("header").height() + footerHeight + 40);
   $("#content").height(alturaContent);
+  $(".galleria-container").height(alturaContent);
 };
 
 
@@ -102,6 +103,7 @@ que se cambia la página
 
 reloadControls = function() {
   var player;
+  $("#content").css("background", "none");
   $("#slider ul li").width($("body").width());
   if (typeof MediaElementPlayer === 'function') {
     if ($("video").length > 0) {
@@ -115,7 +117,20 @@ reloadControls = function() {
       });
     }
   }
-  $("a, video").each(function(index) {
+  if (typeof Galleria === 'function') {
+    if ($(".galleria").length > 0) {
+      Galleria.loadTheme('/components/galleria/themes/classic/galleria.classic.min.js');
+      Galleria.configure({
+        height: $("#content").height(),
+        responsive: true,
+        preload: 0,
+        idleMode: false
+      });
+      Galleria.run(".galleria");
+      $("#content").css("background", "black");
+    }
+  }
+  $("a, video, .galleria-image-nav div").each(function(index) {
     $(this).prop("tabindex", index);
   });
   lastTabIndex = Number($("[tabindex]").length - 1);

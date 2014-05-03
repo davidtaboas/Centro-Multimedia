@@ -7818,3 +7818,13 @@ footer .none {
 .mejs-container-fullscreen {
   position: absolute !important;
 }
+
+/* line 203, ../../../assets/sass/monitor/style.scss */
+.galleria {
+  height: 720px;
+}
+
+/* line 205, ../../../assets/sass/monitor/style.scss */
+.container, .monitor, #views {
+  height: 100%;
+}
