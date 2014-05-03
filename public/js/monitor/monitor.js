@@ -102,6 +102,7 @@ que se cambia la página
 
 reloadControls = function() {
   var player;
+  $("#slider ul li").width($("body").width());
   if (typeof MediaElementPlayer === 'function') {
     if ($("video").length > 0) {
       $("video").mediaelementplayer();
@@ -122,7 +123,7 @@ reloadControls = function() {
   currentIndex = Number($(".current").attr("tabindex"));
 };
 
-$(function() {
+$(document).ready(function() {
   var moveLeft, moveRight, slideCount, slideHeight, slideWidth, sliderUlWidth;
   setContentHeight();
   moveLeft = function() {

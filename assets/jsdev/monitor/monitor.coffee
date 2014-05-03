@@ -64,7 +64,7 @@ setContentHeight = () ->
     footerHeight = 150
   else
     footerHeight = 0
-  alturaContent = $(window).height() - ($("header").height() + footerHeight + 40)
+  alturaContent =$(window).height() - ($("header").height() + footerHeight + 40)
   $("#content").height(alturaContent)
   return
 
@@ -94,6 +94,9 @@ que se tienen que recargar cada vez
 que se cambia la página
 ###
 reloadControls = () ->
+
+
+  $("#slider ul li").width($("body").width())
 
   #VIDEOS
   if typeof MediaElementPlayer is 'function'
@@ -125,7 +128,9 @@ reloadControls = () ->
   return
 
 # window.ready
-$ ->
+$(document).ready ->
+
+
 
   setContentHeight()
 
@@ -160,8 +165,12 @@ $ ->
     marginLeft: -slideWidth
 
   $("#slider ul li:last-child").prependTo "#slider ul"
+
+
+
   setInterval (->
     moveRight()
     return
   ), 3000
+
   return
