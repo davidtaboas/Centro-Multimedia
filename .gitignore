@@ -8,5 +8,3 @@ node_modules
 public/components/*
 #Excepto galleria.io que no es de bower
 !public/components/galleria
-#Intento de que funcione font-awesome sin modificaciones
-!public/components/components-font-awesome/scss/_variables.scss
