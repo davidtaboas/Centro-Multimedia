@@ -45,9 +45,14 @@ module.exports = function (server) {
     apimessage.sockets.on('connection', function (socket) {
 
         socket.on('message', function (event) {
-            var salida = JSON.parse(event);
-            if( salida.msg && salida.prioridad ){
-                iomonitor.sockets.socket(idmonitor).emit('msg', {msg: salida.msg, priority: salida.prioridad, date: new Date()});
+
+
+            var mensaje = JSON.parse(event);
+
+
+            if( Object.keys(mensaje).length > 0 ){
+
+                iomonitor.sockets.socket(idmonitor).emit('msg', {msg: mensaje});
             }
             else{
 

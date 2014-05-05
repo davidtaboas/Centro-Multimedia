@@ -6,22 +6,27 @@ var config = {
     development: {
         root: rootPath,
         app: {
-            name: 'yeoman-app-express'
-        }
+            name: 'socialcenter'
+        },
+        port: 3000,
+        db: 'mongodb://localhost/socialcenter-development'
     },
-
     test: {
         root: rootPath,
         app: {
-            name: 'yeoman-app-express'
-        }
+            name: 'socialcenter'
+        },
+        port: 3000,
+        db: 'mongodb://localhost/socialcenter-test'
     },
 
     production: {
         root: rootPath,
         app: {
-            name: 'yeoman-app-express'
-        }
+            name: 'socialcenter'
+        },
+        port: 3000,
+        db: 'mongodb://localhost/socialcenter-production'
     }
 };
 

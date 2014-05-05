@@ -16,14 +16,14 @@ var express = require('express'),
 
 
 
-/*
-Para conectar con mongod cuando haga falta
+
+// COnexión a mongose
 mongoose.connect(config.db);
 var db = mongoose.connection;
 db.on('error', function () {
   throw new Error('unable to connect to database at ' + config.db);
 });
-*/
+
 
 var modelsPath = __dirname + '/app/models';
 fs.readdirSync(modelsPath).forEach(function (file) {
@@ -61,7 +61,7 @@ Controllers
 require(config.root + '/app/controllers/client')(app);
 require(config.root + '/app/controllers/monitor')(app);
 require(config.root + '/app/controllers/messages')(app);
-require(config.root + '/modules/videos/controller')(app);
+
 
 
 /*

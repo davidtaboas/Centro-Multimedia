@@ -1,71 +1,48 @@
+var mongoose = require('mongoose'),
+  Mensaje = mongoose.model('Mensaje');
 
-function compare(a,b) {
-  if (a.priority < b.priority)
-     return -1;
-  if (a.priority > b.priority)
-    return 1;
-  return 0;
-}
+
 
 module.exports = function(app){
-    function filterMsgs(element) {
-        return element.priority < 2;
-    }
-
-    filter = "all";
-
-    messages = [{msg: "mundo", priority: "2", date: "2014-04-07T14:15:37.670Z"}];
-
-    // Devuelve la lista de mensajes
-    app.get('/messages', function(req,res){
-        filterMessages = [];
-
-        if (filter == "app") {
-            filterMessages = messages.filter(filterMsgs);
-
-        }
-        else {
-            filterMessages = messages;
-        }
-        filterMessages.sort(compare);
-        res.send(filterMessages);
-    });
 
     // Guarda nuevo mensaje
     app.post('/messages', function(req,res){
-        messages.push(req.body);
-        messages.sort(compare);
-        res.send(messages);
+
+
+        var mensaje            = new Mensaje();
+
+        mensaje.prioridad      = req.body.msg.prioridad;
+        mensaje.texto          = decodeURI(req.body.msg.texto); // TO-DO: acordarse de limpiar cadena de texto %20
+        mensaje.unidadDuracion = req.body.msg.uduracion;
+        mensaje.escalaDuracion = req.body.msg.eduracion;
+
+        mensaje.save(function(err){
+
+        });
+
+
     });
 
-    // Devuelve mensajes filtrados
+    // Devuelve la lista de mensajes con filtro
     app.get('/messages/:filter', function(req,res){
 
-        filter = req.params.filter;
-        filterMessages = [];
-
-        if (filter == "app") {
-            filterMessages = messages.filter(filterMsgs);
+        var prioridad;
+        if (req.filter == "app") {
+            // Mensajes filtrados <2
+            prioridad = 1;
         }
         else {
-            filterMessages = messages;
+            // Mensajes no filtrados
+            prioridad = 2;
         }
 
-        res.send(filterMessages);
-    });
+        var query = Mensaje.find({
+            prioridad: { $lte: prioridad }
+        });
+        query.exec(function (err, docs) {
 
-    // Devuelve último mensaje
-    app.get('/lastmessage', function(req, res){
-        filterMessages = [];
-        if (filter == "app") {
-            filterMessages = messages.filter(filterMsgs);
-        }
-        else {
-            filterMessages = messages;
-        }
-
-        res.send(filterMessages[filterMessages.length-1]);
-
+            res.send(docs);
+        });
     });
 
 };

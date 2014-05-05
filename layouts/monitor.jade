@@ -47,7 +47,7 @@ html(ng-app="monitorApp")
                 div#slider
                     ul
                         li(ng-repeat='message in messages')
-                            p {{ message.msg }}
+                            p {{ message.texto }}
 
         div#messages
             div.background
@@ -56,4 +56,4 @@ html(ng-app="monitorApp")
                 div.items
                     ul
                         li(ng-repeat='message in messages')
-                            {{ message.msg }} {{ message.priority }}
+                            {{ message.texto }} {{ message.prioridad }}
