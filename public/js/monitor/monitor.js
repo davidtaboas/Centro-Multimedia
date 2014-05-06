@@ -15,7 +15,7 @@ Los sockets van definidos de forma general
 
 socket.on("move", function(data) {
   if (data.move === "ok") {
-    $(".fcurrent").click();
+    $(".current").click();
   } else {
     $(".current").removeClass("current");
     if (data.move === "next") {
