@@ -8,3 +8,4 @@ node_modules
 public/components/*
 #Excepto galleria.io que no es de bower
 !public/components/galleria
+!public/components/quojs
