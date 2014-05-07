@@ -7828,3 +7828,68 @@ footer .none {
 .container, .monitor, #views {
   height: 100%;
 }
+
+/* line 209, ../../../assets/sass/monitor/style.scss */
+#login {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #000;
+  opacity: 0.9;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+/* line 221, ../../../assets/sass/monitor/style.scss */
+#login .event {
+  width: 256px;
+  height: 256px;
+  margin: 0 auto;
+}
+/* line 226, ../../../assets/sass/monitor/style.scss */
+#login .event div {
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+/* line 231, ../../../assets/sass/monitor/style.scss */
+#login .event .singleTap {
+  background-image: url("/img/gestures/tap.png");
+}
+/* line 232, ../../../assets/sass/monitor/style.scss */
+#login .event .doubleTap {
+  background-image: url("/img/gestures/double_tap.png");
+}
+/* line 233, ../../../assets/sass/monitor/style.scss */
+#login .event .swipeLeft {
+  background-image: url("/img/gestures/swipe_left.png");
+}
+/* line 234, ../../../assets/sass/monitor/style.scss */
+#login .event .swipeRight {
+  background-image: url("/img/gestures/swipe_right.png");
+}
+/* line 235, ../../../assets/sass/monitor/style.scss */
+#login .event .swipeUp {
+  background-image: url("/img/gestures/swipe_up.png");
+}
+/* line 236, ../../../assets/sass/monitor/style.scss */
+#login .event .swipeDown {
+  background-image: url("/img/gestures/swipe_down.png");
+}
+/* line 237, ../../../assets/sass/monitor/style.scss */
+#login .event .rotateLeft {
+  background-image: url("/img/gestures/rotate_left.png");
+}
+/* line 238, ../../../assets/sass/monitor/style.scss */
+#login .event .rotateRight {
+  background-image: url("/img/gestures/rotate_right.png");
+}
+/* line 239, ../../../assets/sass/monitor/style.scss */
+#login .event .pinchIn {
+  background-image: url("/img/gestures/pinch.png");
+}
+/* line 240, ../../../assets/sass/monitor/style.scss */
+#login .event .pinchOut {
+  background-image: url("/img/gestures/pinchOut.png");
+}

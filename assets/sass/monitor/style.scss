@@ -205,3 +205,40 @@ footer {
 .container, .monitor, #views {
   height: 100%;
 }
+
+#login{
+
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #000;
+  opacity: 0.9;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+  .event{
+    width: 256px;
+    height: 256px;
+    margin: 0 auto;
+
+    div{
+      width: 100%;
+      display: block;
+      height: 100%;
+    }
+    .singleTap { background-image: url("/img/gestures/tap.png"); }
+    .doubleTap { background-image: url("/img/gestures/double_tap.png"); }
+    .swipeLeft { background-image: url("/img/gestures/swipe_left.png"); }
+    .swipeRight{ background-image: url("/img/gestures/swipe_right.png"); }
+    .swipeUp{ background-image: url("/img/gestures/swipe_up.png"); }
+    .swipeDown{ background-image: url("/img/gestures/swipe_down.png"); }
+    .rotateLeft{ background-image: url("/img/gestures/rotate_left.png"); }
+    .rotateRight{ background-image: url("/img/gestures/rotate_right.png"); }
+    .pinchIn{ background-image: url("/img/gestures/pinch.png"); }
+    .pinchOut{ background-image: url("/img/gestures/pinchOut.png"); }
+  }
+
+
+}

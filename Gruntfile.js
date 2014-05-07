@@ -135,6 +135,6 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  // grunt.registerTask('default', ['develop', 'coffee', 'imagemin', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
-  grunt.registerTask('default', ['develop', 'coffee', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
+  grunt.registerTask('default', ['develop', 'coffee', 'imagemin', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
+  // grunt.registerTask('default', ['develop', 'coffee', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
 };

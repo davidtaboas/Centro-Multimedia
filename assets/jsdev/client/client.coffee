@@ -5,17 +5,10 @@
 ###
 
 # connect to our socket server
-socket = io.connect("http://169.254.105.40:1337/")
+socket = io.connect("http://192.168.0.15:1337/")
 app = app or {}
 
 
-# array de posibles eventos
-
-eventos = ["tap","hold","singleTap","doubleTap","touch","swipe","swipeLeft","swipeRight","swipeUp","swipeDown","rotate","rotateLeft","rotateRight","pinch","pinchIn","pinchOut"]
-
-login = () ->
-  $("#login").remove()
-  return
 # shortcut for document.ready
 $ ->
 
@@ -75,12 +68,26 @@ $ ->
     return
 
 
-  eventos.sort () ->
-    return 0.5 - Math.random()
+  ## GESTION DE EVENTOS PARA IDENTIFICACION
 
   console.log eventos
-  alert eventos[0]
-  $$("#login .window").on eventos[0], login
+
+  socket.on "login", (data) ->
+
+
+    if data.login is "ok"
+      $("#login").remove()
+    else
+      console.log "Volver a intentar"
+
+    return
+
+
+  $("#login .window").bind eventos.join(' '), (e) ->
+
+    socket.emit "loginevent", e.type
+    return
+
 
   return
 

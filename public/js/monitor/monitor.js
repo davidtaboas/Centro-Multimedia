@@ -52,6 +52,17 @@ socket.on("change", function(data) {
   }
 });
 
+socket.on("login", function(data) {
+  console.log(data);
+  if (data.login === "ok") {
+    $("#login").hide();
+  } else {
+    $("#login").show();
+    $("#login .event div").removeClass();
+    $("#login .event div").addClass(data.login);
+  }
+});
+
 
 /*
 Función para obtener la altura del contenido

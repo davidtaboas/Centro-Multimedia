@@ -52,6 +52,16 @@ socket.on "change", (data) ->
     $("#messages").toggle()
   return
 
+socket.on "login", (data) ->
+  console.log data
+  if data.login is "ok"
+    # Pasamos a la visualización completa
+    $("#login").hide()
+  else
+    $("#login").show()
+    $("#login .event div").removeClass()
+    $("#login .event div").addClass(data.login)
+  return
 ###
 Función para obtener la altura del contenido
 

@@ -55,10 +55,15 @@ app.set('views', [
     config.root + '/modules/videos/views']
     );
 
+
+/*
+Definimos eventos
+*/
+eventos = ["singleTap","doubleTap","swipeLeft","swipeRight","swipeUp","swipeDown","rotateLeft","rotateRight","pinchIn","pinchOut"];
 /*
 Controllers
 */
-require(config.root + '/app/controllers/client')(app);
+require(config.root + '/app/controllers/client')(app,eventos);
 require(config.root + '/app/controllers/monitor')(app);
 require(config.root + '/app/controllers/messages')(app);
 
@@ -70,7 +75,7 @@ Configuración Sockets
 
 // Pasamos el servidor porque el cliente tiene que escuchar en esa ruta
 // Los otros sockets pueden ir en otros puertos sin crear servidores
-require('./config/sockets')(server);
+require('./config/sockets')(server, eventos);
 
 
 
