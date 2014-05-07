@@ -6,3 +6,6 @@ node_modules
 
 #Móudlos de bower
 public/components/*
+#Excepto galleria.io que no es de bower
+!public/components/galleria
+!public/components/quojs

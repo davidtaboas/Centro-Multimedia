@@ -9798,7 +9798,7 @@ body {
 }
 /* line 21, ../../../assets/sass/client/style.scss */
 .remote-control .buttons {
-  width: 300px;
+  width: 95%;
   margin: 0 auto;
 }
 /* line 23, ../../../assets/sass/client/style.scss */
@@ -9824,4 +9824,20 @@ body {
   height: 65px;
   width: 65px;
   padding: 0px;
+}
+
+/* line 60, ../../../assets/sass/client/style.scss */
+#login {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+/* line 69, ../../../assets/sass/client/style.scss */
+#login .window {
+  height: 100%;
+  width: 100%;
+  background: #fff;
 }

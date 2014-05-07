@@ -4,11 +4,17 @@
 // socketio app
 //
  */
-var app, socket;
+var app, eventos, login, socket;
 
-socket = io.connect("http://127.0.0.1:1337/");
+socket = io.connect("http://169.254.105.40:1337/");
 
 app = app || {};
+
+eventos = ["tap", "hold", "singleTap", "doubleTap", "touch", "swipe", "swipeLeft", "swipeRight", "swipeUp", "swipeDown", "rotate", "rotateLeft", "rotateRight", "pinch", "pinchIn", "pinchOut"];
+
+login = function() {
+  $("#login").remove();
+};
 
 $(function() {
   var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $messages, $moveLeft, $moveRight, $sendOk;
@@ -54,4 +60,10 @@ $(function() {
   $allMsgs.on("tap", function() {
     socket.emit("filtermsgs", "all");
   });
+  eventos.sort(function() {
+    return 0.5 - Math.random();
+  });
+  console.log(eventos);
+  alert(eventos[0]);
+  $$("#login .window").on(eventos[0], login);
 });

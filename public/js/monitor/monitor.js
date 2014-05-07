@@ -1,8 +1,12 @@
-var app, changeMask, currentMask, masks, reloadControls, socket;
+var app, changeMask, currentIndex, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socket;
 
 socket = io.connect("http://127.0.0.1:5555/");
 
 app = app || {};
+
+lastTabIndex = 0;
+
+currentIndex = 0;
 
 
 /*
@@ -10,9 +14,8 @@ Los sockets van definidos de forma general
  */
 
 socket.on("move", function(data) {
-  var currentIndex;
   if (data.move === "ok") {
-    $(current).click();
+    $(".current").click();
   } else {
     $(".current").removeClass("current");
     if (data.move === "next") {
@@ -43,6 +46,7 @@ socket.on("control", function(data) {
 socket.on("change", function(data) {
   if (data.change === "mask") {
     changeMask();
+    setContentHeight();
   } else if (data.change === "messages") {
     $("#messages").toggle();
   }
@@ -50,25 +54,44 @@ socket.on("change", function(data) {
 
 
 /*
+Función para obtener la altura del contenido
+ */
+
+setContentHeight = function() {
+  var alturaContent, footerHeight;
+  if (isActiveNavMessages) {
+    footerHeight = 150;
+  } else {
+    footerHeight = 0;
+  }
+  alturaContent = $(window).height() - ($("header").height() + footerHeight + 40);
+  $("#content").height(alturaContent);
+  $(".galleria-container").height(alturaContent);
+};
+
+
+/*
 Función para cambiar máscara de mensajes
  */
 
-masks = ["none", "bottom", "popup"];
-
-currentMask = 0;
+isActiveNavMessages = 1;
 
 changeMask = function() {
 
   /*
-  
   Si hay prioridad 0 entonces no se tiene que ocultar la máscara
-  
-  if currentMask is masks.indexOf("none")
-    currentMask = masks.indexOf("none")+1
    */
-  currentMask = (currentMask + 1) % masks.length;
-  $("#lastmessage div").removeClass();
-  $("#lastmessage div").addClass(masks[currentMask]);
+  if (isActiveNavMessages) {
+    $("footer .bottom").animate({
+      height: "0px"
+    }, 200);
+    isActiveNavMessages = 0;
+  } else {
+    $("footer .bottom").animate({
+      height: "150px"
+    }, 200);
+    isActiveNavMessages = 1;
+  }
 };
 
 
@@ -79,7 +102,9 @@ que se cambia la página
  */
 
 reloadControls = function() {
-  var current, currentIndex, lastTabIndex, player;
+  var player;
+  $("#content").css("background", "none");
+  $("#slider ul li").width($("body").width());
   if (typeof MediaElementPlayer === 'function') {
     if ($("video").length > 0) {
       $("video").mediaelementplayer();
@@ -92,11 +117,60 @@ reloadControls = function() {
       });
     }
   }
-  $("a, video").each(function(index) {
+  if (typeof Galleria === 'function') {
+    if ($(".galleria").length > 0) {
+      Galleria.loadTheme('/components/galleria/themes/classic/galleria.classic.min.js');
+      Galleria.configure({
+        height: $("#content").height(),
+        responsive: true,
+        preload: 0,
+        idleMode: false
+      });
+      Galleria.run(".galleria");
+      $("#content").css("background", "black");
+    }
+  }
+  $("a, video, .galleria-image-nav div").each(function(index) {
     $(this).prop("tabindex", index);
   });
   lastTabIndex = Number($("[tabindex]").length - 1);
   $("[tabindex=0]").addClass("current");
-  current = $(".current");
-  currentIndex = Number(current.attr("tabindex"));
+  currentIndex = Number($(".current").attr("tabindex"));
 };
+
+$(document).ready(function() {
+  var moveLeft, moveRight, slideCount, slideHeight, slideWidth, sliderUlWidth;
+  setContentHeight();
+  moveLeft = function() {
+    $("#slider ul").animate({
+      left: +slideWidth
+    }, 200, function() {
+      $("#slider ul li:last-child").prependTo("#slider ul");
+      $("#slider ul").css("left", "");
+    });
+  };
+  moveRight = function() {
+    $("#slider ul").animate({
+      left: -slideWidth
+    }, 200, function() {
+      $("#slider ul li:first-child").appendTo("#slider ul");
+      $("#slider ul").css("left", "");
+    });
+  };
+  slideCount = $("#slider ul li").length;
+  slideWidth = $("#slider ul li").width();
+  slideHeight = $("#slider ul li").height();
+  sliderUlWidth = slideCount * slideWidth;
+  $("#slider").css({
+    width: slideWidth,
+    height: slideHeight
+  });
+  $("#slider ul").css({
+    width: sliderUlWidth,
+    marginLeft: -slideWidth
+  });
+  $("#slider ul li:last-child").prependTo("#slider ul");
+  setInterval((function() {
+    moveRight();
+  }), 3000);
+});

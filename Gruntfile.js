@@ -62,6 +62,14 @@ module.exports = function (grunt) {
           path: 'http://localhost:'+RUNNING_PORT+'/',
           app: 'Google Chrome'
         },
+        firefoxusuario : {
+          path: 'http://localhost:'+RUNNING_PORT+'/',
+          app: 'Firefox'
+        },
+        firefoxpantalla : {
+          path: 'http://localhost:'+RUNNING_PORT+'/monitor',
+          app: 'Firefox'
+        },
         subl : {
           path: '.',
           app: 'Sublime Text'
@@ -127,5 +135,6 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  grunt.registerTask('default', ['develop', 'coffee', 'imagemin', 'compass', 'open:chrome', 'open:subl', 'watch']);
+  // grunt.registerTask('default', ['develop', 'coffee', 'imagemin', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
+  grunt.registerTask('default', ['develop', 'coffee', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
 };

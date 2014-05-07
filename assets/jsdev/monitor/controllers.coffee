@@ -18,23 +18,17 @@ controllers.controller "MonitorCtrl", [
 
 ]
 
-messatesToString = (messages) ->
-  string = ""
-
-  for m, i in messages
-    string += " // " + m.msg
-
-  return string
-
 
 controllers.controller "MessagesCtrl", [
   "$scope"
   "$http"
   ($scope, $http) ->
 
-    $http.get("/messages").success (messages) ->
+    lastFilter = "all"
+
+    console.log lastFilter
+    $http.get("/messages/"+lastFilter).success (messages) ->
       $scope.messages = messages
-      $scope.lastmessage = messatesToString(messages)
       return
 
 
@@ -42,16 +36,14 @@ controllers.controller "MessagesCtrl", [
     socket.on "msg", (data) ->
 
       $scope.$apply ->
-        $scope.change = () ->
-          if $("#lastmessage div").hasClass("none")
-            window.changeMask()
-          return
 
-        $http.post("/messages", data).success (messages) ->
+        $http.post("/messages", data).success (ok) ->
+
+          return
+        console.log lastFilter
+        $http.get("/messages/"+lastFilter).success (messages) ->
           $scope.messages = messages
-          $scope.lastmessage = messatesToString(messages)
           return
-
 
         return
 
@@ -60,13 +52,13 @@ controllers.controller "MessagesCtrl", [
     socket.on "filter", (data) ->
 
       $scope.$apply ->
-
-        $http.get("/messages/"+data.filter).success (messages) ->
+        lastFilter = data.filter
+        $http.get("/messages/"+lastFilter).success (messages) ->
           $scope.messages = messages
           return
         return
 
-      return #end $socket msg
+      return #end $socket filter
 
     return
 

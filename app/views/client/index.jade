@@ -1,18 +1,20 @@
 extends /layouts/client
 
 block content
+    div#login
+        div.window
     div.buttons.text-center
         div.top
-            button#home.btn.btn-warning.pull-left(type="button") <i class="fa fa-home"></i> Home
-            button#goback.btn.btn-warning.pull-right(type="button") <i class="fa fa-undo"></i> Return
+            button#home.btn.btn-warning.pull-left(type="button") <i class="fa fa-home"></i> Inicio
+            button#goback.btn.btn-warning.pull-right(type="button") <i class="fa fa-undo"></i> Volver
         div.clearfix
         div.btn-group
-            button#left.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-left"></i> Left
+            button#left.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-left"></i> Izquierda
             button#ok.btn.btn-primary.btn-lg.btn-danger(type="button") OK
-            button#right.btn.btn-primary.btn-lg.btn-success(type="button") Right <i class="fa fa-arrow-right"></i>
+            button#right.btn.btn-primary.btn-lg.btn-success(type="button") Derecha <i class="fa fa-arrow-right"></i>
         div.btn-group
-            button#messages.btn.btn-primary.btn-lg.btn-success(type="button") Messages
-            button#changeMask.btn.btn-primary.btn-lg.btn-danger(type="button") Change Mask
+            button#messages.btn.btn-primary.btn-lg.btn-success(type="button") Bandeja Mensajes
+            button#changeMask.btn.btn-primary.btn-lg.btn-danger(type="button") Barra Mensajería
         div.btn-group
-            button#appmsgs.btn.btn-primary.btn-lg.btn-success(type="button") App Msgs
-            button#allmsgs.btn.btn-primary.btn-lg.btn-success(type="button") All Msgs
+            button#appmsgs.btn.btn-primary.btn-lg.btn-success(type="button") Ocultar mensajes
+            button#allmsgs.btn.btn-primary.btn-lg.btn-success(type="button") Mostrar todos

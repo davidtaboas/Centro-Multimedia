@@ -10,6 +10,7 @@ html(ng-app="monitorApp")
         link(rel='stylesheet', href="/css/monitor/style.css")
         block css
         script(src='/components/jquery/jquery.js')
+
         script(src='/components/angular/angular.min.js')
         script(src='/components/angular-route/angular-route.min.js')
         script(src='/socket.io/socket.io.js')
@@ -20,6 +21,8 @@ html(ng-app="monitorApp")
         script(src='/js/monitor/factories.js')
         script(src='/js/monitor/directives.js')
         script(src='/js/monitor/app-angular.js')
+
+
 
 
         block js
@@ -39,6 +42,13 @@ html(ng-app="monitorApp")
 
                     div#views(ng-view)
 
+        footer
+            div.bottom
+                div#slider
+                    ul
+                        li(ng-repeat='message in messages')
+                            p {{ message.texto }}
+
         div#messages
             div.background
             div.content
@@ -46,10 +56,4 @@ html(ng-app="monitorApp")
                 div.items
                     ul
                         li(ng-repeat='message in messages')
-                            {{ message.msg }} {{ message.priority }}
-        div#lastmessage
-            div.bottom
-                marquee(behavior="scroll", scrollamount="10", direction="left", width="100%") {{ lastmessage }}
-        footer
-
-
+                            {{ message.texto }} {{ message.prioridad }}
