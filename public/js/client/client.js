@@ -6,7 +6,7 @@
  */
 var app, eventos, login, socket;
 
-socket = io.connect("http://192.168.1.36:1337/");
+socket = io.connect("http://169.254.105.40:1337/");
 
 app = app || {};
 

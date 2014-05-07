@@ -8,8 +8,7 @@
     "angular": "*",
     "mediaelement": "*",
     "components-font-awesome": "*",
-    "angular-route": "*",
-    "package-quojs": "*"
+    "angular-route": "*"
   },
   "ignore": [
     "**/.*",
