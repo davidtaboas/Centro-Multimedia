@@ -4,7 +4,7 @@ html
         meta(charset="utf-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         title #{title}
-        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        meta(name="viewport", content="user-scalable=no, width=device-width, initial-scale=1.0")
         meta(name="apple-mobile-web-app-capable", content="yes")
         block css
             link(rel='stylesheet', href="/css/client/style.css")
@@ -13,7 +13,8 @@ html
             var eventos =!{JSON.stringify(array_eventos)}
         block js
             script(src='/components/jquery/jquery.min.js')
-            script(src='/components/jquery-mobile-bower/js/jquery.mobile-1.4.2.min.js')
+            script(src='http://jquery-textfill.github.io/jquery-textfill/jquery.textfill.min.js')
+
             script(src='/socket.io/socket.io.js')
 
 

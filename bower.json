@@ -4,7 +4,6 @@
   "dependencies": {
     "sass-bootstrap": "*",
     "jquery": "*",
-    "jquery-mobile-bower": "*",
     "angular": "*",
     "mediaelement": "*",
     "components-font-awesome": "*",

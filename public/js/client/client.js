@@ -12,6 +12,7 @@ app = app || {};
 
 $(function() {
   var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $messages, $moveLeft, $moveRight, $sendOk;
+  $("#login h1").textfill();
   $moveLeft = $("#left");
   $moveRight = $("#right");
   $sendOk = $("#ok");
@@ -57,12 +58,14 @@ $(function() {
   console.log(eventos);
   socket.on("login", function(data) {
     if (data.login === "ok") {
-      $("#login").remove();
+      $("#login").fadeOut();
     } else {
+      $("#login .alert").fadeIn();
       console.log("Volver a intentar");
     }
   });
   $("#login .window").bind(eventos.join(' '), function(e) {
+    $("#login .alert").fadeOut();
     socket.emit("loginevent", e.type);
   });
 });

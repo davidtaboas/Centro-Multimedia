@@ -12,6 +12,9 @@ app = app or {}
 # shortcut for document.ready
 $ ->
 
+  $("#login h1").textfill()
+
+
   #setup some common vars
   $moveLeft   = $("#left")
   $moveRight  = $("#right")
@@ -76,15 +79,16 @@ $ ->
 
 
     if data.login is "ok"
-      $("#login").remove()
+      $("#login").fadeOut()
     else
+      $("#login .alert").fadeIn()
       console.log "Volver a intentar"
 
     return
 
 
   $("#login .window").bind eventos.join(' '), (e) ->
-
+    $("#login .alert").fadeOut()
     socket.emit "loginevent", e.type
     return
 

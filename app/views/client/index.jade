@@ -1,8 +1,12 @@
 extends /layouts/client
 
 block content
+
     div#login
         div.window
+            h1 Bienvenido a
+                span.title SocialCenter
+            div.alert.alert-danger.text-center No has realizado la identificación correctamente. Prueba de nuevo.
 
     div.buttons.text-center
         div.top
@@ -10,12 +14,12 @@ block content
             button#goback.btn.btn-warning.pull-right(type="button") <i class="fa fa-undo"></i> Volver
         div.clearfix
         div.btn-group
-            button#left.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-left"></i> Izquierda
+            button#left.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-left"></i>
             button#ok.btn.btn-primary.btn-lg.btn-danger(type="button") OK
-            button#right.btn.btn-primary.btn-lg.btn-success(type="button") Derecha <i class="fa fa-arrow-right"></i>
+            button#right.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-right"></i>
         div.btn-group
-            button#messages.btn.btn-primary.btn-lg.btn-success(type="button") Bandeja Mensajes
-            button#changeMask.btn.btn-primary.btn-lg.btn-danger(type="button") Barra Mensajería
+            button#messages.btn.btn-primary.btn-lg.btn-success(type="button") Bandeja
+            button#changeMask.btn.btn-primary.btn-lg.btn-danger(type="button") Barra
         div.btn-group
-            button#appmsgs.btn.btn-primary.btn-lg.btn-success(type="button") Ocultar mensajes
-            button#allmsgs.btn.btn-primary.btn-lg.btn-success(type="button") Mostrar todos
+            button#appmsgs.btn.btn-primary.btn-lg.btn-success(type="button") Ocultar
+            button#allmsgs.btn.btn-primary.btn-lg.btn-success(type="button") Todos
