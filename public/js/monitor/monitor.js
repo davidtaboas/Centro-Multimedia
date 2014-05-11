@@ -55,9 +55,9 @@ socket.on("change", function(data) {
 socket.on("login", function(data) {
   console.log(data);
   if (data.login === "ok") {
-    $("#login").hide();
+    $("#login").fadeOut();
   } else {
-    $("#login").show();
+    $("#login").fadeIn();
     $("#login .event div").removeClass();
     $("#login .event div").addClass(data.login);
   }
@@ -71,7 +71,7 @@ Función para obtener la altura del contenido
 setContentHeight = function() {
   var alturaContent, footerHeight;
   if (isActiveNavMessages) {
-    footerHeight = 150;
+    footerHeight = $("footer").css("height");
   } else {
     footerHeight = 0;
   }

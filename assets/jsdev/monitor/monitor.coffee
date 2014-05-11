@@ -56,9 +56,9 @@ socket.on "login", (data) ->
   console.log data
   if data.login is "ok"
     # Pasamos a la visualización completa
-    $("#login").hide()
+    $("#login").fadeOut()
   else
-    $("#login").show()
+    $("#login").fadeIn()
     $("#login .event div").removeClass()
     $("#login .event div").addClass(data.login)
   return
@@ -71,7 +71,7 @@ setContentHeight = () ->
 
 
   if isActiveNavMessages
-    footerHeight = 150
+    footerHeight = $("footer").css("height")
   else
     footerHeight = 0
   alturaContent =$(window).height() - ($("header").height() + footerHeight + 40)

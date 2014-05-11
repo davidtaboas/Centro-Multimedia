@@ -32,6 +32,7 @@ html(ng-app="monitorApp")
 
     body(ng-controller='MessagesCtrl')
         div#login
+            div.alert.alert-info.text-center Realiza este gesto en la pantalla de tu dispositivo
             div.event
                 div
         header
@@ -56,10 +57,10 @@ html(ng-app="monitorApp")
                             div.info
 
                                 p
-                                    span.glyphicon.glyphicon-info-sign(class="prioridad p{{message.prioridad}}")
+                                    span.glyphicon(class="prioridad p{{message.prioridad}}")
                                     | {{ message.texto }}
-                                p.fecha {{message.fechaEnvio | date:'dd/MM/yyyy @ HH:mm'}} #
-                                    span(timeago="{{message.fechaEnvio}}")
+                                p.fecha {{message.fechaEnvio | date:'dd/MM/yyyy @ HH:mm'}}
+                                span.timeago(timeago="{{message.fechaEnvio}}")
 
 
 
@@ -70,4 +71,6 @@ html(ng-app="monitorApp")
                 div.items
                     ul
                         li(ng-repeat='message in messages')
-                            {{ message.texto }} {{ message.prioridad }}
+                            span.glyphicon(class="prioridad p{{message.prioridad}}")
+                            | {{ message.texto }}
+                            span.timeago(timeago="{{message.fechaEnvio}}")

@@ -1,3 +1,8 @@
+/*
+
+CSS MONITOR
+
+*/
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 /* line 22, ../../components/sass-bootstrap/lib/_normalize.scss */
 article,
@@ -3230,7 +3235,7 @@ input[type="button"].btn-block {
 }
 
 /* line 87, ../../components/sass-bootstrap/lib/_glyphicons.scss */
-.glyphicon-bookmark:before {
+.glyphicon-bookmark:before, .glyphicon.p1:before {
   content: "\e044";
 }
 
@@ -3525,7 +3530,7 @@ input[type="button"].btn-block {
 }
 
 /* line 146, ../../components/sass-bootstrap/lib/_glyphicons.scss */
-.glyphicon-warning-sign:before {
+.glyphicon-warning-sign:before, .glyphicon.p0:before {
   content: "\e107";
 }
 
@@ -3600,7 +3605,7 @@ input[type="button"].btn-block {
 }
 
 /* line 161, ../../components/sass-bootstrap/lib/_glyphicons.scss */
-.glyphicon-bullhorn:before {
+.glyphicon-bullhorn:before, .glyphicon.p2:before {
   content: "\e122";
 }
 
@@ -7628,51 +7633,39 @@ td.visible-print {
     display: none !important;
   }
 }
-/* line 5, ../../../assets/sass/monitor/style.scss */
+/* line 13, ../../../assets/sass/monitor/style.scss */
 body {
-  background: #183026 url("../../img/bg.jpg") no-repeat;
+  background: #e6e6e6;
   background-size: cover;
   background-attachment: fixed;
   background-position: center 0;
 }
 
-/* line 12, ../../../assets/sass/monitor/style.scss */
+/* line 20, ../../../assets/sass/monitor/style.scss */
 header {
   float: left;
   width: 100%;
 }
-/* line 17, ../../../assets/sass/monitor/style.scss */
+/* line 25, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb {
   padding: 0;
   border-radius: 0;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #666666), color-stop(100%, #333333));
-  background-image: -webkit-linear-gradient(#666666, #333333);
-  background-image: -moz-linear-gradient(#666666, #333333);
-  background-image: -o-linear-gradient(#666666, #333333);
-  background-image: linear-gradient(#666666, #333333);
+  background: #f36126;
   color: #fff;
   font-weight: bold;
   margin: 0;
 }
-/* line 24, ../../../assets/sass/monitor/style.scss */
+/* line 32, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb li {
-  -webkit-transform: skew(-20deg);
-  -moz-transform: skew(-20deg);
-  -o-transform: skew(-20deg);
-  transform: skew(-20deg);
   display: inline-table;
   padding: 8px;
 }
-/* line 33, ../../../assets/sass/monitor/style.scss */
+/* line 38, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb li.active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(100%, #666666));
-  background-image: -webkit-linear-gradient(#333333, #666666);
-  background-image: -moz-linear-gradient(#333333, #666666);
-  background-image: -o-linear-gradient(#333333, #666666);
-  background-image: linear-gradient(#333333, #666666);
+  background: #c23f0b;
 }
 
-/* line 39, ../../../assets/sass/monitor/style.scss */
+/* line 44, ../../../assets/sass/monitor/style.scss */
 #content {
   float: left;
   width: 100%;
@@ -7680,10 +7673,11 @@ header .breadcrumb li.active {
   position: relative;
 }
 
-/* line 45, ../../../assets/sass/monitor/style.scss */
+/* line 50, ../../../assets/sass/monitor/style.scss */
 .row a {
-  background: #f1f1f1;
+  background: #444;
   display: inline-table;
+  color: #f36126;
   font-size: 50px;
   height: 250px;
   line-height: 250px;
@@ -7694,13 +7688,13 @@ header .breadcrumb li.active {
   width: 400px;
 }
 
-/* line 58, ../../../assets/sass/monitor/style.scss */
+/* line 64, ../../../assets/sass/monitor/style.scss */
 .current {
   box-shadow: 0 0 25px DodgerBlue;
   opacity: 1 !important;
 }
 
-/* line 63, ../../../assets/sass/monitor/style.scss */
+/* line 69, ../../../assets/sass/monitor/style.scss */
 #messages {
   display: none;
   height: 100%;
@@ -7710,7 +7704,7 @@ header .breadcrumb li.active {
   width: 100%;
   z-index: 10;
 }
-/* line 73, ../../../assets/sass/monitor/style.scss */
+/* line 79, ../../../assets/sass/monitor/style.scss */
 #messages .background {
   background: #000;
   height: 100%;
@@ -7718,51 +7712,63 @@ header .breadcrumb li.active {
   position: absolute;
   width: 100%;
 }
-/* line 82, ../../../assets/sass/monitor/style.scss */
+/* line 88, ../../../assets/sass/monitor/style.scss */
 #messages .content {
-  background: #fff;
-  border: 10px solid #333;
-  height: 60%;
-  margin: 15% auto;
+  background: #e6e6e6;
+  border: 10px solid #404040;
+  height: 100%;
+  margin: 0px;
   padding: 20px;
   position: relative;
-  width: 80%;
+  width: 100%;
 }
-/* line 91, ../../../assets/sass/monitor/style.scss */
+/* line 97, ../../../assets/sass/monitor/style.scss */
 #messages .content h1 {
-  color: #333;
-  border-bottom: 2px solid #333;
+  color: #404040;
+  border-bottom: 2px solid #404040;
 }
-/* line 96, ../../../assets/sass/monitor/style.scss */
+/* line 102, ../../../assets/sass/monitor/style.scss */
 #messages .content .items {
   height: 90%;
   overflow-y: scroll;
   font-size: 30px;
 }
-/* line 101, ../../../assets/sass/monitor/style.scss */
+/* line 107, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul {
   list-style: none;
 }
-/* line 104, ../../../assets/sass/monitor/style.scss */
+/* line 110, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul li {
-  padding: 3px;
-  border-bottom: 1px solid #efefef;
+  padding: 10px 0;
+  border-bottom: 1px solid #404040;
+  font-size: 36px;
+}
+/* line 114, ../../../assets/sass/monitor/style.scss */
+#messages .content .items ul li span {
+  margin: 0 10px;
+}
+/* line 116, ../../../assets/sass/monitor/style.scss */
+#messages .content .items ul li span.timeago {
+  font-style: italic;
+  color: #f36126;
 }
 
-/* line 115, ../../../assets/sass/monitor/style.scss */
+/* line 129, ../../../assets/sass/monitor/style.scss */
 footer {
   bottom: 0;
   left: 0;
   overflow: hidden;
   position: absolute;
   width: 100%;
+  height: 200px;
+  /* PANEL DESLIZANTE DE MENSAJES */
 }
-/* line 141, ../../../assets/sass/monitor/style.scss */
+/* line 140, ../../../assets/sass/monitor/style.scss */
 footer .bottom {
   display: block;
-  background: #222;
-  color: #fff;
-  height: 150px;
+  background: #404040;
+  color: #FFF;
+  height: 100%;
   position: relative;
   width: 100%;
 }
@@ -7771,14 +7777,14 @@ footer .bottom #slider {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  height: 150px;
+  height: 100%;
 }
 /* line 154, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul {
   position: relative;
   margin: 0;
   padding: 0;
-  height: 150px;
+  height: 100%;
   list-style: none;
 }
 /* line 160, ../../../assets/sass/monitor/style.scss */
@@ -7788,132 +7794,144 @@ footer .bottom #slider ul li {
   float: left;
   margin: 20px 0;
   padding: 0;
-  height: 150px;
+  height: 100%;
   text-align: center;
 }
-/* line 172, ../../../assets/sass/monitor/style.scss */
+/* line 170, ../../../assets/sass/monitor/style.scss */
+footer .bottom #slider ul li .info p {
+  color: inherit;
+  font-size: 70px;
+  line-height: 70px;
+}
+/* line 176, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info .prioridad {
   text-align: center;
   font-size: 50px;
   line-height: 50px;
   margin: 10px;
 }
-/* line 178, ../../../assets/sass/monitor/style.scss */
-footer .bottom #slider ul li .info .prioridad.p0 {
-  color: red;
-}
-/* line 181, ../../../assets/sass/monitor/style.scss */
-footer .bottom #slider ul li .info .prioridad.p1 {
-  color: DodgerBlue;
-}
-/* line 184, ../../../assets/sass/monitor/style.scss */
-footer .bottom #slider ul li .info .prioridad.p2 {
-  color: yellow;
-}
-/* line 188, ../../../assets/sass/monitor/style.scss */
+/* line 185, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info .fecha {
   font-size: 36px;
   line-height: 36px;
 }
-/* line 195, ../../../assets/sass/monitor/style.scss */
-footer .bottom #slider ul li .info p {
-  color: #fff;
-  font-size: 70px;
-  line-height: 70px;
+/* line 190, ../../../assets/sass/monitor/style.scss */
+footer .bottom #slider ul li .info span.timeago {
+  font-size: 28px;
+  display: block;
 }
-/* line 208, ../../../assets/sass/monitor/style.scss */
+/* line 206, ../../../assets/sass/monitor/style.scss */
 footer .none {
   display: none;
 }
 
 @media (min-width: 1200px) and (max-width: 1860px) {
-  /* line 214, ../../../assets/sass/monitor/style.scss */
+  /* line 212, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1560px;
   }
 }
 @media (min-width: 1860px) {
-  /* line 220, ../../../assets/sass/monitor/style.scss */
+  /* line 218, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1860px;
   }
 }
-/* line 226, ../../../assets/sass/monitor/style.scss */
+/* line 224, ../../../assets/sass/monitor/style.scss */
 .mejs-container-fullscreen {
   position: absolute !important;
 }
 
-/* line 230, ../../../assets/sass/monitor/style.scss */
+/* line 228, ../../../assets/sass/monitor/style.scss */
 .galleria {
   height: 720px;
 }
 
-/* line 232, ../../../assets/sass/monitor/style.scss */
+/* line 230, ../../../assets/sass/monitor/style.scss */
 .container, .monitor, #views {
   height: 100%;
 }
 
-/* line 236, ../../../assets/sass/monitor/style.scss */
+/* line 234, ../../../assets/sass/monitor/style.scss */
 #login {
   display: none;
   position: absolute;
   top: 0px;
   left: 0px;
   background: #000;
-  opacity: 0.9;
   width: 100%;
   height: 100%;
   z-index: 1000;
 }
-/* line 248, ../../../assets/sass/monitor/style.scss */
+/* line 245, ../../../assets/sass/monitor/style.scss */
+#login .alert {
+  font-size: 70px;
+}
+/* line 249, ../../../assets/sass/monitor/style.scss */
 #login .event {
   width: 256px;
   height: 256px;
   margin: 0 auto;
 }
-/* line 253, ../../../assets/sass/monitor/style.scss */
+/* line 254, ../../../assets/sass/monitor/style.scss */
 #login .event div {
   width: 100%;
   display: block;
   height: 100%;
 }
-/* line 258, ../../../assets/sass/monitor/style.scss */
+/* line 259, ../../../assets/sass/monitor/style.scss */
 #login .event .singleTap {
   background-image: url("/img/gestures/tap.png");
 }
-/* line 259, ../../../assets/sass/monitor/style.scss */
+/* line 260, ../../../assets/sass/monitor/style.scss */
 #login .event .doubleTap {
   background-image: url("/img/gestures/double_tap.png");
 }
-/* line 260, ../../../assets/sass/monitor/style.scss */
+/* line 261, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeLeft {
   background-image: url("/img/gestures/swipe_left.png");
 }
-/* line 261, ../../../assets/sass/monitor/style.scss */
+/* line 262, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeRight {
   background-image: url("/img/gestures/swipe_right.png");
 }
-/* line 262, ../../../assets/sass/monitor/style.scss */
+/* line 263, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeUp {
   background-image: url("/img/gestures/swipe_up.png");
 }
-/* line 263, ../../../assets/sass/monitor/style.scss */
+/* line 264, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeDown {
   background-image: url("/img/gestures/swipe_down.png");
 }
-/* line 264, ../../../assets/sass/monitor/style.scss */
+/* line 265, ../../../assets/sass/monitor/style.scss */
 #login .event .rotateLeft {
   background-image: url("/img/gestures/rotate_left.png");
 }
-/* line 265, ../../../assets/sass/monitor/style.scss */
+/* line 266, ../../../assets/sass/monitor/style.scss */
 #login .event .rotateRight {
   background-image: url("/img/gestures/rotate_right.png");
 }
-/* line 266, ../../../assets/sass/monitor/style.scss */
+/* line 267, ../../../assets/sass/monitor/style.scss */
 #login .event .pinchIn {
   background-image: url("/img/gestures/pinch.png");
 }
-/* line 267, ../../../assets/sass/monitor/style.scss */
+/* line 268, ../../../assets/sass/monitor/style.scss */
 #login .event .pinchOut {
-  background-image: url("/img/gestures/pinchOut.png");
+  background-image: url("/img/gestures/pinch_out.png");
+}
+
+/*
+ICONOS
+*/
+/* line 278, ../../../assets/sass/monitor/style.scss */
+.glyphicon.p0 {
+  color: #d9534f;
+}
+/* line 284, ../../../assets/sass/monitor/style.scss */
+.glyphicon.p1 {
+  color: #5bc0de;
+}
+/* line 290, ../../../assets/sass/monitor/style.scss */
+.glyphicon.p2 {
+  color: #f0ad4e;
 }

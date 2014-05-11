@@ -7,9 +7,7 @@ module.exports = function (server, eventos) {
 
 
     var login_eventos = eventos;
-    login_eventos.sort (function(){
-        return 0.5 - Math.random();
-    });
+
 
 
     var iousers = require('socket.io').listen(server);
@@ -26,6 +24,10 @@ module.exports = function (server, eventos) {
     });
 
     iousers.sockets.on('connection', function (socket) {
+
+        login_eventos.sort (function(){
+            return 0.5 - Math.random();
+        });
 
         iomonitor.sockets.socket(idmonitor).emit('login', {login: login_eventos[0]});
 
