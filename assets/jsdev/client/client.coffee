@@ -5,7 +5,7 @@
 ###
 
 # connect to our socket server
-socket = io.connect("http://192.168.0.15:1337/")
+socket = io.connect("http://192.168.1.36:1337/")
 app = app or {}
 
 

@@ -167,11 +167,38 @@ footer {
           height: 150px;
           text-align: center;
 
-          p {
-            color: #fff;
-            font-size: 50px;
-            line-height: 50px;
+          .info {
+
+            .prioridad{
+
+              text-align: center;
+              font-size: 50px;
+              line-height: 50px;
+              margin: 10px;
+              &.p0 {
+                color: red;
+              }
+              &.p1 {
+                color: DodgerBlue;
+              }
+              &.p2 {
+                color: yellow;
+              }
+            }
+            .fecha{
+              font-size: 36px;
+              line-height: 36px;
+            }
+
+
+
+            p{
+              color: #fff;
+              font-size: 70px;
+              line-height: 70px;
+            }
           }
+
         }
       }
     }
@@ -208,7 +235,7 @@ footer {
 
 #login{
 
-  display: block;
+  display: none;
   position: absolute;
   top: 0px;
   left: 0px;

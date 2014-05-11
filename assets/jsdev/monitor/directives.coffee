@@ -39,3 +39,12 @@ directives.directive "lazyScript", ->
       return
 
     return
+
+directives.directive "timeago", ->
+  restrict: "A"
+  link: (scope, element, attrs) ->
+    attrs.$observe "timeago", ->
+      element.text moment(attrs.timeago).fromNow()
+      return
+
+    return
