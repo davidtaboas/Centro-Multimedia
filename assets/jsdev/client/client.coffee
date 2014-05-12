@@ -71,10 +71,6 @@ $ ->
     return
 
 
-  ## GESTION DE EVENTOS PARA IDENTIFICACION
-
-  console.log eventos
-
   socket.on "login", (data) ->
 
 

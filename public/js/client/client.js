@@ -55,7 +55,6 @@ $(function() {
   $allMsgs.on("tap", function() {
     socket.emit("filtermsgs", "all");
   });
-  console.log(eventos);
   socket.on("login", function(data) {
     if (data.login === "ok") {
       $("#login").fadeOut();

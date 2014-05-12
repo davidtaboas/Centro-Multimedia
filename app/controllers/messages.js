@@ -13,7 +13,7 @@ module.exports = function(app){
         var mensaje             = new Mensaje();
         var ahora               = moment(new Date());
         mensaje.prioridad       = req.body.msg.prioridad;
-        mensaje.texto           = decodeURI(req.body.msg.texto);
+        mensaje.texto           = decodeURI(req.body.msg.texto).replace( /\+/g, ' ' );
         mensaje.fechaEnvio      = ahora;
         mensaje.fechaExpiracion = ahora.add('hours',req.body.msg.expiracion);
 
@@ -47,7 +47,6 @@ module.exports = function(app){
 
         query.exec(function (err, docs) {
 
-            console.log(docs)
             res.send(docs);
         });
     });

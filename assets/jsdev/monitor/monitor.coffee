@@ -109,7 +109,6 @@ reloadControls = () ->
   $("#content").css("background","none")
 
   $("#slider ul li").width($("body").width())
-
   #VIDEOS
   if typeof MediaElementPlayer is 'function'
     if $("video").length > 0
