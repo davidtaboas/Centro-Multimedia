@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-  Mensaje = mongoose.model('Mensaje');
+    moment  = require('moment'),
+    Mensaje = mongoose.model('Mensaje');
 
 
 
@@ -9,12 +10,13 @@ module.exports = function(app){
     app.post('/messages', function(req,res){
 
 
-        var mensaje            = new Mensaje();
+        var mensaje             = new Mensaje();
+        var ahora               = moment(new Date());
+        mensaje.prioridad       = req.body.msg.prioridad;
+        mensaje.texto           = decodeURI(req.body.msg.texto);
+        mensaje.fechaEnvio      = ahora;
+        mensaje.fechaExpiracion = ahora.add('hours',req.body.msg.expiracion);
 
-        mensaje.prioridad      = req.body.msg.prioridad;
-        mensaje.texto          = decodeURI(req.body.msg.texto); // TO-DO: acordarse de limpiar cadena de texto %20
-        mensaje.unidadDuracion = req.body.msg.uduracion;
-        mensaje.escalaDuracion = req.body.msg.eduracion;
 
         mensaje.save(function(err){
 
@@ -27,7 +29,8 @@ module.exports = function(app){
     app.get('/messages/:filter', function(req,res){
 
         var prioridad;
-        if (req.filter == "app") {
+
+        if (req.params.filter == "app") {
             // Mensajes filtrados <2
             prioridad = 1;
         }
@@ -36,11 +39,15 @@ module.exports = function(app){
             prioridad = 2;
         }
 
+
         var query = Mensaje.find({
-            prioridad: { $lte: prioridad }
+            prioridad: { $lte: prioridad },
+            fechaExpiracion: { $gte: new Date() }
         });
+
         query.exec(function (err, docs) {
 
+            console.log(docs)
             res.send(docs);
         });
     });
