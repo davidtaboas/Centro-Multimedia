@@ -99,7 +99,7 @@ changeMask = function() {
     isActiveNavMessages = 0;
   } else {
     $("footer .bottom").animate({
-      height: "150px"
+      height: "300px"
     }, 200);
     isActiveNavMessages = 1;
   }

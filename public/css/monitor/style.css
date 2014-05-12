@@ -7760,7 +7760,7 @@ footer {
   overflow: hidden;
   position: absolute;
   width: 100%;
-  height: 200px;
+  height: 300px;
   /* PANEL DESLIZANTE DE MENSAJES */
 }
 /* line 140, ../../../assets/sass/monitor/style.scss */
@@ -7796,63 +7796,64 @@ footer .bottom #slider ul li {
   padding: 0;
   height: 100%;
   text-align: center;
+  width: 100%;
 }
-/* line 170, ../../../assets/sass/monitor/style.scss */
+/* line 171, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info p {
   color: inherit;
   font-size: 70px;
   line-height: 70px;
 }
-/* line 176, ../../../assets/sass/monitor/style.scss */
+/* line 177, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info .prioridad {
   text-align: center;
   font-size: 50px;
   line-height: 50px;
   margin: 10px;
 }
-/* line 185, ../../../assets/sass/monitor/style.scss */
+/* line 186, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info .fecha {
   font-size: 36px;
   line-height: 36px;
 }
-/* line 190, ../../../assets/sass/monitor/style.scss */
+/* line 191, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info span.timeago {
   font-size: 28px;
   display: block;
 }
-/* line 206, ../../../assets/sass/monitor/style.scss */
+/* line 207, ../../../assets/sass/monitor/style.scss */
 footer .none {
   display: none;
 }
 
 @media (min-width: 1200px) and (max-width: 1860px) {
-  /* line 212, ../../../assets/sass/monitor/style.scss */
+  /* line 213, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1560px;
   }
 }
 @media (min-width: 1860px) {
-  /* line 218, ../../../assets/sass/monitor/style.scss */
+  /* line 219, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1860px;
   }
 }
-/* line 224, ../../../assets/sass/monitor/style.scss */
+/* line 225, ../../../assets/sass/monitor/style.scss */
 .mejs-container-fullscreen {
   position: absolute !important;
 }
 
-/* line 228, ../../../assets/sass/monitor/style.scss */
+/* line 229, ../../../assets/sass/monitor/style.scss */
 .galleria {
   height: 720px;
 }
 
-/* line 230, ../../../assets/sass/monitor/style.scss */
+/* line 231, ../../../assets/sass/monitor/style.scss */
 .container, .monitor, #views {
   height: 100%;
 }
 
-/* line 234, ../../../assets/sass/monitor/style.scss */
+/* line 235, ../../../assets/sass/monitor/style.scss */
 #login {
   display: none;
   position: absolute;
@@ -7863,59 +7864,59 @@ footer .none {
   height: 100%;
   z-index: 1000;
 }
-/* line 245, ../../../assets/sass/monitor/style.scss */
+/* line 246, ../../../assets/sass/monitor/style.scss */
 #login .alert {
   font-size: 70px;
 }
-/* line 249, ../../../assets/sass/monitor/style.scss */
+/* line 250, ../../../assets/sass/monitor/style.scss */
 #login .event {
   width: 256px;
   height: 256px;
   margin: 0 auto;
 }
-/* line 254, ../../../assets/sass/monitor/style.scss */
+/* line 255, ../../../assets/sass/monitor/style.scss */
 #login .event div {
   width: 100%;
   display: block;
   height: 100%;
 }
-/* line 259, ../../../assets/sass/monitor/style.scss */
+/* line 260, ../../../assets/sass/monitor/style.scss */
 #login .event .singleTap {
   background-image: url("/img/gestures/tap.png");
 }
-/* line 260, ../../../assets/sass/monitor/style.scss */
+/* line 261, ../../../assets/sass/monitor/style.scss */
 #login .event .doubleTap {
   background-image: url("/img/gestures/double_tap.png");
 }
-/* line 261, ../../../assets/sass/monitor/style.scss */
+/* line 262, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeLeft {
   background-image: url("/img/gestures/swipe_left.png");
 }
-/* line 262, ../../../assets/sass/monitor/style.scss */
+/* line 263, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeRight {
   background-image: url("/img/gestures/swipe_right.png");
 }
-/* line 263, ../../../assets/sass/monitor/style.scss */
+/* line 264, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeUp {
   background-image: url("/img/gestures/swipe_up.png");
 }
-/* line 264, ../../../assets/sass/monitor/style.scss */
+/* line 265, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeDown {
   background-image: url("/img/gestures/swipe_down.png");
 }
-/* line 265, ../../../assets/sass/monitor/style.scss */
+/* line 266, ../../../assets/sass/monitor/style.scss */
 #login .event .rotateLeft {
   background-image: url("/img/gestures/rotate_left.png");
 }
-/* line 266, ../../../assets/sass/monitor/style.scss */
+/* line 267, ../../../assets/sass/monitor/style.scss */
 #login .event .rotateRight {
   background-image: url("/img/gestures/rotate_right.png");
 }
-/* line 267, ../../../assets/sass/monitor/style.scss */
+/* line 268, ../../../assets/sass/monitor/style.scss */
 #login .event .pinchIn {
   background-image: url("/img/gestures/pinch.png");
 }
-/* line 268, ../../../assets/sass/monitor/style.scss */
+/* line 269, ../../../assets/sass/monitor/style.scss */
 #login .event .pinchOut {
   background-image: url("/img/gestures/pinch_out.png");
 }
@@ -7923,15 +7924,15 @@ footer .none {
 /*
 ICONOS
 */
-/* line 278, ../../../assets/sass/monitor/style.scss */
+/* line 279, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p0 {
   color: #d9534f;
 }
-/* line 284, ../../../assets/sass/monitor/style.scss */
+/* line 285, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p1 {
   color: #5bc0de;
 }
-/* line 290, ../../../assets/sass/monitor/style.scss */
+/* line 291, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p2 {
   color: #f0ad4e;
 }

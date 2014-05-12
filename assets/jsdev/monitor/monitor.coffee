@@ -93,7 +93,7 @@ changeMask = () ->
     $("footer .bottom").animate(height: "0px", 200)
     isActiveNavMessages = 0
   else
-    $("footer .bottom").animate(height: "150px", 200)
+    $("footer .bottom").animate(height: "300px", 200)
     isActiveNavMessages = 1
 
   return
