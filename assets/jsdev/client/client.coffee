@@ -25,6 +25,7 @@ $ ->
   $messages   = $("#messages")
   $appMsgs    = $("#appmsgs")
   $allMsgs    = $("#allmsgs")
+  $logout     = $("#logout")
   #SOCKET STUFF
   socket.on "left", (data) ->
     console.log data
@@ -70,23 +71,50 @@ $ ->
     socket.emit "filtermsgs", "all"
     return
 
+  $logout.on "tap", () ->
+    $("#login .alert-warning").fadeOut()
+    $("#login .alert-success").fadeOut()
+    $("#login .alert-danger").fadeOut()
+    $("#login .alert-info").fadeIn()
+    $("#login").fadeIn()
+    socket.disconnect()
+    return
 
   socket.on "login", (data) ->
 
 
     if data.login is "ok"
       $("#login").fadeOut()
-    else
-      $("#login .alert").fadeIn()
+      $("#login .window").unbind eventos.join(' ')
+    else if data.login is "go"
+      $("#login").fadeIn()
+      $("#login .alert-warning").fadeOut()
+      $("#login .alert-success").fadeIn()
+
+
+      socket.emit "monitor", "go"
+
+
+      $("#login .window").bind eventos.join(' '), (e) ->
+        $("#login .alert-danger").fadeOut()
+        socket.emit "loginevent", e.type
+        return
+
+
+    else if data.login is "error"
+      $("#login .alert-success").fadeOut()
+      $("#login .alert-danger").fadeIn()
       console.log "Volver a intentar"
-
+    else if data.login is "wait"
+      console.log "Se ha identificado otro usuario"
+      $("#login .alert-success").fadeOut()
+      $("#login .alert-danger").fadeOut()
+      $("#login .alert-warning").fadeIn()
+      $("#login .window").unbind eventos.join(' ')
     return
 
 
-  $("#login .window").bind eventos.join(' '), (e) ->
-    $("#login .alert").fadeOut()
-    socket.emit "loginevent", e.type
-    return
+
 
 
   return

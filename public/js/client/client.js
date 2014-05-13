@@ -11,7 +11,7 @@ socket = io.connect("http://192.168.1.36:1337/");
 app = app || {};
 
 $(function() {
-  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $messages, $moveLeft, $moveRight, $sendOk;
+  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $sendOk;
   $("#login h1").textfill();
   $moveLeft = $("#left");
   $moveRight = $("#right");
@@ -22,6 +22,7 @@ $(function() {
   $messages = $("#messages");
   $appMsgs = $("#appmsgs");
   $allMsgs = $("#allmsgs");
+  $logout = $("#logout");
   socket.on("left", function(data) {
     console.log(data);
   });
@@ -55,16 +56,37 @@ $(function() {
   $allMsgs.on("tap", function() {
     socket.emit("filtermsgs", "all");
   });
+  $logout.on("tap", function() {
+    $("#login .alert-warning").fadeOut();
+    $("#login .alert-success").fadeOut();
+    $("#login .alert-danger").fadeOut();
+    $("#login .alert-info").fadeIn();
+    $("#login").fadeIn();
+    socket.disconnect();
+  });
   socket.on("login", function(data) {
     if (data.login === "ok") {
       $("#login").fadeOut();
-    } else {
-      $("#login .alert").fadeIn();
+      $("#login .window").unbind(eventos.join(' '));
+    } else if (data.login === "go") {
+      $("#login").fadeIn();
+      $("#login .alert-warning").fadeOut();
+      $("#login .alert-success").fadeIn();
+      socket.emit("monitor", "go");
+      $("#login .window").bind(eventos.join(' '), function(e) {
+        $("#login .alert-danger").fadeOut();
+        socket.emit("loginevent", e.type);
+      });
+    } else if (data.login === "error") {
+      $("#login .alert-success").fadeOut();
+      $("#login .alert-danger").fadeIn();
       console.log("Volver a intentar");
+    } else if (data.login === "wait") {
+      console.log("Se ha identificado otro usuario");
+      $("#login .alert-success").fadeOut();
+      $("#login .alert-danger").fadeOut();
+      $("#login .alert-warning").fadeIn();
+      $("#login .window").unbind(eventos.join(' '));
     }
-  });
-  $("#login .window").bind(eventos.join(' '), function(e) {
-    $("#login .alert").fadeOut();
-    socket.emit("loginevent", e.type);
   });
 });
