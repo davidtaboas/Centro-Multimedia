@@ -1,4 +1,4 @@
-module.exports = function(app, eventos){
+module.exports = function(app){
 
 
 

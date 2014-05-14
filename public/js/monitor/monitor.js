@@ -1,4 +1,4 @@
-var app, changeMask, currentIndex, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socket;
+var app, changeMask, currentIndex, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socialcenter, socket;
 
 socket = io.connect("http://127.0.0.1:5555/");
 
@@ -185,3 +185,13 @@ $(document).ready(function() {
     moveRight();
   }), 3000);
 });
+
+socialcenter = {
+  protegido: function() {
+    var var_protegido;
+    var_protegido = prompt("¿Quieres poner la aplicación en modo protegido? (1=protegido / 0=promiscuo)", "");
+    socket.emit("config", {
+      protegido: var_protegido
+    });
+  }
+};

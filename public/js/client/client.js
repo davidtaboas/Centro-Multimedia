@@ -87,6 +87,13 @@ $(function() {
       $("#login .alert-danger").fadeOut();
       $("#login .alert-warning").fadeIn();
       $("#login .window").unbind(eventos.join(' '));
+    } else if (data.login === "disconnect") {
+      $("#login .alert-warning").fadeOut();
+      $("#login .alert-success").fadeOut();
+      $("#login .alert-danger").fadeOut();
+      $("#login .alert-info").fadeIn();
+      $("#login").fadeIn();
+      socket.disconnect();
     }
   });
 });

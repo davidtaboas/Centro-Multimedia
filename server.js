@@ -63,19 +63,16 @@ eventos = ["singleTap","doubleTap","swipeLeft","swipeRight","swipeUp","swipeDown
 /*
 Controllers
 */
-require(config.root + '/app/controllers/client')(app,eventos);
+require(config.root + '/app/controllers/client')(app);
 require(config.root + '/app/controllers/monitor')(app);
 require(config.root + '/app/controllers/messages')(app);
-
-
-
 /*
 Configuración Sockets
 */
 
 // Pasamos el servidor porque el cliente tiene que escuchar en esa ruta
 // Los otros sockets pueden ir en otros puertos sin crear servidores
-require('./config/sockets')(server, eventos);
+require('./config/sockets')(server, config);
 
 
 

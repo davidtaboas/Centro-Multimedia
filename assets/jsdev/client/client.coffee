@@ -80,6 +80,7 @@ $ ->
     socket.disconnect()
     return
 
+
   socket.on "login", (data) ->
 
 
@@ -105,12 +106,24 @@ $ ->
       $("#login .alert-success").fadeOut()
       $("#login .alert-danger").fadeIn()
       console.log "Volver a intentar"
+
+
+
     else if data.login is "wait"
       console.log "Se ha identificado otro usuario"
       $("#login .alert-success").fadeOut()
       $("#login .alert-danger").fadeOut()
       $("#login .alert-warning").fadeIn()
       $("#login .window").unbind eventos.join(' ')
+
+
+    else if data.login is "disconnect"
+      $("#login .alert-warning").fadeOut()
+      $("#login .alert-success").fadeOut()
+      $("#login .alert-danger").fadeOut()
+      $("#login .alert-info").fadeIn()
+      $("#login").fadeIn()
+      socket.disconnect()
     return
 
 

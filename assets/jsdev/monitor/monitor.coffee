@@ -200,3 +200,13 @@ $(document).ready ->
   ), 3000
 
   return
+
+
+socialcenter =
+
+  protegido: ->
+    var_protegido = prompt "¿Quieres poner la aplicación en modo protegido? (1=protegido / 0=promiscuo)", ""
+    socket.emit("config", {protegido: var_protegido})
+
+    return
+

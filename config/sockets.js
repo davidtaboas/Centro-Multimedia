@@ -3,7 +3,7 @@
 var runningPortMonitor = 5555;
 var runningPortApi     = 7777;
 
-module.exports = function (server, eventos) {
+module.exports = function (server, config) {
 
 
     var login_eventos = eventos;
@@ -22,8 +22,38 @@ module.exports = function (server, eventos) {
 
     var allClients = [];
 
+    // Conexión del monitor
     iomonitor.sockets.on('connection', function (socketserver) {
         idmonitor = socketserver.id;
+
+        socketserver.on("config", function(data){
+
+            console.log(data);
+            if (data.protegido === '1'){
+
+                // si hay un usuario activo, lo sacamos
+                if(usuarioActivo!=-1){
+
+                    usuarioActivo.emit("login", {login: "disconnect"});
+                }
+                // indicamos un usuario activo neutral
+                usuarioActivo = 0;
+
+                // indicamos que se muestre la pantalla
+                socketserver.emit("login", {login: "ok"});
+
+
+            }
+            else if (data.protegido == '0'){
+
+                // si cambiamos a modo desprotegido y no hay usuarios o protegido
+                if(usuarioActivo==-1 || usuarioActivo == 0){
+
+                    usuarioActivo = -1;
+                    iousers.sockets.emit("login", {login: "go"});
+                }
+            }
+        });
 
     });
 
@@ -34,11 +64,9 @@ module.exports = function (server, eventos) {
 
     iousers.on('connection', function (socket) {
 
-        /*
-        Aquí se reconoce que se conecta un usuario
-        Por lo tanto, lo hacemos activo o estará en espera
-        */
 
+
+        // Identificación de un usuario
         allClients.push(socket);
         socket.emit('login', {login: "go"});
         if(usuarioActivo!=-1){
@@ -46,9 +74,9 @@ module.exports = function (server, eventos) {
         }
         console.log("Se acaba de conectar el socket id: "+socket.id);
 
-
+        // Desconexión de usuarios
         socket.on('disconnect', function(){
-            console.log('SE HA DESCONECTADO');
+            console.log('Se ha desconectado un cliente.');
             var i = allClients.indexOf(socket);
             if(socket == usuarioActivo)
                 usuarioActivo=-1;
@@ -57,6 +85,7 @@ module.exports = function (server, eventos) {
 
         });
 
+        // Gestion del monitor
         socket.on('monitor', function(data){
 
             if(usuarioActivo==-1){
@@ -71,27 +100,12 @@ module.exports = function (server, eventos) {
             }
             else{
 
-                console.log('YA HAY UN USUARIO CONECTADO')
+                console.log('Ya existe un usuario identificado.')
 
             }
         });
 
-        socket.on('move', function (data) {
-            iomonitor.sockets.socket(idmonitor).emit('move', {move: data});
-        });
 
-        socket.on('control', function (data) {
-
-            iomonitor.sockets.socket(idmonitor).emit('control', {move: data});
-        });
-
-        socket.on('change', function (data) {
-            iomonitor.sockets.socket(idmonitor).emit('change', {change: data});
-        });
-
-        socket.on('filtermsgs', function(data) {
-            iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
-        });
 
         // Validación de login
         socket.on('loginevent', function(data) {
@@ -137,6 +151,23 @@ module.exports = function (server, eventos) {
 
             }
 
+        });
+
+        socket.on('move', function (data) {
+            iomonitor.sockets.socket(idmonitor).emit('move', {move: data});
+        });
+
+        socket.on('control', function (data) {
+
+            iomonitor.sockets.socket(idmonitor).emit('control', {move: data});
+        });
+
+        socket.on('change', function (data) {
+            iomonitor.sockets.socket(idmonitor).emit('change', {change: data});
+        });
+
+        socket.on('filtermsgs', function(data) {
+            iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
         });
 
 
