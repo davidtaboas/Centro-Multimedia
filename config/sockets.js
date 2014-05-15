@@ -106,6 +106,13 @@ module.exports = function (server, config) {
         });
 
 
+        socket.on('mensaje', function(data) {
+
+            var mensaje = { texto: data.texto, prioridad: '2', expiracion: data.caducidad }
+            iomonitor.sockets.socket(idmonitor).emit('msg', {msg: mensaje});
+        });
+
+
 
         // Validación de login
         socket.on('loginevent', function(data) {
@@ -183,6 +190,7 @@ module.exports = function (server, config) {
 
             var mensaje = JSON.parse(event);
 
+            console.log(mensaje);
 
             if( Object.keys(mensaje).length > 0 ){
 

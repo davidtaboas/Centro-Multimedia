@@ -108,4 +108,21 @@ body{
       display: none;
     }
   }
+
+  .sendmsg{
+    position: absolute;
+    left: 0;
+    right: 0px;
+    margin: 0 auto;
+    bottom: 0;
+  }
 }
+
+#modalMensajes {
+  color: $negro;
+
+  #ex1Slider {
+    width: 100% !important;
+  }
+}
+

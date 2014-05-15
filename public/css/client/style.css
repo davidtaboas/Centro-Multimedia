@@ -9869,3 +9869,20 @@ body {
 #login .window .alert {
   display: none;
 }
+/* line 112, ../../../assets/sass/client/style.scss */
+#login .sendmsg {
+  position: absolute;
+  left: 0;
+  right: 0px;
+  margin: 0 auto;
+  bottom: 0;
+}
+
+/* line 121, ../../../assets/sass/client/style.scss */
+#modalMensajes {
+  color: #404040;
+}
+/* line 124, ../../../assets/sass/client/style.scss */
+#modalMensajes #ex1Slider {
+  width: 100% !important;
+}

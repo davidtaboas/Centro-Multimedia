@@ -12,6 +12,12 @@ app = app or {}
 # shortcut for document.ready
 $ ->
 
+
+  $("#caducidadMensaje").slider tooltip: "show"
+  $("#caducidadMensaje").on "slide", (slideEvt) ->
+    $("#ex6SliderVal").text slideEvt.value / 24
+    return
+
   $("#login h1").textfill()
 
 
@@ -26,6 +32,20 @@ $ ->
   $appMsgs    = $("#appmsgs")
   $allMsgs    = $("#allmsgs")
   $logout     = $("#logout")
+  $sendMsg    = $(".sendmsgok")
+
+  # MODAL STUFF
+
+  $sendMsg.on "tap", () ->
+
+    if $("#textoMensaje").val() is ""
+      $("#textoMensaje").focus()
+      $("#textoMensaje").parent().addClass("has-error")
+    else
+      $("#modalMensajes").modal('hide')
+      socket.emit("mensaje", { texto: $("#textoMensaje").val(), caducidad: $("#caducidadMensaje").val() });
+    return
+
   #SOCKET STUFF
   socket.on "left", (data) ->
     console.log data

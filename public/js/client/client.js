@@ -11,7 +11,13 @@ socket = io.connect("http://192.168.1.36:1337/");
 app = app || {};
 
 $(function() {
-  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $sendOk;
+  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $sendMsg, $sendOk;
+  $("#caducidadMensaje").slider({
+    tooltip: "show"
+  });
+  $("#caducidadMensaje").on("slide", function(slideEvt) {
+    $("#ex6SliderVal").text(slideEvt.value / 24);
+  });
   $("#login h1").textfill();
   $moveLeft = $("#left");
   $moveRight = $("#right");
@@ -23,6 +29,19 @@ $(function() {
   $appMsgs = $("#appmsgs");
   $allMsgs = $("#allmsgs");
   $logout = $("#logout");
+  $sendMsg = $(".sendmsgok");
+  $sendMsg.on("tap", function() {
+    if ($("#textoMensaje").val() === "") {
+      $("#textoMensaje").focus();
+      $("#textoMensaje").parent().addClass("has-error");
+    } else {
+      $("#modalMensajes").modal('hide');
+      socket.emit("mensaje", {
+        texto: $("#textoMensaje").val(),
+        caducidad: $("#caducidadMensaje").val()
+      });
+    }
+  });
   socket.on("left", function(data) {
     console.log(data);
   });

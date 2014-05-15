@@ -8,12 +8,16 @@ html
         meta(name="apple-mobile-web-app-capable", content="yes")
         block css
             link(rel='stylesheet', href="/css/client/style.css")
+            link(rel='stylesheet', href="/css/client/slider.css")
 
         script(type='text/javascript')
             var eventos =!{JSON.stringify(array_eventos)}
         block js
             script(src='/components/jquery/jquery.min.js')
-            script(src='http://jquery-textfill.github.io/jquery-textfill/jquery.textfill.min.js')
+            script(src='/js/client/jquery.textfill.min.js')
+
+
+            script(src='/components/sass-bootstrap/dist/js/bootstrap.min.js')
 
             script(src='/socket.io/socket.io.js')
 
@@ -29,6 +33,7 @@ html
             script(src='/components/quojs/quo.query.js')
 
 
+            script(src='/js/client/bootstrap-slider.js')
             script(src='/js/client/client.js')
     body
 
