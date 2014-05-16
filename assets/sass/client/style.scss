@@ -34,9 +34,6 @@ body{
 
     .buttons{
 
-      div{
-        margin: 20px 0;
-      }
       width: 100%;
       margin: 0 auto;
 
@@ -126,3 +123,14 @@ body{
   }
 }
 
+.clearfix{
+  margin: 10px auto !important;
+}
+
+.no-margin{
+  margin: 0 auto !important;
+}
+
+#bt1, #bt2, #bt3, #bt4, #bt5, #bt6, #bt7, #bt8, #bt9{
+  display: none;
+}

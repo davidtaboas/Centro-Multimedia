@@ -9808,19 +9808,15 @@ body {
   width: 100%;
   margin: 0 auto;
 }
-/* line 37, ../../../assets/sass/client/style.scss */
-.remote-control .client .buttons div {
-  margin: 20px 0;
-}
-/* line 43, ../../../assets/sass/client/style.scss */
+/* line 40, ../../../assets/sass/client/style.scss */
 .remote-control .client .buttons button {
   text-align: center;
 }
-/* line 47, ../../../assets/sass/client/style.scss */
+/* line 44, ../../../assets/sass/client/style.scss */
 .remote-control .client .buttons .top {
   height: 65px;
 }
-/* line 52, ../../../assets/sass/client/style.scss */
+/* line 49, ../../../assets/sass/client/style.scss */
 .remote-control .client .buttons .top #home,
 .remote-control .client .buttons .top #goback {
   -webkit-border-radius: 100px;
@@ -9833,7 +9829,7 @@ body {
   padding: 0px;
 }
 
-/* line 75, ../../../assets/sass/client/style.scss */
+/* line 72, ../../../assets/sass/client/style.scss */
 #login {
   display: none;
   position: absolute;
@@ -9845,14 +9841,14 @@ body {
   overflow: hidden;
   background: #fff;
 }
-/* line 87, ../../../assets/sass/client/style.scss */
+/* line 84, ../../../assets/sass/client/style.scss */
 #login .window {
   height: 100%;
   width: 100%;
   background: #fff;
   position: relative;
 }
-/* line 93, ../../../assets/sass/client/style.scss */
+/* line 90, ../../../assets/sass/client/style.scss */
 #login .window h1 {
   margin: 0px;
   padding: 0px;
@@ -9860,16 +9856,16 @@ body {
   color: #666;
   text-shadow: 2px 2px #e6e6e6;
 }
-/* line 101, ../../../assets/sass/client/style.scss */
+/* line 98, ../../../assets/sass/client/style.scss */
 #login .window h1 span.title {
   padding-left: 15px;
   color: #f36126;
 }
-/* line 107, ../../../assets/sass/client/style.scss */
+/* line 104, ../../../assets/sass/client/style.scss */
 #login .window .alert {
   display: none;
 }
-/* line 112, ../../../assets/sass/client/style.scss */
+/* line 109, ../../../assets/sass/client/style.scss */
 #login .sendmsg {
   position: absolute;
   left: 0;
@@ -9878,11 +9874,26 @@ body {
   bottom: 0;
 }
 
-/* line 121, ../../../assets/sass/client/style.scss */
+/* line 118, ../../../assets/sass/client/style.scss */
 #modalMensajes {
   color: #404040;
 }
-/* line 124, ../../../assets/sass/client/style.scss */
+/* line 121, ../../../assets/sass/client/style.scss */
 #modalMensajes #ex1Slider {
   width: 100% !important;
+}
+
+/* line 126, ../../../assets/sass/client/style.scss */
+.clearfix {
+  margin: 10px auto !important;
+}
+
+/* line 130, ../../../assets/sass/client/style.scss */
+.no-margin {
+  margin: 0 auto !important;
+}
+
+/* line 134, ../../../assets/sass/client/style.scss */
+#bt1, #bt2, #bt3, #bt4, #bt5, #bt6, #bt7, #bt8, #bt9 {
+  display: none;
 }

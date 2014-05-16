@@ -55,6 +55,11 @@ module.exports = function (server, config) {
             }
         });
 
+        socketserver.on("controlBotones", function (data){
+
+            iousers.sockets.emit('botonesUsuario', {button: data.id, label: data.label});
+        });
+
     });
 
 
@@ -63,6 +68,7 @@ module.exports = function (server, config) {
 
 
     iousers.on('connection', function (socket) {
+
 
 
 
@@ -78,8 +84,10 @@ module.exports = function (server, config) {
         socket.on('disconnect', function(){
             console.log('Se ha desconectado un cliente.');
             var i = allClients.indexOf(socket);
-            if(socket == usuarioActivo)
+            if(socket == usuarioActivo){
                 usuarioActivo=-1;
+                iomonitor.sockets.socket(idmonitor).emit('control', {move: "home"});
+            }
             delete allClients[i];
             iousers.sockets.emit("login", {login: "go"});
 
@@ -175,6 +183,11 @@ module.exports = function (server, config) {
 
         socket.on('filtermsgs', function(data) {
             iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
+        });
+
+
+        socket.on('botonesMonitor', function(data) {
+            iomonitor.sockets.socket(idmonitor).emit('button', {id: data});
         });
 
 

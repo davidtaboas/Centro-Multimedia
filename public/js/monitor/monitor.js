@@ -1,4 +1,4 @@
-var app, changeMask, currentIndex, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socialcenter, socket;
+var activarBoton, app, changeMask, currentIndex, customButtons, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socialcenter, socket;
 
 socket = io.connect("http://127.0.0.1:5555/");
 
@@ -7,6 +7,17 @@ app = app || {};
 lastTabIndex = 0;
 
 currentIndex = 0;
+
+activarBoton = function(id, label) {
+  socket.emit("controlBotones", {
+    id: id,
+    label: label
+  });
+};
+
+customButtons = function(id) {
+  window["funciones" + id]();
+};
 
 
 /*
@@ -63,6 +74,10 @@ socket.on("login", function(data) {
   }
 });
 
+socket.on("button", function(data) {
+  window["customButtons"](data.id);
+});
+
 
 /*
 Función para obtener la altura del contenido
@@ -114,6 +129,12 @@ que se cambia la página
 
 reloadControls = function() {
   var player;
+  if (location.hash === "#/") {
+    socket.emit("controlBotones", {
+      id: 0,
+      label: ""
+    });
+  }
   $("#content").css("background", "none");
   $("#slider ul li").width($("body").width());
   if (typeof MediaElementPlayer === 'function') {

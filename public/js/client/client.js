@@ -28,8 +28,27 @@ $(function() {
   $messages = $("#messages");
   $appMsgs = $("#appmsgs");
   $allMsgs = $("#allmsgs");
-  $logout = $("#logout");
+  $logout = $("#logout, #outwaiting");
   $sendMsg = $(".sendmsgok");
+  socket.on("botonesUsuario", function(data) {
+    var custombutton, i;
+    if (data.button === 0) {
+      i = 1;
+      while (i < 10) {
+        custombutton = "#bt" + i;
+        $(custombutton).hide();
+        $(custombutton).html("");
+        i++;
+      }
+    } else {
+      custombutton = "#bt" + data.button;
+      $(custombutton).show();
+      $(custombutton).html(data.label);
+    }
+  });
+  $("#bt1,#bt2,#bt3,#bt4,#bt5,#bt6,#bt7,#bt8,#bt9").on("tap", function(e) {
+    socket.emit("botonesMonitor", this.id);
+  });
   $sendMsg.on("tap", function() {
     if ($("#textoMensaje").val() === "") {
       $("#textoMensaje").focus();

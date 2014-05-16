@@ -6,6 +6,16 @@ app = app or {}
 lastTabIndex = 0
 currentIndex = 0
 
+activarBoton = (id, label) ->
+
+  socket.emit "controlBotones", {id: id, label: label}
+  return
+
+customButtons = (id) ->
+
+  window["funciones"+id]()
+
+  return
 ###
 Los sockets van definidos de forma general
 ###
@@ -62,6 +72,14 @@ socket.on "login", (data) ->
     $("#login .event div").removeClass()
     $("#login .event div").addClass(data.login)
   return
+
+# Custom buttons
+socket.on "button", (data) ->
+
+  window["customButtons"](data.id)
+  return
+
+
 ###
 Función para obtener la altura del contenido
 
@@ -106,6 +124,11 @@ que se cambia la página
 ###
 reloadControls = () ->
 
+  # Limpiamos el grid de botones personalizados
+  if location.hash is "#/"
+    socket.emit "controlBotones", {id: 0, label: ""}
+
+  # Limpiamos el fondo
   $("#content").css("background","none")
 
   $("#slider ul li").width($("body").width())

@@ -31,9 +31,33 @@ $ ->
   $messages   = $("#messages")
   $appMsgs    = $("#appmsgs")
   $allMsgs    = $("#allmsgs")
-  $logout     = $("#logout")
+  $logout     = $("#logout, #outwaiting")
   $sendMsg    = $(".sendmsgok")
 
+
+
+  # CUSTOM BUTTONS STUFF
+
+  socket.on "botonesUsuario", (data) ->
+
+    if data.button is 0
+      i = 1
+      while i < 10
+        custombutton = "#bt"+i
+        $(custombutton).hide()
+        $(custombutton).html("")
+        i++
+    else
+      custombutton = "#bt" + data.button;
+
+      $(custombutton).show()
+      $(custombutton).html(data.label)
+
+    return
+
+  $("#bt1,#bt2,#bt3,#bt4,#bt5,#bt6,#bt7,#bt8,#bt9").on "tap", (e) ->
+    socket.emit "botonesMonitor", this.id
+    return
   # MODAL STUFF
 
   $sendMsg.on "tap", () ->
