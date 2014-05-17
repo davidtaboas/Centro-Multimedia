@@ -9,8 +9,12 @@ socket = io.connect("http://192.168.1.36:1337/")
 app = app or {}
 
 
+
 # shortcut for document.ready
 $ ->
+
+
+
 
 
   $("#caducidadMensaje").slider tooltip: "show"
@@ -19,7 +23,6 @@ $ ->
     return
 
   $("#login h1").textfill()
-
 
   #setup some common vars
   $moveLeft   = $("#left")
@@ -33,6 +36,7 @@ $ ->
   $allMsgs    = $("#allmsgs")
   $logout     = $("#logout, #outwaiting")
   $sendMsg    = $(".sendmsgok")
+
 
 
 
@@ -59,6 +63,8 @@ $ ->
     socket.emit "botonesMonitor", this.id
     return
   # MODAL STUFF
+
+
 
   $sendMsg.on "tap", () ->
 

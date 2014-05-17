@@ -3,6 +3,11 @@
 var runningPortMonitor = 5555;
 var runningPortApi     = 7777;
 
+var exec =  require('child_process').exec,
+    child,
+    os = require('os'),
+    sistemaoperativo = os.platform();
+
 module.exports = function (server, config) {
 
 
@@ -64,17 +69,44 @@ module.exports = function (server, config) {
 
 
     // GESTIÓN DE USUARIOS
-
-
-
     iousers.on('connection', function (socket) {
 
 
+        console.log(">>Todos los clientes: "+allClients.length);
+        // Si no hay clientes conectados, despertamos el monitor
+        if (allClients.length == 0){
+
+            // comando segun plataforma
+            if(sistemaoperativo == "darwin"){
+                //mac
+                wakeup = "SleepDisplay -wake";
+            }
+            else if(sistemaoperativo == "linux"){
+                // linux
+            }
+            else if(sistemaoperativo == "win32"){
+                //windows
+
+            }
+
+
+            child = exec(wakeup, function(error, stdout, stderr) {
+                if (error !== null){
+                    console.log('exec error: '+error);
+                }
+                else{
+                    // Se ha encendido la pantalla
+                }
+            });
+        }
 
 
         // Identificación de un usuario
         allClients.push(socket);
+        console.log(">>Todos los clientes: "+allClients.length);
+
         socket.emit('login', {login: "go"});
+
         if(usuarioActivo!=-1){
             socket.emit('login', {login: "wait"});
         }
@@ -88,7 +120,38 @@ module.exports = function (server, config) {
                 usuarioActivo=-1;
                 iomonitor.sockets.socket(idmonitor).emit('control', {move: "home"});
             }
-            delete allClients[i];
+
+            // Eliminamos el cliente de la lista
+            if(i > -1){
+                allClients.splice(i, 1);
+            }
+
+
+            // Si no quedan clientes en la cola de espera procedemos a poner el monitor en espera
+
+            if (allClients.length == 0){
+
+                // comando segun plataforma
+                if(sistemaoperativo == "darwin"){
+                    //mac
+                    sleep = "SleepDisplay";
+                }
+                else if(sistemaoperativo == "linux"){
+                    // linux
+                }
+                else if(sistemaoperativo == "win32"){
+                    //windows
+
+                }
+                child = exec(sleep, function(error, stdout, stderr) {
+                    if (error !== null){
+                        console.log('exec error: '+error);
+                    }
+                    else{
+                        // Se ha apagado la pantalla
+                    }
+                });
+            }
             iousers.sockets.emit("login", {login: "go"});
 
         });
