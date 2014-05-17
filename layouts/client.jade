@@ -7,14 +7,17 @@ html
         meta(name="viewport", content="user-scalable=no, width=device-width, initial-scale=1.0")
         meta(name="apple-mobile-web-app-capable", content="yes")
         block css
-            link(rel='stylesheet', href="/css/client/style.css")
             link(rel='stylesheet', href="/css/client/slider.css")
+            link(rel='stylesheet', href="/css/client/style.css")
+
 
         script(type='text/javascript')
             var eventos =!{JSON.stringify(array_eventos)}
         block js
-            script(src='/components/jquery/jquery.min.js')
+            script(src='/components/modernizr/modernizr.js')
+            script(src='/components/jquery/dist/jquery.min.js')
             script(src='/js/client/jquery.textfill.min.js')
+
 
 
             script(src='/components/sass-bootstrap/dist/js/bootstrap.min.js')
@@ -34,6 +37,7 @@ html
 
 
             script(src='/js/client/bootstrap-slider.js')
+            script(src='/components/sass-bootstrap/js/modal.js')
             script(src='/js/client/client.js')
     body
 

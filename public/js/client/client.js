@@ -11,7 +11,7 @@ socket = io.connect("http://192.168.1.36:1337/");
 app = app || {};
 
 $(function() {
-  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $sendMsg, $sendOk;
+  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $reload, $sendMsg, $sendOk, $viewSend;
   $("#caducidadMensaje").slider({
     tooltip: "show"
   });
@@ -29,7 +29,9 @@ $(function() {
   $appMsgs = $("#appmsgs");
   $allMsgs = $("#allmsgs");
   $logout = $("#logout, #outwaiting");
+  $reload = $("#reload");
   $sendMsg = $(".sendmsgok");
+  $viewSend = $(".sendmsg");
   socket.on("botonesUsuario", function(data) {
     var custombutton, i;
     if (data.button === 0) {
@@ -48,18 +50,6 @@ $(function() {
   });
   $("#bt1,#bt2,#bt3,#bt4,#bt5,#bt6,#bt7,#bt8,#bt9").on("tap", function(e) {
     socket.emit("botonesMonitor", this.id);
-  });
-  $sendMsg.on("tap", function() {
-    if ($("#textoMensaje").val() === "") {
-      $("#textoMensaje").focus();
-      $("#textoMensaje").parent().addClass("has-error");
-    } else {
-      $("#modalMensajes").modal('hide');
-      socket.emit("mensaje", {
-        texto: $("#textoMensaje").val(),
-        caducidad: $("#caducidadMensaje").val()
-      });
-    }
   });
   socket.on("left", function(data) {
     console.log(data);
@@ -101,6 +91,27 @@ $(function() {
     $("#login .alert-info").fadeIn();
     $("#login").fadeIn();
     socket.disconnect();
+  });
+  $reload.on("tap", function() {
+    location.reload();
+  });
+  $viewSend.on("tap", function() {
+    $("#modalMensajes").modal('toggle');
+  });
+  $("button[data-dismiss='modal']").on("tap", function() {
+    $("#modalMensajes").modal('toggle');
+  });
+  $sendMsg.on("tap", function() {
+    if ($("#textoMensaje").val() === "") {
+      $("#textoMensaje").focus();
+      $("#textoMensaje").parent().addClass("has-error");
+    } else {
+      $("#modalMensajes").modal('toggle');
+      socket.emit("mensaje", {
+        texto: $("#textoMensaje").val(),
+        caducidad: $("#caducidadMensaje").val()
+      });
+    }
   });
   socket.on("login", function(data) {
     if (data.login === "ok") {

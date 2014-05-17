@@ -81,33 +81,35 @@ body{
   overflow: hidden;
   background: #fff;
 
+  h1{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: #666;
+    text-shadow: 2px 2px $gris;
+
+
+    span.title{
+      padding-left: 15px;
+      color: $naranja;
+
+    }
+  }
+
   .window {
     height: 100%;
     width: 100%;
     background: #fff;
     position: relative;
 
-    h1{
-      margin: 0px;
-      padding: 0px;
-      text-align: center;
-      color: #666;
-      text-shadow: 2px 2px $gris;
 
-
-      span.title{
-        padding-left: 15px;
-        color: $naranja;
-
-      }
-    }
     .alert {
       display: none;
     }
   }
 
   .sendmsg{
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0px;
     margin: 0 auto;
@@ -120,6 +122,17 @@ body{
 
   #ex1Slider {
     width: 100% !important;
+    margin-top: 30px;
+
+    .slider-selection {
+      background-color: $naranja !important;
+    }
+
+    div.tooltip.top {
+      display: block !important;
+      opacity: 1 !important;
+      margin-top: -20px !important;
+    }
   }
 }
 

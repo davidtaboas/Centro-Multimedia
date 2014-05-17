@@ -3,19 +3,18 @@ extends /layouts/client
 block content
 
     div#login
+        h1 Bienvenido a
+            span.title SocialCenter
+            button.btn.btn-primary.btn-lg.sendmsg(data-target='#modalMensajes', data-toggle='modal')
+                span.glyphicon.glyphicon-envelope
         div.window
-            h1 Bienvenido a
-                span.title SocialCenter
+
             div.alert.alert-danger.text-center No has realizado la identificación correctamente. Prueba de nuevo.
             div.alert.alert-warning.text-center Se ha identificado otro usuario. Espera a que termine su sesión.
                 button#outwaiting.btn.btn-warning(type="button") Salir espera
             div.alert.alert-success.text-center Puedes intentar identificarte en la aplicación.
             div.alert.alert-info.text-center Ha salido de la aplicación. Recarga la página para poder identificarte.
-                button.btn.btn-info(type="button", onclick="location.reload();") Recargar
-
-        button.btn.btn-primary.btn-lg.sendmsg(data-target='#modalMensajes', data-toggle='modal')
-              | Enviar Mensaje
-            // Modal
+                button#reload.btn.btn-info(type="button") Recargar
 
 
     div.buttons.text-center

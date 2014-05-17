@@ -14,9 +14,6 @@ app = app or {}
 $ ->
 
 
-
-
-
   $("#caducidadMensaje").slider tooltip: "show"
   $("#caducidadMensaje").on "slide", (slideEvt) ->
     $("#ex6SliderVal").text slideEvt.value / 24
@@ -35,8 +32,9 @@ $ ->
   $appMsgs    = $("#appmsgs")
   $allMsgs    = $("#allmsgs")
   $logout     = $("#logout, #outwaiting")
+  $reload     = $("#reload")
   $sendMsg    = $(".sendmsgok")
-
+  $viewSend   = $(".sendmsg")
 
 
 
@@ -62,19 +60,9 @@ $ ->
   $("#bt1,#bt2,#bt3,#bt4,#bt5,#bt6,#bt7,#bt8,#bt9").on "tap", (e) ->
     socket.emit "botonesMonitor", this.id
     return
-  # MODAL STUFF
 
 
 
-  $sendMsg.on "tap", () ->
-
-    if $("#textoMensaje").val() is ""
-      $("#textoMensaje").focus()
-      $("#textoMensaje").parent().addClass("has-error")
-    else
-      $("#modalMensajes").modal('hide')
-      socket.emit("mensaje", { texto: $("#textoMensaje").val(), caducidad: $("#caducidadMensaje").val() });
-    return
 
   #SOCKET STUFF
   socket.on "left", (data) ->
@@ -85,6 +73,7 @@ $ ->
     console.log data
     return
 
+  # BUTTONS STUFF
   $moveLeft.on "tap", () ->
     socket.emit "move", "prev"
     return
@@ -130,7 +119,32 @@ $ ->
     socket.disconnect()
     return
 
+  $reload.on "tap", () ->
+    location.reload()
+    return
 
+
+
+  # MODAL STUFF
+  $viewSend.on "tap", () ->
+    $("#modalMensajes").modal('toggle')
+    return
+
+  $("button[data-dismiss='modal']").on "tap", () ->
+    $("#modalMensajes").modal('toggle')
+    return
+
+  $sendMsg.on "tap", () ->
+
+    if $("#textoMensaje").val() is ""
+      $("#textoMensaje").focus()
+      $("#textoMensaje").parent().addClass("has-error")
+    else
+      $("#modalMensajes").modal('toggle')
+      socket.emit("mensaje", { texto: $("#textoMensaje").val(), caducidad: $("#caducidadMensaje").val() });
+    return
+
+  # LOGIN STUFF
   socket.on "login", (data) ->
 
 

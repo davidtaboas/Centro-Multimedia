@@ -8,7 +8,8 @@
     "mediaelement": "*",
     "components-font-awesome": "*",
     "angular-route": "*",
-    "momentjs": "~2.6.0"
+    "momentjs": "~2.6.0",
+    "modernizr": "~2.8.1"
   },
   "ignore": [
     "**/.*",

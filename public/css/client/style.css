@@ -9841,58 +9841,69 @@ body {
   background: #fff;
 }
 /* line 84, ../../../assets/sass/client/style.scss */
-#login .window {
-  height: 100%;
-  width: 100%;
-  background: #fff;
-  position: relative;
-}
-/* line 90, ../../../assets/sass/client/style.scss */
-#login .window h1 {
+#login h1 {
   margin: 0px;
   padding: 0px;
   text-align: center;
   color: #666;
   text-shadow: 2px 2px #e6e6e6;
 }
-/* line 98, ../../../assets/sass/client/style.scss */
-#login .window h1 span.title {
+/* line 92, ../../../assets/sass/client/style.scss */
+#login h1 span.title {
   padding-left: 15px;
   color: #f36126;
 }
-/* line 104, ../../../assets/sass/client/style.scss */
+/* line 99, ../../../assets/sass/client/style.scss */
+#login .window {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: relative;
+}
+/* line 106, ../../../assets/sass/client/style.scss */
 #login .window .alert {
   display: none;
 }
-/* line 109, ../../../assets/sass/client/style.scss */
+/* line 111, ../../../assets/sass/client/style.scss */
 #login .sendmsg {
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0px;
   margin: 0 auto;
   bottom: 0;
 }
 
-/* line 118, ../../../assets/sass/client/style.scss */
+/* line 120, ../../../assets/sass/client/style.scss */
 #modalMensajes {
   color: #404040;
 }
-/* line 121, ../../../assets/sass/client/style.scss */
+/* line 123, ../../../assets/sass/client/style.scss */
 #modalMensajes #ex1Slider {
   width: 100% !important;
+  margin-top: 30px;
+}
+/* line 127, ../../../assets/sass/client/style.scss */
+#modalMensajes #ex1Slider .slider-selection {
+  background-color: #f36126 !important;
+}
+/* line 131, ../../../assets/sass/client/style.scss */
+#modalMensajes #ex1Slider div.tooltip.top {
+  display: block !important;
+  opacity: 1 !important;
+  margin-top: -20px !important;
 }
 
-/* line 126, ../../../assets/sass/client/style.scss */
+/* line 139, ../../../assets/sass/client/style.scss */
 .clearfix {
   margin: 10px auto !important;
 }
 
-/* line 130, ../../../assets/sass/client/style.scss */
+/* line 143, ../../../assets/sass/client/style.scss */
 .no-margin {
   margin: 0 auto !important;
 }
 
-/* line 134, ../../../assets/sass/client/style.scss */
+/* line 147, ../../../assets/sass/client/style.scss */
 #bt1, #bt2, #bt3, #bt4, #bt5, #bt6, #bt7, #bt8, #bt9 {
   display: none;
 }
