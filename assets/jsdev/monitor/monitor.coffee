@@ -116,7 +116,12 @@ changeMask = () ->
 
   return
 
+# Hacemos la presentación de la pantalla animada
+animacionVentanas = () ->
 
+  $("#views").hide().fadeIn()
+
+  return
 ###
 Separamos en una función los controles
 que se tienen que recargar cada vez

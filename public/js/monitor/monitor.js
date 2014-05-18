@@ -1,4 +1,4 @@
-var activarBoton, app, changeMask, currentIndex, customButtons, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socialcenter, socket;
+var activarBoton, animacionVentanas, app, changeMask, currentIndex, customButtons, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socialcenter, socket;
 
 socket = io.connect("http://127.0.0.1:5555/");
 
@@ -118,6 +118,10 @@ changeMask = function() {
     }, 200);
     isActiveNavMessages = 1;
   }
+};
+
+animacionVentanas = function() {
+  $("#views").hide().fadeIn();
 };
 
 
