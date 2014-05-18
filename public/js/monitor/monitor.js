@@ -132,7 +132,7 @@ que se cambia la página
  */
 
 reloadControls = function() {
-  var player;
+  var fathom, player;
   if (location.hash === "#/") {
     socket.emit("controlBotones", {
       id: 0,
@@ -164,6 +164,20 @@ reloadControls = function() {
       });
       Galleria.run(".galleria");
       $("#content").css("background", "black");
+    }
+  }
+  if (typeof Fathom === 'function') {
+    if ($("#presentacion").length > 0) {
+      fathom = new Fathom("#presentacion");
+      if (fathom.$length > 1) {
+        $(".presentacionderecha").show();
+      }
+      $(".presentacionizquierda").on("click", function() {
+        fathom.prevSlide();
+      });
+      $(".presentacionderecha").on("click", function() {
+        fathom.nextSlide();
+      });
     }
   }
   $("a, video, .galleria-image-nav div").each(function(index) {

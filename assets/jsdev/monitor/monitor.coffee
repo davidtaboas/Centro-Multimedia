@@ -6,6 +6,7 @@ app = app or {}
 lastTabIndex = 0
 currentIndex = 0
 
+# GESTION DE BOTONES
 activarBoton = (id, label) ->
 
   socket.emit "controlBotones", {id: id, label: label}
@@ -16,6 +17,7 @@ customButtons = (id) ->
   window["funciones"+id]()
 
   return
+
 ###
 Los sockets van definidos de forma general
 ###
@@ -164,6 +166,23 @@ reloadControls = () ->
         })
       Galleria.run(".galleria")
       $("#content").css("background", "black")
+
+  # PRESENTACIONES
+  if typeof Fathom is 'function'
+    if $("#presentacion").length > 0
+      fathom = new Fathom("#presentacion")
+
+      if fathom.$length > 1
+        $(".presentacionderecha").show()
+
+      $(".presentacionizquierda").on "click", () ->
+        fathom.prevSlide()
+        return
+
+      $(".presentacionderecha").on "click", () ->
+        fathom.nextSlide()
+        return
+
 
   # Navegacion por tabindex
   $("a, video, .galleria-image-nav div").each (index) ->

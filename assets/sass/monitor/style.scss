@@ -47,7 +47,7 @@ header {
   padding: 20px;
   position: relative;
 }
-.row a {
+.row #menu a {
   background: #444;
   display: inline-table;
   color: $naranja;
@@ -293,3 +293,44 @@ ICONOS
     @extend .glyphicon-bullhorn;
   }
 }
+
+
+/*
+MODO PRESENTACION
+*/
+.nav-presentacion {
+  text-align: center;
+  margin: 10px;
+  a {
+    margin: 0 10px;
+    @extend .btn;
+    @extend .btn-default;
+  }
+}
+div.slide{
+  -webkit-box-shadow: 0 0 50px #c0c0c0;
+  -moz-box-shadow: 0 0 50px #c0c0c0;
+  box-shadow: 0 0 50px #c0c0c0;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 20px;
+  position: relative;
+  width: 900px;
+
+  &.activeslide {
+    opacity: 1;
+    display: block;
+  }
+
+  &.inactiveslide {
+    opacity: 0.4;
+    display: none !important;
+  }
+}
+
+
+
