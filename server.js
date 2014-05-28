@@ -59,7 +59,7 @@ app.set('views', [
 /*
 Definimos eventos
 */
-eventos = ["singleTap","doubleTap","swipeLeft","swipeRight","swipeUp","swipeDown","rotateLeft","rotateRight","pinchIn","pinchOut"];
+eventos = ["doubleTap","swipeLeft","swipeRight","swipeUp","swipeDown","rotateLeft","rotateRight","pinchIn","pinchOut"];
 /*
 Controllers
 */
