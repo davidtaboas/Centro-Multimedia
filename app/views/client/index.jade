@@ -53,27 +53,43 @@ block content
                     button#bt8.btn.btn-info.btn-lg(type="button") 8
                     button#bt9.btn.btn-info.btn-lg(type="button") 9
 
-            // Modal
-            #modalMensajes.modal.fade(aria-hidden='true', aria-labelledby='myModalLabel', role='dialog', tabindex='-1')
-                .modal-dialog
-                    .modal-content
-                        .modal-header
-                            button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
-                            h4#myModalLabel.modal-title Enviar mensaje
-                        .modal-body
-                            form(method='GET', action='', role='form')
-                              .form-group
-                                label.control-label(for='textoMensaje') Texto
-                                input#textoMensaje.form-control(type='text', placeholder='Introduce el texto', name='texto')
-                              .form-group
-                                label(for='caducidadMensaje') Caducidad (horas)
-                                input#caducidadMensaje.form-control(type='text', value='24', data-slider-value='24', data-slider-step='12', data-slider-max='800', data-slider-min='0', data-slider-id='ex1Slider', name='expiracion')
-                                p#ex6CurrentSliderValLabel.help-block
-                                  | Caducidad seleccionada en días:
-                                  span#ex6SliderVal 1
+    // Modal
+    #modalMensajes.modal.fade(aria-hidden='true', aria-labelledby='myModalLabel', role='dialog', tabindex='-1')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+                    h4#myModalLabel.modal-title Enviar mensaje
+                .modal-body
+                    form(method='GET', action='', role='form')
+                        .form-group
+                            label.control-label(for='textoMensaje') Texto
+                            input#textoMensaje.form-control(type='text', placeholder='Introduce el texto', name='texto', maxlength='140')
+                        .form-group
+                            .btn-group(data-toggle='buttons')
+                                label.btn.btn-primary.active
+                                    input#option1(type='radio', name='expiracion', value="6", checked)
+                                    | 6 horas
+                                label.btn.btn-primary
+                                    input#option2(type='radio', name='expiracion', value="12")
+                                    | 12 horas
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="24")
+                                    | 1 día
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="72")
+                                    | 3 días
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="168")
+                                    | 1 semana
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="336")
+                                    | 2 semanas
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="672")
+                                    | 1 mes
 
-
-                        .modal-footer
-                            button.btn.btn-default(data-dismiss='modal', type='button') Cerrar
-                            button.btn.btn-primary.sendmsgok(type='button') Enviar
+                .modal-footer
+                    button.btn.btn-default(data-dismiss='modal', type='button') Cerrar
+                    button.btn.btn-primary.sendmsgok(type='button') Enviar
 

@@ -138,7 +138,7 @@ reloadControls = () ->
   # Limpiamos el fondo
   $("#content").css("background","none")
 
-  $("#slider ul li").width($("body").width())
+
   #VIDEOS
   if typeof MediaElementPlayer is 'function'
     if $("video").length > 0
@@ -207,35 +207,28 @@ $(document).ready ->
 
   setContentHeight()
 
-  moveLeft = ->
-    $("#slider ul").animate
-      left: +slideWidth
-    , 200, ->
-      $("#slider ul li:last-child").prependTo "#slider ul"
-      $("#slider ul").css "left", ""
-      return
 
-    return
   moveRight = ->
-    $("#slider ul").animate
-      left: -slideWidth
-    , 200, ->
-      $("#slider ul li:first-child").appendTo "#slider ul"
-      $("#slider ul").css "left", ""
+    $("#slider").fadeOut "slow", () ->
+      $("footer").animate
+        width: "0%"
+      , 400, ->
+        $("#slider ul li:first-child").appendTo "#slider ul"
+        $("footer").animate
+          width: "95%"
+        , 400, ->
+          $("#slider").fadeIn "fast", () ->
+
+            return
+          return
+        return
       return
 
-    return
-  slideCount = $("#slider ul li").length
-  slideWidth = $("#slider ul li").width()
-  slideHeight = $("#slider ul li").height()
-  sliderUlWidth = slideCount * slideWidth
-  $("#slider").css
-    width: slideWidth
-    height: slideHeight
 
-  $("#slider ul").css
-    width: sliderUlWidth
-    marginLeft: -slideWidth
+
+
+    return
+
 
   $("#slider ul li:last-child").prependTo "#slider ul"
 
@@ -244,7 +237,7 @@ $(document).ready ->
   setInterval (->
     moveRight()
     return
-  ), 3000
+  ), 10000
 
   return
 

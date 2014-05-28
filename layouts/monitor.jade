@@ -56,13 +56,15 @@ html(ng-app="monitorApp")
                 div#slider
                     ul
                         li(ng-repeat='message in messages')
-                            div.info
-
-                                p
+                            div.data
+                                p.icon
                                     span.glyphicon(class="prioridad p{{message.prioridad}}")
-                                    | {{ message.texto }}
-                                p.fecha {{message.fechaEnvio | date:'dd/MM/yyyy @ HH:mm'}}
-                                span.timeago(timeago="{{message.fechaEnvio}}")
+                                p.ago
+                                    span.timeago(timeago="{{message.fechaEnvio}}")
+                            div.info
+                                p {{ message.texto }}
+                                //- p.fecha {{message.fechaEnvio | date:'dd/MM/yyyy @ HH:mm'}}
+
 
 
 
