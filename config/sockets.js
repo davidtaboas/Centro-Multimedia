@@ -117,6 +117,7 @@ module.exports = function (server, config) {
             console.log('Se ha desconectado un cliente.');
             var i = allClients.indexOf(socket);
             if(socket == usuarioActivo){
+                console.log('El usuario desconectado era el activo')
                 usuarioActivo=-1;
                 iomonitor.sockets.socket(idmonitor).emit('control', {move: "home"});
             }
@@ -152,14 +153,19 @@ module.exports = function (server, config) {
                     }
                 });
             }
-            iousers.sockets.emit("login", {login: "go"});
+
+            // Si no hay un usuario contralando la aplicación indicamos que se puede proceder a la identificación
+            if(usuarioActivo==-1){
+                iousers.sockets.emit("login", {login: "go"});
+            }
 
         });
 
         // Gestion del monitor
         socket.on('monitor', function(data){
 
-            if(usuarioActivo==-1){
+
+            if(usuarioActivo === -1){
                 // No hay usuario activo, por lo tanto lanzamos al monitor el patrón de registro
 
                 // Antes mezclamos los eventos para la identificación

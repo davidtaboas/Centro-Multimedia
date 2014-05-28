@@ -89,7 +89,7 @@ $(function() {
     $("#login .alert-success").fadeOut();
     $("#login .alert-danger").fadeOut();
     $("#login .alert-info").fadeIn();
-    $("#login").fadeIn();
+    $("#login").show();
     socket.disconnect();
   });
   $reload.on("tap", function() {
@@ -115,10 +115,11 @@ $(function() {
   });
   socket.on("login", function(data) {
     if (data.login === "ok") {
+      $(".remote-control").show();
       $("#login").fadeOut();
       $("#login .window").unbind(eventos.join(' '));
     } else if (data.login === "go") {
-      $("#login").fadeIn();
+      $("#login").show();
       $("#login .alert-warning").fadeOut();
       $("#login .alert-success").fadeIn();
       socket.emit("monitor", "go");
@@ -142,6 +143,7 @@ $(function() {
       $("#login .alert-danger").fadeOut();
       $("#login .alert-info").fadeIn();
       $("#login").fadeIn();
+      $(".remote-control").hide();
       socket.disconnect();
     }
   });

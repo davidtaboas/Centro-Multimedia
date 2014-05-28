@@ -48,7 +48,7 @@ socket.on "move", (data) ->
 socket.on "control", (data) ->
 
   if data.move is "home"
-    window.location.href = "/monitor"
+    document.location.href = "/monitor#/"
   else if data.move is "back"
     window.history.back()
   return

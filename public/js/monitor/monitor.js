@@ -48,7 +48,7 @@ socket.on("move", function(data) {
 
 socket.on("control", function(data) {
   if (data.move === "home") {
-    window.location.href = "/monitor";
+    document.location.href = "/monitor#/";
   } else if (data.move === "back") {
     window.history.back();
   }

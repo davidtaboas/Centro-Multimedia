@@ -115,7 +115,7 @@ $ ->
     $("#login .alert-success").fadeOut()
     $("#login .alert-danger").fadeOut()
     $("#login .alert-info").fadeIn()
-    $("#login").fadeIn()
+    $("#login").show()
     socket.disconnect()
     return
 
@@ -149,17 +149,14 @@ $ ->
 
 
     if data.login is "ok"
+      $(".remote-control").show()
       $("#login").fadeOut()
       $("#login .window").unbind eventos.join(' ')
     else if data.login is "go"
-      $("#login").fadeIn()
+      $("#login").show()
       $("#login .alert-warning").fadeOut()
       $("#login .alert-success").fadeIn()
-
-
       socket.emit "monitor", "go"
-
-
       $("#login .window").bind eventos.join(' '), (e) ->
         $("#login .alert-danger").fadeOut()
         socket.emit "loginevent", e.type
@@ -187,6 +184,7 @@ $ ->
       $("#login .alert-danger").fadeOut()
       $("#login .alert-info").fadeIn()
       $("#login").fadeIn()
+      $(".remote-control").hide()
       socket.disconnect()
     return
 
