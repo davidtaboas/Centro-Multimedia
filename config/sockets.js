@@ -25,6 +25,14 @@ module.exports = function (server, config) {
     var idmonitor,
         usuarioActivo = -1;
 
+    /*
+        usuarioActivo
+            -1     = ningún cliente activo
+            0      = modo protegido
+            socket = "socket" está activo
+
+    */
+
     var allClients = [];
 
     // Conexión del monitor
@@ -83,6 +91,7 @@ module.exports = function (server, config) {
             }
             else if(sistemaoperativo == "linux"){
                 // linux
+                wakeup = "scripts/monitor_on.sh"
             }
             else if(sistemaoperativo == "win32"){
                 //windows
@@ -139,6 +148,7 @@ module.exports = function (server, config) {
                 }
                 else if(sistemaoperativo == "linux"){
                     // linux
+                    sleep = "scripts/monitor_off.sh"
                 }
                 else if(sistemaoperativo == "win32"){
                     //windows
