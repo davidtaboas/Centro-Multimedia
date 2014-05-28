@@ -14,12 +14,14 @@ app = app or {}
 $ ->
 
 
-  $("#caducidadMensaje").slider tooltip: "show"
-  $("#caducidadMensaje").on "slide", (slideEvt) ->
-    $("#ex6SliderVal").text slideEvt.value / 24
-    return
-
   $("#login h1").textfill()
+
+  $("input#textoMensaje").maxlength
+    alwaysShow: true
+    warningClass: "label label-info"
+    limitReachedClass: "label label-warning"
+    placement: "top"
+    message: 'usados %charsTyped% de %charsTotal% caracteres.'
 
   #setup some common vars
   $moveLeft   = $("#left")
@@ -141,7 +143,8 @@ $ ->
       $("#textoMensaje").parent().addClass("has-error")
     else
       $("#modalMensajes").modal('toggle')
-      socket.emit("mensaje", { texto: $("#textoMensaje").val(), caducidad: $("#caducidadMensaje").val() });
+      socket.emit("mensaje", { texto: $("#textoMensaje").val(), caducidad: $("input[name=expiracion]:checked").val() });
+      $("#textoMensaje").val("")
     return
 
   # LOGIN STUFF

@@ -12,13 +12,14 @@ app = app || {};
 
 $(function() {
   var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $reload, $sendMsg, $sendOk, $viewSend;
-  $("#caducidadMensaje").slider({
-    tooltip: "show"
-  });
-  $("#caducidadMensaje").on("slide", function(slideEvt) {
-    $("#ex6SliderVal").text(slideEvt.value / 24);
-  });
   $("#login h1").textfill();
+  $("input#textoMensaje").maxlength({
+    alwaysShow: true,
+    warningClass: "label label-info",
+    limitReachedClass: "label label-warning",
+    placement: "top",
+    message: 'usados %charsTyped% de %charsTotal% caracteres.'
+  });
   $moveLeft = $("#left");
   $moveRight = $("#right");
   $sendOk = $("#ok");
@@ -109,8 +110,9 @@ $(function() {
       $("#modalMensajes").modal('toggle');
       socket.emit("mensaje", {
         texto: $("#textoMensaje").val(),
-        caducidad: $("#caducidadMensaje").val()
+        caducidad: $("input[name=expiracion]:checked").val()
       });
+      $("#textoMensaje").val("");
     }
   });
   socket.on("login", function(data) {
