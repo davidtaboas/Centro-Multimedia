@@ -1,0 +1,2254 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"textomensaje"
+			],
+			[
+				"sock",
+				"socketserver"
+			],
+			[
+				"log",
+				"logout"
+			],
+			[
+				"usuario",
+				"usuarioActivo"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"back",
+				"background-position"
+			],
+			[
+				"fire",
+				"firefoxpantalla"
+			],
+			[
+				"firefo",
+				"firefoxusuario"
+			],
+			[
+				"over",
+				"overflow"
+			],
+			[
+				"messa",
+				"messages"
+			],
+			[
+				"mes",
+				"messages"
+			],
+			[
+				"messag",
+				"message"
+			],
+			[
+				"in",
+				"indexMessage"
+			],
+			[
+				"inde",
+				"indexMessage"
+			],
+			[
+				"index",
+				"indexMessage"
+			],
+			[
+				"rot",
+				"rotateMessages"
+			],
+			[
+				"pr",
+				"priority"
+			],
+			[
+				"filter",
+				"filterMessages	[]"
+			],
+			[
+				"soc",
+				"scope"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"wi",
+				"width:   (property)"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"so",
+				"scope"
+			],
+			[
+				"current",
+				"currentMask"
+			],
+			[
+				"curr",
+				"currentMask"
+			],
+			[
+				"change",
+				"changeMask"
+			],
+			[
+				"curren",
+				"currentMask"
+			],
+			[
+				"cur",
+				"currentMask"
+			],
+			[
+				"curre",
+				"currentMask"
+			],
+			[
+				"dis",
+				"disconnect"
+			],
+			[
+				"run",
+				"runningPortApi	(num)"
+			],
+			[
+				"ser",
+				"serverapi	(?)"
+			],
+			[
+				"app",
+				"appapi	(?)"
+			],
+			[
+				"template",
+				"templateUrl"
+			],
+			[
+				"route",
+				"routeParams"
+			],
+			[
+				"monitor",
+				"monitorCtrls"
+			],
+			[
+				"my",
+				"myimgid"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"nu",
+				"num_deleted	(num)"
+			],
+			[
+				"num",
+				"num_done	(num)"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"cu",
+				"currentIndex"
+			],
+			[
+				"go",
+				"goHome"
+			],
+			[
+				"padd",
+				"padding-right:   (property)"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"http",
+				"http-equiv"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"server",
+				"serverserver"
+			],
+			[
+				"move",
+				"moveRight"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"list-s",
+				"list-style"
+			],
+			[
+				"storyS",
+				"storyState"
+			],
+			[
+				"fail",
+				"failure"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"json",
+				"json_info"
+			],
+			[
+				"incl",
+				"include"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"end",
+				"endwhile"
+			],
+			[
+				"ligh",
+				"lighten"
+			],
+			[
+				"preci",
+				"preciomaximo"
+			],
+			[
+				"prec",
+				"preciomaximo"
+			],
+			[
+				"precio",
+				"precio"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"sobroso",
+				"sobrosobg"
+			],
+			[
+				"image",
+				"imageoptim"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"task",
+				"tasks"
+			],
+			[
+				"sc",
+				"scss"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"TS_",
+				"TS_limpiarArbol"
+			],
+			[
+				"Tabla",
+				"TablaSimbolos_mostrar"
+			],
+			[
+				"l",
+				"lexema"
+			],
+			[
+				"si",
+				"siguiente"
+			],
+			[
+				"nuevo",
+				"nuevo_elemento"
+			],
+			[
+				"nuev",
+				"nuevo_elemento"
+			],
+			[
+				"is_ca",
+				"is_category"
+			],
+			[
+				"lis",
+				"list-style-position"
+			],
+			[
+				"body",
+				"bodyHeight"
+			],
+			[
+				"footer",
+				"footerHeight"
+			],
+			[
+				"foot",
+				"footerHeight"
+			],
+			[
+				"bo",
+				"bodyHeight"
+			],
+			[
+				"wind",
+				"windowHeight"
+			],
+			[
+				"win",
+				"windowHeight"
+			],
+			[
+				"yello",
+				"yellowMicro"
+			],
+			[
+				"repe",
+				"repeat-x"
+			],
+			[
+				"grayLi",
+				"grayLight"
+			],
+			[
+				"fecha",
+				"fechaObjetivo"
+			],
+			[
+				"file",
+				"fileparts"
+			],
+			[
+				"auth",
+				"authCode"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"impo",
+				"important"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"wdi",
+				"width"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"sp",
+				"sprite-css"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"decop",
+				"decopeques"
+			],
+			[
+				"short",
+				"shortname"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "config/sockets.js",
+			"settings":
+			{
+				"buffer_size": 8195,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/jsdev/monitor/controllers.coffee",
+			"settings":
+			{
+				"buffer_size": 1234,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/jsdev/client/client.coffee",
+			"settings":
+			{
+				"buffer_size": 3782,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 1702,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/jsdev/monitor/monitor.coffee",
+			"settings":
+			{
+				"buffer_size": 4770,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/client/index.jade",
+			"settings":
+			{
+				"buffer_size": 4092,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "layouts/client.jade",
+			"settings":
+			{
+				"buffer_size": 1577,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/sass/client/style.scss",
+			"settings":
+			{
+				"buffer_size": 1704,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/JSLint/JSLint.sublime-build",
+	"command_palette":
+	{
+		"height": 203.0,
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"todo",
+				"TodoReview: Project Files"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"uplo",
+				"SFTP: Upload File"
+			],
+			[
+				"upl",
+				"SFTP: Upload File"
+			],
+			[
+				"upload",
+				"SFTP: Upload File"
+			],
+			[
+				"uploa",
+				"SFTP: Upload File"
+			],
+			[
+				"sftp uplo",
+				"SFTP: Upload File"
+			],
+			[
+				"sftp",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"bro",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"brow",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"browse",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"browse re",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"brows",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"br",
+				"SFTP: Browse Server…"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"sftp ",
+				"SFTP: Browse Server…"
+			],
+			[
+				"upgra",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"map to",
+				"SFTP: Map to Remote…"
+			],
+			[
+				"sftp ma",
+				"SFTP: Map to Remote…"
+			],
+			[
+				"sft",
+				"SFTP: Setup Server…"
+			],
+			[
+				"gist",
+				"Gist: Open Gist"
+			],
+			[
+				"inser",
+				"Jekyll: Insert current date"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"rempve",
+				"Package Control: Remove Package"
+			],
+			[
+				"coffescr",
+				"Set Syntax: CoffeeScript (Literate)"
+			],
+			[
+				"coffee",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"cssc",
+				"Sort via CSScomb"
+			],
+			[
+				"sassbe",
+				"SassBeautify"
+			],
+			[
+				"color",
+				"Color Picker"
+			],
+			[
+				"sassb",
+				"SassBeautify"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"lint",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"tern",
+				"TernJS: Rename variable"
+			],
+			[
+				"ternjs",
+				"TernJS: Next Occurance"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"lin",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"linter",
+				"SublimeLinter: Previous Error"
+			],
+			[
+				"linter deb",
+				"SublimeLinter: Disable Debug Mode"
+			],
+			[
+				"INSTA",
+				"Package Control: Install Package"
+			],
+			[
+				"up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"jekyll",
+				"Jekyll: Insert current date"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"alignm",
+				"Preferences: Alignment Key Bindings – Default"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment Key Bindings – User"
+			],
+			[
+				"enco",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"encode",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"html",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"encod",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"format",
+				"Format Code"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"filedif",
+				"FileDiffs: Menu"
+			],
+			[
+				"filed",
+				"FileDiffs: Menu"
+			],
+			[
+				"filedi",
+				"FileDiffs: Menu"
+			],
+			[
+				"file",
+				"FileDiffs: Menu"
+			],
+			[
+				"mar",
+				"Set Syntax: Markdown"
+			],
+			[
+				"C",
+				"Set Syntax: C"
+			],
+			[
+				"filediff",
+				"FileDiffs: Menu"
+			],
+			[
+				"foundation top",
+				"Snippet: ZURB Foundation 5 Topbar"
+			],
+			[
+				"less",
+				"Set Syntax: LESS"
+			],
+			[
+				"les",
+				"Set Syntax: LESS"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"subli",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"sublime",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"sniff",
+				"PHP Code Sniffer: Sniff this file"
+			],
+			[
+				"fix",
+				"PHP Coding Standards Fixer: Fix this file"
+			],
+			[
+				"sublimeli",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"jsli",
+				"JSLint"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Upgrade/Overwrite All Packages"
+			]
+		],
+		"width": 561.0
+	},
+	"console":
+	{
+		"height": 279.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"sublime.log_commands(False);",
+			"sublime.log_commands(True);",
+			"sublime.log_commands(TRUE);",
+			"ls",
+			"lessc assets/less/bootstrapwp.less > bootstrapwp.css",
+			"lessc less/bootstrapwp.less > bootstrapwp.css",
+			"clr",
+			"clear"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/davidtaboas/dev/socialcenter/layouts/client.jade",
+		"/Users/davidtaboas/dev/socialcenter/app/controllers/client.js",
+		"/Users/davidtaboas/dev/socialcenter/assets/sass/client/style.scss",
+		"/Users/davidtaboas/dev/socialcenter/assets/jsdev/client/client.coffee",
+		"/Users/davidtaboas/dev/socialcenter/app/views/client/index.jade",
+		"/Users/davidtaboas/dev/socialcenter/app/controllers/messages.js",
+		"/Users/davidtaboas/dev/socialcenter/assets/jsdev/monitor/monitor.coffee",
+		"/Users/davidtaboas/dev/socialcenter/socialcenter.sublime-project",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/TodoReview/TodoReview.sublime-settings",
+		"/Users/davidtaboas/dev/socialcenter/assets/sass/monitor/style.scss",
+		"/Users/davidtaboas/dev/socialcenter/config/express.js",
+		"/Users/davidtaboas/dev/socialcenter/layouts/monitor.jade",
+		"/Users/davidtaboas/dev/socialcenter/app/models/message.js",
+		"/Users/davidtaboas/Dropbox/Work/_/new_decopeques/html/simpleCache.php",
+		"/Users/davidtaboas/Dropbox/Work/_/new_decopeques/plugin_decopeques.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/C73C2784-F415-4DCC-BFEE-D6E106540780/tienda.cache",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/39B965B1-9385-490E-920E-6156EC707C10/getData.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/420A5B8B-DD58-49F2-8470-2BDEF0A477D8/serveData.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/0B189C71-422B-4AAE-8C4B-5F59B41617EF/serveData.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/B46EACB5-562B-47BE-BF63-ADEAF561C0D1/.htaccess",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/0FF99737-82F6-49A8-834C-B0C8C39D4418/.htaccess",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/0EFE9A42-16BE-476D-A4A7-0FE25808CFFD/tienda.cache",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/2211C546-A2DC-4FD7-9C39-27809D081BE4/tienda.cache",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/4B68A8EF-197F-4DFA-86C0-44A3BD5BEAB6/tienda.cache",
+		"/Users/davidtaboas/Dropbox/Work/_/new_decopeques/css/custom.css",
+		"/Users/davidtaboas/Dropbox/Work/_/new_decopeques/html/posts.php",
+		"/Users/davidtaboas/Dropbox/Work/_/new_decopeques/sftp-config.json",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/User/GitGutter.sublime-settings",
+		"/Users/davidtaboas/dev/socialcenter/assets/jsdev/monitor/controllers.coffee",
+		"/Users/davidtaboas/dev/socialcenter/package.json",
+		"/Users/davidtaboas/dev/socialcenter/bower.json",
+		"/Users/davidtaboas/dev/socialcenter/config/config.js",
+		"/Users/davidtaboas/dev/socialcenter/.gitignore",
+		"/Users/davidtaboas/dev/socialcenter/server.js",
+		"/Users/davidtaboas/dev/socialcenter/Gruntfile.js",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/davidtaboas/dev/socialcenter/public/components/galleria/galleria-1.3.5.js",
+		"/Users/davidtaboas/dev/socialcenter/app/views/partials/partialimagenes.jade",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/Terminal/Terminal.sublime-settings",
+		"/Users/davidtaboas/dev/socialcenter/public/components/sass-bootstrap/examples/grid/index.html",
+		"/Users/davidtaboas/dev/socialcenter/public/components/galleria/LICENSE",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/Open-Include/Default (OSX).sublime-keymap",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/davidtaboas/dev/socialcenter/.gitkeep",
+		"/Users/davidtaboas/dev/socialcenter/app/views/partials/partialmonitor.jade",
+		"/Users/davidtaboas/dev/socialcenter/app/controllers/monitor.js",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/B1B079AA-2BB0-4D7C-8EEC-81C46937AD70/wp-config.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/E905EBD4-63D1-4D8B-8E49-9AEEC7639216/wp-config.php",
+		"/Users/davidtaboas/Dropbox/Work/plugin_fiestasycumples/sftp-config.json",
+		"/Users/davidtaboas/Dropbox/Work/plugin_fiestasycumples/README",
+		"/Users/davidtaboas/dev/socialcenter/public/components/components-font-awesome/scss/_variables.scss",
+		"/Users/davidtaboas/Downloads/ghost/content/themes/Edictum 1.0 GHOST/post.hbs",
+		"/Users/davidtaboas/Dropbox/jekyll/index.html",
+		"/Users/davidtaboas/Dropbox/jekyll/_posts/2014-01-14-un-murmullo-contagioso.md",
+		"/Users/davidtaboas/Dropbox/jekyll/about.md",
+		"/Users/davidtaboas/Dropbox/jekyll/_posts/2014-04-23-club-corazones-solitarios.md",
+		"/Users/davidtaboas/Dropbox/jekyll/assets/less/page.less",
+		"/Users/davidtaboas/Dropbox/jekyll/LICENSE",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/ACC8D28F-9384-403C-A966-0FB595223FA8/launch.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/A5060262-BB01-4461-BC71-535C206F220D/.. ",
+		"/Users/davidtaboas/dev/socialcenter/config/sockets.js",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/1A69CCF2-4A8E-45DF-914A-DB14F3B3C6FD/.htaccess",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/61CD0B0A-40C9-4251-9B5A-371816C175E1/index.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/C25EF3F0-7FBF-4173-8DA5-8BE464F59031/wp-blog-header.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/1E126552-A4C0-4F59-B00B-6C1BA0DB6C57/index.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/9A6CE301-4E93-4804-9078-914455E3E395/wp-config.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/88B6B125-4833-405E-91FB-6B080F3AA681/wp-config-sample.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/ADAAC733-4A66-4995-A898-73D196FAF828/.. ",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/43B5DDA4-561E-4948-9803-4C98778D9672/entropybanner.cgi",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/642DD5B9-0CA4-42E8-B8B1-874463A1C75E/randhtml.cgi",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/7881BEC0-F6EA-4EBE-99E7-105B91A9E791/.htaccess",
+		"/Users/davidtaboas/dev/socialcenter/assets/jsdev/monitor/factories.coffee",
+		"/Users/davidtaboas/dev/socialcenter/assets/jsdev/monitor/app-angular.coffee",
+		"/Users/davidtaboas/dev/socialcenter/assets/jsdev/monitor/directives.coffee",
+		"/Users/davidtaboas/dev/socialcenter/assets/jsdev/monitor/services.coffee",
+		"/Users/davidtaboas/Downloads/testing-sockets/index.html",
+		"/Users/davidtaboas/dev/socialcenter/public/components/jquery-mobile-bower/css/images/icons-svg/carat-l-black.svg",
+		"/Users/davidtaboas/Downloads/testing-sockets/socket.io/Makefile",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/26A664C0-F631-421F-878D-4AE3B740D8E9/wp-config.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/1308032C-AC3E-4014-BE82-5C008069C69B/.htaccess",
+		"/Users/davidtaboas/Dropbox/Work/menudoscuadros/custom.css",
+		"/Users/davidtaboas/Dropbox/Work/menudoscuadros/comments.php",
+		"/Users/davidtaboas/dev/socialcenter/public/components/mediaelement/build/mediaelementplayer.min.css",
+		"/Users/davidtaboas/dev/socialcenter/modules/videos/controller.js",
+		"/Users/davidtaboas/dev/socialcenter/app/views/partials/partialvideos.jade",
+		"/Users/davidtaboas/dev/socialcenter/public/js/monitor/app.js",
+		"/Users/davidtaboas/dev/socialcenter/public/js/client/app.js",
+		"/Users/davidtaboas/dev/socialcenter/public/components/sass-bootstrap/fonts/glyphicons-halflings-regular.svg",
+		"/Users/davidtaboas/dev/socialcenter/app/partials/monitor.jade",
+		"/Users/davidtaboas/dev/socialcenter/app/views/monitor/index.jade",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/User/CoffeeScript.sublime-settings",
+		"/Users/davidtaboas/Dropbox/Work/menudoscuadros/woocommerce/single-product/product-image.php",
+		"/Users/davidtaboas/Dropbox/Work/menudasfiestas/header.php",
+		"/Users/davidtaboas/Dropbox/Work/menudasfiestas/woocommerce/single-product/product-image.php",
+		"/Users/davidtaboas/Dropbox/Work/menudasfiestas/woocommerce/single-product/add-to-cart/simple.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/FA908CC8-11F7-445C-8014-843B3E5094A6/variable.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/CEF235C8-7172-4DC8-9481-65BF3AB2CC5B/review.php",
+		"/Users/davidtaboas/Library/Caches/Cleanup At Startup/Transmit/B24B6E67-64EB-4031-A577-CAFCE1A06019/product-image.php",
+		"/Users/davidtaboas/.gitconfig",
+		"/Users/davidtaboas/.zshrc",
+		"/Users/davidtaboas/dev/.git/TAG_EDITMSG",
+		"/Users/davidtaboas/.zshrc-e",
+		"/Users/davidtaboas/.bashrc",
+		"/Users/davidtaboas/.bash_profile",
+		"/Users/davidtaboas/Dropbox/jekyll/blog.html",
+		"/Users/davidtaboas/Dropbox/jekyll/assets/css/main.min.css",
+		"/Users/davidtaboas/Dropbox/jekyll/cv/style.css",
+		"/Users/davidtaboas/Dropbox/jekyll/css/main.css",
+		"/Users/davidtaboas/Dropbox/jekyll/CNAME",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/app/views/client/index.jade",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/assets/sass/client/style.scss",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/layouts/monitor.jade",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/assets/sass/monitor/style.scss",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/scrum-app/assets/sass/style.scss",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/scrum-app/app/views/layout.jade",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/scrum-app/config/routes.js",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/scrum-app/app/controllers/home.js",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/scrum-app/app/controllers/stories.js",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/public/components/mediaelement/build/mediaelementplayer.min.js",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/modules/videos/controller.js",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/modules/videos/views/videos/index.jade",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/assets/jsdev/monitor/monitor.coffee",
+		"/Users/davidtaboas/Library/Application Support/Sublime Text 3/Packages/User/SassBeautify.sublime-settings",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/layouts/client.jade",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/app/views/monitor/index.jade",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/public/components/sass-bootstrap/lib/_responsive-utilities.scss",
+		"/Users/davidtaboas/Dropbox/Universidad/2013_2014/TFG/socialcenter/public/components/sass-bootstrap/lib/_variables.scss"
+	],
+	"find":
+	{
+		"height": 54.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/davidtaboas/Dropbox/jekyll/assets",
+			"<project>",
+			"/Users/davidtaboas/Dropbox/jekyll",
+			"<project>",
+			"/Users/davidtaboas/Downloads/vagrantpress-master/puppet",
+			"<project>",
+			"/Users/davidtaboas/Downloads/eddiemachado-bones-405349e",
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"msg",
+			"myModal",
+			"console.log",
+			"server",
+			"log",
+			"usuarioActivo",
+			"user",
+			"usuarioActivo",
+			"user",
+			"height",
+			"200",
+			"serve",
+			"php",
+			"'",
+			"label",
+			"gplus",
+			"clear",
+			"clr",
+			"60px",
+			"yeoman-app-express",
+			"open",
+			"5",
+			"wordpressdatabase",
+			"`",
+			"'",
+			"'decoracionbebes'",
+			"decoracionbebes",
+			"nombre_BBDD",
+			";\n",
+			"entry-category",
+			"current",
+			"$(\"#lastmessage p\")[indexMessage]",
+			"last_nom",
+			"data:",
+			"data",
+			"changeMask",
+			"factory",
+			"services",
+			"arguments_",
+			"$post->post_content",
+			"summary",
+			"product_item",
+			"deg2rad",
+			"link",
+			"loadedStyles",
+			"script",
+			"link",
+			"loadedStyles",
+			"stylePath",
+			"monitor",
+			"phonecatApp",
+			"phonecatControllers",
+			"myApp",
+			"fresco",
+			"quanti",
+			"path",
+			"subl",
+			"entry-cate",
+			"entry-date",
+			"entry",
+			"entry-da",
+			"20deg",
+			"totals",
+			"Totals",
+			"totals",
+			"Totals",
+			"totals",
+			"Totals",
+			"totals",
+			"Totals",
+			"totals",
+			"Totals",
+			"totals",
+			"\"",
+			"[\"",
+			"\"]",
+			"[\"",
+			"label",
+			"round.",
+			",\n          counts: counts",
+			"backlog",
+			"active",
+			"var ",
+			"$screen-lg-min",
+			"$container-lg",
+			"bread",
+			"btnsubmit",
+			"fi-trash",
+			"tab",
+			"^[0-9]{1,3}. ",
+			"  ",
+			"the",
+			"my",
+			"vclick (e)",
+			"tap",
+			"click",
+			".active",
+			"active",
+			"connect",
+			"multipart",
+			"client",
+			"app2",
+			"Left",
+			"left",
+			"12px",
+			"Lunes",
+			"state",
+			"State",
+			"state",
+			"article",
+			"Article",
+			"ArticleSchema",
+			"home",
+			"compass",
+			"development",
+			"input",
+			"objetivo",
+			"rol",
+			"titulo",
+			"userlist",
+			">",
+			"twitter",
+			">",
+			"twitter",
+			"thir",
+			"SES",
+			"1",
+			"url("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"Domingo",
+			"url(../img/mediaelementplayer/",
+			"/assets",
+			"<ol>\n						         	<li>\n						         		<a href=\"<?php echo get_permalink($post->ID); ?>\"><?php echo get_the_title( $post->ID ); ?></a>\n						         	</li>\n					         	</ol>",
+			"<ol><li>\n					         		<a href=\"<?php echo get_permalink($post->ID); ?>\"><?php echo get_the_title( $post->ID ); ?></a>\n					         	</li></ol>",
+			"<ul><li>\n					         		<a href=\"<?php echo get_permalink($post->ID); ?>\"><?php echo get_the_title( $post->ID ); ?></a>\n					         	</li></ul>",
+			"<li>\n					         		<a href=\"<?php echo get_permalink($post->ID); ?>\"><?php echo get_the_title( $post->ID ); ?></a>\n					         	</li>",
+			"$post->ID",
+			"davidtaboas.es",
+			"percentage((@columns / @grid-columns))",
+			"davidtaboas.es",
+			"get_post_meta",
+			"_GET",
+			"small-12 ",
+			"small-12",
+			"size-36",
+			"caption",
+			"",
+			"./assets/slide",
+			"assets",
+			"bones/",
+			"custom/",
+			"bones/",
+			"",
+			" ",
+			"",
+			"@gris",
+			"@grisTexto",
+			"@grisaceo",
+			"@azul",
+			"@grisClaro",
+			");",
+			"nodo-expandido",
+			"TablaSimbolos_",
+			"Elemento",
+			"#d4162f",
+			"#f49faa",
+			"#d4162f",
+			"http://www.microcervecerias.es",
+			"",
+			"<td>",
+			"",
+			"<td>",
+			"",
+			"<br/>",
+			"",
+			"<td>",
+			"site.posts[0]",
+			"davidtaboas.es",
+			"$ele",
+			"$inc",
+			"$num",
+			"<?",
+			"\"",
+			":",
+			"/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "config/sockets.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"sublime_auto_complete": true,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3254.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "assets/jsdev/monitor/controllers.coffee",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1234,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "assets/jsdev/client/client.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3782,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 534.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1048,
+								1048
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"sublime_auto_complete": true,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 818.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "assets/jsdev/monitor/monitor.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4770,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3380.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/views/client/index.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4092,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 202.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "layouts/client.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								383,
+								383
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "assets/sass/client/style.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1667.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 61.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 116.0
+	},
+	"project": "socialcenter.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"monitor.scs",
+				"assets/sass/monitor/style.scss"
+			],
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				"moni",
+				"assets/jsdev/monitor/monitor.coffee"
+			],
+			[
+				"monitor.sc",
+				"assets/sass/monitor/style.scss"
+			],
+			[
+				"head",
+				"_includes/head.html"
+			],
+			[
+				"lec",
+				"lecturas.md"
+			],
+			[
+				"monitor.co",
+				"socialcenter/assets/jsdev/monitor/monitor.coffee"
+			],
+			[
+				"client.scss",
+				"socialcenter/assets/sass/client/style.scss"
+			],
+			[
+				"monitor",
+				"socialcenter/assets/jsdev/monitor/monitor.coffee"
+			],
+			[
+				"header",
+				"header.php"
+			],
+			[
+				"custom",
+				"custom.scss"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"monito",
+				"assets/jsdev/monitor/monitor.coffee"
+			],
+			[
+				"blog",
+				"blog.html"
+			],
+			[
+				"socket",
+				"config/sockets.js"
+			],
+			[
+				"config/",
+				"config/settings.development.coffee"
+			],
+			[
+				"usercontroller.js",
+				"web/app/js/controllers/UserController.js"
+			],
+			[
+				"video/",
+				"app/modules/video/info.json"
+			],
+			[
+				"info.",
+				"app/modules/prueba/info.json"
+			],
+			[
+				"views/",
+				"app/views/hello.blade.php"
+			],
+			[
+				"custom.c",
+				"public/assets/css/custom.css"
+			],
+			[
+				"footer",
+				"footer.php"
+			],
+			[
+				"fu",
+				"functions.php"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"_custom",
+				"library/scss/custom/_custom.scss"
+			],
+			[
+				"style.scs",
+				"library/scss/style.scss"
+			],
+			[
+				"base",
+				"library/scss/pre/_base.scss"
+			],
+			[
+				"vara",
+				"library/scss/sobroso/_variables.scss"
+			],
+			[
+				"bone",
+				"library/bones.php"
+			],
+			[
+				"foo",
+				"footer.php"
+			],
+			[
+				"uti",
+				"assets/css/less/utilities.less"
+			],
+			[
+				"page",
+				"page.php"
+			],
+			[
+				"func",
+				"functions.php"
+			],
+			[
+				"foot",
+				"footer.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 288.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 5
+	}
+}

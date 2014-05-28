@@ -27,6 +27,7 @@ module.exports = function (app, config) {
     app.configure(function () {
         app.use(express.compress());
         app.locals.basedir = config.root;
+        app.locals.pretty = true;
         app.use(express.static(config.root + '/public'));
         app.set('port', config.port);
         app.set('view engine', 'jade');

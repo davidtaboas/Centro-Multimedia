@@ -4,20 +4,21 @@
 // socketio app
 //
  */
-var app, eventos, login, socket;
+var app, socket;
 
-socket = io.connect("http://169.254.105.40:1337/");
+socket = io.connect("http://192.168.1.36:1337/");
 
 app = app || {};
 
-eventos = ["tap", "hold", "singleTap", "doubleTap", "touch", "swipe", "swipeLeft", "swipeRight", "swipeUp", "swipeDown", "rotate", "rotateLeft", "rotateRight", "pinch", "pinchIn", "pinchOut"];
-
-login = function() {
-  $("#login").remove();
-};
-
 $(function() {
-  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $messages, $moveLeft, $moveRight, $sendOk;
+  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $reload, $sendMsg, $sendOk, $viewSend;
+  $("#caducidadMensaje").slider({
+    tooltip: "show"
+  });
+  $("#caducidadMensaje").on("slide", function(slideEvt) {
+    $("#ex6SliderVal").text(slideEvt.value / 24);
+  });
+  $("#login h1").textfill();
   $moveLeft = $("#left");
   $moveRight = $("#right");
   $sendOk = $("#ok");
@@ -27,6 +28,29 @@ $(function() {
   $messages = $("#messages");
   $appMsgs = $("#appmsgs");
   $allMsgs = $("#allmsgs");
+  $logout = $("#logout, #outwaiting");
+  $reload = $("#reload");
+  $sendMsg = $(".sendmsgok");
+  $viewSend = $(".sendmsg");
+  socket.on("botonesUsuario", function(data) {
+    var custombutton, i;
+    if (data.button === 0) {
+      i = 1;
+      while (i < 10) {
+        custombutton = "#bt" + i;
+        $(custombutton).hide();
+        $(custombutton).html("");
+        i++;
+      }
+    } else {
+      custombutton = "#bt" + data.button;
+      $(custombutton).show();
+      $(custombutton).html(data.label);
+    }
+  });
+  $("#bt1,#bt2,#bt3,#bt4,#bt5,#bt6,#bt7,#bt8,#bt9").on("tap", function(e) {
+    socket.emit("botonesMonitor", this.id);
+  });
   socket.on("left", function(data) {
     console.log(data);
   });
@@ -60,10 +84,65 @@ $(function() {
   $allMsgs.on("tap", function() {
     socket.emit("filtermsgs", "all");
   });
-  eventos.sort(function() {
-    return 0.5 - Math.random();
+  $logout.on("tap", function() {
+    $("#login .alert-warning").fadeOut();
+    $("#login .alert-success").fadeOut();
+    $("#login .alert-danger").fadeOut();
+    $("#login .alert-info").fadeIn();
+    $("#login").fadeIn();
+    socket.disconnect();
   });
-  console.log(eventos);
-  alert(eventos[0]);
-  $$("#login .window").on(eventos[0], login);
+  $reload.on("tap", function() {
+    location.reload();
+  });
+  $viewSend.on("tap", function() {
+    $("#modalMensajes").modal('toggle');
+  });
+  $("button[data-dismiss='modal']").on("tap", function() {
+    $("#modalMensajes").modal('toggle');
+  });
+  $sendMsg.on("tap", function() {
+    if ($("#textoMensaje").val() === "") {
+      $("#textoMensaje").focus();
+      $("#textoMensaje").parent().addClass("has-error");
+    } else {
+      $("#modalMensajes").modal('toggle');
+      socket.emit("mensaje", {
+        texto: $("#textoMensaje").val(),
+        caducidad: $("#caducidadMensaje").val()
+      });
+    }
+  });
+  socket.on("login", function(data) {
+    if (data.login === "ok") {
+      $("#login").fadeOut();
+      $("#login .window").unbind(eventos.join(' '));
+    } else if (data.login === "go") {
+      $("#login").fadeIn();
+      $("#login .alert-warning").fadeOut();
+      $("#login .alert-success").fadeIn();
+      socket.emit("monitor", "go");
+      $("#login .window").bind(eventos.join(' '), function(e) {
+        $("#login .alert-danger").fadeOut();
+        socket.emit("loginevent", e.type);
+      });
+    } else if (data.login === "error") {
+      $("#login .alert-success").fadeOut();
+      $("#login .alert-danger").fadeIn();
+      console.log("Volver a intentar");
+    } else if (data.login === "wait") {
+      console.log("Se ha identificado otro usuario");
+      $("#login .alert-success").fadeOut();
+      $("#login .alert-danger").fadeOut();
+      $("#login .alert-warning").fadeIn();
+      $("#login .window").unbind(eventos.join(' '));
+    } else if (data.login === "disconnect") {
+      $("#login .alert-warning").fadeOut();
+      $("#login .alert-success").fadeOut();
+      $("#login .alert-danger").fadeOut();
+      $("#login .alert-info").fadeIn();
+      $("#login").fadeIn();
+      socket.disconnect();
+    }
+  });
 });

@@ -5,19 +5,21 @@
 ###
 
 # connect to our socket server
-socket = io.connect("http://169.254.105.40:1337/")
+socket = io.connect("http://192.168.1.36:1337/")
 app = app or {}
 
 
-# array de posibles eventos
 
-eventos = ["tap","hold","singleTap","doubleTap","touch","swipe","swipeLeft","swipeRight","swipeUp","swipeDown","rotate","rotateLeft","rotateRight","pinch","pinchIn","pinchOut"]
-
-login = () ->
-  $("#login").remove()
-  return
 # shortcut for document.ready
 $ ->
+
+
+  $("#caducidadMensaje").slider tooltip: "show"
+  $("#caducidadMensaje").on "slide", (slideEvt) ->
+    $("#ex6SliderVal").text slideEvt.value / 24
+    return
+
+  $("#login h1").textfill()
 
   #setup some common vars
   $moveLeft   = $("#left")
@@ -29,6 +31,39 @@ $ ->
   $messages   = $("#messages")
   $appMsgs    = $("#appmsgs")
   $allMsgs    = $("#allmsgs")
+  $logout     = $("#logout, #outwaiting")
+  $reload     = $("#reload")
+  $sendMsg    = $(".sendmsgok")
+  $viewSend   = $(".sendmsg")
+
+
+
+  # CUSTOM BUTTONS STUFF
+
+  socket.on "botonesUsuario", (data) ->
+
+    if data.button is 0
+      i = 1
+      while i < 10
+        custombutton = "#bt"+i
+        $(custombutton).hide()
+        $(custombutton).html("")
+        i++
+    else
+      custombutton = "#bt" + data.button;
+
+      $(custombutton).show()
+      $(custombutton).html(data.label)
+
+    return
+
+  $("#bt1,#bt2,#bt3,#bt4,#bt5,#bt6,#bt7,#bt8,#bt9").on "tap", (e) ->
+    socket.emit "botonesMonitor", this.id
+    return
+
+
+
+
   #SOCKET STUFF
   socket.on "left", (data) ->
     console.log data
@@ -38,6 +73,7 @@ $ ->
     console.log data
     return
 
+  # BUTTONS STUFF
   $moveLeft.on "tap", () ->
     socket.emit "move", "prev"
     return
@@ -74,13 +110,89 @@ $ ->
     socket.emit "filtermsgs", "all"
     return
 
+  $logout.on "tap", () ->
+    $("#login .alert-warning").fadeOut()
+    $("#login .alert-success").fadeOut()
+    $("#login .alert-danger").fadeOut()
+    $("#login .alert-info").fadeIn()
+    $("#login").fadeIn()
+    socket.disconnect()
+    return
 
-  eventos.sort () ->
-    return 0.5 - Math.random()
+  $reload.on "tap", () ->
+    location.reload()
+    return
 
-  console.log eventos
-  alert eventos[0]
-  $$("#login .window").on eventos[0], login
+
+
+  # MODAL STUFF
+  $viewSend.on "tap", () ->
+    $("#modalMensajes").modal('toggle')
+    return
+
+  $("button[data-dismiss='modal']").on "tap", () ->
+    $("#modalMensajes").modal('toggle')
+    return
+
+  $sendMsg.on "tap", () ->
+
+    if $("#textoMensaje").val() is ""
+      $("#textoMensaje").focus()
+      $("#textoMensaje").parent().addClass("has-error")
+    else
+      $("#modalMensajes").modal('toggle')
+      socket.emit("mensaje", { texto: $("#textoMensaje").val(), caducidad: $("#caducidadMensaje").val() });
+    return
+
+  # LOGIN STUFF
+  socket.on "login", (data) ->
+
+
+    if data.login is "ok"
+      $("#login").fadeOut()
+      $("#login .window").unbind eventos.join(' ')
+    else if data.login is "go"
+      $("#login").fadeIn()
+      $("#login .alert-warning").fadeOut()
+      $("#login .alert-success").fadeIn()
+
+
+      socket.emit "monitor", "go"
+
+
+      $("#login .window").bind eventos.join(' '), (e) ->
+        $("#login .alert-danger").fadeOut()
+        socket.emit "loginevent", e.type
+        return
+
+
+    else if data.login is "error"
+      $("#login .alert-success").fadeOut()
+      $("#login .alert-danger").fadeIn()
+      console.log "Volver a intentar"
+
+
+
+    else if data.login is "wait"
+      console.log "Se ha identificado otro usuario"
+      $("#login .alert-success").fadeOut()
+      $("#login .alert-danger").fadeOut()
+      $("#login .alert-warning").fadeIn()
+      $("#login .window").unbind eventos.join(' ')
+
+
+    else if data.login is "disconnect"
+      $("#login .alert-warning").fadeOut()
+      $("#login .alert-success").fadeOut()
+      $("#login .alert-danger").fadeOut()
+      $("#login .alert-info").fadeIn()
+      $("#login").fadeIn()
+      socket.disconnect()
+    return
+
+
+
+
 
   return
 

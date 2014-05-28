@@ -58,8 +58,12 @@ module.exports = function (grunt) {
       }
     },
     open : {
-        chrome : {
+        chromeusuario : {
           path: 'http://localhost:'+RUNNING_PORT+'/',
+          app: 'Google Chrome'
+        },
+        chromepantalla : {
+          path: 'http://localhost:'+RUNNING_PORT+'/monitor',
           app: 'Google Chrome'
         },
         firefoxusuario : {
@@ -135,6 +139,6 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  // grunt.registerTask('default', ['develop', 'coffee', 'imagemin', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
-  grunt.registerTask('default', ['develop', 'coffee', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
+  grunt.registerTask('default', ['develop', 'coffee', 'imagemin', 'compass', 'open:chromeusuario','open:chromepantalla', 'open:subl', 'watch']);
+  // grunt.registerTask('default', ['develop', 'coffee', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
 };

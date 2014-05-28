@@ -1,3 +1,8 @@
+/*
+
+CSS CLIENTE
+
+*/
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 /* line 22, ../../components/sass-bootstrap/lib/_normalize.scss */
 article,
@@ -9775,47 +9780,44 @@ td.visible-print {
   content: "\f196";
 }
 
-/* line 5, ../../../assets/sass/client/style.scss */
+/* line 14, ../../../assets/sass/client/style.scss */
 body {
   overflow: hidden;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
   height: 100%;
 }
 
-/* line 12, ../../../assets/sass/client/style.scss */
+/* line 23, ../../../assets/sass/client/style.scss */
 .remote-control {
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #666666), color-stop(50%, #333333), color-stop(50%, #333333), color-stop(100%, #666666));
-  background-image: -webkit-linear-gradient(left, #666666, #333333 50%, #333333 50%, #666666);
-  background-image: -moz-linear-gradient(left, #666666, #333333 50%, #333333 50%, #666666);
-  background-image: -o-linear-gradient(left, #666666, #333333 50%, #333333 50%, #666666);
-  background-image: linear-gradient(left, #666666, #333333 50%, #333333 50%, #666666);
+  background: #404040;
   color: #fff;
-  height: 100%;
   margin: 0 auto;
   padding: 50px 0;
   position: absolute;
   width: 100%;
 }
-/* line 21, ../../../assets/sass/client/style.scss */
-.remote-control .buttons {
-  width: 95%;
+/* line 31, ../../../assets/sass/client/style.scss */
+.remote-control .client {
   margin: 0 auto;
 }
-/* line 23, ../../../assets/sass/client/style.scss */
-.remote-control .buttons div {
-  margin: 20px 0;
+/* line 35, ../../../assets/sass/client/style.scss */
+.remote-control .client .buttons {
+  width: 100%;
+  margin: 0 auto;
 }
-/* line 29, ../../../assets/sass/client/style.scss */
-.remote-control .buttons button {
+/* line 40, ../../../assets/sass/client/style.scss */
+.remote-control .client .buttons button {
   text-align: center;
 }
-/* line 33, ../../../assets/sass/client/style.scss */
-.remote-control .buttons .top {
+/* line 44, ../../../assets/sass/client/style.scss */
+.remote-control .client .buttons .top {
   height: 65px;
 }
-/* line 38, ../../../assets/sass/client/style.scss */
-.remote-control .buttons .top #home,
-.remote-control .buttons .top #goback {
+/* line 49, ../../../assets/sass/client/style.scss */
+.remote-control .client .buttons .top #home,
+.remote-control .client .buttons .top #goback {
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
@@ -9826,18 +9828,82 @@ body {
   padding: 0px;
 }
 
-/* line 60, ../../../assets/sass/client/style.scss */
+/* line 72, ../../../assets/sass/client/style.scss */
 #login {
+  display: none;
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   z-index: 100;
+  overflow: hidden;
+  background: #fff;
 }
-/* line 69, ../../../assets/sass/client/style.scss */
+/* line 84, ../../../assets/sass/client/style.scss */
+#login h1 {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  color: #666;
+  text-shadow: 2px 2px #e6e6e6;
+}
+/* line 92, ../../../assets/sass/client/style.scss */
+#login h1 span.title {
+  padding-left: 15px;
+  color: #f36126;
+}
+/* line 99, ../../../assets/sass/client/style.scss */
 #login .window {
   height: 100%;
   width: 100%;
   background: #fff;
+  position: relative;
+}
+/* line 106, ../../../assets/sass/client/style.scss */
+#login .window .alert {
+  display: none;
+}
+/* line 111, ../../../assets/sass/client/style.scss */
+#login .sendmsg {
+  position: relative;
+  left: 0;
+  right: 0px;
+  margin: 0 auto;
+  bottom: 0;
+}
+
+/* line 120, ../../../assets/sass/client/style.scss */
+#modalMensajes {
+  color: #404040;
+}
+/* line 123, ../../../assets/sass/client/style.scss */
+#modalMensajes #ex1Slider {
+  width: 100% !important;
+  margin-top: 30px;
+}
+/* line 127, ../../../assets/sass/client/style.scss */
+#modalMensajes #ex1Slider .slider-selection {
+  background-color: #f36126 !important;
+}
+/* line 131, ../../../assets/sass/client/style.scss */
+#modalMensajes #ex1Slider div.tooltip.top {
+  display: block !important;
+  opacity: 1 !important;
+  margin-top: -20px !important;
+}
+
+/* line 139, ../../../assets/sass/client/style.scss */
+.clearfix {
+  margin: 10px auto !important;
+}
+
+/* line 143, ../../../assets/sass/client/style.scss */
+.no-margin {
+  margin: 0 auto !important;
+}
+
+/* line 147, ../../../assets/sass/client/style.scss */
+#bt1, #bt2, #bt3, #bt4, #bt5, #bt6, #bt7, #bt8, #bt9 {
+  display: none;
 }

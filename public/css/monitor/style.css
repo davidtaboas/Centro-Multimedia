@@ -1,3 +1,8 @@
+/*
+
+CSS MONITOR
+
+*/
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 /* line 22, ../../components/sass-bootstrap/lib/_normalize.scss */
 article,
@@ -334,8 +339,9 @@ table {
   }
 
   /* line 87, ../../components/sass-bootstrap/lib/_print.scss */
-  .btn > .caret,
-  .dropup > .btn > .caret {
+  .btn > .caret, .nav-presentacion a > .caret,
+  .dropup > .btn > .caret,
+  .nav-presentacion .dropup > a > .caret {
     border-top-color: #000 !important;
   }
 
@@ -2407,7 +2413,8 @@ input[type="checkbox"],
 /* line 848, ../../components/sass-bootstrap/lib/_mixins.scss */
 .input-sm, .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
-.input-group-sm > .input-group-btn > .btn {
+.input-group-sm > .input-group-btn > .btn,
+.nav-presentacion .input-group-sm > .input-group-btn > a {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -2433,7 +2440,8 @@ textarea.input-sm, .input-group-sm > textarea.form-control,
 /* line 848, ../../components/sass-bootstrap/lib/_mixins.scss */
 .input-lg, .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
-.input-group-lg > .input-group-btn > .btn {
+.input-group-lg > .input-group-btn > .btn,
+.nav-presentacion .input-group-lg > .input-group-btn > a {
   height: 45px;
   padding: 10px 16px;
   font-size: 18px;
@@ -2620,7 +2628,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 }
 
 /* line 10, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn {
+.btn, .nav-presentacion a {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2641,25 +2649,25 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   user-select: none;
 }
 /* line 23, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn:focus {
+.btn:focus, .nav-presentacion a:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
 /* line 28, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn:hover, .btn:focus {
+.btn:hover, .nav-presentacion a:hover, .btn:focus, .nav-presentacion a:focus {
   color: #333333;
   text-decoration: none;
 }
 /* line 34, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn:active, .btn.active {
+.btn:active, .nav-presentacion a:active, .btn.active, .nav-presentacion a.active {
   outline: 0;
   background-image: none;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 /* line 42, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+.btn.disabled, .nav-presentacion a.disabled, .btn[disabled], .nav-presentacion a[disabled], fieldset[disabled] .btn, fieldset[disabled] .nav-presentacion a, .nav-presentacion fieldset[disabled] a {
   cursor: not-allowed;
   pointer-events: none;
   opacity: 0.65;
@@ -2669,33 +2677,33 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 }
 
 /* line 55, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn-default {
+.btn-default, .nav-presentacion a {
   color: #333333;
   background-color: white;
   border-color: #cccccc;
 }
 /* line 470, ../../components/sass-bootstrap/lib/_mixins.scss */
-.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
+.btn-default:hover, .nav-presentacion a:hover, .btn-default:focus, .nav-presentacion a:focus, .btn-default:active, .nav-presentacion a:active, .btn-default.active, .nav-presentacion a.active {
   color: #333333;
   background-color: #ebebeb;
   border-color: #adadad;
 }
 /* line 475, ../../components/sass-bootstrap/lib/_mixins.scss */
-.open .btn-default.dropdown-toggle {
+.open .btn-default.dropdown-toggle, .open .nav-presentacion a.dropdown-toggle, .nav-presentacion .open a.dropdown-toggle {
   color: #333333;
   background-color: #ebebeb;
   border-color: #adadad;
 }
 /* line 481, ../../components/sass-bootstrap/lib/_mixins.scss */
-.btn-default:active, .btn-default.active {
+.btn-default:active, .nav-presentacion a:active, .btn-default.active, .nav-presentacion a.active {
   background-image: none;
 }
 /* line 484, ../../components/sass-bootstrap/lib/_mixins.scss */
-.open .btn-default.dropdown-toggle {
+.open .btn-default.dropdown-toggle, .open .nav-presentacion a.dropdown-toggle, .nav-presentacion .open a.dropdown-toggle {
   background-image: none;
 }
 /* line 494, ../../components/sass-bootstrap/lib/_mixins.scss */
-.btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
+.btn-default.disabled, .nav-presentacion a.disabled, .btn-default.disabled:hover, .nav-presentacion a.disabled:hover, .btn-default.disabled:focus, .nav-presentacion a.disabled:focus, .btn-default.disabled:active, .nav-presentacion a.disabled:active, .btn-default.disabled.active, .nav-presentacion a.disabled.active, .btn-default[disabled], .nav-presentacion a[disabled], .btn-default[disabled]:hover, .nav-presentacion a[disabled]:hover, .btn-default[disabled]:focus, .nav-presentacion a[disabled]:focus, .btn-default[disabled]:active, .nav-presentacion a[disabled]:active, .btn-default[disabled].active, .nav-presentacion a[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .nav-presentacion a, .nav-presentacion fieldset[disabled] a, fieldset[disabled] .btn-default:hover, fieldset[disabled] .nav-presentacion a:hover, .nav-presentacion fieldset[disabled] a:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .nav-presentacion a:focus, .nav-presentacion fieldset[disabled] a:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .nav-presentacion a:active, .nav-presentacion fieldset[disabled] a:active, fieldset[disabled] .btn-default.active, fieldset[disabled] .nav-presentacion a.active, .nav-presentacion fieldset[disabled] a.active {
   background-color: white;
   border-color: #cccccc;
 }
@@ -2890,7 +2898,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 }
 
 /* line 122, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .nav-presentacion .btn-group-lg > a {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
@@ -2898,9 +2906,10 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 }
 
 /* line 127, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn-sm, .btn-group-sm > .btn,
+.btn-sm, .btn-group-sm > .btn, .nav-presentacion .btn-group-sm > a,
 .btn-xs,
-.btn-group-xs > .btn {
+.btn-group-xs > .btn,
+.nav-presentacion .btn-group-xs > a {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
@@ -2908,7 +2917,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 }
 
 /* line 131, ../../components/sass-bootstrap/lib/_buttons.scss */
-.btn-xs, .btn-group-xs > .btn {
+.btn-xs, .btn-group-xs > .btn, .nav-presentacion .btn-group-xs > a {
   padding: 1px 5px;
 }
 
@@ -3230,7 +3239,7 @@ input[type="button"].btn-block {
 }
 
 /* line 87, ../../components/sass-bootstrap/lib/_glyphicons.scss */
-.glyphicon-bookmark:before {
+.glyphicon-bookmark:before, .glyphicon.p1:before {
   content: "\e044";
 }
 
@@ -3525,7 +3534,7 @@ input[type="button"].btn-block {
 }
 
 /* line 146, ../../components/sass-bootstrap/lib/_glyphicons.scss */
-.glyphicon-warning-sign:before {
+.glyphicon-warning-sign:before, .glyphicon.p0:before {
   content: "\e107";
 }
 
@@ -3600,7 +3609,7 @@ input[type="button"].btn-block {
 }
 
 /* line 161, ../../components/sass-bootstrap/lib/_glyphicons.scss */
-.glyphicon-bullhorn:before {
+.glyphicon-bullhorn:before, .glyphicon.p2:before {
   content: "\e122";
 }
 
@@ -4137,7 +4146,7 @@ input[type="button"].btn-block {
   }
 }
 /* line 10, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-default .caret {
+.btn-default .caret, .nav-presentacion a .caret {
   border-top-color: #333333;
 }
 /* line 17, ../../components/sass-bootstrap/lib/_button-groups.scss */
@@ -4146,7 +4155,7 @@ input[type="button"].btn-block {
 }
 
 /* line 22, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.dropup .btn-default .caret {
+.dropup .btn-default .caret, .dropup .nav-presentacion a .caret, .nav-presentacion .dropup a .caret {
   border-bottom-color: #333333;
 }
 /* line 30, ../../components/sass-bootstrap/lib/_button-groups.scss */
@@ -4166,29 +4175,39 @@ input[type="button"].btn-block {
   vertical-align: middle;
 }
 /* line 42, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn,
-.btn-group-vertical > .btn {
+.btn-group > .btn, .nav-presentacion .btn-group > a,
+.btn-group-vertical > .btn,
+.nav-presentacion .btn-group-vertical > a {
   position: relative;
   float: left;
 }
 /* line 49, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,
+.btn-group > .btn:hover, .nav-presentacion .btn-group > a:hover, .btn-group > .btn:focus, .nav-presentacion .btn-group > a:focus, .btn-group > .btn:active, .nav-presentacion .btn-group > a:active, .btn-group > .btn.active, .nav-presentacion .btn-group > a.active,
 .btn-group-vertical > .btn:hover,
+.nav-presentacion .btn-group-vertical > a:hover,
 .btn-group-vertical > .btn:focus,
+.nav-presentacion .btn-group-vertical > a:focus,
 .btn-group-vertical > .btn:active,
-.btn-group-vertical > .btn.active {
+.nav-presentacion .btn-group-vertical > a:active,
+.btn-group-vertical > .btn.active,
+.nav-presentacion .btn-group-vertical > a.active {
   z-index: 2;
 }
 /* line 52, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn:focus,
-.btn-group-vertical > .btn:focus {
+.btn-group > .btn:focus, .nav-presentacion .btn-group > a:focus,
+.btn-group-vertical > .btn:focus,
+.nav-presentacion .btn-group-vertical > a:focus {
   outline: none;
 }
 
 /* line 64, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group .btn + .btn,
+.btn-group .btn + .btn, .btn-group .nav-presentacion a + .btn, .nav-presentacion .btn-group a + .btn, .btn-group .nav-presentacion .btn + a, .nav-presentacion .btn-group .btn + a, .btn-group .nav-presentacion a + a, .nav-presentacion .btn-group a + a,
 .btn-group .btn + .btn-group,
+.btn-group .nav-presentacion a + .btn-group,
+.nav-presentacion .btn-group a + .btn-group,
 .btn-group .btn-group + .btn,
+.btn-group .nav-presentacion .btn-group + a,
+.nav-presentacion .btn-group .btn-group + a,
 .btn-group .btn-group + .btn-group {
   margin-left: -1px;
 }
@@ -4209,30 +4228,32 @@ input[type="button"].btn-block {
   float: left;
 }
 /* line 80, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-toolbar > .btn + .btn,
+.btn-toolbar > .btn + .btn, .nav-presentacion .btn-toolbar > a + .btn, .nav-presentacion .btn-toolbar > .btn + a, .nav-presentacion .btn-toolbar > a + a,
 .btn-toolbar > .btn + .btn-group,
+.nav-presentacion .btn-toolbar > a + .btn-group,
 .btn-toolbar > .btn-group + .btn,
+.nav-presentacion .btn-toolbar > .btn-group + a,
 .btn-toolbar > .btn-group + .btn-group {
   margin-left: 5px;
 }
 
 /* line 86, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .nav-presentacion .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0;
 }
 
 /* line 91, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn:first-child {
+.btn-group > .btn:first-child, .nav-presentacion .btn-group > a:first-child {
   margin-left: 0;
 }
 /* line 93, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .nav-presentacion .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
 /* line 99, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .btn:last-child:not(:first-child), .nav-presentacion .btn-group > a:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
@@ -4244,19 +4265,19 @@ input[type="button"].btn-block {
 }
 
 /* line 107, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .nav-presentacion .btn-group > .btn-group:not(:first-child):not(:last-child) > a {
   border-radius: 0;
 }
 
 /* line 112, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn-group:first-child > .btn:last-child,
+.btn-group > .btn-group:first-child > .btn:last-child, .nav-presentacion .btn-group > .btn-group:first-child > a:last-child,
 .btn-group > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
 /* line 116, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn-group:last-child > .btn:first-child {
+.btn-group > .btn-group:last-child > .btn:first-child, .nav-presentacion .btn-group > .btn-group:last-child > a:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
@@ -4268,13 +4289,13 @@ input[type="button"].btn-block {
 }
 
 /* line 140, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, .nav-presentacion .btn-group > a + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px;
 }
 
 /* line 144, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .nav-presentacion .btn-group-lg.btn-group > a + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -4291,23 +4312,23 @@ input[type="button"].btn-block {
 }
 
 /* line 162, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn .caret {
+.btn .caret, .nav-presentacion a .caret {
   margin-left: 0;
 }
 
 /* line 166, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-lg .caret, .btn-group-lg > .btn .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .nav-presentacion .btn-group-lg > a .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0;
 }
 
 /* line 171, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .nav-presentacion .btn-group-lg > a .caret, .nav-presentacion .dropup .btn-group-lg > a .caret {
   border-width: 0 5px 5px;
 }
 
 /* line 181, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn,
+.btn-group-vertical > .btn, .nav-presentacion .btn-group-vertical > a,
 .btn-group-vertical > .btn-group {
   display: block;
   float: none;
@@ -4326,49 +4347,51 @@ input[type="button"].btn-block {
   clear: both;
 }
 /* line 191, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn-group > .btn {
+.btn-group-vertical > .btn-group > .btn, .nav-presentacion .btn-group-vertical > .btn-group > a {
   float: none;
 }
 /* line 199, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn + .btn,
+.btn-group-vertical > .btn + .btn, .nav-presentacion .btn-group-vertical > a + .btn, .nav-presentacion .btn-group-vertical > .btn + a, .nav-presentacion .btn-group-vertical > a + a,
 .btn-group-vertical > .btn + .btn-group,
+.nav-presentacion .btn-group-vertical > a + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
+.nav-presentacion .btn-group-vertical > .btn-group + a,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0;
 }
 
 /* line 206, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .nav-presentacion .btn-group-vertical > a:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
 /* line 209, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .nav-presentacion .btn-group-vertical > a:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 /* line 213, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .nav-presentacion .btn-group-vertical > a:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
 
 /* line 218, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .nav-presentacion .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > a {
   border-radius: 0;
 }
 
 /* line 223, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn-group:first-child > .btn:last-child,
+.btn-group-vertical > .btn-group:first-child > .btn:last-child, .nav-presentacion .btn-group-vertical > .btn-group:first-child > a:last-child,
 .btn-group-vertical > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 /* line 227, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-vertical > .btn-group:last-child > .btn:first-child {
+.btn-group-vertical > .btn-group:last-child > .btn:first-child, .nav-presentacion .btn-group-vertical > .btn-group:last-child > a:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
@@ -4381,15 +4404,16 @@ input[type="button"].btn-block {
   border-collapse: separate;
 }
 /* line 241, ../../components/sass-bootstrap/lib/_button-groups.scss */
-.btn-group-justified .btn {
+.btn-group-justified .btn, .btn-group-justified .nav-presentacion a, .nav-presentacion .btn-group-justified a {
   float: none;
   display: table-cell;
   width: 1%;
 }
 
 /* line 251, ../../components/sass-bootstrap/lib/_button-groups.scss */
-[data-toggle="buttons"] > .btn > input[type="radio"],
-[data-toggle="buttons"] > .btn > input[type="checkbox"] {
+[data-toggle="buttons"] > .btn > input[type="radio"], .nav-presentacion [data-toggle="buttons"] > a > input[type="radio"],
+[data-toggle="buttons"] > .btn > input[type="checkbox"],
+.nav-presentacion [data-toggle="buttons"] > a > input[type="checkbox"] {
   display: none;
 }
 
@@ -4447,7 +4471,8 @@ input[type="button"].btn-block {
 /* line 71, ../../components/sass-bootstrap/lib/_input-groups.scss */
 .input-group-addon.input-sm,
 .input-group-sm > .input-group-addon,
-.input-group-sm > .input-group-btn > .input-group-addon.btn {
+.input-group-sm > .input-group-btn > .input-group-addon.btn,
+.nav-presentacion .input-group-sm > .input-group-btn > a.input-group-addon {
   padding: 5px 10px;
   font-size: 12px;
   border-radius: 3px;
@@ -4455,7 +4480,8 @@ input[type="button"].btn-block {
 /* line 76, ../../components/sass-bootstrap/lib/_input-groups.scss */
 .input-group-addon.input-lg,
 .input-group-lg > .input-group-addon,
-.input-group-lg > .input-group-btn > .input-group-addon.btn {
+.input-group-lg > .input-group-btn > .input-group-addon.btn,
+.nav-presentacion .input-group-lg > .input-group-btn > a.input-group-addon {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 6px;
@@ -4470,8 +4496,10 @@ input[type="button"].btn-block {
 .input-group .form-control:first-child,
 .input-group-addon:first-child,
 .input-group-btn:first-child > .btn,
+.nav-presentacion .input-group-btn:first-child > a,
 .input-group-btn:first-child > .dropdown-toggle,
-.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.nav-presentacion .input-group-btn:last-child > a:not(:last-child):not(.dropdown-toggle) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
@@ -4485,8 +4513,10 @@ input[type="button"].btn-block {
 .input-group .form-control:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
+.nav-presentacion .input-group-btn:last-child > a,
 .input-group-btn:last-child > .dropdown-toggle,
-.input-group-btn:first-child > .btn:not(:first-child) {
+.input-group-btn:first-child > .btn:not(:first-child),
+.nav-presentacion .input-group-btn:first-child > a:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
@@ -4502,24 +4532,24 @@ input[type="button"].btn-block {
   white-space: nowrap;
 }
 /* line 118, ../../components/sass-bootstrap/lib/_input-groups.scss */
-.input-group-btn:first-child > .btn {
+.input-group-btn:first-child > .btn, .nav-presentacion .input-group-btn:first-child > a {
   margin-right: -1px;
 }
 /* line 121, ../../components/sass-bootstrap/lib/_input-groups.scss */
-.input-group-btn:last-child > .btn {
+.input-group-btn:last-child > .btn, .nav-presentacion .input-group-btn:last-child > a {
   margin-left: -1px;
 }
 
 /* line 125, ../../components/sass-bootstrap/lib/_input-groups.scss */
-.input-group-btn > .btn {
+.input-group-btn > .btn, .nav-presentacion .input-group-btn > a {
   position: relative;
 }
 /* line 128, ../../components/sass-bootstrap/lib/_input-groups.scss */
-.input-group-btn > .btn + .btn {
+.input-group-btn > .btn + .btn, .nav-presentacion .input-group-btn > a + .btn, .nav-presentacion .input-group-btn > .btn + a, .nav-presentacion .input-group-btn > a + a {
   margin-left: -4px;
 }
 /* line 133, ../../components/sass-bootstrap/lib/_input-groups.scss */
-.input-group-btn > .btn:hover, .input-group-btn > .btn:active {
+.input-group-btn > .btn:hover, .nav-presentacion .input-group-btn > a:hover, .input-group-btn > .btn:active, .nav-presentacion .input-group-btn > a:active {
   z-index: 2;
 }
 
@@ -5584,7 +5614,7 @@ a.badge:hover, a.badge:focus {
 }
 
 /* line 38, ../../components/sass-bootstrap/lib/_badges.scss */
-.btn .badge {
+.btn .badge, .nav-presentacion a .badge {
   position: relative;
   top: -1px;
 }
@@ -6507,12 +6537,12 @@ button.close {
   clear: both;
 }
 /* line 106, ../../components/sass-bootstrap/lib/_modals.scss */
-.modal-footer .btn + .btn {
+.modal-footer .btn + .btn, .modal-footer .nav-presentacion a + .btn, .nav-presentacion .modal-footer a + .btn, .modal-footer .nav-presentacion .btn + a, .nav-presentacion .modal-footer .btn + a, .modal-footer .nav-presentacion a + a, .nav-presentacion .modal-footer a + a {
   margin-left: 5px;
   margin-bottom: 0;
 }
 /* line 111, ../../components/sass-bootstrap/lib/_modals.scss */
-.modal-footer .btn-group .btn + .btn {
+.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .nav-presentacion a + .btn, .nav-presentacion .modal-footer .btn-group a + .btn, .modal-footer .btn-group .nav-presentacion .btn + a, .nav-presentacion .modal-footer .btn-group .btn + a, .modal-footer .btn-group .nav-presentacion a + a, .nav-presentacion .modal-footer .btn-group a + a {
   margin-left: -1px;
 }
 /* line 115, ../../components/sass-bootstrap/lib/_modals.scss */
@@ -6986,7 +7016,7 @@ button.close {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 /* line 197, ../../components/sass-bootstrap/lib/_carousel.scss */
-.carousel-caption .btn {
+.carousel-caption .btn, .carousel-caption .nav-presentacion a, .nav-presentacion .carousel-caption a {
   text-shadow: none;
 }
 
@@ -7628,51 +7658,39 @@ td.visible-print {
     display: none !important;
   }
 }
-/* line 5, ../../../assets/sass/monitor/style.scss */
+/* line 13, ../../../assets/sass/monitor/style.scss */
 body {
-  background: #183026 url("../../img/bg.jpg") no-repeat;
+  background: #e6e6e6;
   background-size: cover;
   background-attachment: fixed;
   background-position: center 0;
 }
 
-/* line 12, ../../../assets/sass/monitor/style.scss */
+/* line 20, ../../../assets/sass/monitor/style.scss */
 header {
   float: left;
   width: 100%;
 }
-/* line 17, ../../../assets/sass/monitor/style.scss */
+/* line 25, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb {
   padding: 0;
   border-radius: 0;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #666666), color-stop(100%, #333333));
-  background-image: -webkit-linear-gradient(#666666, #333333);
-  background-image: -moz-linear-gradient(#666666, #333333);
-  background-image: -o-linear-gradient(#666666, #333333);
-  background-image: linear-gradient(#666666, #333333);
+  background: #f36126;
   color: #fff;
   font-weight: bold;
   margin: 0;
 }
-/* line 24, ../../../assets/sass/monitor/style.scss */
+/* line 32, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb li {
-  -webkit-transform: skew(-20deg);
-  -moz-transform: skew(-20deg);
-  -o-transform: skew(-20deg);
-  transform: skew(-20deg);
   display: inline-table;
   padding: 8px;
 }
-/* line 33, ../../../assets/sass/monitor/style.scss */
+/* line 38, ../../../assets/sass/monitor/style.scss */
 header .breadcrumb li.active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(100%, #666666));
-  background-image: -webkit-linear-gradient(#333333, #666666);
-  background-image: -moz-linear-gradient(#333333, #666666);
-  background-image: -o-linear-gradient(#333333, #666666);
-  background-image: linear-gradient(#333333, #666666);
+  background: #c23f0b;
 }
 
-/* line 39, ../../../assets/sass/monitor/style.scss */
+/* line 44, ../../../assets/sass/monitor/style.scss */
 #content {
   float: left;
   width: 100%;
@@ -7680,10 +7698,11 @@ header .breadcrumb li.active {
   position: relative;
 }
 
-/* line 45, ../../../assets/sass/monitor/style.scss */
-.row a {
-  background: #f1f1f1;
+/* line 50, ../../../assets/sass/monitor/style.scss */
+.row #menu a {
+  background: #444;
   display: inline-table;
+  color: #f36126;
   font-size: 50px;
   height: 250px;
   line-height: 250px;
@@ -7694,13 +7713,13 @@ header .breadcrumb li.active {
   width: 400px;
 }
 
-/* line 58, ../../../assets/sass/monitor/style.scss */
+/* line 64, ../../../assets/sass/monitor/style.scss */
 .current {
   box-shadow: 0 0 25px DodgerBlue;
   opacity: 1 !important;
 }
 
-/* line 63, ../../../assets/sass/monitor/style.scss */
+/* line 69, ../../../assets/sass/monitor/style.scss */
 #messages {
   display: none;
   height: 100%;
@@ -7710,7 +7729,7 @@ header .breadcrumb li.active {
   width: 100%;
   z-index: 10;
 }
-/* line 73, ../../../assets/sass/monitor/style.scss */
+/* line 79, ../../../assets/sass/monitor/style.scss */
 #messages .background {
   background: #000;
   height: 100%;
@@ -7718,51 +7737,63 @@ header .breadcrumb li.active {
   position: absolute;
   width: 100%;
 }
-/* line 82, ../../../assets/sass/monitor/style.scss */
+/* line 88, ../../../assets/sass/monitor/style.scss */
 #messages .content {
-  background: #fff;
-  border: 10px solid #333;
-  height: 60%;
-  margin: 15% auto;
+  background: #e6e6e6;
+  border: 10px solid #404040;
+  height: 100%;
+  margin: 0px;
   padding: 20px;
   position: relative;
-  width: 80%;
+  width: 100%;
 }
-/* line 91, ../../../assets/sass/monitor/style.scss */
+/* line 97, ../../../assets/sass/monitor/style.scss */
 #messages .content h1 {
-  color: #333;
-  border-bottom: 2px solid #333;
+  color: #404040;
+  border-bottom: 2px solid #404040;
 }
-/* line 96, ../../../assets/sass/monitor/style.scss */
+/* line 102, ../../../assets/sass/monitor/style.scss */
 #messages .content .items {
   height: 90%;
   overflow-y: scroll;
   font-size: 30px;
 }
-/* line 101, ../../../assets/sass/monitor/style.scss */
+/* line 107, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul {
   list-style: none;
 }
-/* line 104, ../../../assets/sass/monitor/style.scss */
+/* line 110, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul li {
-  padding: 3px;
-  border-bottom: 1px solid #efefef;
+  padding: 10px 0;
+  border-bottom: 1px solid #404040;
+  font-size: 36px;
+}
+/* line 114, ../../../assets/sass/monitor/style.scss */
+#messages .content .items ul li span {
+  margin: 0 10px;
+}
+/* line 116, ../../../assets/sass/monitor/style.scss */
+#messages .content .items ul li span.timeago {
+  font-style: italic;
+  color: #f36126;
 }
 
-/* line 115, ../../../assets/sass/monitor/style.scss */
+/* line 129, ../../../assets/sass/monitor/style.scss */
 footer {
   bottom: 0;
   left: 0;
   overflow: hidden;
   position: absolute;
   width: 100%;
+  height: 300px;
+  /* PANEL DESLIZANTE DE MENSAJES */
 }
-/* line 141, ../../../assets/sass/monitor/style.scss */
+/* line 140, ../../../assets/sass/monitor/style.scss */
 footer .bottom {
   display: block;
-  background: #222;
-  color: #fff;
-  height: 150px;
+  background: #404040;
+  color: #FFF;
+  height: 100%;
   position: relative;
   width: 100%;
 }
@@ -7771,14 +7802,14 @@ footer .bottom #slider {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  height: 150px;
+  height: 100%;
 }
 /* line 154, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul {
   position: relative;
   margin: 0;
   padding: 0;
-  height: 150px;
+  height: 100%;
   list-style: none;
 }
 /* line 160, ../../../assets/sass/monitor/style.scss */
@@ -7788,43 +7819,184 @@ footer .bottom #slider ul li {
   float: left;
   margin: 20px 0;
   padding: 0;
-  height: 150px;
+  height: 100%;
   text-align: center;
+  width: 100%;
 }
-/* line 170, ../../../assets/sass/monitor/style.scss */
-footer .bottom #slider ul li p {
-  color: #fff;
+/* line 171, ../../../assets/sass/monitor/style.scss */
+footer .bottom #slider ul li .info p {
+  color: inherit;
+  font-size: 70px;
+  line-height: 70px;
+}
+/* line 177, ../../../assets/sass/monitor/style.scss */
+footer .bottom #slider ul li .info .prioridad {
+  text-align: center;
   font-size: 50px;
   line-height: 50px;
+  margin: 10px;
 }
-/* line 181, ../../../assets/sass/monitor/style.scss */
+/* line 186, ../../../assets/sass/monitor/style.scss */
+footer .bottom #slider ul li .info .fecha {
+  font-size: 36px;
+  line-height: 36px;
+}
+/* line 191, ../../../assets/sass/monitor/style.scss */
+footer .bottom #slider ul li .info span.timeago {
+  font-size: 28px;
+  display: block;
+}
+/* line 207, ../../../assets/sass/monitor/style.scss */
 footer .none {
   display: none;
 }
 
 @media (min-width: 1200px) and (max-width: 1860px) {
-  /* line 187, ../../../assets/sass/monitor/style.scss */
+  /* line 213, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1560px;
   }
 }
 @media (min-width: 1860px) {
-  /* line 193, ../../../assets/sass/monitor/style.scss */
+  /* line 219, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1860px;
   }
 }
-/* line 199, ../../../assets/sass/monitor/style.scss */
+/* line 225, ../../../assets/sass/monitor/style.scss */
 .mejs-container-fullscreen {
   position: absolute !important;
 }
 
-/* line 203, ../../../assets/sass/monitor/style.scss */
+/* line 229, ../../../assets/sass/monitor/style.scss */
 .galleria {
   height: 720px;
 }
 
-/* line 205, ../../../assets/sass/monitor/style.scss */
+/* line 231, ../../../assets/sass/monitor/style.scss */
 .container, .monitor, #views {
   height: 100%;
+}
+
+/* line 235, ../../../assets/sass/monitor/style.scss */
+#login {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+/* line 246, ../../../assets/sass/monitor/style.scss */
+#login .alert {
+  font-size: 70px;
+}
+/* line 250, ../../../assets/sass/monitor/style.scss */
+#login .event {
+  width: 256px;
+  height: 256px;
+  margin: 0 auto;
+}
+/* line 255, ../../../assets/sass/monitor/style.scss */
+#login .event div {
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+/* line 260, ../../../assets/sass/monitor/style.scss */
+#login .event .singleTap {
+  background-image: url("/img/gestures/tap.png");
+}
+/* line 261, ../../../assets/sass/monitor/style.scss */
+#login .event .doubleTap {
+  background-image: url("/img/gestures/double_tap.png");
+}
+/* line 262, ../../../assets/sass/monitor/style.scss */
+#login .event .swipeLeft {
+  background-image: url("/img/gestures/swipe_left.png");
+}
+/* line 263, ../../../assets/sass/monitor/style.scss */
+#login .event .swipeRight {
+  background-image: url("/img/gestures/swipe_right.png");
+}
+/* line 264, ../../../assets/sass/monitor/style.scss */
+#login .event .swipeUp {
+  background-image: url("/img/gestures/swipe_up.png");
+}
+/* line 265, ../../../assets/sass/monitor/style.scss */
+#login .event .swipeDown {
+  background-image: url("/img/gestures/swipe_down.png");
+}
+/* line 266, ../../../assets/sass/monitor/style.scss */
+#login .event .rotateLeft {
+  background-image: url("/img/gestures/rotate_left.png");
+}
+/* line 267, ../../../assets/sass/monitor/style.scss */
+#login .event .rotateRight {
+  background-image: url("/img/gestures/rotate_right.png");
+}
+/* line 268, ../../../assets/sass/monitor/style.scss */
+#login .event .pinchIn {
+  background-image: url("/img/gestures/pinch.png");
+}
+/* line 269, ../../../assets/sass/monitor/style.scss */
+#login .event .pinchOut {
+  background-image: url("/img/gestures/pinch_out.png");
+}
+
+/*
+ICONOS
+*/
+/* line 279, ../../../assets/sass/monitor/style.scss */
+.glyphicon.p0 {
+  color: #d9534f;
+}
+/* line 285, ../../../assets/sass/monitor/style.scss */
+.glyphicon.p1 {
+  color: #5bc0de;
+}
+/* line 291, ../../../assets/sass/monitor/style.scss */
+.glyphicon.p2 {
+  color: #f0ad4e;
+}
+
+/*
+MODO PRESENTACION
+*/
+/* line 301, ../../../assets/sass/monitor/style.scss */
+.nav-presentacion {
+  text-align: center;
+  margin: 10px;
+}
+/* line 304, ../../../assets/sass/monitor/style.scss */
+.nav-presentacion a {
+  margin: 0 10px;
+}
+
+/* line 310, ../../../assets/sass/monitor/style.scss */
+div.slide {
+  -webkit-box-shadow: 0 0 50px #c0c0c0;
+  -moz-box-shadow: 0 0 50px #c0c0c0;
+  box-shadow: 0 0 50px #c0c0c0;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 20px;
+  position: relative;
+  width: 900px;
+}
+/* line 324, ../../../assets/sass/monitor/style.scss */
+div.slide.activeslide {
+  opacity: 1;
+  display: block;
+}
+/* line 329, ../../../assets/sass/monitor/style.scss */
+div.slide.inactiveslide {
+  opacity: 0.4;
+  display: none !important;
 }

@@ -1,20 +1,78 @@
 extends /layouts/client
 
 block content
+
     div#login
+        h1 Bienvenido a
+            span.title SocialCenter
+            button.btn.btn-primary.btn-lg.sendmsg(data-target='#modalMensajes', data-toggle='modal')
+                span.glyphicon.glyphicon-envelope
         div.window
+
+            div.alert.alert-danger.text-center No has realizado la identificación correctamente. Prueba de nuevo.
+            div.alert.alert-warning.text-center Se ha identificado otro usuario. Espera a que termine su sesión.
+                button#outwaiting.btn.btn-warning(type="button") Salir espera
+            div.alert.alert-success.text-center Puedes intentar identificarte en la aplicación.
+            div.alert.alert-info.text-center Ha salido de la aplicación. Recarga la página para poder identificarte.
+                button#reload.btn.btn-info(type="button") Recargar
+
+
     div.buttons.text-center
-        div.top
-            button#home.btn.btn-warning.pull-left(type="button") <i class="fa fa-home"></i> Inicio
-            button#goback.btn.btn-warning.pull-right(type="button") <i class="fa fa-undo"></i> Volver
+        div.btn-group
+            button#home.btn.btn-lg.btn-warning(type="button") <i class="fa fa-home"></i> Inicio
+            button#goback.btn.btn-lg.btn-warning(type="button") <i class="fa fa-undo"></i> Volver
+            button#logout.btn.btn-lg.btn-warning(type="button") Salir
         div.clearfix
         div.btn-group
-            button#left.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-left"></i> Izquierda
+            button#left.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-left"></i>
             button#ok.btn.btn-primary.btn-lg.btn-danger(type="button") OK
-            button#right.btn.btn-primary.btn-lg.btn-success(type="button") Derecha <i class="fa fa-arrow-right"></i>
+            button#right.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-right"></i>
+        div.clearfix
         div.btn-group
-            button#messages.btn.btn-primary.btn-lg.btn-success(type="button") Bandeja Mensajes
-            button#changeMask.btn.btn-primary.btn-lg.btn-danger(type="button") Barra Mensajería
+            button.sendmsg.btn.btn-primary.btn-lg(data-target='#modalMensajes', data-toggle='modal') Enviar
+            button#messages.btn.btn-primary.btn-lg(type="button") Bandeja
+            button#changeMask.btn.btn-primary.btn-lg(type="button") Barra
+        div.clearfix
         div.btn-group
-            button#appmsgs.btn.btn-primary.btn-lg.btn-success(type="button") Ocultar mensajes
-            button#allmsgs.btn.btn-primary.btn-lg.btn-success(type="button") Mostrar todos
+            button#appmsgs.btn.btn-primary.btn-lg(type="button") Ocultar
+            button#allmsgs.btn.btn-primary.btn-lg(type="button") Todos
+        div.clearfix
+        div.btn-group
+            button#bt1.btn.btn-info.btn-lg(type="button") 1
+            button#bt2.btn.btn-info.btn-lg(type="button") 2
+            button#bt3.btn.btn-info.btn-lg(type="button") 3
+        div.clearfix.no-margin
+        div.btn-group
+            button#bt4.btn.btn-info.btn-lg(type="button") 4
+            button#bt5.btn.btn-info.btn-lg(type="button") 5
+            button#bt6.btn.btn-info.btn-lg(type="button") 6
+        div.clearfix.no-margin
+        div.btn-group
+            button#bt7.btn.btn-info.btn-lg(type="button") 7
+            button#bt8.btn.btn-info.btn-lg(type="button") 8
+            button#bt9.btn.btn-info.btn-lg(type="button") 9
+
+    // Modal
+    #modalMensajes.modal.fade(aria-hidden='true', aria-labelledby='myModalLabel', role='dialog', tabindex='-1')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(aria-hidden='true', data-dismiss='modal', type='button') ×
+                    h4#myModalLabel.modal-title Enviar mensaje
+                .modal-body
+                    form(method='GET', action='', role='form')
+                      .form-group
+                        label.control-label(for='textoMensaje') Texto
+                        input#textoMensaje.form-control(type='text', placeholder='Introduce el texto', name='texto')
+                      .form-group
+                        label(for='caducidadMensaje') Caducidad (horas)
+                        input#caducidadMensaje.form-control(type='text', value='24', data-slider-value='24', data-slider-step='12', data-slider-max='800', data-slider-min='0', data-slider-id='ex1Slider', name='expiracion')
+                        p#ex6CurrentSliderValLabel.help-block
+                          | Caducidad seleccionada en días:
+                          span#ex6SliderVal 1
+
+
+                .modal-footer
+                    button.btn.btn-default(data-dismiss='modal', type='button') Close
+                    button.btn.btn-primary.sendmsgok(type='button') Save changes
+

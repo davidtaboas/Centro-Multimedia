@@ -7,6 +7,7 @@ controllers.controller "MonitorCtrl", [
 
     $scope.scriptremotefunction = () ->
       # setTimeout(reloadControls(), 15000)
+      animacionVentanas()
       setTimeout( () ->
                     reloadControls()
                   ,500)

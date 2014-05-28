@@ -4,11 +4,12 @@
   "dependencies": {
     "sass-bootstrap": "*",
     "jquery": "*",
-    "jquery-mobile-bower": "*",
     "angular": "*",
     "mediaelement": "*",
     "components-font-awesome": "*",
-    "angular-route": "*"
+    "angular-route": "*",
+    "momentjs": "~2.6.0",
+    "modernizr": "~2.8.1"
   },
   "ignore": [
     "**/.*",

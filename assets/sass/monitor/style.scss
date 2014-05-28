@@ -1,9 +1,17 @@
+/*
+
+CSS MONITOR
+
+*/
 @import "bootstrap";
 @import "compass";
 
+$gris: #E6E6E6;
+$naranja:#F36126;
+$negro: #404040;
 
 body {
-  background: #183026 url("../../img/bg.jpg") no-repeat;
+  background: $gris;
   background-size: cover;
   background-attachment: fixed;
   background-position: center 0;
@@ -17,21 +25,18 @@ header {
   .breadcrumb {
     padding: 0;
     border-radius: 0;
-    @include background-image(linear-gradient(#666, #333));
+    background: $naranja;
     color: #fff;
     font-weight: bold;
     margin: 0;
     li {
-      -webkit-transform: skew(-20deg);
-      -moz-transform: skew(-20deg);
-      -o-transform: skew(-20deg);
-      transform: skew(-20deg);
+
       display: inline-table;
       padding: 8px;
       a { }
     }
     li.active {
-      @include background-image(linear-gradient(#333, #666));
+      background: darken($naranja, 15%);
 
     }
   }
@@ -42,9 +47,10 @@ header {
   padding: 20px;
   position: relative;
 }
-.row a {
-  background: #f1f1f1;
+.row #menu a {
+  background: #444;
   display: inline-table;
+  color: $naranja;
   font-size: 50px;
   height: 250px;
   line-height: 250px;
@@ -80,17 +86,17 @@ header {
   }
 
   .content {
-    background: #fff;
-    border: 10px solid #333;
-    height: 60%;
-    margin: 15% auto;
+    background: $gris;
+    border: 10px solid $negro;
+    height: 100%;
+    margin: 0px;
     padding: 20px;
     position: relative;
-    width: 80%;
+    width: 100%;
 
     h1 {
-      color: #333;
-      border-bottom: 2px solid #333;
+      color: $negro;
+      border-bottom: 2px solid $negro;
     }
 
     .items {
@@ -102,8 +108,16 @@ header {
         list-style: none;
 
         li {
-          padding: 3px;
-          border-bottom: 1px solid #efefef;
+          padding: 10px 0;
+          border-bottom: 1px solid $negro;
+          font-size: 36px;
+          span {
+            margin: 0 10px;
+            &.timeago{
+              font-style: italic;
+              color: $naranja;
+            }
+          }
         }
       }
     }
@@ -119,43 +133,29 @@ footer {
   overflow: hidden;
   position: absolute;
   width: 100%;
+  height: 300px;
 
-  // .popup {
-  //   display: block;
-  //   $height: 150px;
-  //   $width: ($height*((1+sqrt(5))/2));
-  //   background: #333;
-  //   border-radius: 12px;
-  //   color: #fff;
-  //   height: $height;
-  //   position: absolute;
-  //   right: 10px;
-  //   top: 50px;
-  //   width: $width;
 
-  //   p {
-  //     padding: 25px;
-  //   }
-  // }
-
+  /* PANEL DESLIZANTE DE MENSAJES */
   .bottom {
     display: block;
-    background: #222;
-    color: #fff;
-    height: 150px;
+    background: $negro;
+    color: #FFF;
+    height: 100%;
     position: relative;
     width: 100%;
+
 
     #slider {
       margin: 0 auto;
       overflow: hidden;
       position: relative;
-      height: 150px;
+      height: 100%;
       ul {
         position: relative;
         margin: 0;
         padding: 0;
-        height: 150px;
+        height: 100%;
         list-style: none;
         li {
           position: relative;
@@ -163,15 +163,41 @@ footer {
           float: left;
           margin: 20px 0;
           padding: 0;
-          // width: 1560px;
-          height: 150px;
+          height: 100%;
           text-align: center;
+          width: 100%;
 
-          p {
-            color: #fff;
-            font-size: 50px;
-            line-height: 50px;
+          .info {
+            p{
+              color: inherit;
+              font-size: 70px;
+              line-height: 70px;
+
+            }
+            .prioridad{
+
+              text-align: center;
+              font-size: 50px;
+              line-height: 50px;
+              margin: 10px;
+
+            }
+
+            .fecha{
+              font-size: 36px;
+              line-height: 36px;
+            }
+
+            span.timeago {
+              font-size: 28px;
+              display: block;
+            }
+
+
+
+
           }
+
         }
       }
     }
@@ -205,3 +231,106 @@ footer {
 .container, .monitor, #views {
   height: 100%;
 }
+
+#login{
+
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+  .alert{
+    font-size: 70px;
+  }
+
+  .event{
+    width: 256px;
+    height: 256px;
+    margin: 0 auto;
+
+    div{
+      width: 100%;
+      display: block;
+      height: 100%;
+    }
+    .singleTap { background-image: url("/img/gestures/tap.png"); }
+    .doubleTap { background-image: url("/img/gestures/double_tap.png"); }
+    .swipeLeft { background-image: url("/img/gestures/swipe_left.png"); }
+    .swipeRight{ background-image: url("/img/gestures/swipe_right.png"); }
+    .swipeUp{ background-image: url("/img/gestures/swipe_up.png"); }
+    .swipeDown{ background-image: url("/img/gestures/swipe_down.png"); }
+    .rotateLeft{ background-image: url("/img/gestures/rotate_left.png"); }
+    .rotateRight{ background-image: url("/img/gestures/rotate_right.png"); }
+    .pinchIn{ background-image: url("/img/gestures/pinch.png"); }
+    .pinchOut{ background-image: url("/img/gestures/pinch_out.png"); }
+  }
+
+
+}
+
+/*
+ICONOS
+*/
+.glyphicon {
+  &.p0 {
+
+    color: $brand-danger;
+    @extend .glyphicon-warning-sign;
+
+  }
+  &.p1 {
+    color: $brand-info;
+
+    @extend .glyphicon-bookmark;
+
+  }
+  &.p2 {
+    color: $brand-warning;
+    @extend .glyphicon-bullhorn;
+  }
+}
+
+
+/*
+MODO PRESENTACION
+*/
+.nav-presentacion {
+  text-align: center;
+  margin: 10px;
+  a {
+    margin: 0 10px;
+    @extend .btn;
+    @extend .btn-default;
+  }
+}
+div.slide{
+  -webkit-box-shadow: 0 0 50px #c0c0c0;
+  -moz-box-shadow: 0 0 50px #c0c0c0;
+  box-shadow: 0 0 50px #c0c0c0;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 20px;
+  position: relative;
+  width: 900px;
+
+  &.activeslide {
+    opacity: 1;
+    display: block;
+  }
+
+  &.inactiveslide {
+    opacity: 0.4;
+    display: none !important;
+  }
+}
+
+
+

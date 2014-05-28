@@ -1,4 +1,4 @@
-var app, changeMask, currentIndex, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socket;
+var activarBoton, animacionVentanas, app, changeMask, currentIndex, customButtons, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socialcenter, socket;
 
 socket = io.connect("http://127.0.0.1:5555/");
 
@@ -7,6 +7,17 @@ app = app || {};
 lastTabIndex = 0;
 
 currentIndex = 0;
+
+activarBoton = function(id, label) {
+  socket.emit("controlBotones", {
+    id: id,
+    label: label
+  });
+};
+
+customButtons = function(id) {
+  window["funciones" + id]();
+};
 
 
 /*
@@ -52,6 +63,21 @@ socket.on("change", function(data) {
   }
 });
 
+socket.on("login", function(data) {
+  console.log(data);
+  if (data.login === "ok") {
+    $("#login").fadeOut();
+  } else {
+    $("#login").fadeIn();
+    $("#login .event div").removeClass();
+    $("#login .event div").addClass(data.login);
+  }
+});
+
+socket.on("button", function(data) {
+  window["customButtons"](data.id);
+});
+
 
 /*
 Función para obtener la altura del contenido
@@ -60,7 +86,7 @@ Función para obtener la altura del contenido
 setContentHeight = function() {
   var alturaContent, footerHeight;
   if (isActiveNavMessages) {
-    footerHeight = 150;
+    footerHeight = $("footer").css("height");
   } else {
     footerHeight = 0;
   }
@@ -88,10 +114,14 @@ changeMask = function() {
     isActiveNavMessages = 0;
   } else {
     $("footer .bottom").animate({
-      height: "150px"
+      height: "300px"
     }, 200);
     isActiveNavMessages = 1;
   }
+};
+
+animacionVentanas = function() {
+  $("#views").hide().fadeIn();
 };
 
 
@@ -102,7 +132,13 @@ que se cambia la página
  */
 
 reloadControls = function() {
-  var player;
+  var fathom, player;
+  if (location.hash === "#/") {
+    socket.emit("controlBotones", {
+      id: 0,
+      label: ""
+    });
+  }
   $("#content").css("background", "none");
   $("#slider ul li").width($("body").width());
   if (typeof MediaElementPlayer === 'function') {
@@ -128,6 +164,20 @@ reloadControls = function() {
       });
       Galleria.run(".galleria");
       $("#content").css("background", "black");
+    }
+  }
+  if (typeof Fathom === 'function') {
+    if ($("#presentacion").length > 0) {
+      fathom = new Fathom("#presentacion");
+      if (fathom.$length > 1) {
+        $(".presentacionderecha").show();
+      }
+      $(".presentacionizquierda").on("click", function() {
+        fathom.prevSlide();
+      });
+      $(".presentacionderecha").on("click", function() {
+        fathom.nextSlide();
+      });
     }
   }
   $("a, video, .galleria-image-nav div").each(function(index) {
@@ -174,3 +224,13 @@ $(document).ready(function() {
     moveRight();
   }), 3000);
 });
+
+socialcenter = {
+  protegido: function() {
+    var var_protegido;
+    var_protegido = prompt("¿Quieres poner la aplicación en modo protegido? (1=protegido / 0=promiscuo)", "");
+    socket.emit("config", {
+      protegido: var_protegido
+    });
+  }
+};

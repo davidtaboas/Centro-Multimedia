@@ -1,57 +1,69 @@
+/*
+
+CSS CLIENTE
+
+*/
 @import 'compass/css3';
 @import 'bootstrap';
 @import 'font-awesome';
 
+$gris: #E6E6E6;
+$naranja:#F36126;
+$negro: #404040;
+
 body{
 
   overflow: hidden;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
   width: 100%;
   height: 100%;
 }
 
 .remote-control{
-  @include background-image(linear-gradient(left, #666, #333 50%, #333 50%, #666));
+  background: $negro;
   color: #fff;
-  height: 100%;
   margin: 0 auto;
   padding: 50px 0;
   position: absolute;
   width: 100%;
 
-  .buttons{
-
-    div{
-      margin: 20px 0;
-    }
-    width: 95%;
+  .client {
     margin: 0 auto;
+    // width: 80%;
 
-    button{
-      text-align: center;
+    .buttons{
 
-    }
-    .top{
+      width: 100%;
+      margin: 0 auto;
 
-      height: 65px;
+      button{
+        text-align: center;
 
-      #home,
-      #goback{
-        @include border-radius(100px);
-        height: 65px;
-        width: 65px;
-        padding: 0px;
       }
-    }
-    #left{
+      .top{
 
-    }
+        height: 65px;
 
-    #ok{
+        #home,
+        #goback{
+          @include border-radius(100px);
+          height: 65px;
+          width: 65px;
+          padding: 0px;
+        }
+      }
+      #left{
 
-    }
+      }
 
-    #right{
+      #ok{
 
+      }
+
+      #right{
+
+      }
     }
   }
 }
@@ -59,16 +71,79 @@ body{
 
 #login {
 
+  display: none;
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   z-index: 100;
+  overflow: hidden;
+  background: #fff;
+
+  h1{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: #666;
+    text-shadow: 2px 2px $gris;
+
+
+    span.title{
+      padding-left: 15px;
+      color: $naranja;
+
+    }
+  }
 
   .window {
     height: 100%;
     width: 100%;
     background: #fff;
+    position: relative;
+
+
+    .alert {
+      display: none;
+    }
   }
+
+  .sendmsg{
+    position: relative;
+    left: 0;
+    right: 0px;
+    margin: 0 auto;
+    bottom: 0;
+  }
+}
+
+#modalMensajes {
+  color: $negro;
+
+  #ex1Slider {
+    width: 100% !important;
+    margin-top: 30px;
+
+    .slider-selection {
+      background-color: $naranja !important;
+    }
+
+    div.tooltip.top {
+      display: block !important;
+      opacity: 1 !important;
+      margin-top: -20px !important;
+    }
+  }
+}
+
+.clearfix{
+  margin: 10px auto !important;
+}
+
+.no-margin{
+  margin: 0 auto !important;
+}
+
+#bt1, #bt2, #bt3, #bt4, #bt5, #bt6, #bt7, #bt8, #bt9{
+  display: none;
 }

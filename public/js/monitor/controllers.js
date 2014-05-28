@@ -5,6 +5,7 @@ controllers = angular.module("monitorApp.controllers", []);
 controllers.controller("MonitorCtrl", [
   "$scope", "$http", function($scope, $http) {
     $scope.scriptremotefunction = function() {
+      animacionVentanas();
       setTimeout(function() {
         return reloadControls();
       }, 500);

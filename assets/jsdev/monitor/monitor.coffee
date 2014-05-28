@@ -6,6 +6,18 @@ app = app or {}
 lastTabIndex = 0
 currentIndex = 0
 
+# GESTION DE BOTONES
+activarBoton = (id, label) ->
+
+  socket.emit "controlBotones", {id: id, label: label}
+  return
+
+customButtons = (id) ->
+
+  window["funciones"+id]()
+
+  return
+
 ###
 Los sockets van definidos de forma general
 ###
@@ -52,6 +64,24 @@ socket.on "change", (data) ->
     $("#messages").toggle()
   return
 
+socket.on "login", (data) ->
+  console.log data
+  if data.login is "ok"
+    # Pasamos a la visualización completa
+    $("#login").fadeOut()
+  else
+    $("#login").fadeIn()
+    $("#login .event div").removeClass()
+    $("#login .event div").addClass(data.login)
+  return
+
+# Custom buttons
+socket.on "button", (data) ->
+
+  window["customButtons"](data.id)
+  return
+
+
 ###
 Función para obtener la altura del contenido
 
@@ -61,7 +91,7 @@ setContentHeight = () ->
 
 
   if isActiveNavMessages
-    footerHeight = 150
+    footerHeight = $("footer").css("height")
   else
     footerHeight = 0
   alturaContent =$(window).height() - ($("header").height() + footerHeight + 40)
@@ -83,12 +113,17 @@ changeMask = () ->
     $("footer .bottom").animate(height: "0px", 200)
     isActiveNavMessages = 0
   else
-    $("footer .bottom").animate(height: "150px", 200)
+    $("footer .bottom").animate(height: "300px", 200)
     isActiveNavMessages = 1
 
   return
 
+# Hacemos la presentación de la pantalla animada
+animacionVentanas = () ->
 
+  $("#views").hide().fadeIn()
+
+  return
 ###
 Separamos en una función los controles
 que se tienen que recargar cada vez
@@ -96,10 +131,14 @@ que se cambia la página
 ###
 reloadControls = () ->
 
+  # Limpiamos el grid de botones personalizados
+  if location.hash is "#/"
+    socket.emit "controlBotones", {id: 0, label: ""}
+
+  # Limpiamos el fondo
   $("#content").css("background","none")
 
   $("#slider ul li").width($("body").width())
-
   #VIDEOS
   if typeof MediaElementPlayer is 'function'
     if $("video").length > 0
@@ -127,6 +166,23 @@ reloadControls = () ->
         })
       Galleria.run(".galleria")
       $("#content").css("background", "black")
+
+  # PRESENTACIONES
+  if typeof Fathom is 'function'
+    if $("#presentacion").length > 0
+      fathom = new Fathom("#presentacion")
+
+      if fathom.$length > 1
+        $(".presentacionderecha").show()
+
+      $(".presentacionizquierda").on "click", () ->
+        fathom.prevSlide()
+        return
+
+      $(".presentacionderecha").on "click", () ->
+        fathom.nextSlide()
+        return
+
 
   # Navegacion por tabindex
   $("a, video, .galleria-image-nav div").each (index) ->
@@ -191,3 +247,13 @@ $(document).ready ->
   ), 3000
 
   return
+
+
+socialcenter =
+
+  protegido: ->
+    var_protegido = prompt "¿Quieres poner la aplicación en modo protegido? (1=protegido / 0=promiscuo)", ""
+    socket.emit("config", {protegido: var_protegido})
+
+    return
+
