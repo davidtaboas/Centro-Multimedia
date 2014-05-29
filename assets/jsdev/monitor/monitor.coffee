@@ -111,8 +111,13 @@ que se cambia la página
 reloadControls = () ->
 
   # Limpiamos el grid de botones personalizados
+  # Limpiamos scrits añadidos
   if location.hash is "#/"
     socket.emit "controlBotones", {id: 0, label: ""}
+    # Limpiamos scripts añadidos
+    $(".temp").remove()
+
+
 
   # Limpiamos el fondo
   $("#content").css("background","none")

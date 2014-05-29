@@ -125,6 +125,7 @@ reloadControls = function() {
       id: 0,
       label: ""
     });
+    $(".temp").remove();
   }
   $("#content").css("background", "none");
   if (typeof MediaElementPlayer === 'function') {

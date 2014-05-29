@@ -13,6 +13,7 @@ directives.directive "lazyStyle", ->
         link = document.createElement("link")
         link.type = "text/css"
         link.rel = "stylesheet"
+        link.className = "temp"
         link.href = stylePath
         document.getElementsByTagName("head")[0].appendChild link
       loadedStyles[stylePath] = true
@@ -33,6 +34,7 @@ directives.directive "lazyScript", ->
         link = document.createElement("script")
         link.type = "text/javascript"
         link.src = stylePath
+        link.className = "temp"
         link.async = true
         document.getElementsByTagName("head")[0].appendChild link
       loadedScripts[stylePath] = true

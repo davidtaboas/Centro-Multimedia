@@ -30,23 +30,26 @@ header {
     border-radius: 0;
     color: #fff;
     font-weight: bold;
+    height: 100%;
     margin: 0;
     padding: 0;
     li {
 
       display: inline-table;
-      padding: 8px;
+      padding: 0% 1%;
+      height: 100%;
+      font-size: 2em;
 
       .clickProtegido {
         background: inherit;
+        color: inherit;
         font-size: inherit;
         font-weight: inherit;
-        color: inherit;
+        height: 100%;
         margin: 0px;
         padding: 0px;
         vertical-align: top;
-        height: 16px;
-        line-height: 16px;
+
       }
 
       a { }
