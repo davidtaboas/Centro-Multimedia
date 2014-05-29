@@ -31,8 +31,6 @@ $ ->
   $goBack     = $("#goback")
   $changeMask = $("#changeMask")
   $messages   = $("#messages")
-  $appMsgs    = $("#appmsgs")
-  $allMsgs    = $("#allmsgs")
   $logout     = $("#logout, #outwaiting")
   $reload     = $("#reload")
   $sendMsg    = $(".sendmsgok")
@@ -96,21 +94,24 @@ $ ->
     socket.emit "control", "back"
     return
 
+
   $changeMask.on "tap", () ->
-    socket.emit "change", "mask"
+
+    # boton con ocultar activo
+    if $changeMask.hasClass("active") is true
+      $changeMask.button('reset')
+      socket.emit "filtermsgs", "all"
+    else
+      $changeMask.button('complete')
+      socket.emit "filtermsgs", "app"
+
+    # socket.emit "change", "mask"
     return
 
   $messages.on "tap", () ->
     socket.emit "change", "messages"
     return
 
-  $appMsgs.on "tap", () ->
-    socket.emit "filtermsgs", "app"
-    return
-
-  $allMsgs.on "tap", () ->
-    socket.emit "filtermsgs", "all"
-    return
 
   $logout.on "tap", () ->
     $("#login .alert-warning").fadeOut()

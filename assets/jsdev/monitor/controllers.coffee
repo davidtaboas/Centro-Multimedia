@@ -5,14 +5,12 @@ controllers.controller "MonitorCtrl", [
   "$http"
   ($scope, $http) ->
 
-    $scope.scriptremotefunction = () ->
-      # setTimeout(reloadControls(), 15000)
+    $scope.$on "$routeChangeSuccess", ($currentRoute, $previousRoute) ->
       animacionVentanas()
       setTimeout( () ->
                     reloadControls()
                   ,500)
-      return
-    $scope.$watch($scope.scriptremotefunction)
+
 
     return
 
@@ -27,10 +25,16 @@ controllers.controller "MessagesCtrl", [
 
     lastFilter = "all"
 
-    console.log lastFilter
-    $http.get("/messages/"+lastFilter).success (messages) ->
-      $scope.messages = messages
+
+    cargarMensajes = (filtrado) ->
+      $http.get("/messages/"+filtrado).success (messages) ->
+        $scope.messages = messages
+        barraMensajes(messages.length)
+        return
       return
+
+    cargarMensajes(lastFilter)
+
 
 
 
@@ -41,10 +45,8 @@ controllers.controller "MessagesCtrl", [
         $http.post("/messages", data).success (ok) ->
 
           return
-        console.log lastFilter
-        $http.get("/messages/"+lastFilter).success (messages) ->
-          $scope.messages = messages
-          return
+
+        cargarMensajes(lastFilter)
 
         return
 
@@ -52,11 +54,10 @@ controllers.controller "MessagesCtrl", [
 
     socket.on "filter", (data) ->
 
+
       $scope.$apply ->
-        lastFilter = data.filter
-        $http.get("/messages/"+lastFilter).success (messages) ->
-          $scope.messages = messages
-          return
+
+        cargarMensajes(data.filter)
         return
 
       return #end $socket filter

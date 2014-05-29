@@ -11,7 +11,7 @@ socket = io.connect("http://192.168.1.36:1337/");
 app = app || {};
 
 $(function() {
-  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $reload, $sendMsg, $sendOk, $viewSend;
+  var $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $reload, $sendMsg, $sendOk, $viewSend;
   $("#login h1").textfill();
   $("input#textoMensaje").maxlength({
     alwaysShow: true,
@@ -27,8 +27,6 @@ $(function() {
   $goBack = $("#goback");
   $changeMask = $("#changeMask");
   $messages = $("#messages");
-  $appMsgs = $("#appmsgs");
-  $allMsgs = $("#allmsgs");
   $logout = $("#logout, #outwaiting");
   $reload = $("#reload");
   $sendMsg = $(".sendmsgok");
@@ -74,16 +72,16 @@ $(function() {
     socket.emit("control", "back");
   });
   $changeMask.on("tap", function() {
-    socket.emit("change", "mask");
+    if ($changeMask.hasClass("active") === true) {
+      $changeMask.button('reset');
+      socket.emit("filtermsgs", "all");
+    } else {
+      $changeMask.button('complete');
+      socket.emit("filtermsgs", "app");
+    }
   });
   $messages.on("tap", function() {
     socket.emit("change", "messages");
-  });
-  $appMsgs.on("tap", function() {
-    socket.emit("filtermsgs", "app");
-  });
-  $allMsgs.on("tap", function() {
-    socket.emit("filtermsgs", "all");
   });
   $logout.on("tap", function() {
     $("#login .alert-warning").fadeOut();

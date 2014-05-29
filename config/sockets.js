@@ -42,8 +42,9 @@ module.exports = function (server, config) {
         socketserver.on("config", function(data){
 
             console.log(data);
-            if (data.protegido === '1'){
+            if (data.protegido == '1'){
 
+                console.log('Hemos entrado aqui');
                 // si hay un usuario activo, lo sacamos
                 if(usuarioActivo!=-1){
 

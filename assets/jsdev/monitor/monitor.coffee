@@ -81,46 +81,25 @@ socket.on "button", (data) ->
   window["customButtons"](data.id)
   return
 
-
 ###
-Función para obtener la altura del contenido
-
-###
-
-setContentHeight = () ->
-
-
-  if isActiveNavMessages
-    footerHeight = $("footer").css("height")
-  else
-    footerHeight = 0
-  alturaContent =$(window).height() - ($("header").height() + footerHeight + 40)
-  $("#content").height(alturaContent)
-  $(".galleria-container").height(alturaContent)
-  return
-
-
-###
-Función para cambiar máscara de mensajes
+Función para controlar el funcionamiento de la barra de mensajes
 ###
 isActiveNavMessages = 1
-changeMask = () ->
-  ###
-  Si hay prioridad 0 entonces no se tiene que ocultar la máscara
-  ###
-
+barraMensajes = (n) ->
   if isActiveNavMessages
-    $("footer .bottom").animate(height: "0px", 200)
-    isActiveNavMessages = 0
+    if n is 0
+      $("footer").animate({height: "0"}, 200)
+      $("#content").animate({height: "95%"}, 200)
+      isActiveNavMessages = 0
   else
-    $("footer .bottom").animate(height: "300px", 200)
+    $("footer").animate({height: "25%"}, 200)
+    $("#content").animate({height: "70%"}, 200)
     isActiveNavMessages = 1
 
   return
 
 # Hacemos la presentación de la pantalla animada
 animacionVentanas = () ->
-
   $("#views").hide().fadeIn()
 
   return
@@ -162,7 +141,8 @@ reloadControls = () ->
         height: $("#content").height(),
         responsive: true,
         preload: 0,
-        idleMode: false
+        idleMode: false,
+        debug: false
         })
       Galleria.run(".galleria")
       $("#content").css("background", "black")
@@ -203,50 +183,51 @@ reloadControls = () ->
 # window.ready
 $(document).ready ->
 
+  protegido = 0;
+  $(".clickProtegido").on "click", () ->
 
+    if protegido is 0
+      protegido = 1
+      $(".clickProtegido").button("toggle")
+      $(".modoprotegido").removeClass("hide").addClass("show")
+    else if protegido is 1
+      protegido = 0
+      $(".clickProtegido").button("toggle")
+      $(".modoprotegido").removeClass("show").addClass("hide")
 
-  setContentHeight()
+    socket.emit("config", {protegido: protegido})
+    return
 
-
-  moveRight = ->
-    $("#slider").fadeOut "slow", () ->
-      $("footer").animate
-        width: "0%"
-      , 400, ->
-        $("#slider ul li:first-child").appendTo "#slider ul"
-        $("footer").animate
-          width: "95%"
-        , 400, ->
-          $("#slider").fadeIn "fast", () ->
-
-            return
+  sliderBarra = ->
+    if $("#slider ul li").length > 1
+      $("#slider ul li:not(:first-child) .mensaje").fadeOut 400
+      $("#slider ul li:first-child .mensaje").fadeOut 400, () ->
+          $("#slider ul li:not(:first-child)").css("width", "0%")
+          $("#slider ul li:first-child").animate
+            width: "0%"
+          , 400, () ->
+              $("#slider ul li:first-child").appendTo "#slider ul"
+              $("#slider ul li:first-child").animate
+                width: "95%"
+              , 400, () ->
+                  $("#slider ul li .mensaje").fadeIn 400
+                  return
+              return
           return
         return
-      return
 
-
-
-
-    return
 
 
   $("#slider ul li:last-child").prependTo "#slider ul"
 
 
-
   setInterval (->
-    moveRight()
+    sliderBarra()
     return
-  ), 10000
+  ), 5000
 
   return
 
 
-socialcenter =
 
-  protegido: ->
-    var_protegido = prompt "¿Quieres poner la aplicación en modo protegido? (1=protegido / 0=promiscuo)", ""
-    socket.emit("config", {protegido: var_protegido})
-
-    return
 

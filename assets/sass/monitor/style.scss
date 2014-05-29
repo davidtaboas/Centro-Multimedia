@@ -19,20 +19,36 @@ body {
 
 header {
 
+  background: $naranja;
   float: left;
+  height: 5%;
+  position: absolute;
   width: 100%;
 
   .breadcrumb {
-    padding: 0;
-    border-radius: 0;
     background: $naranja;
+    border-radius: 0;
     color: #fff;
     font-weight: bold;
     margin: 0;
+    padding: 0;
     li {
 
       display: inline-table;
       padding: 8px;
+
+      .clickProtegido {
+        background: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+        margin: 0px;
+        padding: 0px;
+        vertical-align: top;
+        height: 16px;
+        line-height: 16px;
+      }
+
       a { }
     }
     li.active {
@@ -40,12 +56,24 @@ header {
 
     }
   }
+
+  .modoprotegido {
+    position: absolute;
+    margin: 0 auto;
+    width: 30%;
+    top: 25px;
+    left: 0;
+    right: 0;
+  }
 }
 #content {
   float: left;
-  width: 100%;
+  height: 70%;
+  left: 0;
   padding: 20px;
-  position: relative;
+  position: absolute;
+  top: 5%;
+  width: 100%;
 }
 .row #menu a {
   background: #444;
@@ -113,6 +141,14 @@ header {
           font-size: 36px;
           span {
             margin: 0 10px;
+
+            &.prioridad {
+              float: left;
+
+              &.p0 {
+                width: 7%;
+              }
+            }
             &.timeago{
               font-style: italic;
               color: $naranja;
@@ -128,28 +164,26 @@ header {
 
 footer {
 
-  bottom: 5%;
+  background: $negro;
+  bottom: 0;
   left: 0;
   overflow: hidden;
   position: absolute;
-  width: 95%;
   height: 25%;
-  border-top-right-radius: 24px;
-  border-bottom-right-radius: 24px;
+  width: 100%;
 
 
   /* PANEL DESLIZANTE DE MENSAJES */
   .bottom {
-    display: block;
-    background: $negro;
-    color: #FFF;
+
     height: 100%;
     position: relative;
     width: 100%;
 
 
     #slider {
-      margin: 0 auto;
+
+      margin: 0px;
       overflow: hidden;
       position: relative;
       width: 100%;
@@ -162,12 +196,15 @@ footer {
         height: 100%;
         list-style: none;
         li {
-          position: relative;
+          background: $negro;
+          clear: both;
+          color: #FFF;
+          display: block;
           display: block;
           float: left;
-          margin: 20px 0;
-          padding: 0;
           height: 100%;
+          padding: 0;
+          position: relative;
           text-align: center;
           width: 100%;
 

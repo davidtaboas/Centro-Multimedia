@@ -9,7 +9,9 @@ html(ng-app="monitorApp")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         link(rel='stylesheet', href="/css/monitor/style.css")
         block css
+        script(src='/components/modernizr/modernizr.js')
         script(src='/components/jquery/dist/jquery.min.js')
+        script(src='/components/sass-bootstrap/dist/js/bootstrap.min.js')
 
         script(src='/components/momentjs/min/moment-with-langs.min.js')
         script(src='/components/momentjs/lang/es.js')
@@ -40,11 +42,11 @@ html(ng-app="monitorApp")
         header
             ol.breadcrumb
                 div.container
-                    li Home
+                    li
+                        button.clickProtegido.btn(type="button", data-toggle="button") SocialCenter
                     li.active #{title}
-
                     li.pull-right Mensajes {{ messages.length }}
-
+            div.modoprotegido.alert.alert-info.text-center.hide Modo Protegido
         div#content
             div.container(ng-controller="MonitorCtrl")
                 div.row.monitor
@@ -56,13 +58,14 @@ html(ng-app="monitorApp")
                 div#slider
                     ul
                         li(ng-repeat='message in messages')
-                            div.data
-                                p.icon
-                                    span.glyphicon(class="prioridad p{{message.prioridad}}")
-                                p.ago
-                                    span.timeago(timeago="{{message.fechaEnvio}}")
-                            div.info
-                                p {{ message.texto }}
+                            div.mensaje
+                                div.data
+                                    p.icon
+                                        span.glyphicon(class="prioridad p{{message.prioridad}}")
+                                    p.ago
+                                        span.timeago(timeago="{{message.fechaEnvio}}")
+                                div.info
+                                    p {{ message.texto }}
                                 //- p.fecha {{message.fechaEnvio | date:'dd/MM/yyyy @ HH:mm'}}
 
 
