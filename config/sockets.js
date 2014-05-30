@@ -6,7 +6,8 @@ var runningPortApi     = 7777;
 var exec =  require('child_process').exec,
     child,
     os = require('os'),
-    sistemaoperativo = os.platform();
+    sistemaoperativo = os.platform(),
+    logoffTimer;;
 
 module.exports = function (server, config) {
 
@@ -81,6 +82,19 @@ module.exports = function (server, config) {
     iousers.on('connection', function (socket) {
 
 
+        function registroActividad() {
+            // clear the timer on activity
+            // should also update activity timestamp in session
+            clearTimeout(logoffTimer);
+
+            logoffTimer = setTimeout(function(){
+                // add log off logic here
+                // you can also check session activity here
+                // and perhaps emit a logoff event to the client as mentioned
+                socket.emit("logoff", { reason: "Logged off due to inactivity" });
+            }, 1000 * 60 * 3); // 1000ms (1s) * 60s (1') * 3 (3')
+        }
+
         console.log(">>Todos los clientes: "+allClients.length);
         // Si no hay clientes conectados, despertamos el monitor
         if (allClients.length == 0){
@@ -130,6 +144,7 @@ module.exports = function (server, config) {
                 console.log('El usuario desconectado era el activo')
                 usuarioActivo=-1;
                 iomonitor.sockets.socket(idmonitor).emit('control', {move: "home"});
+                clearTimeout(logoffTimer);
             }
 
             // Eliminamos el cliente de la lista
@@ -209,6 +224,10 @@ module.exports = function (server, config) {
             if (data === login_eventos[0]){
                 console.log("LOGIN OK");
 
+                // Iniciamos el registro de actividad
+                registroActividad();
+
+
                 // Asignamos el usuario activo
                 usuarioActivo = socket;
 
@@ -249,24 +268,28 @@ module.exports = function (server, config) {
         });
 
         socket.on('move', function (data) {
+            registroActividad();
             iomonitor.sockets.socket(idmonitor).emit('move', {move: data});
         });
 
         socket.on('control', function (data) {
-
+            registroActividad();
             iomonitor.sockets.socket(idmonitor).emit('control', {move: data});
         });
 
         socket.on('change', function (data) {
+            registroActividad();
             iomonitor.sockets.socket(idmonitor).emit('change', {change: data});
         });
 
         socket.on('filtermsgs', function(data) {
+            registroActividad();
             iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
         });
 
 
         socket.on('botonesMonitor', function(data) {
+            registroActividad();
             iomonitor.sockets.socket(idmonitor).emit('button', {id: data});
         });
 

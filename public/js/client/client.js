@@ -113,6 +113,15 @@ $(function() {
       $("#textoMensaje").val("");
     }
   });
+  socket.on("logoff", function(data) {
+    $("#login .alert-warning").fadeOut();
+    $("#login .alert-success").fadeOut();
+    $("#login .alert-danger").fadeOut();
+    $("#login .alert-info").fadeIn();
+    $("#login .alert-info").append("<p>Desconeción por inactividad</p>");
+    $("#login").show();
+    socket.disconnect();
+  });
   socket.on("login", function(data) {
     if (data.login === "ok") {
       $(".remote-control").show();

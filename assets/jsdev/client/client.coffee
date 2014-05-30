@@ -148,6 +148,18 @@ $ ->
       $("#textoMensaje").val("")
     return
 
+  socket.on "logoff", (data) ->
+
+    $("#login .alert-warning").fadeOut()
+    $("#login .alert-success").fadeOut()
+    $("#login .alert-danger").fadeOut()
+    $("#login .alert-info").fadeIn()
+    $("#login .alert-info").append "<p>Desconeción por inactividad</p>"
+    $("#login").show()
+    socket.disconnect()
+    return
+
+
   # LOGIN STUFF
   socket.on "login", (data) ->
 
