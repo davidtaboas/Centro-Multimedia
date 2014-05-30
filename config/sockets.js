@@ -1,6 +1,6 @@
 
 
-var runningPortMonitor = 5555;
+var runningPortMonitor = 4444;
 var runningPortApi     = 7777;
 
 var exec =  require('child_process').exec,
@@ -224,8 +224,7 @@ module.exports = function (server, config) {
             if (data === login_eventos[0]){
                 console.log("LOGIN OK");
 
-                // Iniciamos el registro de actividad
-                registroActividad();
+
 
 
                 // Asignamos el usuario activo
@@ -239,6 +238,9 @@ module.exports = function (server, config) {
 
                 // Indicamos al monitor que se ha identificado correctamente alguien
                 iomonitor.sockets.socket(idmonitor).emit('login', {login: "ok"});
+
+                // Iniciamos el registro de actividad
+                registroActividad();
             }
             else{
                 console.log("LOGIN FAIL");
@@ -268,29 +270,34 @@ module.exports = function (server, config) {
         });
 
         socket.on('move', function (data) {
-            registroActividad();
+
             iomonitor.sockets.socket(idmonitor).emit('move', {move: data});
+            registroActividad();
         });
 
         socket.on('control', function (data) {
-            registroActividad();
+
             iomonitor.sockets.socket(idmonitor).emit('control', {move: data});
+            registroActividad();
         });
 
         socket.on('change', function (data) {
-            registroActividad();
+
             iomonitor.sockets.socket(idmonitor).emit('change', {change: data});
+            registroActividad();
         });
 
         socket.on('filtermsgs', function(data) {
-            registroActividad();
+
             iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
+            registroActividad();
         });
 
 
         socket.on('botonesMonitor', function(data) {
-            registroActividad();
+
             iomonitor.sockets.socket(idmonitor).emit('button', {id: data});
+            registroActividad();
         });
 
 

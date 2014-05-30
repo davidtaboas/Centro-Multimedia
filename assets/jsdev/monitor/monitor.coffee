@@ -1,6 +1,6 @@
 
 # connect to our socket server
-socket = io.connect("http://127.0.0.1:5555/")
+socket = io.connect("http://127.0.0.1:4444/")
 app = app or {}
 
 lastTabIndex = 0

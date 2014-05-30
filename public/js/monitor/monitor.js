@@ -1,6 +1,6 @@
 var activarBoton, animacionVentanas, app, barraMensajes, currentIndex, customButtons, isActiveNavMessages, lastTabIndex, reloadControls, socket;
 
-socket = io.connect("http://127.0.0.1:5555/");
+socket = io.connect("http://127.0.0.1:4444/");
 
 app = app || {};
 
