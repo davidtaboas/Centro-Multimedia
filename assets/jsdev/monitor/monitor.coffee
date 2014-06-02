@@ -100,6 +100,9 @@ barraMensajes = (n) ->
 
 # Hacemos la presentación de la pantalla animada
 animacionVentanas = () ->
+  # Limpiamos el fondo
+  $("#content").css("background","none")
+  # Animacion de pase de ventanas
   $("#views").hide().fadeIn()
 
   return
@@ -116,11 +119,6 @@ reloadControls = () ->
     socket.emit "controlBotones", {id: 0, label: ""}
     # Limpiamos scripts añadidos
     $(".temp").remove()
-
-
-
-  # Limpiamos el fondo
-  $("#content").css("background","none")
 
 
   #VIDEOS

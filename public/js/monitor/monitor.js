@@ -108,6 +108,7 @@ barraMensajes = function(n) {
 };
 
 animacionVentanas = function() {
+  $("#content").css("background", "none");
   $("#views").hide().fadeIn();
 };
 
@@ -127,7 +128,6 @@ reloadControls = function() {
     });
     $(".temp").remove();
   }
-  $("#content").css("background", "none");
   if (typeof MediaElementPlayer === 'function') {
     if ($("video").length > 0) {
       $("video").mediaelementplayer();

@@ -52,7 +52,7 @@ Views
 */
 app.set('views', [
     config.root + '/app/views',
-    config.root + '/modules/videos/views']
+    config.root + '/modules/']
     );
 
 

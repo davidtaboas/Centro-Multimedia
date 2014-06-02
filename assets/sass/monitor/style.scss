@@ -78,20 +78,29 @@ header {
   top: 5%;
   width: 100%;
 }
-.row #menu a {
-  background: #444;
-  display: inline-table;
-  color: $naranja;
-  font-size: 50px;
-  height: 250px;
-  line-height: 250px;
-  margin: 30px;
-  opacity: .6;
-  text-align: center;
-  text-shadow: 1px 1px #000;
-  width: 400px;
-}
+.row #menu {
 
+  li{
+  list-style: none;
+  display: inline;
+
+  a {
+
+    background: #444;
+    color: $naranja;
+    display: inline-table;
+    font-size: 50px;
+    height: 250px;
+    line-height: 250px;
+    margin: 30px;
+    opacity: .6;
+    text-align: center;
+    // text-indent: -9999px;
+    text-shadow: 1px 1px #000;
+    width: 400px;
+    }
+  }
+}
 .current {
   box-shadow: 0 0 25px DodgerBlue;
   opacity: 1 !important;

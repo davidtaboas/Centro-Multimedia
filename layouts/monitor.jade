@@ -35,49 +35,50 @@ html(ng-app="monitorApp")
         block js
 
     body(ng-controller='MessagesCtrl')
-        div#login
-            div.alert.alert-info.text-center Realiza este gesto en la pantalla de tu dispositivo
-            div.event
-                div
-        header
-            ol.breadcrumb
+        div#monitor(ng-controller="MonitorCtrl")
+            div#login
+                div.alert.alert-info.text-center Realiza este gesto en la pantalla de tu dispositivo
+                div.event
+                    div
+            header
+                ol.breadcrumb
+                    div.container
+                        li
+                            button.clickProtegido.btn(type="button", data-toggle="button") SocialCenter
+                        li.active {{ titulo }}
+                        li.pull-right Mensajes {{ messages.length }}
+                div.modoprotegido.alert.alert-info.text-center.hide Modo Protegido
+            div#content
                 div.container
-                    li
-                        button.clickProtegido.btn(type="button", data-toggle="button") SocialCenter
-                    li.active #{title}
-                    li.pull-right Mensajes {{ messages.length }}
-            div.modoprotegido.alert.alert-info.text-center.hide Modo Protegido
-        div#content
-            div.container(ng-controller="MonitorCtrl")
-                div.row.monitor
+                    div.row.monitor
 
-                    div#views(ng-view)
+                        div#views(ng-view)
 
-        footer
-            div.bottom
-                div#slider
-                    ul
-                        li(ng-repeat='message in messages')
-                            div.mensaje
-                                div.data
-                                    p.icon
-                                        span.glyphicon(class="prioridad p{{message.prioridad}}")
-                                    p.ago
-                                        span.timeago(timeago="{{message.fechaEnvio}}")
-                                div.info
-                                    p {{ message.texto }}
-                                //- p.fecha {{message.fechaEnvio | date:'dd/MM/yyyy @ HH:mm'}}
+            footer
+                div.bottom
+                    div#slider
+                        ul
+                            li(ng-repeat='message in messages')
+                                div.mensaje
+                                    div.data
+                                        p.icon
+                                            span.glyphicon(class="prioridad p{{message.prioridad}}")
+                                        p.ago
+                                            span.timeago(timeago="{{message.fechaEnvio}}")
+                                    div.info
+                                        p {{ message.texto }}
+                                    //- p.fecha {{message.fechaEnvio | date:'dd/MM/yyyy @ HH:mm'}}
 
 
 
 
-        div#messages
-            div.background
-            div.content
-                h1 Buzón de entrada
-                div.items
-                    ul
-                        li(ng-repeat='message in messages')
-                            span.glyphicon(class="prioridad p{{message.prioridad}}")
-                            | {{ message.texto }}
-                            span.timeago(timeago="{{message.fechaEnvio}}")
+            div#messages
+                div.background
+                div.content
+                    h1 Buzón de entrada
+                    div.items
+                        ul
+                            li(ng-repeat='message in messages')
+                                span.glyphicon(class="prioridad p{{message.prioridad}}")
+                                | {{ message.texto }}
+                                span.timeago(timeago="{{message.fechaEnvio}}")

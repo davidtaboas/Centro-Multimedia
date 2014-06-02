@@ -5,11 +5,11 @@ monitorApp = angular.module("monitorApp", ["ngRoute", "monitorApp.directives", "
 monitorApp.config([
   "$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl: "monitor/monitor",
+      templateUrl: "/modulo/home",
       controller: "MonitorCtrl"
     }).when("/:name", {
       templateUrl: function(params) {
-        return "monitor/" + params.name;
+        return "/modulo/" + params.name;
       }
     }, {
       controller: "MonitorCtrl"

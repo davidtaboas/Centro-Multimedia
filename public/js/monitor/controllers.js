@@ -3,8 +3,17 @@ var controllers;
 controllers = angular.module("monitorApp.controllers", []);
 
 controllers.controller("MonitorCtrl", [
-  "$scope", "$http", function($scope, $http) {
+  "$scope", "$http", "$location", function($scope, $http, $location) {
     $scope.$on("$routeChangeSuccess", function($currentRoute, $previousRoute) {
+      var modulo;
+      if ($location.path() === "/") {
+        modulo = "/home";
+      } else {
+        modulo = $location.path();
+      }
+      $http.get("/modulo" + modulo + "/config").success(function(data) {
+        $scope.titulo = data.titulo;
+      });
       animacionVentanas();
       return setTimeout(function() {
         return reloadControls();
