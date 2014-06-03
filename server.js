@@ -75,6 +75,8 @@ Configuración Sockets
 require('./config/sockets')(server, config);
 
 
+// Cargamos la funcionalidad de apagado automático
+require('./config/shutdown');
 
 /*
 Lanzamos servidores
