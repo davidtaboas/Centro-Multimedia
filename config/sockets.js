@@ -1,12 +1,13 @@
 
 
-var runningPortMonitor = 5555;
+var runningPortMonitor = 4444;
 var runningPortApi     = 7777;
 
 var exec =  require('child_process').exec,
     child,
     os = require('os'),
-    sistemaoperativo = os.platform();
+    sistemaoperativo = os.platform(),
+    logoffTimer;;
 
 module.exports = function (server, config) {
 
@@ -25,6 +26,14 @@ module.exports = function (server, config) {
     var idmonitor,
         usuarioActivo = -1;
 
+    /*
+        usuarioActivo
+            -1     = ningún cliente activo
+            0      = modo protegido
+            socket = "socket" está activo
+
+    */
+
     var allClients = [];
 
     // Conexión del monitor
@@ -34,8 +43,9 @@ module.exports = function (server, config) {
         socketserver.on("config", function(data){
 
             console.log(data);
-            if (data.protegido === '1'){
+            if (data.protegido == '1'){
 
+                console.log('Hemos entrado aqui');
                 // si hay un usuario activo, lo sacamos
                 if(usuarioActivo!=-1){
 
@@ -72,6 +82,19 @@ module.exports = function (server, config) {
     iousers.on('connection', function (socket) {
 
 
+        function registroActividad() {
+            // clear the timer on activity
+            // should also update activity timestamp in session
+            clearTimeout(logoffTimer);
+
+            logoffTimer = setTimeout(function(){
+                // add log off logic here
+                // you can also check session activity here
+                // and perhaps emit a logoff event to the client as mentioned
+                socket.emit("logoff", { reason: "Logged off due to inactivity" });
+            }, 1000 * 60 * 3); // 1000ms (1s) * 60s (1') * 3 (3')
+        }
+
         console.log(">>Todos los clientes: "+allClients.length);
         // Si no hay clientes conectados, despertamos el monitor
         if (allClients.length == 0){
@@ -83,6 +106,7 @@ module.exports = function (server, config) {
             }
             else if(sistemaoperativo == "linux"){
                 // linux
+                wakeup = "scripts/monitor_on.sh"
             }
             else if(sistemaoperativo == "win32"){
                 //windows
@@ -117,8 +141,10 @@ module.exports = function (server, config) {
             console.log('Se ha desconectado un cliente.');
             var i = allClients.indexOf(socket);
             if(socket == usuarioActivo){
+                console.log('El usuario desconectado era el activo')
                 usuarioActivo=-1;
                 iomonitor.sockets.socket(idmonitor).emit('control', {move: "home"});
+                clearTimeout(logoffTimer);
             }
 
             // Eliminamos el cliente de la lista
@@ -138,6 +164,7 @@ module.exports = function (server, config) {
                 }
                 else if(sistemaoperativo == "linux"){
                     // linux
+                    sleep = "scripts/monitor_off.sh"
                 }
                 else if(sistemaoperativo == "win32"){
                     //windows
@@ -152,14 +179,19 @@ module.exports = function (server, config) {
                     }
                 });
             }
-            iousers.sockets.emit("login", {login: "go"});
+
+            // Si no hay un usuario contralando la aplicación indicamos que se puede proceder a la identificación
+            if(usuarioActivo==-1){
+                iousers.sockets.emit("login", {login: "go"});
+            }
 
         });
 
         // Gestion del monitor
         socket.on('monitor', function(data){
 
-            if(usuarioActivo==-1){
+
+            if(usuarioActivo === -1){
                 // No hay usuario activo, por lo tanto lanzamos al monitor el patrón de registro
 
                 // Antes mezclamos los eventos para la identificación
@@ -192,6 +224,9 @@ module.exports = function (server, config) {
             if (data === login_eventos[0]){
                 console.log("LOGIN OK");
 
+
+
+
                 // Asignamos el usuario activo
                 usuarioActivo = socket;
 
@@ -203,6 +238,9 @@ module.exports = function (server, config) {
 
                 // Indicamos al monitor que se ha identificado correctamente alguien
                 iomonitor.sockets.socket(idmonitor).emit('login', {login: "ok"});
+
+                // Iniciamos el registro de actividad
+                registroActividad();
             }
             else{
                 console.log("LOGIN FAIL");
@@ -232,25 +270,34 @@ module.exports = function (server, config) {
         });
 
         socket.on('move', function (data) {
+
             iomonitor.sockets.socket(idmonitor).emit('move', {move: data});
+            registroActividad();
         });
 
         socket.on('control', function (data) {
 
             iomonitor.sockets.socket(idmonitor).emit('control', {move: data});
+            registroActividad();
         });
 
         socket.on('change', function (data) {
+
             iomonitor.sockets.socket(idmonitor).emit('change', {change: data});
+            registroActividad();
         });
 
         socket.on('filtermsgs', function(data) {
+
             iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
+            registroActividad();
         });
 
 
         socket.on('botonesMonitor', function(data) {
+
             iomonitor.sockets.socket(idmonitor).emit('button', {id: data});
+            registroActividad();
         });
 
 

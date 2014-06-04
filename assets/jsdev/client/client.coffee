@@ -14,12 +14,14 @@ app = app or {}
 $ ->
 
 
-  $("#caducidadMensaje").slider tooltip: "show"
-  $("#caducidadMensaje").on "slide", (slideEvt) ->
-    $("#ex6SliderVal").text slideEvt.value / 24
-    return
-
   $("#login h1").textfill()
+
+  $("input#textoMensaje").maxlength
+    alwaysShow: true
+    warningClass: "label label-info"
+    limitReachedClass: "label label-warning"
+    placement: "top"
+    message: 'usados %charsTyped% de %charsTotal% caracteres.'
 
   #setup some common vars
   $moveLeft   = $("#left")
@@ -29,8 +31,6 @@ $ ->
   $goBack     = $("#goback")
   $changeMask = $("#changeMask")
   $messages   = $("#messages")
-  $appMsgs    = $("#appmsgs")
-  $allMsgs    = $("#allmsgs")
   $logout     = $("#logout, #outwaiting")
   $reload     = $("#reload")
   $sendMsg    = $(".sendmsgok")
@@ -94,28 +94,31 @@ $ ->
     socket.emit "control", "back"
     return
 
+
   $changeMask.on "tap", () ->
-    socket.emit "change", "mask"
+
+    # boton con ocultar activo
+    if $changeMask.hasClass("active") is true
+      $changeMask.button('reset')
+      socket.emit "filtermsgs", "all"
+    else
+      $changeMask.button('complete')
+      socket.emit "filtermsgs", "app"
+
+    # socket.emit "change", "mask"
     return
 
   $messages.on "tap", () ->
     socket.emit "change", "messages"
     return
 
-  $appMsgs.on "tap", () ->
-    socket.emit "filtermsgs", "app"
-    return
-
-  $allMsgs.on "tap", () ->
-    socket.emit "filtermsgs", "all"
-    return
 
   $logout.on "tap", () ->
     $("#login .alert-warning").fadeOut()
     $("#login .alert-success").fadeOut()
     $("#login .alert-danger").fadeOut()
     $("#login .alert-info").fadeIn()
-    $("#login").fadeIn()
+    $("#login").show()
     socket.disconnect()
     return
 
@@ -141,25 +144,35 @@ $ ->
       $("#textoMensaje").parent().addClass("has-error")
     else
       $("#modalMensajes").modal('toggle')
-      socket.emit("mensaje", { texto: $("#textoMensaje").val(), caducidad: $("#caducidadMensaje").val() });
+      socket.emit("mensaje", { texto: $("#textoMensaje").val(), caducidad: $("input[name=expiracion]:checked").val() });
+      $("#textoMensaje").val("")
     return
+
+  socket.on "logoff", (data) ->
+
+    $("#login .alert-warning").fadeOut()
+    $("#login .alert-success").fadeOut()
+    $("#login .alert-danger").fadeOut()
+    $("#login .alert-info").fadeIn()
+    $("#login .alert-info").append "<p>Desconeción por inactividad</p>"
+    $("#login").show()
+    socket.disconnect()
+    return
+
 
   # LOGIN STUFF
   socket.on "login", (data) ->
 
 
     if data.login is "ok"
+      $(".remote-control").show()
       $("#login").fadeOut()
       $("#login .window").unbind eventos.join(' ')
     else if data.login is "go"
-      $("#login").fadeIn()
+      $("#login").show()
       $("#login .alert-warning").fadeOut()
       $("#login .alert-success").fadeIn()
-
-
       socket.emit "monitor", "go"
-
-
       $("#login .window").bind eventos.join(' '), (e) ->
         $("#login .alert-danger").fadeOut()
         socket.emit "loginevent", e.type
@@ -187,6 +200,7 @@ $ ->
       $("#login .alert-danger").fadeOut()
       $("#login .alert-info").fadeIn()
       $("#login").fadeIn()
+      $(".remote-control").hide()
       socket.disconnect()
     return
 

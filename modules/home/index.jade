@@ -1,0 +1,4 @@
+div#menu(ng-init="modulos=#{JSON.stringify(modulos)}")
+
+    li(ng-repeat="modulo in modulos")
+        a(href="#"+"{{modulo.url}}", style="background-image:url({{modulo.imagen}});") {{ modulo.titulo }}

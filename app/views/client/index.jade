@@ -1,7 +1,6 @@
 extends /layouts/client
 
 block content
-
     div#login
         h1 Bienvenido a
             span.title SocialCenter
@@ -16,41 +15,39 @@ block content
             div.alert.alert-info.text-center Ha salido de la aplicación. Recarga la página para poder identificarte.
                 button#reload.btn.btn-info(type="button") Recargar
 
-
-    div.buttons.text-center
-        div.btn-group
-            button#home.btn.btn-lg.btn-warning(type="button") <i class="fa fa-home"></i> Inicio
-            button#goback.btn.btn-lg.btn-warning(type="button") <i class="fa fa-undo"></i> Volver
-            button#logout.btn.btn-lg.btn-warning(type="button") Salir
-        div.clearfix
-        div.btn-group
-            button#left.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-left"></i>
-            button#ok.btn.btn-primary.btn-lg.btn-danger(type="button") OK
-            button#right.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-right"></i>
-        div.clearfix
-        div.btn-group
-            button.sendmsg.btn.btn-primary.btn-lg(data-target='#modalMensajes', data-toggle='modal') Enviar
-            button#messages.btn.btn-primary.btn-lg(type="button") Bandeja
-            button#changeMask.btn.btn-primary.btn-lg(type="button") Barra
-        div.clearfix
-        div.btn-group
-            button#appmsgs.btn.btn-primary.btn-lg(type="button") Ocultar
-            button#allmsgs.btn.btn-primary.btn-lg(type="button") Todos
-        div.clearfix
-        div.btn-group
-            button#bt1.btn.btn-info.btn-lg(type="button") 1
-            button#bt2.btn.btn-info.btn-lg(type="button") 2
-            button#bt3.btn.btn-info.btn-lg(type="button") 3
-        div.clearfix.no-margin
-        div.btn-group
-            button#bt4.btn.btn-info.btn-lg(type="button") 4
-            button#bt5.btn.btn-info.btn-lg(type="button") 5
-            button#bt6.btn.btn-info.btn-lg(type="button") 6
-        div.clearfix.no-margin
-        div.btn-group
-            button#bt7.btn.btn-info.btn-lg(type="button") 7
-            button#bt8.btn.btn-info.btn-lg(type="button") 8
-            button#bt9.btn.btn-info.btn-lg(type="button") 9
+    div.remote-control
+        h1.text-center Remote Control
+        div.row.client
+            div.buttons.text-center
+                div.btn-group
+                    button#home.btn.btn-lg.btn-warning(type="button") <i class="fa fa-home"></i> Inicio
+                    button#goback.btn.btn-lg.btn-warning(type="button") <i class="fa fa-undo"></i> Volver
+                    button#logout.btn.btn-lg.btn-warning(type="button") Salir
+                div.clearfix
+                div.btn-group
+                    button#left.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-left"></i>
+                    button#ok.btn.btn-primary.btn-lg.btn-danger(type="button") OK
+                    button#right.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-right"></i>
+                div.clearfix
+                div.btn-group
+                    button.sendmsg.btn.btn-primary.btn-lg(data-target='#modalMensajes', data-toggle='modal') Enviar
+                    button#messages.btn.btn-primary.btn-lg(type="button") Bandeja
+                    button#changeMask.btn.btn-primary.btn-lg(type="button", data-toggle="button", data-complete-text="Mostrar Mensajes") Ocultar Mensajes
+                div.clearfix
+                div.btn-group
+                    button#bt1.btn.btn-info.btn-lg(type="button") 1
+                    button#bt2.btn.btn-info.btn-lg(type="button") 2
+                    button#bt3.btn.btn-info.btn-lg(type="button") 3
+                div.clearfix.no-margin
+                div.btn-group
+                    button#bt4.btn.btn-info.btn-lg(type="button") 4
+                    button#bt5.btn.btn-info.btn-lg(type="button") 5
+                    button#bt6.btn.btn-info.btn-lg(type="button") 6
+                div.clearfix.no-margin
+                div.btn-group
+                    button#bt7.btn.btn-info.btn-lg(type="button") 7
+                    button#bt8.btn.btn-info.btn-lg(type="button") 8
+                    button#bt9.btn.btn-info.btn-lg(type="button") 9
 
     // Modal
     #modalMensajes.modal.fade(aria-hidden='true', aria-labelledby='myModalLabel', role='dialog', tabindex='-1')
@@ -61,18 +58,34 @@ block content
                     h4#myModalLabel.modal-title Enviar mensaje
                 .modal-body
                     form(method='GET', action='', role='form')
-                      .form-group
-                        label.control-label(for='textoMensaje') Texto
-                        input#textoMensaje.form-control(type='text', placeholder='Introduce el texto', name='texto')
-                      .form-group
-                        label(for='caducidadMensaje') Caducidad (horas)
-                        input#caducidadMensaje.form-control(type='text', value='24', data-slider-value='24', data-slider-step='12', data-slider-max='800', data-slider-min='0', data-slider-id='ex1Slider', name='expiracion')
-                        p#ex6CurrentSliderValLabel.help-block
-                          | Caducidad seleccionada en días:
-                          span#ex6SliderVal 1
-
+                        .form-group
+                            label.control-label(for='textoMensaje') Texto
+                            input#textoMensaje.form-control(type='text', placeholder='Introduce el texto', name='texto', maxlength='140')
+                        .form-group
+                            .btn-group(data-toggle='buttons')
+                                label.btn.btn-primary.active
+                                    input#option1(type='radio', name='expiracion', value="6", checked)
+                                    | 6 horas
+                                label.btn.btn-primary
+                                    input#option2(type='radio', name='expiracion', value="12")
+                                    | 12 horas
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="24")
+                                    | 1 día
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="72")
+                                    | 3 días
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="168")
+                                    | 1 semana
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="336")
+                                    | 2 semanas
+                                label.btn.btn-primary
+                                    input#option3(type='radio', name='expiracion', value="672")
+                                    | 1 mes
 
                 .modal-footer
-                    button.btn.btn-default(data-dismiss='modal', type='button') Close
-                    button.btn.btn-primary.sendmsgok(type='button') Save changes
+                    button.btn.btn-default(data-dismiss='modal', type='button') Cerrar
+                    button.btn.btn-primary.sendmsgok(type='button') Enviar
 

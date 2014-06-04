@@ -9,12 +9,12 @@ monitorApp.config [
   ($routeProvider) ->
     $routeProvider
     .when("/",
-      templateUrl: "monitor/monitor"
+      templateUrl: "/modulo/home"
       controller: "MonitorCtrl"
     )
     .when("/:name",
        templateUrl: (params) ->
-          "monitor/" + params.name
+          "/modulo/" + params.name
       controller: "MonitorCtrl"
     ).otherwise redirectTo: "/"
     return

@@ -3,40 +3,45 @@ var controllers;
 controllers = angular.module("monitorApp.controllers", []);
 
 controllers.controller("MonitorCtrl", [
-  "$scope", "$http", function($scope, $http) {
-    $scope.scriptremotefunction = function() {
+  "$scope", "$http", "$location", function($scope, $http, $location) {
+    $scope.$on("$routeChangeSuccess", function($currentRoute, $previousRoute) {
+      var modulo;
+      if ($location.path() === "/") {
+        modulo = "/home";
+      } else {
+        modulo = $location.path();
+      }
+      $http.get("/modulo" + modulo + "/config").success(function(data) {
+        $scope.titulo = data.titulo;
+      });
       animacionVentanas();
-      setTimeout(function() {
+      return setTimeout(function() {
         return reloadControls();
       }, 500);
-    };
-    $scope.$watch($scope.scriptremotefunction);
+    });
   }
 ]);
 
 controllers.controller("MessagesCtrl", [
   "$scope", "$http", function($scope, $http) {
-    var lastFilter;
+    var cargarMensajes, lastFilter;
     lastFilter = "all";
-    console.log(lastFilter);
-    $http.get("/messages/" + lastFilter).success(function(messages) {
-      $scope.messages = messages;
-    });
+    cargarMensajes = function(filtrado) {
+      $http.get("/messages/" + filtrado).success(function(messages) {
+        $scope.messages = messages;
+        barraMensajes(messages.length);
+      });
+    };
+    cargarMensajes(lastFilter);
     socket.on("msg", function(data) {
       $scope.$apply(function() {
         $http.post("/messages", data).success(function(ok) {});
-        console.log(lastFilter);
-        $http.get("/messages/" + lastFilter).success(function(messages) {
-          $scope.messages = messages;
-        });
+        cargarMensajes(lastFilter);
       });
     });
     socket.on("filter", function(data) {
       $scope.$apply(function() {
-        lastFilter = data.filter;
-        $http.get("/messages/" + lastFilter).success(function(messages) {
-          $scope.messages = messages;
-        });
+        cargarMensajes(data.filter);
       });
     });
   }

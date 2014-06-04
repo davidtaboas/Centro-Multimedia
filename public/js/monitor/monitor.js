@@ -1,6 +1,6 @@
-var activarBoton, animacionVentanas, app, changeMask, currentIndex, customButtons, isActiveNavMessages, lastTabIndex, reloadControls, setContentHeight, socialcenter, socket;
+var activarBoton, animacionVentanas, app, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socket;
 
-socket = io.connect("http://127.0.0.1:5555/");
+socket = io.connect("http://127.0.0.1:4444/");
 
 app = app || {};
 
@@ -48,7 +48,7 @@ socket.on("move", function(data) {
 
 socket.on("control", function(data) {
   if (data.move === "home") {
-    window.location.href = "/monitor";
+    document.location.href = "/monitor#/";
   } else if (data.move === "back") {
     window.history.back();
   }
@@ -80,48 +80,36 @@ socket.on("button", function(data) {
 
 
 /*
-Función para obtener la altura del contenido
- */
-
-setContentHeight = function() {
-  var alturaContent, footerHeight;
-  if (isActiveNavMessages) {
-    footerHeight = $("footer").css("height");
-  } else {
-    footerHeight = 0;
-  }
-  alturaContent = $(window).height() - ($("header").height() + footerHeight + 40);
-  $("#content").height(alturaContent);
-  $(".galleria-container").height(alturaContent);
-};
-
-
-/*
-Función para cambiar máscara de mensajes
+Función para controlar el funcionamiento de la barra de mensajes
  */
 
 isActiveNavMessages = 1;
 
-changeMask = function() {
-
-  /*
-  Si hay prioridad 0 entonces no se tiene que ocultar la máscara
-   */
+barraMensajes = function(n) {
   if (isActiveNavMessages) {
-    $("footer .bottom").animate({
-      height: "0px"
-    }, 200);
-    isActiveNavMessages = 0;
+    if (n === 0) {
+      $("footer").animate({
+        height: "0"
+      }, 200);
+      $("#content").animate({
+        height: "95%"
+      }, 200);
+      isActiveNavMessages = 0;
+    }
   } else {
-    $("footer .bottom").animate({
-      height: "300px"
+    $("footer").animate({
+      height: "25%"
+    }, 200);
+    $("#content").animate({
+      height: "70%"
     }, 200);
     isActiveNavMessages = 1;
   }
 };
 
 animacionVentanas = function() {
-  $("#views").hide().fadeIn();
+  $("#content").css("background", "none");
+  $("#content").hide().fadeIn("slow");
 };
 
 
@@ -131,16 +119,20 @@ que se tienen que recargar cada vez
 que se cambia la página
  */
 
+player = "";
+
+fathom = "";
+
+presentacionSlider = "";
+
 reloadControls = function() {
-  var fathom, player;
   if (location.hash === "#/") {
     socket.emit("controlBotones", {
       id: 0,
       label: ""
     });
+    $(".temp").remove();
   }
-  $("#content").css("background", "none");
-  $("#slider ul li").width($("body").width());
   if (typeof MediaElementPlayer === 'function') {
     if ($("video").length > 0) {
       $("video").mediaelementplayer();
@@ -160,7 +152,8 @@ reloadControls = function() {
         height: $("#content").height(),
         responsive: true,
         preload: 0,
-        idleMode: false
+        idleMode: false,
+        debug: false
       });
       Galleria.run(".galleria");
       $("#content").css("background", "black");
@@ -168,19 +161,37 @@ reloadControls = function() {
   }
   if (typeof Fathom === 'function') {
     if ($("#presentacion").length > 0) {
-      fathom = new Fathom("#presentacion");
-      if (fathom.$length > 1) {
-        $(".presentacionderecha").show();
-      }
-      $(".presentacionizquierda").on("click", function() {
-        fathom.prevSlide();
+      fathom = new Fathom("#presentacion", {
+        displayMode: 'single',
+        margin: 0,
+        onActivateSlide: function() {
+          if (fathom) {
+            $(".currentSlide").html(fathom.$slides.index(fathom.$activeSlide) + 1);
+          }
+          $(this).hide().fadeIn();
+        },
+        onDeactivateSlide: function() {
+          $(this).fadeOut();
+        }
       });
-      $(".presentacionderecha").on("click", function() {
-        fathom.nextSlide();
+      $(".totalSlides").html(fathom.$slides.length);
+      $(".auto input").on("click", function() {
+        if (this.checked) {
+          presentacionSlider = setInterval((function() {
+            if (fathom.$lastSlide[0] === fathom.$activeSlide[0]) {
+              fathom.activateSlide(fathom.$firstSlide);
+              fathom.scrollToSlide(fathom.$firstSlide);
+            } else {
+              fathom.nextSlide();
+            }
+          }), 10000);
+        } else {
+          clearInterval(presentacionSlider);
+        }
       });
     }
   }
-  $("a, video, .galleria-image-nav div").each(function(index) {
+  $("a, video, .galleria-image-nav div, .auto input").each(function(index) {
     $(this).prop("tabindex", index);
   });
   lastTabIndex = Number($("[tabindex]").length - 1);
@@ -189,48 +200,74 @@ reloadControls = function() {
 };
 
 $(document).ready(function() {
-  var moveLeft, moveRight, slideCount, slideHeight, slideWidth, sliderUlWidth;
-  setContentHeight();
-  moveLeft = function() {
-    $("#slider ul").animate({
-      left: +slideWidth
-    }, 200, function() {
-      $("#slider ul li:last-child").prependTo("#slider ul");
-      $("#slider ul").css("left", "");
+  var protegido, sliderBarra;
+  protegido = 0;
+  $(".clickProtegido").on("click", function() {
+    if (protegido === 0) {
+      protegido = 1;
+      $(".clickProtegido").button("toggle");
+      $(".modoprotegido").removeClass("hide").addClass("show");
+    } else if (protegido === 1) {
+      protegido = 0;
+      $(".clickProtegido").button("toggle");
+      $(".modoprotegido").removeClass("show").addClass("hide");
+    }
+    socket.emit("config", {
+      protegido: protegido
     });
-  };
-  moveRight = function() {
-    $("#slider ul").animate({
-      left: -slideWidth
-    }, 200, function() {
-      $("#slider ul li:first-child").appendTo("#slider ul");
-      $("#slider ul").css("left", "");
-    });
-  };
-  slideCount = $("#slider ul li").length;
-  slideWidth = $("#slider ul li").width();
-  slideHeight = $("#slider ul li").height();
-  sliderUlWidth = slideCount * slideWidth;
-  $("#slider").css({
-    width: slideWidth,
-    height: slideHeight
   });
-  $("#slider ul").css({
-    width: sliderUlWidth,
-    marginLeft: -slideWidth
-  });
+  sliderBarra = function() {
+    if ($("#slider ul li").length > 1) {
+      $("#slider ul li:not(:first-child) .mensaje").fadeOut(400);
+      $("#slider ul li:first-child .mensaje").fadeOut(400, function() {
+        $("#slider ul li:not(:first-child)").css("width", "0%");
+        $("#slider ul li:first-child").animate({
+          width: "0%"
+        }, 400, function() {
+          $("#slider ul li:first-child").appendTo("#slider ul");
+          $("#slider ul li:first-child").animate({
+            width: "95%"
+          }, 400, function() {
+            $("#slider ul li .mensaje").fadeIn(400);
+          });
+        });
+      });
+    }
+  };
   $("#slider ul li:last-child").prependTo("#slider ul");
   setInterval((function() {
-    moveRight();
-  }), 3000);
+    sliderBarra();
+  }), 5000);
 });
 
-socialcenter = {
-  protegido: function() {
-    var var_protegido;
-    var_protegido = prompt("¿Quieres poner la aplicación en modo protegido? (1=protegido / 0=promiscuo)", "");
-    socket.emit("config", {
-      protegido: var_protegido
-    });
-  }
+
+/*
+Plantillas preconfiguradas para aplicaciones
+ */
+
+appPresentacion = function() {
+  activarBoton('1', 'Anterior');
+  activarBoton('3', 'Siguiente');
+  window["funcionesbt1"] = function() {
+    fathom.prevSlide();
+  };
+  window["funcionesbt3"] = function() {
+    fathom.nextSlide();
+  };
+};
+
+appVideos = function() {
+  activarBoton('1', 'Pausa');
+  activarBoton('2', 'Play');
+  activarBoton('3', 'Stop');
+  window["funcionesbt1"] = function() {
+    player.pause();
+  };
+  window["funcionesbt2"] = function() {
+    player.play();
+  };
+  window["funcionesbt3"] = function() {
+    player.pause();
+    player.exitFullScreen();
+  };
 };

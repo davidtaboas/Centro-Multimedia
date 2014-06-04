@@ -52,14 +52,14 @@ Views
 */
 app.set('views', [
     config.root + '/app/views',
-    config.root + '/modules/videos/views']
+    config.root + '/modules/']
     );
 
 
 /*
 Definimos eventos
 */
-eventos = ["singleTap","doubleTap","swipeLeft","swipeRight","swipeUp","swipeDown","rotateLeft","rotateRight","pinchIn","pinchOut"];
+eventos = ["doubleTap","swipeLeft","swipeRight","swipeUp","swipeDown","rotateLeft","rotateRight","pinchIn","pinchOut"];
 /*
 Controllers
 */
@@ -75,6 +75,8 @@ Configuración Sockets
 require('./config/sockets')(server, config);
 
 
+// Cargamos la funcionalidad de apagado automático
+require('./config/shutdown');
 
 /*
 Lanzamos servidores

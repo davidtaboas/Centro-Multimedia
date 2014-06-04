@@ -11,14 +11,15 @@ socket = io.connect("http://192.168.1.36:1337/");
 app = app || {};
 
 $(function() {
-  var $allMsgs, $appMsgs, $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $reload, $sendMsg, $sendOk, $viewSend;
-  $("#caducidadMensaje").slider({
-    tooltip: "show"
-  });
-  $("#caducidadMensaje").on("slide", function(slideEvt) {
-    $("#ex6SliderVal").text(slideEvt.value / 24);
-  });
+  var $changeMask, $goBack, $goHome, $logout, $messages, $moveLeft, $moveRight, $reload, $sendMsg, $sendOk, $viewSend;
   $("#login h1").textfill();
+  $("input#textoMensaje").maxlength({
+    alwaysShow: true,
+    warningClass: "label label-info",
+    limitReachedClass: "label label-warning",
+    placement: "top",
+    message: 'usados %charsTyped% de %charsTotal% caracteres.'
+  });
   $moveLeft = $("#left");
   $moveRight = $("#right");
   $sendOk = $("#ok");
@@ -26,8 +27,6 @@ $(function() {
   $goBack = $("#goback");
   $changeMask = $("#changeMask");
   $messages = $("#messages");
-  $appMsgs = $("#appmsgs");
-  $allMsgs = $("#allmsgs");
   $logout = $("#logout, #outwaiting");
   $reload = $("#reload");
   $sendMsg = $(".sendmsgok");
@@ -73,23 +72,23 @@ $(function() {
     socket.emit("control", "back");
   });
   $changeMask.on("tap", function() {
-    socket.emit("change", "mask");
+    if ($changeMask.hasClass("active") === true) {
+      $changeMask.button('reset');
+      socket.emit("filtermsgs", "all");
+    } else {
+      $changeMask.button('complete');
+      socket.emit("filtermsgs", "app");
+    }
   });
   $messages.on("tap", function() {
     socket.emit("change", "messages");
-  });
-  $appMsgs.on("tap", function() {
-    socket.emit("filtermsgs", "app");
-  });
-  $allMsgs.on("tap", function() {
-    socket.emit("filtermsgs", "all");
   });
   $logout.on("tap", function() {
     $("#login .alert-warning").fadeOut();
     $("#login .alert-success").fadeOut();
     $("#login .alert-danger").fadeOut();
     $("#login .alert-info").fadeIn();
-    $("#login").fadeIn();
+    $("#login").show();
     socket.disconnect();
   });
   $reload.on("tap", function() {
@@ -109,16 +108,27 @@ $(function() {
       $("#modalMensajes").modal('toggle');
       socket.emit("mensaje", {
         texto: $("#textoMensaje").val(),
-        caducidad: $("#caducidadMensaje").val()
+        caducidad: $("input[name=expiracion]:checked").val()
       });
+      $("#textoMensaje").val("");
     }
+  });
+  socket.on("logoff", function(data) {
+    $("#login .alert-warning").fadeOut();
+    $("#login .alert-success").fadeOut();
+    $("#login .alert-danger").fadeOut();
+    $("#login .alert-info").fadeIn();
+    $("#login .alert-info").append("<p>Desconeción por inactividad</p>");
+    $("#login").show();
+    socket.disconnect();
   });
   socket.on("login", function(data) {
     if (data.login === "ok") {
+      $(".remote-control").show();
       $("#login").fadeOut();
       $("#login .window").unbind(eventos.join(' '));
     } else if (data.login === "go") {
-      $("#login").fadeIn();
+      $("#login").show();
       $("#login .alert-warning").fadeOut();
       $("#login .alert-success").fadeIn();
       socket.emit("monitor", "go");
@@ -142,6 +152,7 @@ $(function() {
       $("#login .alert-danger").fadeOut();
       $("#login .alert-info").fadeIn();
       $("#login").fadeIn();
+      $(".remote-control").hide();
       socket.disconnect();
     }
   });
