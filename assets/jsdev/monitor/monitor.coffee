@@ -103,7 +103,7 @@ animacionVentanas = () ->
   # Limpiamos el fondo
   $("#content").css("background","none")
   # Animacion de pase de ventanas
-  $("#views").hide().fadeIn()
+  $("#content").hide().fadeIn("slow")
 
   return
 ###
@@ -111,6 +111,8 @@ Separamos en una función los controles
 que se tienen que recargar cada vez
 que se cambia la página
 ###
+fathom = ""
+presentacionSlider = ""
 reloadControls = () ->
 
   # Limpiamos el grid de botones personalizados
@@ -153,22 +155,44 @@ reloadControls = () ->
   # PRESENTACIONES
   if typeof Fathom is 'function'
     if $("#presentacion").length > 0
-      fathom = new Fathom("#presentacion")
+      fathom = new Fathom("#presentacion",
+        displayMode: 'single'
+        margin: 0
+        onActivateSlide: () ->
+          if fathom
+            $(".currentSlide").html( fathom.$slides.index(fathom.$activeSlide) + 1 )
+          $(this).hide().fadeIn()
+          return
+        onDeactivateSlide: () ->
+          $(this).fadeOut()
+          return
+      )
+      $(".totalSlides").html(fathom.$slides.length)
 
-      if fathom.$length > 1
-        $(".presentacionderecha").show()
 
-      $(".presentacionizquierda").on "click", () ->
-        fathom.prevSlide()
+      $(".auto input").on "click", () ->
+
+        if this.checked
+          presentacionSlider = setInterval (->
+
+              if fathom.$lastSlide[0] is fathom.$activeSlide[0]
+                fathom.activateSlide(fathom.$firstSlide)
+                fathom.scrollToSlide(fathom.$firstSlide)
+              else
+                fathom.nextSlide()
+
+              return
+            ), 10000
+
+        else
+          clearInterval(presentacionSlider)
         return
 
-      $(".presentacionderecha").on "click", () ->
-        fathom.nextSlide()
-        return
+
 
 
   # Navegacion por tabindex
-  $("a, video, .galleria-image-nav div").each (index) ->
+  $("a, video, .galleria-image-nav div, .auto input").each (index) ->
     $(this).prop "tabindex", index
     return
 

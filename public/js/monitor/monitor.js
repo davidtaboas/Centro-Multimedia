@@ -1,4 +1,4 @@
-var activarBoton, animacionVentanas, app, barraMensajes, currentIndex, customButtons, isActiveNavMessages, lastTabIndex, reloadControls, socket;
+var activarBoton, animacionVentanas, app, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, presentacionSlider, reloadControls, socket;
 
 socket = io.connect("http://127.0.0.1:4444/");
 
@@ -109,7 +109,7 @@ barraMensajes = function(n) {
 
 animacionVentanas = function() {
   $("#content").css("background", "none");
-  $("#views").hide().fadeIn();
+  $("#content").hide().fadeIn("slow");
 };
 
 
@@ -119,8 +119,12 @@ que se tienen que recargar cada vez
 que se cambia la página
  */
 
+fathom = "";
+
+presentacionSlider = "";
+
 reloadControls = function() {
-  var fathom, player;
+  var player;
   if (location.hash === "#/") {
     socket.emit("controlBotones", {
       id: 0,
@@ -156,19 +160,37 @@ reloadControls = function() {
   }
   if (typeof Fathom === 'function') {
     if ($("#presentacion").length > 0) {
-      fathom = new Fathom("#presentacion");
-      if (fathom.$length > 1) {
-        $(".presentacionderecha").show();
-      }
-      $(".presentacionizquierda").on("click", function() {
-        fathom.prevSlide();
+      fathom = new Fathom("#presentacion", {
+        displayMode: 'single',
+        margin: 0,
+        onActivateSlide: function() {
+          if (fathom) {
+            $(".currentSlide").html(fathom.$slides.index(fathom.$activeSlide) + 1);
+          }
+          $(this).hide().fadeIn();
+        },
+        onDeactivateSlide: function() {
+          $(this).fadeOut();
+        }
       });
-      $(".presentacionderecha").on("click", function() {
-        fathom.nextSlide();
+      $(".totalSlides").html(fathom.$slides.length);
+      $(".auto input").on("click", function() {
+        if (this.checked) {
+          presentacionSlider = setInterval((function() {
+            if (fathom.$lastSlide[0] === fathom.$activeSlide[0]) {
+              fathom.activateSlide(fathom.$firstSlide);
+              fathom.scrollToSlide(fathom.$firstSlide);
+            } else {
+              fathom.nextSlide();
+            }
+          }), 10000);
+        } else {
+          clearInterval(presentacionSlider);
+        }
       });
     }
   }
-  $("a, video, .galleria-image-nav div").each(function(index) {
+  $("a, video, .galleria-image-nav div, .auto input").each(function(index) {
     $(this).prop("tabindex", index);
   });
   lastTabIndex = Number($("[tabindex]").length - 1);

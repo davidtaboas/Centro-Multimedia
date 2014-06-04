@@ -8044,28 +8044,51 @@ MODO PRESENTACION
   margin: 0 10px;
 }
 
-/* line 389, ../../../assets/sass/monitor/style.scss */
-div.slide {
-  -webkit-box-shadow: 0 0 50px #c0c0c0;
-  -moz-box-shadow: 0 0 50px #c0c0c0;
-  box-shadow: 0 0 50px #c0c0c0;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  padding: 20px;
-  position: relative;
-  width: 900px;
+/* line 390, ../../../assets/sass/monitor/style.scss */
+.fathom-container {
+  height: 100%;
 }
-/* line 403, ../../../assets/sass/monitor/style.scss */
-div.slide.activeslide {
+/* line 393, ../../../assets/sass/monitor/style.scss */
+.fathom-container div#presentacion {
+  width: 100% !important;
+  height: 100%;
+  display: block;
+  background: #afafaf;
+  margin: 0 !important;
+  position: relative;
+}
+/* line 401, ../../../assets/sass/monitor/style.scss */
+.fathom-container div#presentacion .auto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 408, ../../../assets/sass/monitor/style.scss */
+.fathom-container div#presentacion .auto span {
+  font-weight: bold;
+  padding-left: 1%;
+}
+/* line 414, ../../../assets/sass/monitor/style.scss */
+.fathom-container div#presentacion div.slide {
+  position: absolute;
+  width: 98%;
+  margin: 1%% !important;
+  background: #fff;
+  height: auto;
+  padding: 5%;
+  top: 5%;
+  bottom: 0%;
+}
+/* line 425, ../../../assets/sass/monitor/style.scss */
+.fathom-container div#presentacion div.slide.activeslide {
   opacity: 1;
   display: block;
 }
-/* line 408, ../../../assets/sass/monitor/style.scss */
-div.slide.inactiveslide {
+/* line 430, ../../../assets/sass/monitor/style.scss */
+.fathom-container div#presentacion div.slide.inactiveslide {
   opacity: 0.4;
   display: none !important;
 }

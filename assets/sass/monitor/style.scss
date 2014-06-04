@@ -386,30 +386,51 @@ MODO PRESENTACION
     @extend .btn-default;
   }
 }
-div.slide{
-  -webkit-box-shadow: 0 0 50px #c0c0c0;
-  -moz-box-shadow: 0 0 50px #c0c0c0;
-  box-shadow: 0 0 50px #c0c0c0;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  padding: 20px;
-  position: relative;
-  width: 900px;
 
-  &.activeslide {
-    opacity: 1;
+.fathom-container {
+  height: 100%;
+
+  div#presentacion {
+    width: 100% !important;
+    height: 100%;
     display: block;
-  }
+    background: #afafaf;
+    margin: 0 !important;
+    position: relative;
 
-  &.inactiveslide {
-    opacity: 0.4;
-    display: none !important;
+    .auto {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      text-align: center;
+      span {
+        font-weight: bold;
+        padding-left: 1%;
+      }
+    }
+
+    div.slide {
+
+      position: absolute;
+      width: 98%;
+      margin: 1%% !important;
+      background: #fff;
+      height: auto;
+      padding: 5%;
+      top: 5%;
+      bottom: 0%;
+
+      &.activeslide {
+        opacity: 1;
+        display: block;
+      }
+
+      &.inactiveslide {
+        opacity: 0.4;
+        display: none !important;
+      }
+    }
   }
 }
-
-
-
