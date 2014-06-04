@@ -1,29 +1,18 @@
 script(type="text/javascript")
 
-    activarBoton('1', 'Anterior');
-    activarBoton('3', 'Siguiente');
-
-    funcionesbt1 = function(){
-        console.log("FUNCIONA BOTON 1")
-        fathom.prevSlide()
-    }
-
-    funcionesbt3 = function(){
-        console.log("FUNCIONA BOTON 3")
-        fathom.nextSlide()
-
-    }
+    appPresentacion()
 
 div.fathom-container
+    div.auto
+        p
+            input(type='checkbox')
+            span Reproducción continua
+        p
+            span.currentSlide 1
+            span.separator /
+            span.totalSlides 1
     div#presentacion
-        div.auto
-            p
-                input(type='checkbox')
-                span Reproducción continua
-            p
-                span.currentSlide 1
-                span.separator /
-                span.totalSlides 1
+
 
         div.slide
             h1 Mi presentación

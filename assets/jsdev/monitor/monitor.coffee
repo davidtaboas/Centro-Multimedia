@@ -111,6 +111,7 @@ Separamos en una función los controles
 que se tienen que recargar cada vez
 que se cambia la página
 ###
+player = ""
 fathom = ""
 presentacionSlider = ""
 reloadControls = () ->
@@ -257,4 +258,37 @@ $(document).ready ->
 
 
 
+###
+Plantillas preconfiguradas para aplicaciones
+###
 
+appPresentacion = () ->
+  activarBoton('1', 'Anterior')
+  activarBoton('3', 'Siguiente')
+
+  window["funcionesbt1"] = () ->
+
+    fathom.prevSlide()
+    return
+
+  window["funcionesbt3"] = () ->
+    fathom.nextSlide()
+    return
+  return
+
+appVideos = () ->
+  activarBoton('1', 'Pausa')
+  activarBoton('2', 'Play')
+  activarBoton('3', 'Stop')
+
+  window["funcionesbt1"] = () ->
+    player.pause()
+    return
+  window["funcionesbt2"] = () ->
+    player.play()
+    return
+  window["funcionesbt3"] = () ->
+    player.pause()
+    player.exitFullScreen()
+    return
+  return

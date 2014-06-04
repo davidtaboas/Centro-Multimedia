@@ -87,6 +87,7 @@ header {
   a {
 
     background: #444;
+    background-size: cover;
     color: $naranja;
     display: inline-table;
     font-size: 50px;
@@ -388,28 +389,34 @@ MODO PRESENTACION
 }
 
 .fathom-container {
+  width: 100% !important;
   height: 100%;
+  display: block;
+  background: #afafaf;
+  margin: 0 !important;
+  position: relative;
+
+  .auto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 2;
+    span {
+      font-weight: bold;
+      padding-left: 1%;
+    }
+  }
 
   div#presentacion {
     width: 100% !important;
     height: 100%;
-    display: block;
-    background: #afafaf;
-    margin: 0 !important;
     position: relative;
+    margin: 0 !important;
 
-    .auto {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      text-align: center;
-      span {
-        font-weight: bold;
-        padding-left: 1%;
-      }
-    }
+
 
     div.slide {
 

@@ -1,6 +1,6 @@
 var config = {
     titulo : "Presentación",
-    imagen : "algo.png"
+    imagen : "bg.jpg"
 }
 
 module.exports = config;

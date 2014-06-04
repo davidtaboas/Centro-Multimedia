@@ -1,4 +1,4 @@
-var activarBoton, animacionVentanas, app, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, presentacionSlider, reloadControls, socket;
+var activarBoton, animacionVentanas, app, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socket;
 
 socket = io.connect("http://127.0.0.1:4444/");
 
@@ -119,12 +119,13 @@ que se tienen que recargar cada vez
 que se cambia la página
  */
 
+player = "";
+
 fathom = "";
 
 presentacionSlider = "";
 
 reloadControls = function() {
-  var player;
   if (location.hash === "#/") {
     socket.emit("controlBotones", {
       id: 0,
@@ -238,3 +239,35 @@ $(document).ready(function() {
     sliderBarra();
   }), 5000);
 });
+
+
+/*
+Plantillas preconfiguradas para aplicaciones
+ */
+
+appPresentacion = function() {
+  activarBoton('1', 'Anterior');
+  activarBoton('3', 'Siguiente');
+  window["funcionesbt1"] = function() {
+    fathom.prevSlide();
+  };
+  window["funcionesbt3"] = function() {
+    fathom.nextSlide();
+  };
+};
+
+appVideos = function() {
+  activarBoton('1', 'Pausa');
+  activarBoton('2', 'Play');
+  activarBoton('3', 'Stop');
+  window["funcionesbt1"] = function() {
+    player.pause();
+  };
+  window["funcionesbt2"] = function() {
+    player.play();
+  };
+  window["funcionesbt3"] = function() {
+    player.pause();
+    player.exitFullScreen();
+  };
+};

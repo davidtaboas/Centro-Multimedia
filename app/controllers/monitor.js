@@ -15,7 +15,9 @@ module.exports = function(app){
 
         modulos = new Array();
         fs.readdirSync(modulesPath).forEach( function (file) {
-            if(file != "home"){
+
+            if( !(/(^|.\/)\.+[^\/\.]/g).test(file) && file != "home"){
+
                 datos = require(modulesPath+'/'+file+'/config');
                 modulo = {
                     titulo: datos.titulo,
