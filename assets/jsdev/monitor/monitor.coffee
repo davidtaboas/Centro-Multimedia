@@ -97,6 +97,14 @@ barraMensajes = (n) ->
       $("footer").animate({height: "25%"}, 200)
       $("#content").animate({height: "70%"}, 200)
       isActiveNavMessages = 1
+  if $(".galleria").length > 0
+    setTimeout (->
+
+        # trigger callback after 1000ms
+        $(".galleria").data("galleria").enterFullscreen()
+        return
+      ), 300
+        
 
   return
 
@@ -150,7 +158,8 @@ reloadControls = () ->
         responsive: true,
         preload: 0,
         idleMode: false,
-        debug: false
+        debug: false,
+        showImagenav: false
         })
       Galleria.run(".galleria")
       $("#content").css("background", "black")
@@ -296,5 +305,20 @@ appVideos = () ->
   window["funcionesbt3"] = () ->
     player.pause()
     player.exitFullScreen()
+    return
+  return
+
+appImagenes = () ->
+  activarBoton('1', 'Anterior')
+  activarBoton('3', 'Siguiente')
+
+  window["funcionesbt1"] = () ->
+
+    $(".galleria").data("galleria").prev()
+    return
+
+  window["funcionesbt3"] = () ->
+    console.log "BIEN"
+    $(".galleria").data("galleria").next()
     return
   return

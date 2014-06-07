@@ -303,7 +303,7 @@ footer {
 }
 .auto {
     position: absolute;
-    top: 0;
+    top: -2%;
     left: 0;
     right: 0px;
     color: #fff;
@@ -319,6 +319,7 @@ footer {
 .container, .monitor, #views {
   height: 100%;
   position: relative;
+  width: 100%;
 }
 
 #login{

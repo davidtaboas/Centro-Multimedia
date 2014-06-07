@@ -1,4 +1,4 @@
-var activarBoton, animacionVentanas, app, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socket;
+var activarBoton, animacionVentanas, app, appImagenes, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socket;
 
 socket = io.connect("http://127.0.0.1:4444/");
 
@@ -108,6 +108,11 @@ barraMensajes = function(n) {
       isActiveNavMessages = 1;
     }
   }
+  if ($(".galleria").length > 0) {
+    setTimeout((function() {
+      $(".galleria").data("galleria").enterFullscreen();
+    }), 300);
+  }
 };
 
 animacionVentanas = function() {
@@ -156,7 +161,8 @@ reloadControls = function() {
         responsive: true,
         preload: 0,
         idleMode: false,
-        debug: false
+        debug: false,
+        showImagenav: false
       });
       Galleria.run(".galleria");
       $("#content").css("background", "black");
@@ -275,5 +281,17 @@ appVideos = function() {
   window["funcionesbt3"] = function() {
     player.pause();
     player.exitFullScreen();
+  };
+};
+
+appImagenes = function() {
+  activarBoton('1', 'Anterior');
+  activarBoton('3', 'Siguiente');
+  window["funcionesbt1"] = function() {
+    $(".galleria").data("galleria").prev();
+  };
+  window["funcionesbt3"] = function() {
+    console.log("BIEN");
+    $(".galleria").data("galleria").next();
   };
 };
