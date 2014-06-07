@@ -83,7 +83,7 @@ socket.on("button", function(data) {
 Función para controlar el funcionamiento de la barra de mensajes
  */
 
-isActiveNavMessages = 1;
+isActiveNavMessages = 0;
 
 barraMensajes = function(n) {
   if (isActiveNavMessages) {

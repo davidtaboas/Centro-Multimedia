@@ -40,8 +40,9 @@ controllers.controller("MessagesCtrl", [
       });
     });
     socket.on("filter", function(data) {
+      lastFilter = data.filter;
       $scope.$apply(function() {
-        cargarMensajes(data.filter);
+        cargarMensajes(lastFilter);
       });
     });
   }

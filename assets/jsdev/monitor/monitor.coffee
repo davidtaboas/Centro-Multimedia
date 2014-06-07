@@ -84,7 +84,7 @@ socket.on "button", (data) ->
 ###
 Función para controlar el funcionamiento de la barra de mensajes
 ###
-isActiveNavMessages = 1
+isActiveNavMessages = 0
 barraMensajes = (n) ->
   if isActiveNavMessages
     if n is 0

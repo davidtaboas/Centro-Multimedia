@@ -67,10 +67,9 @@ controllers.controller "MessagesCtrl", [
 
     socket.on "filter", (data) ->
 
-
+      lastFilter = data.filter
       $scope.$apply ->
-
-        cargarMensajes(data.filter)
+        cargarMensajes(lastFilter)
         return
 
       return #end $socket filter
