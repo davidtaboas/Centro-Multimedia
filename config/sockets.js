@@ -97,7 +97,7 @@ module.exports = function (server, config) {
 
         console.log(">>Todos los clientes: "+allClients.length);
         // Si no hay clientes conectados, despertamos el monitor
-        if ( (allClients.length == 0) && (protegido = 0) ){
+        if ( (allClients.length == 0) && (usuarioActivo == -1) ){
 
             // comando segun plataforma
             if(sistemaoperativo == "darwin"){
@@ -154,7 +154,7 @@ module.exports = function (server, config) {
 
             // Si no quedan clientes en la cola de espera procedemos a poner el monitor en espera
 
-            if (allClients.length == 0){
+            if ( (allClients.length == 0) && (usuarioActivo == -1)){
 
                 // comando segun plataforma
                 if(sistemaoperativo == "darwin"){

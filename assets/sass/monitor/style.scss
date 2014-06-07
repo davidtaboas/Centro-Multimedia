@@ -10,11 +10,14 @@ $gris: #E6E6E6;
 $naranja:#F36126;
 $negro: #404040;
 
+html {
+  cursor: none !important;
+}
 body {
   background: $gris;
   background-size: cover;
   background-attachment: fixed;
-  background-position: center 0;
+  background-position: center 0; 
 }
 
 header {
