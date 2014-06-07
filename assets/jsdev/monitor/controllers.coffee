@@ -51,6 +51,7 @@ controllers.controller "MessagesCtrl", [
         return
       return
 
+    
     cargarMensajes(lastFilter)
 
 

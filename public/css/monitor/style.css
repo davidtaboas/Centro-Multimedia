@@ -7829,7 +7829,6 @@ footer {
   left: 0;
   overflow: hidden;
   position: absolute;
-  height: 25%;
   width: 100%;
   /* PANEL DESLIZANTE DE MENSAJES */
 }
@@ -7934,17 +7933,34 @@ footer .none {
   position: absolute !important;
 }
 
-/* line 305, ../../../assets/sass/monitor/style.scss */
-.galleria {
-  height: 720px;
+/* line 304, ../../../assets/sass/monitor/style.scss */
+.auto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0px;
+  color: #fff;
+  margin: 0 auto;
+  z-index: 2;
+  text-align: center;
+}
+/* line 313, ../../../assets/sass/monitor/style.scss */
+.auto span {
+  padding-left: 5px;
 }
 
-/* line 307, ../../../assets/sass/monitor/style.scss */
-.container, .monitor, #views {
+/* line 317, ../../../assets/sass/monitor/style.scss */
+.galleria {
   height: 100%;
 }
 
-/* line 311, ../../../assets/sass/monitor/style.scss */
+/* line 319, ../../../assets/sass/monitor/style.scss */
+.container, .monitor, #views {
+  height: 100%;
+  position: relative;
+}
+
+/* line 324, ../../../assets/sass/monitor/style.scss */
 #login {
   display: none;
   position: absolute;
@@ -7955,59 +7971,59 @@ footer .none {
   height: 100%;
   z-index: 1000;
 }
-/* line 322, ../../../assets/sass/monitor/style.scss */
+/* line 335, ../../../assets/sass/monitor/style.scss */
 #login .alert {
   font-size: 70px;
 }
-/* line 326, ../../../assets/sass/monitor/style.scss */
+/* line 339, ../../../assets/sass/monitor/style.scss */
 #login .event {
   width: 256px;
   height: 256px;
   margin: 0 auto;
 }
-/* line 331, ../../../assets/sass/monitor/style.scss */
+/* line 344, ../../../assets/sass/monitor/style.scss */
 #login .event div {
   width: 100%;
   display: block;
   height: 100%;
 }
-/* line 336, ../../../assets/sass/monitor/style.scss */
+/* line 349, ../../../assets/sass/monitor/style.scss */
 #login .event .singleTap {
   background-image: url("/img/gestures/tap.png");
 }
-/* line 337, ../../../assets/sass/monitor/style.scss */
+/* line 350, ../../../assets/sass/monitor/style.scss */
 #login .event .doubleTap {
   background-image: url("/img/gestures/double_tap.png");
 }
-/* line 338, ../../../assets/sass/monitor/style.scss */
+/* line 351, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeLeft {
   background-image: url("/img/gestures/swipe_left.png");
 }
-/* line 339, ../../../assets/sass/monitor/style.scss */
+/* line 352, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeRight {
   background-image: url("/img/gestures/swipe_right.png");
 }
-/* line 340, ../../../assets/sass/monitor/style.scss */
+/* line 353, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeUp {
   background-image: url("/img/gestures/swipe_up.png");
 }
-/* line 341, ../../../assets/sass/monitor/style.scss */
+/* line 354, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeDown {
   background-image: url("/img/gestures/swipe_down.png");
 }
-/* line 342, ../../../assets/sass/monitor/style.scss */
+/* line 355, ../../../assets/sass/monitor/style.scss */
 #login .event .rotateLeft {
   background-image: url("/img/gestures/rotate_left.png");
 }
-/* line 343, ../../../assets/sass/monitor/style.scss */
+/* line 356, ../../../assets/sass/monitor/style.scss */
 #login .event .rotateRight {
   background-image: url("/img/gestures/rotate_right.png");
 }
-/* line 344, ../../../assets/sass/monitor/style.scss */
+/* line 357, ../../../assets/sass/monitor/style.scss */
 #login .event .pinchIn {
   background-image: url("/img/gestures/pinch.png");
 }
-/* line 345, ../../../assets/sass/monitor/style.scss */
+/* line 358, ../../../assets/sass/monitor/style.scss */
 #login .event .pinchOut {
   background-image: url("/img/gestures/pinch_out.png");
 }
@@ -8015,7 +8031,7 @@ footer .none {
 /*
 ICONOS
 */
-/* line 355, ../../../assets/sass/monitor/style.scss */
+/* line 368, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p0 {
   color: #d9534f;
   background-image: url("/img/citius.png");
@@ -8024,11 +8040,11 @@ ICONOS
   background-size: 100% auto;
   background-repeat: space;
 }
-/* line 366, ../../../assets/sass/monitor/style.scss */
+/* line 379, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p1 {
   color: #5bc0de;
 }
-/* line 372, ../../../assets/sass/monitor/style.scss */
+/* line 385, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p2 {
   color: #f0ad4e;
 }
@@ -8036,17 +8052,17 @@ ICONOS
 /*
 MODO PRESENTACION
 */
-/* line 382, ../../../assets/sass/monitor/style.scss */
+/* line 395, ../../../assets/sass/monitor/style.scss */
 .nav-presentacion {
   text-align: center;
   margin: 10px;
 }
-/* line 385, ../../../assets/sass/monitor/style.scss */
+/* line 398, ../../../assets/sass/monitor/style.scss */
 .nav-presentacion a {
   margin: 0 10px;
 }
 
-/* line 392, ../../../assets/sass/monitor/style.scss */
+/* line 405, ../../../assets/sass/monitor/style.scss */
 .fathom-container {
   width: 100% !important;
   height: 100%;
@@ -8055,7 +8071,7 @@ MODO PRESENTACION
   margin: 0 !important;
   position: relative;
 }
-/* line 400, ../../../assets/sass/monitor/style.scss */
+/* line 413, ../../../assets/sass/monitor/style.scss */
 .fathom-container .auto {
   position: absolute;
   top: 0;
@@ -8065,19 +8081,19 @@ MODO PRESENTACION
   text-align: center;
   z-index: 2;
 }
-/* line 408, ../../../assets/sass/monitor/style.scss */
+/* line 421, ../../../assets/sass/monitor/style.scss */
 .fathom-container .auto span {
   font-weight: bold;
   padding-left: 1%;
 }
-/* line 414, ../../../assets/sass/monitor/style.scss */
+/* line 427, ../../../assets/sass/monitor/style.scss */
 .fathom-container div#presentacion {
   width: 100% !important;
   height: 100%;
   position: relative;
   margin: 0 !important;
 }
-/* line 422, ../../../assets/sass/monitor/style.scss */
+/* line 435, ../../../assets/sass/monitor/style.scss */
 .fathom-container div#presentacion div.slide {
   position: absolute;
   width: 98%;
@@ -8088,12 +8104,12 @@ MODO PRESENTACION
   top: 5%;
   bottom: 0%;
 }
-/* line 433, ../../../assets/sass/monitor/style.scss */
+/* line 446, ../../../assets/sass/monitor/style.scss */
 .fathom-container div#presentacion div.slide.activeslide {
   opacity: 1;
   display: block;
 }
-/* line 438, ../../../assets/sass/monitor/style.scss */
+/* line 451, ../../../assets/sass/monitor/style.scss */
 .fathom-container div#presentacion div.slide.inactiveslide {
   opacity: 0.4;
   display: none !important;

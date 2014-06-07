@@ -154,6 +154,10 @@ reloadControls = () ->
         })
       Galleria.run(".galleria")
       $("#content").css("background", "black")
+      $(".auto input").on "click", () ->
+
+        $('.galleria').data('galleria').playToggle()
+        return
 
   # PRESENTACIONES
   if typeof Fathom is 'function'
@@ -195,7 +199,7 @@ reloadControls = () ->
 
 
   # Navegacion por tabindex
-  $("a, video, .galleria-image-nav div, .auto input").each (index) ->
+  $("a, video, .auto input").each (index) ->
     $(this).prop "tabindex", index
     return
 

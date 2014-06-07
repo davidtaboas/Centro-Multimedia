@@ -160,6 +160,9 @@ reloadControls = function() {
       });
       Galleria.run(".galleria");
       $("#content").css("background", "black");
+      $(".auto input").on("click", function() {
+        $('.galleria').data('galleria').playToggle();
+      });
     }
   }
   if (typeof Fathom === 'function') {
@@ -194,7 +197,7 @@ reloadControls = function() {
       });
     }
   }
-  $("a, video, .galleria-image-nav div, .auto input").each(function(index) {
+  $("a, video, .auto input").each(function(index) {
     $(this).prop("tabindex", index);
   });
   lastTabIndex = Number($("[tabindex]").length - 1);
