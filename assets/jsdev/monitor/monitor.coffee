@@ -65,6 +65,7 @@ socket.on "change", (data) ->
   return
 
 socket.on "login", (data) ->
+  console.log "Hacemos un log de los datos para identificación"
   console.log data
   if data.login is "ok"
     # Pasamos a la visualización completa

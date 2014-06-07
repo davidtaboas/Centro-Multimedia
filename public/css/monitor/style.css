@@ -7714,9 +7714,10 @@ header .modoprotegido {
   top: 25px;
   left: 0;
   right: 0;
+  z-index: 2;
 }
 
-/* line 72, ../../../assets/sass/monitor/style.scss */
+/* line 73, ../../../assets/sass/monitor/style.scss */
 #content {
   float: left;
   height: 70%;
@@ -7727,12 +7728,12 @@ header .modoprotegido {
   width: 100%;
 }
 
-/* line 83, ../../../assets/sass/monitor/style.scss */
+/* line 84, ../../../assets/sass/monitor/style.scss */
 .row #menu li {
   list-style: none;
   display: inline;
 }
-/* line 87, ../../../assets/sass/monitor/style.scss */
+/* line 88, ../../../assets/sass/monitor/style.scss */
 .row #menu li a {
   background: #444;
   background-size: cover;
@@ -7748,13 +7749,13 @@ header .modoprotegido {
   width: 400px;
 }
 
-/* line 105, ../../../assets/sass/monitor/style.scss */
+/* line 106, ../../../assets/sass/monitor/style.scss */
 .current {
   box-shadow: 0 0 25px DodgerBlue;
   opacity: 1 !important;
 }
 
-/* line 110, ../../../assets/sass/monitor/style.scss */
+/* line 111, ../../../assets/sass/monitor/style.scss */
 #messages {
   display: none;
   height: 100%;
@@ -7764,7 +7765,7 @@ header .modoprotegido {
   width: 100%;
   z-index: 10;
 }
-/* line 120, ../../../assets/sass/monitor/style.scss */
+/* line 121, ../../../assets/sass/monitor/style.scss */
 #messages .background {
   background: #000;
   height: 100%;
@@ -7772,7 +7773,7 @@ header .modoprotegido {
   position: absolute;
   width: 100%;
 }
-/* line 129, ../../../assets/sass/monitor/style.scss */
+/* line 130, ../../../assets/sass/monitor/style.scss */
 #messages .content {
   background: #e6e6e6;
   border: 10px solid #404040;
@@ -7782,46 +7783,46 @@ header .modoprotegido {
   position: relative;
   width: 100%;
 }
-/* line 138, ../../../assets/sass/monitor/style.scss */
+/* line 139, ../../../assets/sass/monitor/style.scss */
 #messages .content h1 {
   color: #404040;
   border-bottom: 2px solid #404040;
 }
-/* line 143, ../../../assets/sass/monitor/style.scss */
+/* line 144, ../../../assets/sass/monitor/style.scss */
 #messages .content .items {
   height: 90%;
   overflow-y: scroll;
   font-size: 30px;
 }
-/* line 148, ../../../assets/sass/monitor/style.scss */
+/* line 149, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul {
   list-style: none;
 }
-/* line 151, ../../../assets/sass/monitor/style.scss */
+/* line 152, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul li {
   padding: 10px 0;
   border-bottom: 1px solid #404040;
   font-size: 36px;
 }
-/* line 155, ../../../assets/sass/monitor/style.scss */
+/* line 156, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul li span {
   margin: 0 10px;
 }
-/* line 158, ../../../assets/sass/monitor/style.scss */
+/* line 159, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul li span.prioridad {
   float: left;
 }
-/* line 161, ../../../assets/sass/monitor/style.scss */
+/* line 162, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul li span.prioridad.p0 {
   width: 7%;
 }
-/* line 165, ../../../assets/sass/monitor/style.scss */
+/* line 166, ../../../assets/sass/monitor/style.scss */
 #messages .content .items ul li span.timeago {
   font-style: italic;
   color: #f36126;
 }
 
-/* line 178, ../../../assets/sass/monitor/style.scss */
+/* line 179, ../../../assets/sass/monitor/style.scss */
 footer {
   background: #404040;
   bottom: 0;
@@ -7832,13 +7833,13 @@ footer {
   width: 100%;
   /* PANEL DESLIZANTE DE MENSAJES */
 }
-/* line 190, ../../../assets/sass/monitor/style.scss */
+/* line 191, ../../../assets/sass/monitor/style.scss */
 footer .bottom {
   height: 100%;
   position: relative;
   width: 100%;
 }
-/* line 197, ../../../assets/sass/monitor/style.scss */
+/* line 198, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider {
   margin: 0px;
   overflow: hidden;
@@ -7846,7 +7847,7 @@ footer .bottom #slider {
   width: 100%;
   height: 100%;
 }
-/* line 205, ../../../assets/sass/monitor/style.scss */
+/* line 206, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul {
   position: relative;
   margin: 0;
@@ -7854,7 +7855,7 @@ footer .bottom #slider ul {
   height: 100%;
   list-style: none;
 }
-/* line 211, ../../../assets/sass/monitor/style.scss */
+/* line 212, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li {
   background: #404040;
   clear: both;
@@ -7868,82 +7869,82 @@ footer .bottom #slider ul li {
   text-align: center;
   width: 100%;
 }
-/* line 224, ../../../assets/sass/monitor/style.scss */
+/* line 225, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .data {
   width: 10%;
   float: left;
 }
-/* line 229, ../../../assets/sass/monitor/style.scss */
+/* line 230, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .data .icon {
   font-size: 65px;
   margin-top: 10%;
 }
-/* line 234, ../../../assets/sass/monitor/style.scss */
+/* line 235, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .data .ago {
   font-size: 36px;
   line-height: 36px;
 }
-/* line 241, ../../../assets/sass/monitor/style.scss */
+/* line 242, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info {
   width: 90%;
   float: left;
 }
-/* line 246, ../../../assets/sass/monitor/style.scss */
+/* line 247, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info p {
   color: inherit;
   font-size: 70px;
   line-height: 70px;
 }
-/* line 252, ../../../assets/sass/monitor/style.scss */
+/* line 253, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info .prioridad {
   text-align: center;
   font-size: 50px;
   line-height: 50px;
   margin: 10px;
 }
-/* line 261, ../../../assets/sass/monitor/style.scss */
+/* line 262, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info .fecha {
   font-size: 36px;
   line-height: 36px;
 }
-/* line 266, ../../../assets/sass/monitor/style.scss */
+/* line 267, ../../../assets/sass/monitor/style.scss */
 footer .bottom #slider ul li .info span.timeago {
   font-size: 28px;
   display: block;
 }
-/* line 282, ../../../assets/sass/monitor/style.scss */
+/* line 283, ../../../assets/sass/monitor/style.scss */
 footer .none {
   display: none;
 }
 
 @media (min-width: 1200px) and (max-width: 1860px) {
-  /* line 288, ../../../assets/sass/monitor/style.scss */
+  /* line 289, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1560px;
   }
 }
 @media (min-width: 1860px) {
-  /* line 294, ../../../assets/sass/monitor/style.scss */
+  /* line 295, ../../../assets/sass/monitor/style.scss */
   .container {
     width: 1860px;
   }
 }
-/* line 300, ../../../assets/sass/monitor/style.scss */
+/* line 301, ../../../assets/sass/monitor/style.scss */
 .mejs-container-fullscreen {
   position: absolute !important;
 }
 
-/* line 304, ../../../assets/sass/monitor/style.scss */
+/* line 305, ../../../assets/sass/monitor/style.scss */
 .galleria {
   height: 720px;
 }
 
-/* line 306, ../../../assets/sass/monitor/style.scss */
+/* line 307, ../../../assets/sass/monitor/style.scss */
 .container, .monitor, #views {
   height: 100%;
 }
 
-/* line 310, ../../../assets/sass/monitor/style.scss */
+/* line 311, ../../../assets/sass/monitor/style.scss */
 #login {
   display: none;
   position: absolute;
@@ -7954,59 +7955,59 @@ footer .none {
   height: 100%;
   z-index: 1000;
 }
-/* line 321, ../../../assets/sass/monitor/style.scss */
+/* line 322, ../../../assets/sass/monitor/style.scss */
 #login .alert {
   font-size: 70px;
 }
-/* line 325, ../../../assets/sass/monitor/style.scss */
+/* line 326, ../../../assets/sass/monitor/style.scss */
 #login .event {
   width: 256px;
   height: 256px;
   margin: 0 auto;
 }
-/* line 330, ../../../assets/sass/monitor/style.scss */
+/* line 331, ../../../assets/sass/monitor/style.scss */
 #login .event div {
   width: 100%;
   display: block;
   height: 100%;
 }
-/* line 335, ../../../assets/sass/monitor/style.scss */
+/* line 336, ../../../assets/sass/monitor/style.scss */
 #login .event .singleTap {
   background-image: url("/img/gestures/tap.png");
 }
-/* line 336, ../../../assets/sass/monitor/style.scss */
+/* line 337, ../../../assets/sass/monitor/style.scss */
 #login .event .doubleTap {
   background-image: url("/img/gestures/double_tap.png");
 }
-/* line 337, ../../../assets/sass/monitor/style.scss */
+/* line 338, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeLeft {
   background-image: url("/img/gestures/swipe_left.png");
 }
-/* line 338, ../../../assets/sass/monitor/style.scss */
+/* line 339, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeRight {
   background-image: url("/img/gestures/swipe_right.png");
 }
-/* line 339, ../../../assets/sass/monitor/style.scss */
+/* line 340, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeUp {
   background-image: url("/img/gestures/swipe_up.png");
 }
-/* line 340, ../../../assets/sass/monitor/style.scss */
+/* line 341, ../../../assets/sass/monitor/style.scss */
 #login .event .swipeDown {
   background-image: url("/img/gestures/swipe_down.png");
 }
-/* line 341, ../../../assets/sass/monitor/style.scss */
+/* line 342, ../../../assets/sass/monitor/style.scss */
 #login .event .rotateLeft {
   background-image: url("/img/gestures/rotate_left.png");
 }
-/* line 342, ../../../assets/sass/monitor/style.scss */
+/* line 343, ../../../assets/sass/monitor/style.scss */
 #login .event .rotateRight {
   background-image: url("/img/gestures/rotate_right.png");
 }
-/* line 343, ../../../assets/sass/monitor/style.scss */
+/* line 344, ../../../assets/sass/monitor/style.scss */
 #login .event .pinchIn {
   background-image: url("/img/gestures/pinch.png");
 }
-/* line 344, ../../../assets/sass/monitor/style.scss */
+/* line 345, ../../../assets/sass/monitor/style.scss */
 #login .event .pinchOut {
   background-image: url("/img/gestures/pinch_out.png");
 }
@@ -8014,7 +8015,7 @@ footer .none {
 /*
 ICONOS
 */
-/* line 354, ../../../assets/sass/monitor/style.scss */
+/* line 355, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p0 {
   color: #d9534f;
   background-image: url("/img/citius.png");
@@ -8023,11 +8024,11 @@ ICONOS
   background-size: 100% auto;
   background-repeat: space;
 }
-/* line 365, ../../../assets/sass/monitor/style.scss */
+/* line 366, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p1 {
   color: #5bc0de;
 }
-/* line 371, ../../../assets/sass/monitor/style.scss */
+/* line 372, ../../../assets/sass/monitor/style.scss */
 .glyphicon.p2 {
   color: #f0ad4e;
 }
@@ -8035,17 +8036,17 @@ ICONOS
 /*
 MODO PRESENTACION
 */
-/* line 381, ../../../assets/sass/monitor/style.scss */
+/* line 382, ../../../assets/sass/monitor/style.scss */
 .nav-presentacion {
   text-align: center;
   margin: 10px;
 }
-/* line 384, ../../../assets/sass/monitor/style.scss */
+/* line 385, ../../../assets/sass/monitor/style.scss */
 .nav-presentacion a {
   margin: 0 10px;
 }
 
-/* line 391, ../../../assets/sass/monitor/style.scss */
+/* line 392, ../../../assets/sass/monitor/style.scss */
 .fathom-container {
   width: 100% !important;
   height: 100%;
@@ -8054,7 +8055,7 @@ MODO PRESENTACION
   margin: 0 !important;
   position: relative;
 }
-/* line 399, ../../../assets/sass/monitor/style.scss */
+/* line 400, ../../../assets/sass/monitor/style.scss */
 .fathom-container .auto {
   position: absolute;
   top: 0;
@@ -8064,19 +8065,19 @@ MODO PRESENTACION
   text-align: center;
   z-index: 2;
 }
-/* line 407, ../../../assets/sass/monitor/style.scss */
+/* line 408, ../../../assets/sass/monitor/style.scss */
 .fathom-container .auto span {
   font-weight: bold;
   padding-left: 1%;
 }
-/* line 413, ../../../assets/sass/monitor/style.scss */
+/* line 414, ../../../assets/sass/monitor/style.scss */
 .fathom-container div#presentacion {
   width: 100% !important;
   height: 100%;
   position: relative;
   margin: 0 !important;
 }
-/* line 421, ../../../assets/sass/monitor/style.scss */
+/* line 422, ../../../assets/sass/monitor/style.scss */
 .fathom-container div#presentacion div.slide {
   position: absolute;
   width: 98%;
@@ -8087,12 +8088,12 @@ MODO PRESENTACION
   top: 5%;
   bottom: 0%;
 }
-/* line 432, ../../../assets/sass/monitor/style.scss */
+/* line 433, ../../../assets/sass/monitor/style.scss */
 .fathom-container div#presentacion div.slide.activeslide {
   opacity: 1;
   display: block;
 }
-/* line 437, ../../../assets/sass/monitor/style.scss */
+/* line 438, ../../../assets/sass/monitor/style.scss */
 .fathom-container div#presentacion div.slide.inactiveslide {
   opacity: 0.4;
   display: none !important;

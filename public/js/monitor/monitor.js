@@ -64,6 +64,7 @@ socket.on("change", function(data) {
 });
 
 socket.on("login", function(data) {
+  console.log("Hacemos un log de los datos para identificación");
   console.log(data);
   if (data.login === "ok") {
     $("#login").fadeOut();
