@@ -104,7 +104,7 @@ barraMensajes = (n) ->
         $(".galleria").data("galleria").enterFullscreen()
         return
       ), 300
-        
+
 
   return
 
@@ -131,13 +131,18 @@ reloadControls = () ->
   if location.hash is "#/"
     socket.emit "controlBotones", {id: 0, label: ""}
     # Limpiamos scripts añadidos
-    # Decidimos no limpiar scripts para agilizar la carga de todas las aplicaciones
-    # $(".temp").remove()
+    $(".temp").remove()
 
 
   #VIDEOS
-  if typeof MediaElementPlayer is 'function'
-    if $("video").length > 0
+  if $("video").length > 0
+    s = document.createElement("link")
+    s.rel = "stylesheet"
+    s.href = "/components/mediaelement/build/mediaelementplayer.min.css"
+    s.className = "temp"
+    $("head").append s
+
+    if typeof MediaElementPlayer is 'function'
       $("video").mediaelementplayer()
       player = new MediaElementPlayer("video")
       $("video").on "play", ->
@@ -149,8 +154,9 @@ reloadControls = () ->
         return
 
   # IMAGENES
-  if typeof Galleria is 'function'
-    if $(".galleria").length > 0
+  if $(".galleria").length > 0
+    if typeof Galleria is 'function'
+
       Galleria.loadTheme(
         '/components/galleria/themes/classic/galleria.classic.min.js'
       )

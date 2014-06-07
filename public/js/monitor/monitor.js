@@ -134,14 +134,21 @@ fathom = "";
 presentacionSlider = "";
 
 reloadControls = function() {
+  var s;
   if (location.hash === "#/") {
     socket.emit("controlBotones", {
       id: 0,
       label: ""
     });
+    $(".temp").remove();
   }
-  if (typeof MediaElementPlayer === 'function') {
-    if ($("video").length > 0) {
+  if ($("video").length > 0) {
+    s = document.createElement("link");
+    s.rel = "stylesheet";
+    s.href = "/components/mediaelement/build/mediaelementplayer.min.css";
+    s.className = "temp";
+    $("head").append(s);
+    if (typeof MediaElementPlayer === 'function') {
       $("video").mediaelementplayer();
       player = new MediaElementPlayer("video");
       $("video").on("play", function() {
@@ -152,8 +159,8 @@ reloadControls = function() {
       });
     }
   }
-  if (typeof Galleria === 'function') {
-    if ($(".galleria").length > 0) {
+  if ($(".galleria").length > 0) {
+    if (typeof Galleria === 'function') {
       Galleria.loadTheme('/components/galleria/themes/classic/galleria.classic.min.js');
       Galleria.configure({
         height: $("#content").height(),

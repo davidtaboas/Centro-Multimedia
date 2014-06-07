@@ -1,9 +1,6 @@
-lazy-style(href="/components/mediaelement/build/mediaelementplayer.min.css")
+//- lazy-style(href="/components/mediaelement/build/mediaelementplayer.min.css")
 
-lazy-script(srcscript='/components/mediaelement/build/mediaelement-and-player.min.js')
-
-script(type="text/javascript")
-    appVideos()
+lazy-script(srcscript='videos/videos.js')
 
 video#vid1(controls="controls",preload="none", width="400", height="250", poster="http://www.videojs.com/img/poster.jpg")
   source(src="http://vjs.zencdn.net/v/oceans.mp4",type='video/mp4')
