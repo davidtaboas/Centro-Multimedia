@@ -96,14 +96,15 @@ $ ->
 
 
   $changeMask.on "tap", () ->
-
+    $changeMask.button("toggle")
     # boton con ocultar activo
     if $changeMask.hasClass("active") is true
-      $changeMask.button('reset')
-      socket.emit "filtermsgs", "all"
-    else
       $changeMask.button('complete')
       socket.emit "filtermsgs", "app"
+    else
+      $changeMask.button('reset')
+      socket.emit "filtermsgs", "all"
+
 
     # socket.emit "change", "mask"
     return

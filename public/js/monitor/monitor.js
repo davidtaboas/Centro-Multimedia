@@ -98,13 +98,15 @@ barraMensajes = function(n) {
       isActiveNavMessages = 0;
     }
   } else {
-    $("footer").animate({
-      height: "25%"
-    }, 200);
-    $("#content").animate({
-      height: "70%"
-    }, 200);
-    isActiveNavMessages = 1;
+    if (n !== 0) {
+      $("footer").animate({
+        height: "25%"
+      }, 200);
+      $("#content").animate({
+        height: "70%"
+      }, 200);
+      isActiveNavMessages = 1;
+    }
   }
 };
 

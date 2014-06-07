@@ -29,10 +29,11 @@ block content
                     button#ok.btn.btn-primary.btn-lg.btn-danger(type="button") OK
                     button#right.btn.btn-primary.btn-lg.btn-success(type="button") <i class="fa fa-arrow-right"></i>
                 div.clearfix
+                h2 Mensajes
                 div.btn-group
-                    button.sendmsg.btn.btn-primary.btn-lg(data-target='#modalMensajes', data-toggle='modal') Enviar
-                    button#messages.btn.btn-primary.btn-lg(type="button") Bandeja
-                    button#changeMask.btn.btn-primary.btn-lg(type="button", data-toggle="button", data-complete-text="Mostrar Mensajes") Ocultar Mensajes
+                    button.sendmsg.btn.btn-primary.btn-lg(data-target='#modalMensajes', data-toggle='modal') <i class="fa fa-pencil"></i>
+                    button#messages.btn.btn-primary.btn-lg(type="button") <i class="fa fa-archive"></i>
+                    button#changeMask.btn.btn-primary.btn-lg(type="button", data-toggle="button", data-complete-text="<i class='fa fa-plus-square'></i>") <i class='fa fa-minus-square'></i>
                 div.clearfix
                 div.btn-group
                     button#bt1.btn.btn-info.btn-lg(type="button") 1
@@ -63,27 +64,46 @@ block content
                             input#textoMensaje.form-control(type='text', placeholder='Introduce el texto', name='texto', maxlength='140')
                         .form-group
                             .btn-group(data-toggle='buttons')
-                                label.btn.btn-primary.active
-                                    input#option1(type='radio', name='expiracion', value="6", checked)
-                                    | 6 horas
-                                label.btn.btn-primary
-                                    input#option2(type='radio', name='expiracion', value="12")
-                                    | 12 horas
-                                label.btn.btn-primary
-                                    input#option3(type='radio', name='expiracion', value="24")
-                                    | 1 día
-                                label.btn.btn-primary
-                                    input#option3(type='radio', name='expiracion', value="72")
-                                    | 3 días
-                                label.btn.btn-primary
-                                    input#option3(type='radio', name='expiracion', value="168")
-                                    | 1 semana
-                                label.btn.btn-primary
-                                    input#option3(type='radio', name='expiracion', value="336")
-                                    | 2 semanas
-                                label.btn.btn-primary
-                                    input#option3(type='radio', name='expiracion', value="672")
-                                    | 1 mes
+                                .btn-group.btn-group-justified
+
+                                    label.btn.btn-primary.active
+                                        input#option1(type='radio', name='expiracion', value="4", checked)
+                                        | 4 horas
+
+                                    label.btn.btn-primary
+                                        input#option1(type='radio', name='expiracion', value="8")
+                                        | 8 horas
+
+                                    label.btn.btn-primary
+                                        input#option2(type='radio', name='expiracion', value="12")
+                                        | 12 horas
+                                .btn-group.btn-group-justified
+
+                                    label.btn.btn-primary
+                                        input#option3(type='radio', name='expiracion', value="24")
+                                        | 1 día
+
+                                    label.btn.btn-primary
+                                        input#option3(type='radio', name='expiracion', value="72")
+                                        | 3 días
+
+                                    label.btn.btn-primary
+                                        input#option3(type='radio', name='expiracion', value="120")
+                                        | 5 días
+
+                                .btn-group.btn-group-justified
+
+                                    label.btn.btn-primary
+                                        input#option3(type='radio', name='expiracion', value="168")
+                                        | 1 semana
+
+                                    label.btn.btn-primary
+                                        input#option3(type='radio', name='expiracion', value="336")
+                                        | 2 semanas
+
+                                    label.btn.btn-primary
+                                        input#option3(type='radio', name='expiracion', value="672")
+                                        | 1 mes
 
                 .modal-footer
                     button.btn.btn-default(data-dismiss='modal', type='button') Cerrar

@@ -72,12 +72,13 @@ $(function() {
     socket.emit("control", "back");
   });
   $changeMask.on("tap", function() {
+    $changeMask.button("toggle");
     if ($changeMask.hasClass("active") === true) {
-      $changeMask.button('reset');
-      socket.emit("filtermsgs", "all");
-    } else {
       $changeMask.button('complete');
       socket.emit("filtermsgs", "app");
+    } else {
+      $changeMask.button('reset');
+      socket.emit("filtermsgs", "all");
     }
   });
   $messages.on("tap", function() {

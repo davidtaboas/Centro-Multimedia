@@ -9829,7 +9829,7 @@ body {
   padding: 0px;
 }
 
-/* line 73, ../../../assets/sass/client/style.scss */
+/* line 75, ../../../assets/sass/client/style.scss */
 #login {
   display: none;
   position: absolute;
@@ -9841,7 +9841,7 @@ body {
   overflow: hidden;
   background: #fff;
 }
-/* line 85, ../../../assets/sass/client/style.scss */
+/* line 87, ../../../assets/sass/client/style.scss */
 #login h1 {
   margin: 0px;
   padding: 0px;
@@ -9849,23 +9849,23 @@ body {
   color: #666;
   text-shadow: 2px 2px #e6e6e6;
 }
-/* line 93, ../../../assets/sass/client/style.scss */
+/* line 95, ../../../assets/sass/client/style.scss */
 #login h1 span.title {
   padding-left: 15px;
   color: #f36126;
 }
-/* line 100, ../../../assets/sass/client/style.scss */
+/* line 102, ../../../assets/sass/client/style.scss */
 #login .window {
   height: 100%;
   width: 100%;
   background: #fff;
   position: relative;
 }
-/* line 107, ../../../assets/sass/client/style.scss */
+/* line 109, ../../../assets/sass/client/style.scss */
 #login .window .alert {
   display: none;
 }
-/* line 112, ../../../assets/sass/client/style.scss */
+/* line 114, ../../../assets/sass/client/style.scss */
 #login .sendmsg {
   position: relative;
   left: 0;
@@ -9874,37 +9874,30 @@ body {
   bottom: 0;
 }
 
-/* line 121, ../../../assets/sass/client/style.scss */
+/* line 123, ../../../assets/sass/client/style.scss */
 #modalMensajes {
   color: #404040;
 }
-/* line 124, ../../../assets/sass/client/style.scss */
-#modalMensajes #ex1Slider {
-  width: 100% !important;
-  margin-top: 30px;
+/* line 126, ../../../assets/sass/client/style.scss */
+#modalMensajes .btn-group .btn {
+  border-radius: 0 !important;
 }
-/* line 128, ../../../assets/sass/client/style.scss */
-#modalMensajes #ex1Slider .slider-selection {
-  background-color: #f36126 !important;
-}
-/* line 132, ../../../assets/sass/client/style.scss */
-#modalMensajes #ex1Slider div.tooltip.top {
-  display: block !important;
-  opacity: 1 !important;
-  margin-top: -20px !important;
+/* line 129, ../../../assets/sass/client/style.scss */
+#modalMensajes input[type="radio"] {
+  display: none;
 }
 
-/* line 140, ../../../assets/sass/client/style.scss */
+/* line 134, ../../../assets/sass/client/style.scss */
 .clearfix {
   margin: 10px auto !important;
 }
 
-/* line 144, ../../../assets/sass/client/style.scss */
+/* line 138, ../../../assets/sass/client/style.scss */
 .no-margin {
   margin: 0 auto !important;
 }
 
-/* line 148, ../../../assets/sass/client/style.scss */
+/* line 142, ../../../assets/sass/client/style.scss */
 #bt1, #bt2, #bt3, #bt4, #bt5, #bt6, #bt7, #bt8, #bt9 {
   display: none;
 }

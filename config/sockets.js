@@ -92,7 +92,7 @@ module.exports = function (server, config) {
                 // you can also check session activity here
                 // and perhaps emit a logoff event to the client as mentioned
                 socket.emit("logoff", { reason: "Logged off due to inactivity" });
-            }, 1000 * 60 * .3); // 1000ms (1s) * 60s (1') * 3 (3')
+            }, 1000 * 60 * 3); // 1000ms (1s) * 60s (1') * 3 (3')
         }
 
         console.log(">>Todos los clientes: "+allClients.length);
