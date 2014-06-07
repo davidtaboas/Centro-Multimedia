@@ -131,7 +131,8 @@ reloadControls = () ->
   if location.hash is "#/"
     socket.emit "controlBotones", {id: 0, label: ""}
     # Limpiamos scripts añadidos
-    $(".temp").remove()
+    # Decidimos no limpiar scripts para agilizar la carga de todas las aplicaciones
+    # $(".temp").remove()
 
 
   #VIDEOS

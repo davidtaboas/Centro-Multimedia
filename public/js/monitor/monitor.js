@@ -139,7 +139,6 @@ reloadControls = function() {
       id: 0,
       label: ""
     });
-    $(".temp").remove();
   }
   if (typeof MediaElementPlayer === 'function') {
     if ($("video").length > 0) {
