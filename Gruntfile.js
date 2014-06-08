@@ -37,8 +37,20 @@ module.exports = function (grunt) {
         }
     },
     compass: {
-      dist: {
+      dev: {
         options: {
+          environment: 'development',
+          importPath: ['public/components/sass-bootstrap/lib', 'public/components/components-font-awesome/scss'],
+          cssDir: 'public/css',
+          sassDir: 'assets/sass',
+          //images_dir: 'public/img',
+          //javascripts_dir: 'public/js',
+          force: true
+        }
+      },
+      prod: {
+        options: {
+          environment: 'production',
           importPath: ['public/components/sass-bootstrap/lib', 'public/components/components-font-awesome/scss'],
           cssDir: 'public/css',
           sassDir: 'assets/sass',
@@ -144,8 +156,8 @@ module.exports = function (grunt) {
   });
 
   // alias de tareas para desarrollo
-  grunt.registerTask('default', ['develop:dev', 'coffee', 'imagemin', 'compass', 'copy', 'open:usuario','open:pantalla', 'open:subl', 'watch']);
+  grunt.registerTask('default', ['develop:dev', 'coffee', 'imagemin', 'compass:dev', 'copy', 'open:usuario','open:pantalla', 'open:subl', 'watch']);
   // alias de tareas para producción
-  grunt.registerTask('prod', ['develop:prod', 'coffee','imagemin', 'compass', 'copy', 'open:kiosko', 'watch']);
+  grunt.registerTask('prod', ['develop:prod', 'coffee','imagemin', 'compass:prod', 'copy', 'open:kiosko', 'watch']);
 
 };
