@@ -212,8 +212,6 @@ reloadControls = () ->
         return
 
 
-
-
   # Navegacion por tabindex
   $("a, video, .auto input").each (index) ->
     $(this).prop "tabindex", index
@@ -328,4 +326,76 @@ appImagenes = () ->
     console.log "BIEN"
     $(".galleria").data("galleria").next()
     return
+  return
+
+datosSensor = (marcoID, medida, unidad) ->
+  URL = "http://172.16.244.156:8000/"
+  request =
+    query: "getObservationsByInterval"
+    params:
+      measure: medida
+      start: Date.parse(moment().format('YYYY/MM/DD H:m'))
+      end: Date.parse(moment().subtract('days', 7).format('YYYY/MM/DD H:m'))
+  $.ajax
+    url: URL
+    data: JSON.stringify(request)
+    type: "post"
+    dataType: "json"
+    success: (data) ->
+      datos = []
+      $.each data, (index, value) ->
+        aux = [
+          Date.parse(value.measureTime)
+          value.measureValue
+        ]
+        datos.push aux
+        return
+
+      # This is for all plots, change Date axis to local timezone
+      Highcharts.setOptions global:
+        useUTC: false
+
+      chart = new Highcharts.Chart(
+        chart:
+          renderTo: marcoID
+          type: "scatter"
+          marginRight: 130
+          marginBottom: 25
+          borderWidth: 2
+
+        title:
+          text: "Última semana de "+ medida
+          x: -20 #center
+
+        subtitle:
+          text: "" + medida
+          x: -20
+
+        xAxis:
+          text: "Tiempo"
+          type: "datetime"
+
+        yAxis:
+          title:
+            text: "Consumo " + unidad
+
+        tooltip:
+          formatter: ->
+            "<b>" + @series.name + "</b><br/>" + Highcharts.dateFormat("%H:%M %e-%b-%Y", new Date(@x)) + "," + @y + " Kwh"
+
+          valueSuffix: unidad
+
+        legend:
+          layout: "vertical"
+          align: "right"
+          verticalAlign: "middle"
+          borderWidth: 1
+
+        series: [
+          name: "" + medida
+          data: datos
+        ]
+      )
+      return
+
   return

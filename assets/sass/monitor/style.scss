@@ -17,7 +17,7 @@ body {
   background: $gris;
   background-size: cover;
   background-attachment: fixed;
-  background-position: center 0; 
+  background-position: center 0;
 }
 
 header {
@@ -457,5 +457,14 @@ MODO PRESENTACION
         display: none !important;
       }
     }
+  }
+}
+
+#sensores {
+
+  div {
+    width: 45%;
+    height: 45%;
+    display: inline-table;
   }
 }

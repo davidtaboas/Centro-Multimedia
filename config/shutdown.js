@@ -1,6 +1,10 @@
 
 var exec =  require('child_process').exec,
-    child;
+    child,
+    path = require('path'),
+    rootPath = path.normalize(__dirname + '/..'),
+    scriptsPath = rootPath + '/scripts/';
+
 
 var activo = false,
     hora = 20;

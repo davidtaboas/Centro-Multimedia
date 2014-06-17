@@ -1,4 +1,4 @@
-var activarBoton, animacionVentanas, app, appImagenes, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socketmonitor;
+var activarBoton, animacionVentanas, app, appImagenes, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, datosSensor, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socketmonitor;
 
 socketmonitor = io.connect("http://127.0.0.1:4444/");
 
@@ -300,4 +300,81 @@ appImagenes = function() {
     console.log("BIEN");
     $(".galleria").data("galleria").next();
   };
+};
+
+datosSensor = function(marcoID, medida, unidad) {
+  var URL, request;
+  URL = "http://172.16.244.156:8000/";
+  request = {
+    query: "getObservationsByInterval",
+    params: {
+      measure: medida,
+      start: Date.parse(moment().format('YYYY/MM/DD H:m')),
+      end: Date.parse(moment().subtract('days', 7).format('YYYY/MM/DD H:m'))
+    }
+  };
+  $.ajax({
+    url: URL,
+    data: JSON.stringify(request),
+    type: "post",
+    dataType: "json",
+    success: function(data) {
+      var chart, datos;
+      datos = [];
+      $.each(data, function(index, value) {
+        var aux;
+        aux = [Date.parse(value.measureTime), value.measureValue];
+        datos.push(aux);
+      });
+      Highcharts.setOptions({
+        global: {
+          useUTC: false
+        }
+      });
+      chart = new Highcharts.Chart({
+        chart: {
+          renderTo: marcoID,
+          type: "scatter",
+          marginRight: 130,
+          marginBottom: 25,
+          borderWidth: 2
+        },
+        title: {
+          text: "Última semana de " + medida,
+          x: -20
+        },
+        subtitle: {
+          text: "" + medida,
+          x: -20
+        },
+        xAxis: {
+          text: "Tiempo",
+          type: "datetime"
+        },
+        yAxis: {
+          title: {
+            text: "Consumo " + unidad
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%H:%M %e-%b-%Y", new Date(this.x)) + "," + this.y + " Kwh";
+          },
+          valueSuffix: unidad
+        },
+        legend: {
+          layout: "vertical",
+          align: "right",
+          verticalAlign: "middle",
+          borderWidth: 1
+        },
+        series: [
+          {
+            name: "" + medida,
+            data: datos
+          }
+        ]
+      });
+    }
+  });
 };
