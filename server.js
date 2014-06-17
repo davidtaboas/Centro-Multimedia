@@ -11,6 +11,8 @@
 // express magic
 var express = require('express'),
 	mongoose = require('mongoose'),
+  Agenda = require('agenda'),
+  agendaUI = require('agenda-ui'),
 	fs = require('fs'),
 	config = require('./config/config');
 
@@ -39,6 +41,10 @@ var app = express();
 var appmonitor = express();
 // Aplicación auxiliar para API
 var appapi = express();
+
+var agenda = new Agenda({db: { address: 'localhost:27017/agenda-example'}});
+
+app.use('/agenda-ui', agendaUI(agenda, {poll: 1000}));
 
 // Servidor de Cliente
 var server = require('http').createServer(app);
@@ -76,7 +82,7 @@ require('./config/sockets')(server, config);
 
 
 // Cargamos la funcionalidad de apagado automático
-require('./config/shutdown');
+require('./config/shutdown')(agenda);
 
 /*
 Lanzamos servidores
