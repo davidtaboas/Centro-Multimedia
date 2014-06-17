@@ -5,7 +5,7 @@
 ###
 
 # connect to our socket server
-socket = io.connect("http://192.168.1.43:1337/")
+socket = io.connect("http://tec.citius.usc.es/mando-cocina/")
 app = app or {}
 
 

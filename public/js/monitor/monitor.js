@@ -1,6 +1,6 @@
-var activarBoton, animacionVentanas, app, appImagenes, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socket;
+var activarBoton, animacionVentanas, app, appImagenes, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socketmonitor;
 
-socket = io.connect("http://127.0.0.1:4444/");
+socketmonitor = io.connect("http://127.0.0.1:4444/");
 
 app = app || {};
 
@@ -9,7 +9,7 @@ lastTabIndex = 0;
 currentIndex = 0;
 
 activarBoton = function(id, label) {
-  socket.emit("controlBotones", {
+  socketmonitor.emit("controlBotones", {
     id: id,
     label: label
   });
@@ -21,10 +21,10 @@ customButtons = function(id) {
 
 
 /*
-Los sockets van definidos de forma general
+Los socketmonitors van definidos de forma general
  */
 
-socket.on("move", function(data) {
+socketmonitor.on("move", function(data) {
   if (data.move === "ok") {
     $(".current").click();
   } else {
@@ -46,7 +46,7 @@ socket.on("move", function(data) {
   }
 });
 
-socket.on("control", function(data) {
+socketmonitor.on("control", function(data) {
   if (data.move === "home") {
     document.location.href = "/monitor#/";
   } else if (data.move === "back") {
@@ -54,7 +54,7 @@ socket.on("control", function(data) {
   }
 });
 
-socket.on("change", function(data) {
+socketmonitor.on("change", function(data) {
   if (data.change === "mask") {
     changeMask();
     setContentHeight();
@@ -63,7 +63,7 @@ socket.on("change", function(data) {
   }
 });
 
-socket.on("login", function(data) {
+socketmonitor.on("login", function(data) {
   console.log("Hacemos un log de los datos para identificación");
   console.log(data);
   if (data.login === "ok") {
@@ -75,7 +75,7 @@ socket.on("login", function(data) {
   }
 });
 
-socket.on("button", function(data) {
+socketmonitor.on("button", function(data) {
   window["customButtons"](data.id);
 });
 
@@ -136,7 +136,7 @@ presentacionSlider = "";
 reloadControls = function() {
   var s;
   if (location.hash === "#/") {
-    socket.emit("controlBotones", {
+    socketmonitor.emit("controlBotones", {
       id: 0,
       label: ""
     });
@@ -230,7 +230,7 @@ $(document).ready(function() {
       $(".clickProtegido").button("toggle");
       $(".modoprotegido").removeClass("show").addClass("hide");
     }
-    socket.emit("config", {
+    socketmonitor.emit("config", {
       protegido: protegido
     });
   });

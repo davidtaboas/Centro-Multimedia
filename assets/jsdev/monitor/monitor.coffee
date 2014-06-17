@@ -1,6 +1,6 @@
 
-# connect to our socket server
-socket = io.connect("http://127.0.0.1:4444/")
+# connect to our socketmonitor server
+socketmonitor = io.connect("http://127.0.0.1:4444/")
 app = app or {}
 
 lastTabIndex = 0
@@ -9,7 +9,7 @@ currentIndex = 0
 # GESTION DE BOTONES
 activarBoton = (id, label) ->
 
-  socket.emit "controlBotones", {id: id, label: label}
+  socketmonitor.emit "controlBotones", {id: id, label: label}
   return
 
 customButtons = (id) ->
@@ -19,9 +19,9 @@ customButtons = (id) ->
   return
 
 ###
-Los sockets van definidos de forma general
+Los socketmonitors van definidos de forma general
 ###
-socket.on "move", (data) ->
+socketmonitor.on "move", (data) ->
 
   if data.move is "ok"
     $(".current").click()
@@ -45,7 +45,7 @@ socket.on "move", (data) ->
 
   return
 
-socket.on "control", (data) ->
+socketmonitor.on "control", (data) ->
 
   if data.move is "home"
     document.location.href = "/monitor#/"
@@ -56,7 +56,7 @@ socket.on "control", (data) ->
 
 
 
-socket.on "change", (data) ->
+socketmonitor.on "change", (data) ->
   if data.change is "mask"
     changeMask()
     setContentHeight()
@@ -64,7 +64,7 @@ socket.on "change", (data) ->
     $("#messages").toggle()
   return
 
-socket.on "login", (data) ->
+socketmonitor.on "login", (data) ->
   console.log "Hacemos un log de los datos para identificación"
   console.log data
   if data.login is "ok"
@@ -77,7 +77,7 @@ socket.on "login", (data) ->
   return
 
 # Custom buttons
-socket.on "button", (data) ->
+socketmonitor.on "button", (data) ->
 
   window["customButtons"](data.id)
   return
@@ -129,7 +129,7 @@ reloadControls = () ->
   # Limpiamos el grid de botones personalizados
   # Limpiamos scrits añadidos
   if location.hash is "#/"
-    socket.emit "controlBotones", {id: 0, label: ""}
+    socketmonitor.emit "controlBotones", {id: 0, label: ""}
     # Limpiamos scripts añadidos
     $(".temp").remove()
 
@@ -225,7 +225,7 @@ reloadControls = () ->
 
   $("[tabindex=0]").addClass "current"
   currentIndex = (Number) $(".current").attr "tabindex"
-  #SOCKET STUFF
+  #socketmonitor STUFF
 
 
   return
@@ -245,7 +245,7 @@ $(document).ready ->
       $(".clickProtegido").button("toggle")
       $(".modoprotegido").removeClass("show").addClass("hide")
 
-    socket.emit("config", {protegido: protegido})
+    socketmonitor.emit("config", {protegido: protegido})
     return
 
   sliderBarra = ->

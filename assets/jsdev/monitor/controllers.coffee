@@ -51,13 +51,13 @@ controllers.controller "MessagesCtrl", [
         return
       return
 
-    
+
     cargarMensajes(lastFilter)
 
 
 
 
-    socket.on "msg", (data) ->
+    socketmonitor.on "msg", (data) ->
 
       $scope.$apply ->
 
@@ -69,9 +69,9 @@ controllers.controller "MessagesCtrl", [
 
         return
 
-      return #fin $socket msg
+      return #fin $socketmonitor msg
 
-    socket.on "filter", (data) ->
+    socketmonitor.on "filter", (data) ->
 
       lastFilter = data.filter
       console.log lastFilter
@@ -79,7 +79,7 @@ controllers.controller "MessagesCtrl", [
         cargarMensajes(lastFilter)
         return
 
-      return #end $socket filter
+      return #end $socketmonitor filter
 
     return
 

@@ -2,26 +2,26 @@ var factories;
 
 factories = angular.module('monitorApp.factories', []);
 
-factories.factory("socket", function($rootScope) {
-  var socket;
-  socket = socket;
+factories.factory("socketmonitor", function($rootScope) {
+  var socketmonitor;
+  socketmonitor = socketmonitor;
   return {
     on: function(eventName, callback) {
-      socket.on(eventName, function() {
+      socketmonitor.on(eventName, function() {
         var args;
         args = arguments;
         $rootScope.$apply(function() {
-          callback.apply(socket, args);
+          callback.apply(socketmonitor, args);
         });
       });
     },
     emit: function(eventName, data, callback) {
-      socket.emit(eventName, data, function() {
+      socketmonitor.emit(eventName, data, function() {
         var args;
         args = arguments;
         $rootScope.$apply(function() {
           if (callback) {
-            callback.apply(socket, args);
+            callback.apply(socketmonitor, args);
           }
         });
       });

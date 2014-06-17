@@ -37,13 +37,13 @@ controllers.controller("MessagesCtrl", [
       });
     };
     cargarMensajes(lastFilter);
-    socket.on("msg", function(data) {
+    socketmonitor.on("msg", function(data) {
       $scope.$apply(function() {
         $http.post("/messages", data).success(function(ok) {});
         cargarMensajes(lastFilter);
       });
     });
-    socket.on("filter", function(data) {
+    socketmonitor.on("filter", function(data) {
       lastFilter = data.filter;
       console.log(lastFilter);
       $scope.$apply(function() {
