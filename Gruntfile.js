@@ -75,7 +75,7 @@ module.exports = function (grunt) {
     },
     open : {
         usuario: {
-          path: 'http://localhost:'+RUNNING_PORT+'/',
+          path: 'http://tec.citius.usc.es/mando-cocina/',
           app: 'Google Chrome'
         },
         pantalla: {
