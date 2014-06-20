@@ -12,15 +12,16 @@ module.exports = function(agenda) {
         var data = job.attrs.data,
         horaProgramada = "";
 
-        fs.readFile(rootPath+'horaApagado.txt','utf8', function (err, data) {
+        fs.readFile(rootPath+'horaApagado.txt','utf8', function (err, read) {
           if (err) throw err;
-          horaProgramada = data;
+          horaProgramada = read;
         });
-        if(data.hora > horaProgramada){
+
+        if(moment(data.hora).isAfter(horaProgramada)){
             var exec = require('child_process').exec,
                 child;
 
-            child = exec('sudo shutdown -h now',
+            child = exec('shutdown -h now',
               function (error, stdout, stderr) {
                 if (error !== null) {
                   console.log('exec error: ' + error);
