@@ -15,26 +15,42 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     develop: {
-      server: {
-        file: 'server.js'
+      // tarea para aplicación en desarrollo
+      dev: {
+        file: 'server.js',
+        env: {NODE_ENV: 'development'}
+      },
+      // tarea para aplicación en producción
+      prod: {
+        file: 'server.js',
+        env: {NODE_ENV: 'production'}
       }
     },
-    // shell: {
-    //   mongo: {
-    //     command: "mongod --dbpath "+path.resolve()+"/data",
-    //     options: {
-    //         async: true
-    //     }
-    //   },
-    //   options: {
-    //     stdout: false,
-    //     stderr: true,
-    //     failOnError: true
-    //   }
-    // },
+    copy: {
+        main: {
+          files: [{
+              expand: true,
+              cwd: 'modules',
+              src: ['**/*.{js,css,png,jpg,gif}', '!**/config.js'],
+              dest: 'public/monitor'
+          }]
+        }
+    },
     compass: {
-      dist: {
+      dev: {
         options: {
+          environment: 'development',
+          importPath: ['public/components/sass-bootstrap/lib', 'public/components/components-font-awesome/scss'],
+          cssDir: 'public/css',
+          sassDir: 'assets/sass',
+          //images_dir: 'public/img',
+          //javascripts_dir: 'public/js',
+          force: true
+        }
+      },
+      prod: {
+        options: {
+          environment: 'production',
           importPath: ['public/components/sass-bootstrap/lib', 'public/components/components-font-awesome/scss'],
           cssDir: 'public/css',
           sassDir: 'assets/sass',
@@ -58,23 +74,19 @@ module.exports = function (grunt) {
       }
     },
     open : {
-        chromeusuario : {
-          path: 'http://localhost:'+RUNNING_PORT+'/',
+        usuario: {
+          path: 'http://tec.citius.usc.es/mando-cocina/',
           app: 'Google Chrome'
         },
-        chromepantalla : {
+        pantalla: {
           path: 'http://localhost:'+RUNNING_PORT+'/monitor',
           app: 'Google Chrome'
         },
-        firefoxusuario : {
-          path: 'http://localhost:'+RUNNING_PORT+'/',
-          app: 'Firefox'
+        kiosko: {
+            path: 'http://localhost:'+RUNNING_PORT+'/monitor',
+            app: 'google-chrome --kiosk'
         },
-        firefoxpantalla : {
-          path: 'http://localhost:'+RUNNING_PORT+'/monitor',
-          app: 'Firefox'
-        },
-        subl : {
+        subl: {
           path: '.',
           app: 'Sublime Text'
         }
@@ -117,6 +129,10 @@ module.exports = function (grunt) {
       imagemin:{
             files: ['assets/img/**/*.{png,jpg,gif}'],
             tasks: ['imagemin']
+      },
+      copy:{
+        files: ['modules/**/*.{js,css,png,jpg,gif}'],
+        tasks: ['copy']
       }
     }
   });
@@ -139,6 +155,9 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  grunt.registerTask('default', ['develop', 'coffee', 'imagemin', 'compass', 'open:chromeusuario','open:chromepantalla', 'open:subl', 'watch']);
-  // grunt.registerTask('default', ['develop', 'coffee', 'compass', 'open:firefoxusuario','open:firefoxpantalla', 'open:subl', 'watch']);
+  // alias de tareas para desarrollo
+  grunt.registerTask('default', ['develop:dev', 'coffee', 'imagemin', 'compass:dev', 'copy', 'open:usuario','open:pantalla', 'open:subl', 'watch']);
+  // alias de tareas para producción
+  grunt.registerTask('prod', ['develop:prod', 'coffee','imagemin', 'compass:prod', 'copy', 'open:kiosko', 'watch']);
+
 };

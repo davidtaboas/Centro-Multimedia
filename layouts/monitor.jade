@@ -8,6 +8,8 @@ html(ng-app="monitorApp")
 
         meta(name="viewport", content="width=device-width, initial-scale=1")
         link(rel='stylesheet', href="/css/monitor/style.css")
+
+
         block css
         script(src='/components/modernizr/modernizr.js')
         script(src='/components/jquery/dist/jquery.min.js')
@@ -15,7 +17,12 @@ html(ng-app="monitorApp")
 
         script(src='/components/momentjs/min/moment-with-langs.min.js')
         script(src='/components/momentjs/lang/es.js')
+
+        //- Aquí cargamos los plugins de aplicaciones preinstaladas
         script(src='/js/monitor/fathom.min.js')
+        script(src='/js/monitor/highcharts.js')
+        script(src='/components/galleria/galleria-1.3.5.js')
+        script(src='/components/mediaelement/build/mediaelement-and-player.min.js')
 
 
         script(src='/components/angular/angular.min.js')
@@ -44,7 +51,7 @@ html(ng-app="monitorApp")
                 ol.breadcrumb
                     div.container
                         li
-                            button.clickProtegido.btn(type="button", data-toggle="button") SocialCenter
+                            button.clickProtegido.btn(type="button", data-toggle="button") Centro Social
                         li.active {{ titulo }}
                         li.pull-right Mensajes {{ messages.length }}
                 div.modoprotegido.alert.alert-info.text-center.hide Modo Protegido

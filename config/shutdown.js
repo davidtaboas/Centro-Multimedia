@@ -1,21 +1,35 @@
 
-var exec =  require('child_process').exec,
-    child;
 
-var activo = false,
-    hora = 20;
+module.exports = function(agenda) {
 
-if (activo){
-    var shutdown = 'sudo "/sbin/shutdown -h" | at '+hora+':00';
+    moment = require('moment'),
+    fs = require('fs'),
+    path = require('path'),
+    rootPath = path.normalize(__dirname + '/');
 
-    child = exec(shutdown, function(error, stdout, stderr) {
-        if (error !== null){
-            console.log('exec error: '+error);
-        }
-        else{
-            // Se ha programado el apagado del sistema
-            console.log('>> El sistema se apagará a las:');
-            console.log('>> '+hora);
+
+    agenda.define('apagar sistema', {priority: 'high', concurrency: 10}, function(job, done) {
+        var data = job.attrs.data,
+        horaProgramada = "";
+
+        fs.readFile(rootPath+'horaApagado.txt','utf8', function (err, read) {
+          if (err) throw err;
+          horaProgramada = read;
+        });
+
+        if(moment(data.hora).isAfter(horaProgramada)){
+            var exec = require('child_process').exec,
+                child;
+
+            child = exec('shutdown -h now',
+              function (error, stdout, stderr) {
+                if (error !== null) {
+                  console.log('exec error: ' + error);
+                }
+            });
         }
     });
-}
+    agenda.every('30 minutes', 'apagar sistema', {hora: moment().format('H:m')});
+    agenda.start();
+
+};

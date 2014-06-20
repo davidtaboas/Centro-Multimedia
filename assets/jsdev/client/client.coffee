@@ -5,7 +5,7 @@
 ###
 
 # connect to our socket server
-socket = io.connect("http://192.168.1.36:1337/")
+socket = io.connect("http://tec.citius.usc.es/mando-cocina/")
 app = app or {}
 
 
@@ -96,14 +96,15 @@ $ ->
 
 
   $changeMask.on "tap", () ->
-
+    $changeMask.button("toggle")
     # boton con ocultar activo
     if $changeMask.hasClass("active") is true
-      $changeMask.button('reset')
-      socket.emit "filtermsgs", "all"
-    else
       $changeMask.button('complete')
       socket.emit "filtermsgs", "app"
+    else
+      $changeMask.button('reset')
+      socket.emit "filtermsgs", "all"
+
 
     # socket.emit "change", "mask"
     return

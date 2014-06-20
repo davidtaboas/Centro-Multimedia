@@ -1,6 +1,6 @@
 /*************************************
 //
-// socketio app
+// Servido Centro Social
 //
 **************************************/
 
@@ -11,13 +11,15 @@
 // express magic
 var express = require('express'),
 	mongoose = require('mongoose'),
+  Agenda = require('agenda'),
+  agendaUI = require('agenda-ui'),
 	fs = require('fs'),
 	config = require('./config/config');
 
 
 
 
-// COnexión a mongose
+// Conexión a mongo mediante mongoose
 mongoose.connect(config.db);
 var db = mongoose.connection;
 db.on('error', function () {
@@ -25,6 +27,7 @@ db.on('error', function () {
 });
 
 
+// Cargamos los modelos
 var modelsPath = __dirname + '/app/models';
 fs.readdirSync(modelsPath).forEach(function (file) {
   if (file.indexOf('.js') >= 0) {
@@ -39,6 +42,10 @@ var app = express();
 var appmonitor = express();
 // Aplicación auxiliar para API
 var appapi = express();
+
+var agenda = new Agenda({db: { address: 'localhost:27017/agenda-example'}});
+
+app.use('/agenda-ui', agendaUI(agenda, {poll: 1000}));
 
 // Servidor de Cliente
 var server = require('http').createServer(app);
@@ -76,7 +83,7 @@ require('./config/sockets')(server, config);
 
 
 // Cargamos la funcionalidad de apagado automático
-require('./config/shutdown');
+require('./config/shutdown')(agenda);
 
 /*
 Lanzamos servidores

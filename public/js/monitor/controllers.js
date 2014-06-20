@@ -27,21 +27,27 @@ controllers.controller("MessagesCtrl", [
     var cargarMensajes, lastFilter;
     lastFilter = "all";
     cargarMensajes = function(filtrado) {
+      console.log("Filtrado de mensajes:");
+      console.log(filtrado);
       $http.get("/messages/" + filtrado).success(function(messages) {
         $scope.messages = messages;
+        console.log("Numero de mensajes:");
+        console.log(messages.length);
         barraMensajes(messages.length);
       });
     };
     cargarMensajes(lastFilter);
-    socket.on("msg", function(data) {
+    socketmonitor.on("msg", function(data) {
       $scope.$apply(function() {
         $http.post("/messages", data).success(function(ok) {});
         cargarMensajes(lastFilter);
       });
     });
-    socket.on("filter", function(data) {
+    socketmonitor.on("filter", function(data) {
+      lastFilter = data.filter;
+      console.log(lastFilter);
       $scope.$apply(function() {
-        cargarMensajes(data.filter);
+        cargarMensajes(lastFilter);
       });
     });
   }

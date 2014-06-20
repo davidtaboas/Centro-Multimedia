@@ -1,12 +1,12 @@
 factories = angular.module 'monitorApp.factories', []
 
-factories.factory "socket", ($rootScope) ->
-  socket = socket
+factories.factory "socketmonitor", ($rootScope) ->
+  socketmonitor = socketmonitor
   on: (eventName, callback) ->
-    socket.on eventName, ->
+    socketmonitor.on eventName, ->
       args = arguments
       $rootScope.$apply ->
-        callback.apply socket, args
+        callback.apply socketmonitor, args
         return
 
       return
@@ -14,10 +14,10 @@ factories.factory "socket", ($rootScope) ->
     return
 
   emit: (eventName, data, callback) ->
-    socket.emit eventName, data, ->
+    socketmonitor.emit eventName, data, ->
       args = arguments
       $rootScope.$apply ->
-        callback.apply socket, args  if callback
+        callback.apply socketmonitor, args  if callback
         return
 
       return

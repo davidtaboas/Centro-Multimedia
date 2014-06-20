@@ -40,18 +40,24 @@ controllers.controller "MessagesCtrl", [
 
 
     cargarMensajes = (filtrado) ->
+      console.log "Filtrado de mensajes:"
+      console.log filtrado
+
       $http.get("/messages/"+filtrado).success (messages) ->
         $scope.messages = messages
+        console.log "Numero de mensajes:"
+        console.log messages.length
         barraMensajes(messages.length)
         return
       return
+
 
     cargarMensajes(lastFilter)
 
 
 
 
-    socket.on "msg", (data) ->
+    socketmonitor.on "msg", (data) ->
 
       $scope.$apply ->
 
@@ -63,17 +69,17 @@ controllers.controller "MessagesCtrl", [
 
         return
 
-      return #fin $socket msg
+      return #fin $socketmonitor msg
 
-    socket.on "filter", (data) ->
+    socketmonitor.on "filter", (data) ->
 
-
+      lastFilter = data.filter
+      console.log lastFilter
       $scope.$apply ->
-
-        cargarMensajes(data.filter)
+        cargarMensajes(lastFilter)
         return
 
-      return #end $socket filter
+      return #end $socketmonitor filter
 
     return
 

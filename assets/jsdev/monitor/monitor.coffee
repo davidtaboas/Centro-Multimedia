@@ -1,6 +1,6 @@
 
-# connect to our socket server
-socket = io.connect("http://127.0.0.1:4444/")
+# connect to our socketmonitor server
+socketmonitor = io.connect("http://127.0.0.1:4444/")
 app = app or {}
 
 lastTabIndex = 0
@@ -9,7 +9,7 @@ currentIndex = 0
 # GESTION DE BOTONES
 activarBoton = (id, label) ->
 
-  socket.emit "controlBotones", {id: id, label: label}
+  socketmonitor.emit "controlBotones", {id: id, label: label}
   return
 
 customButtons = (id) ->
@@ -19,9 +19,9 @@ customButtons = (id) ->
   return
 
 ###
-Los sockets van definidos de forma general
+Los socketmonitors van definidos de forma general
 ###
-socket.on "move", (data) ->
+socketmonitor.on "move", (data) ->
 
   if data.move is "ok"
     $(".current").click()
@@ -45,7 +45,7 @@ socket.on "move", (data) ->
 
   return
 
-socket.on "control", (data) ->
+socketmonitor.on "control", (data) ->
 
   if data.move is "home"
     document.location.href = "/monitor#/"
@@ -56,7 +56,7 @@ socket.on "control", (data) ->
 
 
 
-socket.on "change", (data) ->
+socketmonitor.on "change", (data) ->
   if data.change is "mask"
     changeMask()
     setContentHeight()
@@ -64,7 +64,8 @@ socket.on "change", (data) ->
     $("#messages").toggle()
   return
 
-socket.on "login", (data) ->
+socketmonitor.on "login", (data) ->
+  console.log "Hacemos un log de los datos para identificación"
   console.log data
   if data.login is "ok"
     # Pasamos a la visualización completa
@@ -76,7 +77,7 @@ socket.on "login", (data) ->
   return
 
 # Custom buttons
-socket.on "button", (data) ->
+socketmonitor.on "button", (data) ->
 
   window["customButtons"](data.id)
   return
@@ -84,7 +85,7 @@ socket.on "button", (data) ->
 ###
 Función para controlar el funcionamiento de la barra de mensajes
 ###
-isActiveNavMessages = 1
+isActiveNavMessages = 0
 barraMensajes = (n) ->
   if isActiveNavMessages
     if n is 0
@@ -92,9 +93,18 @@ barraMensajes = (n) ->
       $("#content").animate({height: "95%"}, 200)
       isActiveNavMessages = 0
   else
-    $("footer").animate({height: "25%"}, 200)
-    $("#content").animate({height: "70%"}, 200)
-    isActiveNavMessages = 1
+    if n isnt 0
+      $("footer").animate({height: "25%"}, 200)
+      $("#content").animate({height: "70%"}, 200)
+      isActiveNavMessages = 1
+  if $(".galleria").length > 0
+    setTimeout (->
+
+        # trigger callback after 1000ms
+        $(".galleria").data("galleria").enterFullscreen()
+        return
+      ), 300
+
 
   return
 
@@ -119,14 +129,20 @@ reloadControls = () ->
   # Limpiamos el grid de botones personalizados
   # Limpiamos scrits añadidos
   if location.hash is "#/"
-    socket.emit "controlBotones", {id: 0, label: ""}
+    socketmonitor.emit "controlBotones", {id: 0, label: ""}
     # Limpiamos scripts añadidos
     $(".temp").remove()
 
 
   #VIDEOS
-  if typeof MediaElementPlayer is 'function'
-    if $("video").length > 0
+  if $("video").length > 0
+    s = document.createElement("link")
+    s.rel = "stylesheet"
+    s.href = "/components/mediaelement/build/mediaelementplayer.min.css"
+    s.className = "temp"
+    $("head").append s
+
+    if typeof MediaElementPlayer is 'function'
       $("video").mediaelementplayer()
       player = new MediaElementPlayer("video")
       $("video").on "play", ->
@@ -138,8 +154,9 @@ reloadControls = () ->
         return
 
   # IMAGENES
-  if typeof Galleria is 'function'
-    if $(".galleria").length > 0
+  if $(".galleria").length > 0
+    if typeof Galleria is 'function'
+
       Galleria.loadTheme(
         '/components/galleria/themes/classic/galleria.classic.min.js'
       )
@@ -148,10 +165,15 @@ reloadControls = () ->
         responsive: true,
         preload: 0,
         idleMode: false,
-        debug: false
+        debug: false,
+        showImagenav: false
         })
       Galleria.run(".galleria")
       $("#content").css("background", "black")
+      $(".auto input").on "click", () ->
+
+        $('.galleria').data('galleria').playToggle()
+        return
 
   # PRESENTACIONES
   if typeof Fathom is 'function'
@@ -190,10 +212,8 @@ reloadControls = () ->
         return
 
 
-
-
   # Navegacion por tabindex
-  $("a, video, .galleria-image-nav div, .auto input").each (index) ->
+  $("a, video, .auto input").each (index) ->
     $(this).prop "tabindex", index
     return
 
@@ -203,7 +223,7 @@ reloadControls = () ->
 
   $("[tabindex=0]").addClass "current"
   currentIndex = (Number) $(".current").attr "tabindex"
-  #SOCKET STUFF
+  #socketmonitor STUFF
 
 
   return
@@ -223,7 +243,7 @@ $(document).ready ->
       $(".clickProtegido").button("toggle")
       $(".modoprotegido").removeClass("show").addClass("hide")
 
-    socket.emit("config", {protegido: protegido})
+    socketmonitor.emit("config", {protegido: protegido})
     return
 
   sliderBarra = ->
@@ -291,4 +311,91 @@ appVideos = () ->
     player.pause()
     player.exitFullScreen()
     return
+  return
+
+appImagenes = () ->
+  activarBoton('1', 'Anterior')
+  activarBoton('3', 'Siguiente')
+
+  window["funcionesbt1"] = () ->
+
+    $(".galleria").data("galleria").prev()
+    return
+
+  window["funcionesbt3"] = () ->
+    console.log "BIEN"
+    $(".galleria").data("galleria").next()
+    return
+  return
+
+datosSensor = (marcoID, medida, unidad) ->
+  URL = "http://172.16.244.156:8000/"
+  request =
+    query: "getObservationsByInterval"
+    params:
+      measure: medida
+      start: Date.parse(moment().format('YYYY/MM/DD H:m'))
+      end: Date.parse(moment().subtract('days', 7).format('YYYY/MM/DD H:m'))
+  $.ajax
+    url: URL
+    data: JSON.stringify(request)
+    type: "post"
+    dataType: "json"
+    success: (data) ->
+      datos = []
+      $.each data, (index, value) ->
+        aux = [
+          Date.parse(value.measureTime)
+          value.measureValue
+        ]
+        datos.push aux
+        return
+
+      # This is for all plots, change Date axis to local timezone
+      Highcharts.setOptions global:
+        useUTC: false
+
+      chart = new Highcharts.Chart(
+        chart:
+          renderTo: marcoID
+          type: "scatter"
+          marginRight: 130
+          marginBottom: 25
+          borderWidth: 2
+
+        title:
+          text: "Última semana de "+ medida
+          x: -20 #center
+
+        subtitle:
+          text: "" + medida
+          x: -20
+
+        xAxis:
+          text: "Tiempo"
+          type: "datetime"
+
+        yAxis:
+          title:
+            text: "Consumo " + unidad
+
+        tooltip:
+          formatter: ->
+            "<b>" + @series.name + "</b><br/>" + Highcharts.dateFormat("%H:%M %e-%b-%Y", new Date(@x)) + "," + @y + " Kwh"
+
+          valueSuffix: unidad
+
+        legend:
+          layout: "vertical"
+          align: "right"
+          verticalAlign: "middle"
+          borderWidth: 1
+
+        series: [
+          name: "" + medida
+          data: datos
+        ]
+      )
+      return
+
   return

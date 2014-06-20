@@ -20,7 +20,8 @@ module.exports = function (server, config) {
     var iomonitor = require('socket.io').listen(runningPortMonitor);
     var apimessage = require('socket.io').listen(runningPortApi);
 
-    iousers.set('log level', 2);
+    iousers.set('transports', ['websocket', 'xhr-polling']);
+    //iousers.set('log level', 2);
     iomonitor.set('log level', 2);
 
     var idmonitor,
@@ -45,7 +46,7 @@ module.exports = function (server, config) {
             console.log(data);
             if (data.protegido == '1'){
 
-                console.log('Hemos entrado aqui');
+                console.log('Se ha activado el modo protegido');
                 // si hay un usuario activo, lo sacamos
                 if(usuarioActivo!=-1){
 
@@ -97,7 +98,7 @@ module.exports = function (server, config) {
 
         console.log(">>Todos los clientes: "+allClients.length);
         // Si no hay clientes conectados, despertamos el monitor
-        if (allClients.length == 0){
+        if ( (allClients.length == 0) && (usuarioActivo == -1) ){
 
             // comando segun plataforma
             if(sistemaoperativo == "darwin"){
@@ -142,8 +143,7 @@ module.exports = function (server, config) {
             var i = allClients.indexOf(socket);
             if(socket == usuarioActivo){
                 console.log('El usuario desconectado era el activo')
-                usuarioActivo=-1;
-                iomonitor.sockets.socket(idmonitor).emit('control', {move: "home"});
+                usuarioActivo = -1;
                 clearTimeout(logoffTimer);
             }
 
@@ -155,7 +155,7 @@ module.exports = function (server, config) {
 
             // Si no quedan clientes en la cola de espera procedemos a poner el monitor en espera
 
-            if (allClients.length == 0){
+            if ( (allClients.length == 0) && (usuarioActivo == -1)){
 
                 // comando segun plataforma
                 if(sistemaoperativo == "darwin"){
@@ -182,6 +182,7 @@ module.exports = function (server, config) {
 
             // Si no hay un usuario contralando la aplicación indicamos que se puede proceder a la identificación
             if(usuarioActivo==-1){
+                console.log('Hay usuarios conectados y se les envía evento para activar identificación')
                 iousers.sockets.emit("login", {login: "go"});
             }
 
@@ -190,8 +191,11 @@ module.exports = function (server, config) {
         // Gestion del monitor
         socket.on('monitor', function(data){
 
+            console.log('Hacemos un log del usuario activo:');
+            console.log(usuarioActivo);
 
-            if(usuarioActivo === -1){
+            if(usuarioActivo == -1){
+                console.log('No hay usuarios identificados, procedemos a enviar evento a monitor');
                 // No hay usuario activo, por lo tanto lanzamos al monitor el patrón de registro
 
                 // Antes mezclamos los eventos para la identificación
@@ -226,7 +230,7 @@ module.exports = function (server, config) {
 
 
 
-
+                iomonitor.sockets.socket(idmonitor).emit('control', {move: "home"});
                 // Asignamos el usuario activo
                 usuarioActivo = socket;
 

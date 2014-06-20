@@ -1,6 +1,6 @@
-var activarBoton, animacionVentanas, app, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socket;
+var activarBoton, animacionVentanas, app, appImagenes, appPresentacion, appVideos, barraMensajes, currentIndex, customButtons, datosSensor, fathom, isActiveNavMessages, lastTabIndex, player, presentacionSlider, reloadControls, socketmonitor;
 
-socket = io.connect("http://127.0.0.1:4444/");
+socketmonitor = io.connect("http://127.0.0.1:4444/");
 
 app = app || {};
 
@@ -9,7 +9,7 @@ lastTabIndex = 0;
 currentIndex = 0;
 
 activarBoton = function(id, label) {
-  socket.emit("controlBotones", {
+  socketmonitor.emit("controlBotones", {
     id: id,
     label: label
   });
@@ -21,10 +21,10 @@ customButtons = function(id) {
 
 
 /*
-Los sockets van definidos de forma general
+Los socketmonitors van definidos de forma general
  */
 
-socket.on("move", function(data) {
+socketmonitor.on("move", function(data) {
   if (data.move === "ok") {
     $(".current").click();
   } else {
@@ -46,7 +46,7 @@ socket.on("move", function(data) {
   }
 });
 
-socket.on("control", function(data) {
+socketmonitor.on("control", function(data) {
   if (data.move === "home") {
     document.location.href = "/monitor#/";
   } else if (data.move === "back") {
@@ -54,7 +54,7 @@ socket.on("control", function(data) {
   }
 });
 
-socket.on("change", function(data) {
+socketmonitor.on("change", function(data) {
   if (data.change === "mask") {
     changeMask();
     setContentHeight();
@@ -63,7 +63,8 @@ socket.on("change", function(data) {
   }
 });
 
-socket.on("login", function(data) {
+socketmonitor.on("login", function(data) {
+  console.log("Hacemos un log de los datos para identificación");
   console.log(data);
   if (data.login === "ok") {
     $("#login").fadeOut();
@@ -74,7 +75,7 @@ socket.on("login", function(data) {
   }
 });
 
-socket.on("button", function(data) {
+socketmonitor.on("button", function(data) {
   window["customButtons"](data.id);
 });
 
@@ -83,7 +84,7 @@ socket.on("button", function(data) {
 Función para controlar el funcionamiento de la barra de mensajes
  */
 
-isActiveNavMessages = 1;
+isActiveNavMessages = 0;
 
 barraMensajes = function(n) {
   if (isActiveNavMessages) {
@@ -97,13 +98,20 @@ barraMensajes = function(n) {
       isActiveNavMessages = 0;
     }
   } else {
-    $("footer").animate({
-      height: "25%"
-    }, 200);
-    $("#content").animate({
-      height: "70%"
-    }, 200);
-    isActiveNavMessages = 1;
+    if (n !== 0) {
+      $("footer").animate({
+        height: "25%"
+      }, 200);
+      $("#content").animate({
+        height: "70%"
+      }, 200);
+      isActiveNavMessages = 1;
+    }
+  }
+  if ($(".galleria").length > 0) {
+    setTimeout((function() {
+      $(".galleria").data("galleria").enterFullscreen();
+    }), 300);
   }
 };
 
@@ -126,15 +134,21 @@ fathom = "";
 presentacionSlider = "";
 
 reloadControls = function() {
+  var s;
   if (location.hash === "#/") {
-    socket.emit("controlBotones", {
+    socketmonitor.emit("controlBotones", {
       id: 0,
       label: ""
     });
     $(".temp").remove();
   }
-  if (typeof MediaElementPlayer === 'function') {
-    if ($("video").length > 0) {
+  if ($("video").length > 0) {
+    s = document.createElement("link");
+    s.rel = "stylesheet";
+    s.href = "/components/mediaelement/build/mediaelementplayer.min.css";
+    s.className = "temp";
+    $("head").append(s);
+    if (typeof MediaElementPlayer === 'function') {
       $("video").mediaelementplayer();
       player = new MediaElementPlayer("video");
       $("video").on("play", function() {
@@ -145,18 +159,22 @@ reloadControls = function() {
       });
     }
   }
-  if (typeof Galleria === 'function') {
-    if ($(".galleria").length > 0) {
+  if ($(".galleria").length > 0) {
+    if (typeof Galleria === 'function') {
       Galleria.loadTheme('/components/galleria/themes/classic/galleria.classic.min.js');
       Galleria.configure({
         height: $("#content").height(),
         responsive: true,
         preload: 0,
         idleMode: false,
-        debug: false
+        debug: false,
+        showImagenav: false
       });
       Galleria.run(".galleria");
       $("#content").css("background", "black");
+      $(".auto input").on("click", function() {
+        $('.galleria').data('galleria').playToggle();
+      });
     }
   }
   if (typeof Fathom === 'function') {
@@ -191,7 +209,7 @@ reloadControls = function() {
       });
     }
   }
-  $("a, video, .galleria-image-nav div, .auto input").each(function(index) {
+  $("a, video, .auto input").each(function(index) {
     $(this).prop("tabindex", index);
   });
   lastTabIndex = Number($("[tabindex]").length - 1);
@@ -212,7 +230,7 @@ $(document).ready(function() {
       $(".clickProtegido").button("toggle");
       $(".modoprotegido").removeClass("show").addClass("hide");
     }
-    socket.emit("config", {
+    socketmonitor.emit("config", {
       protegido: protegido
     });
   });
@@ -270,4 +288,93 @@ appVideos = function() {
     player.pause();
     player.exitFullScreen();
   };
+};
+
+appImagenes = function() {
+  activarBoton('1', 'Anterior');
+  activarBoton('3', 'Siguiente');
+  window["funcionesbt1"] = function() {
+    $(".galleria").data("galleria").prev();
+  };
+  window["funcionesbt3"] = function() {
+    console.log("BIEN");
+    $(".galleria").data("galleria").next();
+  };
+};
+
+datosSensor = function(marcoID, medida, unidad) {
+  var URL, request;
+  URL = "http://172.16.244.156:8000/";
+  request = {
+    query: "getObservationsByInterval",
+    params: {
+      measure: medida,
+      start: Date.parse(moment().format('YYYY/MM/DD H:m')),
+      end: Date.parse(moment().subtract('days', 7).format('YYYY/MM/DD H:m'))
+    }
+  };
+  $.ajax({
+    url: URL,
+    data: JSON.stringify(request),
+    type: "post",
+    dataType: "json",
+    success: function(data) {
+      var chart, datos;
+      datos = [];
+      $.each(data, function(index, value) {
+        var aux;
+        aux = [Date.parse(value.measureTime), value.measureValue];
+        datos.push(aux);
+      });
+      Highcharts.setOptions({
+        global: {
+          useUTC: false
+        }
+      });
+      chart = new Highcharts.Chart({
+        chart: {
+          renderTo: marcoID,
+          type: "scatter",
+          marginRight: 130,
+          marginBottom: 25,
+          borderWidth: 2
+        },
+        title: {
+          text: "Última semana de " + medida,
+          x: -20
+        },
+        subtitle: {
+          text: "" + medida,
+          x: -20
+        },
+        xAxis: {
+          text: "Tiempo",
+          type: "datetime"
+        },
+        yAxis: {
+          title: {
+            text: "Consumo " + unidad
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%H:%M %e-%b-%Y", new Date(this.x)) + "," + this.y + " Kwh";
+          },
+          valueSuffix: unidad
+        },
+        legend: {
+          layout: "vertical",
+          align: "right",
+          verticalAlign: "middle",
+          borderWidth: 1
+        },
+        series: [
+          {
+            name: "" + medida,
+            data: datos
+          }
+        ]
+      });
+    }
+  });
 };
