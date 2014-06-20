@@ -1,8 +1,8 @@
 {
-  "name": "socketio",
-  "description": "",
-  "author": "",
-  "version": "0.0.1",
+  "name": "CentroSocial",
+  "description": "Aplicación en producción en base a un sistema de entretenimiento social interactivo para una pantalla.",
+  "author": "David Táboas",
+  "version": "1.0.0",
   "main": "server.js",
   "private": true,
   "repository": "",

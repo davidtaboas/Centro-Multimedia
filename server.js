@@ -1,6 +1,6 @@
 /*************************************
 //
-// socketio app
+// Servido Centro Social
 //
 **************************************/
 
@@ -19,7 +19,7 @@ var express = require('express'),
 
 
 
-// COnexión a mongose
+// Conexión a mongo mediante mongoose
 mongoose.connect(config.db);
 var db = mongoose.connection;
 db.on('error', function () {
@@ -27,6 +27,7 @@ db.on('error', function () {
 });
 
 
+// Cargamos los modelos
 var modelsPath = __dirname + '/app/models';
 fs.readdirSync(modelsPath).forEach(function (file) {
   if (file.indexOf('.js') >= 0) {

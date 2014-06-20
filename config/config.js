@@ -6,27 +6,27 @@ var config = {
     development: {
         root: rootPath,
         app: {
-            name: 'socialcenter'
+            name: 'centrosocial'
         },
         port: 3000,
-        db: 'mongodb://localhost/socialcenter-development'
+        db: 'mongodb://localhost/centrosocial-development'
     },
     test: {
         root: rootPath,
         app: {
-            name: 'socialcenter'
+            name: 'centrosocial'
         },
         port: 3000,
-        db: 'mongodb://localhost/socialcenter-test'
+        db: 'mongodb://localhost/centrosocial-test'
     },
 
     production: {
         root: rootPath,
         app: {
-            name: 'socialcenter'
+            name: 'centrosocial'
         },
         port: 3000,
-        db: 'mongodb://localhost/socialcenter-production'
+        db: 'mongodb://localhost/centrosocial-production'
     }
 };
 
