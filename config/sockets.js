@@ -20,9 +20,9 @@ module.exports = function (server, config) {
     var iomonitor = require('socket.io').listen(runningPortMonitor);
     var apimessage = require('socket.io').listen(runningPortApi);
 
-    iousers.set('transports', ['websocket', 'xhr-polling']);
+    //iousers.set('transports', ['websocket', 'xhr-polling']);
     //iousers.set('log level', 2);
-    iomonitor.set('log level', 2);
+    //iomonitor.set('log level', 2);
 
     var idmonitor,
         usuarioActivo = -1;

@@ -1,6 +1,6 @@
 
 # connect to our socketmonitor server
-socketmonitor = io.connect("http://127.0.0.1:4444/")
+socketmonitor = io.connect("172.16.243.158:4444")
 app = app or {}
 
 lastTabIndex = 0
@@ -334,8 +334,8 @@ datosSensor = (marcoID, medida, unidad) ->
     query: "getObservationsByInterval"
     params:
       measure: medida
-      start: Date.parse(moment().format('YYYY/MM/DD H:m'))
-      end: Date.parse(moment().subtract('days', 7).format('YYYY/MM/DD H:m'))
+      start: moment().subtract('days', 7).format('YYYY/MM/DD H:m')
+      end: moment().format('YYYY/MM/DD H:m')
   $.ajax
     url: URL
     data: JSON.stringify(request)

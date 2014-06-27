@@ -15,10 +15,10 @@
 
 
 
-datosSensor('sensor1', 'algo', 'kwh')
+datosSensor('sensor1', 'CITIUS_AR_General_Energia_Activa', 'kwh')
 
-datosSensor('sensor2', 'algo', 'kwh')
+datosSensor('sensor2', 'CITIUS_Cald_Contador_Gas', 'm^3')
 
-datosSensor('sensor3', 'algo', 'kwh')
+datosSensor('sensor3', 'CITIUS_Contador_Agua_Red', 'm^3')
 
-datosSensor('sensor4', 'algo', 'kwh')
+datosSensor('sensor4', 'CITIUS_AR_Enf_Energia_Activa', 'kwh')

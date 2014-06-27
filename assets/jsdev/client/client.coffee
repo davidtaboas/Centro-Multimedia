@@ -5,7 +5,7 @@
 ###
 
 # connect to our socket server
-socket = io.connect("http://tec.citius.usc.es/mando-cocina/")
+socket = io.connect("http://tec.citius.usc.es/", {resource: '/mando-cocina/socket.io'});
 app = app or {}
 
 
