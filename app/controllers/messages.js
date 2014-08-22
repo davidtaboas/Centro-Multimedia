@@ -51,4 +51,22 @@ module.exports = function(app){
         });
     });
 
+    // Posibilidad de eliminar mensajes
+    app.get('/messages/remove/:id', function(req, res){
+
+        Mensaje.findOne({_id: req.params.id}, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            if (result) {
+                Mensaje.remove({_id: req.params.id}, function (err, result) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.json(200, result);
+                });
+            }
+        });
+    });
+
 };

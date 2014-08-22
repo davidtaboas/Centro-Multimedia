@@ -228,22 +228,31 @@ reloadControls = () ->
 
   return
 
+#variable de modo protegido
+protegido = 0;
 # window.ready
 $(document).ready ->
 
-  protegido = 0;
-  $(".clickProtegido").on "click", () ->
 
-    if protegido is 0
+  $(".clickProtegido").on "click", () ->
+    console.log "protegiendo"
+    socketmonitor.emit("config", {protegido: protegido})
+    return
+
+
+  socketmonitor.on "protegido", (data) ->
+    socketmonitor.emit("config", {protegido: protegido})
+    return
+  socketmonitor.on "proteger", (data) ->
+    console.log data
+    if data.protegido is 1
       protegido = 1
       $(".clickProtegido").button("toggle")
       $(".modoprotegido").removeClass("hide").addClass("show")
-    else if protegido is 1
+    else if data.protegido is 0
       protegido = 0
       $(".clickProtegido").button("toggle")
       $(".modoprotegido").removeClass("show").addClass("hide")
-
-    socketmonitor.emit("config", {protegido: protegido})
     return
 
   sliderBarra = ->

@@ -44,7 +44,9 @@ module.exports = function (server, config) {
         socketserver.on("config", function(data){
 
             console.log(data);
-            if (data.protegido == '1'){
+            if (data.protegido == '0'){
+                // no está protegido y hay que proteger
+
 
                 console.log('Se ha activado el modo protegido');
                 // si hay un usuario activo, lo sacamos
@@ -57,16 +59,17 @@ module.exports = function (server, config) {
 
                 // indicamos que se muestre la pantalla
                 socketserver.emit("login", {login: "ok"});
-
+                socketserver.emit("proteger", {protegido: 1});
 
             }
-            else if (data.protegido == '0'){
+            else if (data.protegido == '1'){
 
                 // si cambiamos a modo desprotegido y no hay usuarios o protegido
                 if(usuarioActivo==-1 || usuarioActivo == 0){
 
                     usuarioActivo = -1;
                     iousers.sockets.emit("login", {login: "go"});
+                    socketserver.emit("proteger", {protegido: 0});
                 }
             }
         });
@@ -312,7 +315,7 @@ module.exports = function (server, config) {
     // Socket de API
     apimessage.sockets.on('connection', function (socket) {
 
-        socket.on('message', function (event) {
+         socket.on('message', function (event) {
 
 
             var mensaje = JSON.parse(event);
@@ -332,6 +335,11 @@ module.exports = function (server, config) {
         });
         socket.on('disconnect', function () {
 
+        });
+
+        socket.on('protegido', function(event) {
+            console.log(event);
+            iomonitor.sockets.socket(idmonitor).emit('protegido', event);
         });
     });
 
