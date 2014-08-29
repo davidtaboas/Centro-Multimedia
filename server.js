@@ -70,7 +70,7 @@ eventos = ["doubleTap","swipeLeft","swipeRight","swipeUp","swipeDown","rotateLef
 /*
 Controllers
 */
-require(config.root + '/app/controllers/client')(app);
+require(config.root + '/app/controllers/users')(app);
 require(config.root + '/app/controllers/monitor')(app);
 require(config.root + '/app/controllers/messages')(app);
 /*
