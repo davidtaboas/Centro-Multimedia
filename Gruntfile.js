@@ -5,6 +5,9 @@ var request = require('request');
 var path = require('path');
 
 module.exports = function (grunt) {
+
+  var target = grunt.cli.tasks[0] || 'dev';
+
   // show elapsed time at the end
   require('time-grunt')(grunt);
   // load all grunt tasks
@@ -31,7 +34,7 @@ module.exports = function (grunt) {
           files: [{
               expand: true,
               cwd: 'modules',
-              src: ['**/*.{js,css,png,jpg,gif}', '!**/config.js'],
+              src: ['**/*.{js,css,png,jpg,gif}', '!**/config.js', '!**/index.jade'],
               dest: 'public/monitor'
           }]
         }
@@ -120,7 +123,7 @@ module.exports = function (grunt) {
       },
       compass: {
             files: ['assets/sass/**/*.{scss,sass}'],
-            tasks: ['compass']
+            tasks: ['compass' + target]
       },
       coffee: {
             files: ['assets/jsdev/**/*.coffee'],
@@ -131,7 +134,7 @@ module.exports = function (grunt) {
             tasks: ['imagemin']
       },
       copy:{
-        files: ['modules/**/*.{js,css,png,jpg,gif}'],
+        files: ['modules/**/*', '!**/index.jade', '!**/config.js'],
         tasks: ['copy']
       }
     }
