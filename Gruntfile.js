@@ -118,7 +118,7 @@ module.exports = function (grunt) {
         tasks: ['develop', 'delayed-livereload']
       },
       jade: {
-        files: ['app/views/**/*.jade'],
+        files: ['app/views/**/*.jade', 'modules/**/*.jade'],
         options: { livereload: reloadPort }
       },
       compass: {
