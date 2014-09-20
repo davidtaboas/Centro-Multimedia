@@ -406,7 +406,8 @@ MODO PRESENTACION
   }
 }
 
-.fathom-container {
+
+.presentacion-extras {
   width: 100% !important;
   height: 100%;
   display: block;
@@ -422,39 +423,31 @@ MODO PRESENTACION
     margin: 0 auto;
     text-align: center;
     z-index: 2;
+    height: 8%;
     span {
       font-weight: bold;
       padding-left: 1%;
     }
   }
 
-  div#presentacion {
-    width: 100% !important;
-    height: 100%;
-    position: relative;
-    margin: 0 !important;
+  #presentacion {
 
 
 
-    div.slide {
 
-      position: absolute;
-      width: 98%;
-      margin: 1%% !important;
-      background: #fff;
-      height: auto;
-      padding: 5%;
-      top: 5%;
-      bottom: 0%;
+    .slide {
 
+      margin: 0 !important;
+      top: 8% !important;
+      left: 2% !important;
+      width: 96% !important;
+      height:90%;
       &.activeslide {
-        opacity: 1;
-        display: block;
+
       }
 
       &.inactiveslide {
-        opacity: 0.4;
-        display: none !important;
+
       }
     }
   }
