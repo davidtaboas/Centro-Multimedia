@@ -1,6 +1,5 @@
 
-# connect to our socketmonitor server
-socketmonitor = io.connect("172.16.243.158:4444")
+
 app = app or {}
 
 lastTabIndex = 0

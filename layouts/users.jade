@@ -1,3 +1,4 @@
+ruta = "@@rutaUrlUsuarios"
 doctype 5
 html
     head
@@ -7,39 +8,40 @@ html
         meta(name="viewport", content="user-scalable=no, width=device-width, initial-scale=1.0")
         meta(name="apple-mobile-web-app-capable", content="yes")
         block css
-            link(rel='stylesheet', href="/mando-cocina/css/users/slider.css")
-            link(rel='stylesheet', href="/mando-cocina/css/users/style.css")
+            link(rel='stylesheet', href=ruta+'/css/users/slider.css')
+            link(rel='stylesheet', href=ruta+'/css/users/style.css')
 
 
         script(type='text/javascript')
             var eventos =!{JSON.stringify(array_eventos)}
         block js
-            script(src='/mando-cocina/components/modernizr/modernizr.js')
-            script(src='/mando-cocina/components/jquery/dist/jquery.min.js')
-            script(src='/mando-cocina/js/users/jquery.textfill.min.js')
-            script(src='/mando-cocina/js/users/bootstrap-maxlength.js')
+            script(src=ruta+'/components/modernizr/modernizr.js')
+            script(src=ruta+'/components/jquery/dist/jquery.min.js')
+            script(src=ruta+'/components/jquery-textfill/source/jquery.textfill.min.js')
+            script(src=ruta+'/js/users/bootstrap-maxlength.js')
 
 
 
-            script(src='/mando-cocina/components/sass-bootstrap/dist/js/bootstrap.min.js')
+            script(src=ruta+'/components/sass-bootstrap/dist/js/bootstrap.min.js')
 
-            script(src='/mando-cocina/socket.io/socket.io.js')
-
-
-            script(src='/mando-cocina/components/quojs/quo.js')
-            script(src='/mando-cocina/components/quojs/quo.ajax.js')
-            script(src='/mando-cocina/components/quojs/quo.css.js')
-            script(src='/mando-cocina/components/quojs/quo.element.js')
-            script(src='/mando-cocina/components/quojs/quo.environment.js')
-            script(src='/mando-cocina/components/quojs/quo.events.js')
-            script(src='/mando-cocina/components/quojs/quo.gestures.js')
-            script(src='/mando-cocina/components/quojs/quo.output.js')
-            script(src='/mando-cocina/components/quojs/quo.query.js')
+            script(src=ruta+'/socket.io/socket.io.js')
 
 
+            script(src=ruta+'/components/quojs/quo.js')
+            script(src=ruta+'/components/quojs/quo.ajax.js')
+            script(src=ruta+'/components/quojs/quo.css.js')
+            script(src=ruta+'/components/quojs/quo.element.js')
+            script(src=ruta+'/components/quojs/quo.environment.js')
+            script(src=ruta+'/components/quojs/quo.events.js')
+            script(src=ruta+'/components/quojs/quo.gestures.js')
+            script(src=ruta+'/components/quojs/quo.output.js')
+            script(src=ruta+'/components/quojs/quo.query.js')
 
-            script(src='/mando-cocina/components/sass-bootstrap/js/modal.js')
-            script(src='/mando-cocina/js/users/client.js')
+
+
+            script(src=ruta+'/components/sass-bootstrap/js/modal.js')
+            script(src=ruta+'/js/users/conexionSocket.js')
+            script(src=ruta+'/js/users/client.js')
     body
         block content
 
