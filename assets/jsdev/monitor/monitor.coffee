@@ -120,7 +120,7 @@ Separamos en una función los controles
 que se tienen que recargar cada vez
 que se cambia la página
 ###
-player = ""
+
 fathom = ""
 presentacionSlider = ""
 reloadControls = () ->
@@ -132,25 +132,6 @@ reloadControls = () ->
     # Limpiamos scripts añadidos
     $(".temp").remove()
 
-
-  #VIDEOS
-  if $("video").length > 0
-    s = document.createElement("link")
-    s.rel = "stylesheet"
-    s.href = "/components/mediaelement/build/mediaelementplayer.min.css"
-    s.className = "temp"
-    $("head").append s
-
-    if typeof MediaElementPlayer is 'function'
-      $("video").mediaelementplayer()
-      player = new MediaElementPlayer("video")
-      $("video").on "play", ->
-        player.enterFullScreen()
-        return
-
-      $("video").on "ended", ->
-        player.exitFullScreen()
-        return
 
   # IMAGENES
   if $(".galleria").length > 0
@@ -301,23 +282,6 @@ appPresentacion = () ->
 
   window["funcionesbt3"] = () ->
     fathom.nextSlide()
-    return
-  return
-
-appVideos = () ->
-  activarBoton('1', 'Pausa')
-  activarBoton('2', 'Play')
-  activarBoton('3', 'Stop')
-
-  window["funcionesbt1"] = () ->
-    player.pause()
-    return
-  window["funcionesbt2"] = () ->
-    player.play()
-    return
-  window["funcionesbt3"] = () ->
-    player.pause()
-    player.exitFullScreen()
     return
   return
 
