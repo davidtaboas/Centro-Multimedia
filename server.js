@@ -12,7 +12,7 @@
 var express = require('express'),
 	mongoose = require('mongoose'),
   Agenda = require('agenda'),
-  agendaUI = require('agenda-ui'),
+  // agendaUI = require('agenda-ui'),
 	fs = require('fs'),
 	config = require('./config/config');
 
@@ -45,7 +45,7 @@ var appapi = express();
 
 var agenda = new Agenda({db: { address: 'localhost:27017/agenda-example'}});
 
-app.use('/agenda-ui', agendaUI(agenda, {poll: 1000}));
+// app.use('/agenda-ui', agendaUI(agenda, {poll: 1000}));
 
 // Servidor de Cliente
 var server = require('http').createServer(app);

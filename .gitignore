@@ -6,6 +6,14 @@ node_modules
 
 #Móudlos de bower
 public/components/*
-#Excepto galleria.io que no es de bower
+public/js/*
+public/img/*
+public/css/*
+public/monitor
+layouts/final
+
+#Excepto:
 !public/components/galleria
 !public/components/quojs
+!public/css/fonts
+!public/js/monitor/fathom.min.js

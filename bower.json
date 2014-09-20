@@ -9,7 +9,9 @@
     "components-font-awesome": "*",
     "angular-route": "*",
     "momentjs": "~2.6.0",
-    "modernizr": "~2.8.1"
+    "modernizr": "~2.8.1",
+    "highcharts-release": "*",
+    "jquery-textfill": "~0.6.0"
   },
   "ignore": [
     "**/.*",

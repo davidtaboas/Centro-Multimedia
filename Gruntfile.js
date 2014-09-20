@@ -63,6 +63,34 @@ module.exports = function (grunt) {
         }
       }
     },
+    includereplace: {
+      dev: {
+        options: {
+          globals: {
+            urlMonitor: 'localhost',
+            urlUsuarios: 'localhost:1337',
+            rutaUrlUsuarios: ''
+          },
+        },
+        files: [
+          {src: 'users.jade', dest: 'layouts/final', expand: true, cwd: 'layouts/'},
+          {src: '**/conexionSocket.js', dest: 'public/js/', expand: true, cwd: 'public/js/'}
+        ]
+      },
+      prod: {
+        options: {
+          globals: {
+            urlMonitor: '176.16.243.158',
+            urlUsuarios: 'tec.citius.usc.es',
+            rutaUrlUsuarios: '/mando-cocina/'
+          },
+        },
+        files: [
+          {src: 'users.jade', dest: 'layouts/final/', expand: true, cwd: 'layouts/'},
+          {src: '**/conexionSocket.js', dest: 'public/js/', expand: true, cwd: 'public/js/'}
+        ]
+      }
+    },
     coffee: {
       glob_to_multiple: {
         options: {
@@ -76,9 +104,28 @@ module.exports = function (grunt) {
         ext: '.js'
       }
     },
+    uglify: {
+      dev:{
+        options: {
+          beautify: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'public/js',
+          src: '**/*.js',
+          dest: 'public/js'
+        }]
+      },
+      prod: {
+        expand: true,
+        cwd: 'public/js',
+        src: '**/*.js',
+        dest: 'public/js',
+      },
+    },
     open : {
         usuario: {
-          path: 'http://tec.citius.usc.es/mando-cocina/',
+          path: 'http://localhost:'+RUNNING_PORT+'/',
           app: 'Google Chrome'
         },
         pantalla: {
@@ -123,11 +170,11 @@ module.exports = function (grunt) {
       },
       compass: {
             files: ['assets/sass/**/*.{scss,sass}'],
-            tasks: ['compass' + target]
+            tasks: ['compass:' + target]
       },
       coffee: {
             files: ['assets/jsdev/**/*.coffee'],
-            tasks: ['coffee']
+            tasks: ['coffee', 'uglify:'+target, 'includereplace:'+target]
       },
       imagemin:{
             files: ['assets/img/**/*.{png,jpg,gif}'],
@@ -159,8 +206,8 @@ module.exports = function (grunt) {
   });
 
   // alias de tareas para desarrollo
-  grunt.registerTask('default', ['develop:dev', 'coffee', 'imagemin', 'compass:dev', 'copy', 'open:usuario','open:pantalla', 'open:subl', 'watch']);
+  grunt.registerTask('default', ['develop:dev', 'coffee', 'uglify:dev', 'includereplace:dev', 'imagemin', 'compass:dev', 'copy', 'open:usuario','open:pantalla', 'open:subl', 'watch']);
   // alias de tareas para producción
-  grunt.registerTask('prod', ['develop:prod', 'coffee','imagemin', 'compass:prod', 'copy', 'open:kiosko', 'watch']);
+  grunt.registerTask('prod', ['develop:prod', 'coffee', 'uglify:prod', 'includereplace:prod', 'imagemin', 'compass:prod', 'copy', 'open:kiosko', 'watch']);
 
 };

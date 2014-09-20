@@ -28,7 +28,9 @@
     "grunt-open": "~0.2.3",
     "grunt-shell-spawn": "~0.3.0",
     "grunt-contrib-imagemin": "~0.7.1",
-    "grunt-contrib-copy": "~0.5.0"
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-uglify": "~0.6.0",
+    "grunt-include-replace": "~2.0.0"
   },
   "engines": {
     "node": ">=0.8.0"
