@@ -121,7 +121,7 @@ que se tienen que recargar cada vez
 que se cambia la página
 ###
 
-fathom = ""
+deck = ""
 presentacionSlider = ""
 reloadControls = () ->
 
@@ -154,43 +154,6 @@ reloadControls = () ->
 
         $('.galleria').data('galleria').playToggle()
         return
-
-  # PRESENTACIONES
-  if typeof Fathom is 'function'
-    if $("#presentacion").length > 0
-      fathom = new Fathom("#presentacion",
-        displayMode: 'single'
-        margin: 0
-        onActivateSlide: () ->
-          if fathom
-            $(".currentSlide").html( fathom.$slides.index(fathom.$activeSlide) + 1 )
-          $(this).hide().fadeIn()
-          return
-        onDeactivateSlide: () ->
-          $(this).fadeOut()
-          return
-      )
-      $(".totalSlides").html(fathom.$slides.length)
-
-
-      $(".auto input").on "click", () ->
-
-        if this.checked
-          presentacionSlider = setInterval (->
-
-              if fathom.$lastSlide[0] is fathom.$activeSlide[0]
-                fathom.activateSlide(fathom.$firstSlide)
-                fathom.scrollToSlide(fathom.$firstSlide)
-              else
-                fathom.nextSlide()
-
-              return
-            ), 10000
-
-        else
-          clearInterval(presentacionSlider)
-        return
-
 
   # Navegacion por tabindex
   $("a, video, .auto input").each (index) ->
@@ -271,19 +234,6 @@ $(document).ready ->
 Plantillas preconfiguradas para aplicaciones
 ###
 
-appPresentacion = () ->
-  activarBoton('1', 'Anterior')
-  activarBoton('3', 'Siguiente')
-
-  window["funcionesbt1"] = () ->
-
-    fathom.prevSlide()
-    return
-
-  window["funcionesbt3"] = () ->
-    fathom.nextSlide()
-    return
-  return
 
 appImagenes = () ->
   activarBoton('1', 'Anterior')

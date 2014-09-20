@@ -11,7 +11,9 @@
     "momentjs": "~2.6.0",
     "modernizr": "~2.8.1",
     "highcharts-release": "*",
-    "jquery-textfill": "~0.6.0"
+    "jquery-textfill": "~0.6.0",
+    "bespoke.js": "~1.0.0",
+    "bespoke-theme-cube": "~1.0.0"
   },
   "ignore": [
     "**/.*",

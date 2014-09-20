@@ -16,7 +16,7 @@ directives.directive "lazyStyle", ->
         link.className = "temp"
         link.href = stylePath
         document.getElementsByTagName("head")[0].appendChild link
-      loadedStyles[stylePath] = true
+      # loadedStyles[stylePath] = true #no se volvería a cargar
       return
 
     return
@@ -27,6 +27,9 @@ directives.directive "lazyScript", ->
   link: (scope, element, attrs) ->
     attrs.$observe "srcscript", (value) ->
       stylePath = value
+      console.log loadedScripts
+      console.log stylePath
+
       return  if stylePath of loadedScripts
       if document.createStyleSheet
         document.createStyleSheet stylePath #IE
@@ -37,7 +40,7 @@ directives.directive "lazyScript", ->
         link.className = "temp"
         link.async = true
         document.getElementsByTagName("head")[0].appendChild link
-      loadedScripts[stylePath] = true
+      # loadedScripts[stylePath] = true # no se volvería a cargar
       return
 
     return
