@@ -25,7 +25,8 @@ module.exports = function (server, config) {
     //iomonitor.set('log level', 2);
 
     var idmonitor,
-        usuarioActivo = -1;
+        usuarioActivo = -1,
+        estadoFiltrado = 0;
 
     /*
         usuarioActivo
@@ -77,6 +78,16 @@ module.exports = function (server, config) {
         socketserver.on("controlBotones", function (data){
 
             iousers.sockets.emit('botonesUsuario', {button: data.id, label: data.label});
+        });
+
+        socketserver.on("filtrado", function (data){
+
+
+            if (data.filter == "all")
+                estadoFiltrado = 0
+            else if (data.filter == "app")
+                estadoFiltrado = 1
+            iousers.sockets.emit('estadofiltro', {filtrado: estadoFiltrado});
         });
 
     });
@@ -134,6 +145,7 @@ module.exports = function (server, config) {
         console.log(">>Todos los clientes: "+allClients.length);
 
         socket.emit('login', {login: "go"});
+
 
         if(usuarioActivo!=-1){
             socket.emit('login', {login: "wait"});
@@ -294,7 +306,13 @@ module.exports = function (server, config) {
             registroActividad();
         });
 
+
+        /* FILTRADO */
+
+        socket.emit('estadofiltro', {filtrado: estadoFiltrado});
+
         socket.on('filtermsgs', function(data) {
+
 
             iomonitor.sockets.socket(idmonitor).emit('filter', {filter: data});
             registroActividad();

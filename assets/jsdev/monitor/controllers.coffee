@@ -49,6 +49,7 @@ controllers.controller "MessagesCtrl", [
         console.log messages.length
         barraMensajes(messages.length)
         return
+      socketmonitor.emit("filtrado", {filter: filtrado})
       return
 
 

@@ -1,13 +1,5 @@
-###
-//
-// socketio app
-//
-###
-
-# connect to our socket server
-socket = io.connect("http://tec.citius.usc.es/", {resource: '/mando-cocina/socket.io'});
 app = app or {}
-
+estadoFiltrado = 0
 
 
 # shortcut for document.ready
@@ -95,18 +87,31 @@ $ ->
     return
 
 
-  $changeMask.on "tap", () ->
-    $changeMask.button("toggle")
-    # boton con ocultar activo
-    if $changeMask.hasClass("active") is true
-      $changeMask.button('complete')
+
+
+  socket.on "estadofiltro", (data) ->
+    estadoFiltrado = data.filtrado;
+
+    if estadoFiltrado is 0
+      # sin filtrado
+      if $changeMask.hasClass("active") is false # se muestra '+'
+        $changeMask.removeClass('active')
+        $changeMask.button('reset')
+
+    else if estadoFiltrado is 1
+      # con filtrado
+      if $changeMask.hasClass("active") is true # se muestra '-'
+        $changeMask.button('complete')
+        $changeMask.addClass('active')
+
+    return
+
+
+  $changeMask.on "click", () ->
+    if estadoFiltrado is 0
       socket.emit "filtermsgs", "app"
     else
-      $changeMask.button('reset')
       socket.emit "filtermsgs", "all"
-
-
-    # socket.emit "change", "mask"
     return
 
   $messages.on "tap", () ->
