@@ -250,8 +250,8 @@ appImagenes = () ->
     return
   return
 
-datosSensor = (marcoID, medida, unidad) ->
-  URL = "http://172.16.244.156:8000/"
+datosSensor = (marcoID, titulo, medida, unidad) ->
+  URL = "http://localhost:3000/"
   request =
     query: "getObservationsByInterval"
     params:
@@ -286,7 +286,7 @@ datosSensor = (marcoID, medida, unidad) ->
           borderWidth: 2
 
         title:
-          text: "Última semana de "+ medida
+          text: "Última semana de "+ titulo
           x: -20 #center
 
         subtitle:
@@ -314,7 +314,7 @@ datosSensor = (marcoID, medida, unidad) ->
           borderWidth: 1
 
         series: [
-          name: "" + medida
+          name: "" + titulo
           data: datos
         ]
       )
