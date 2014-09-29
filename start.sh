@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/cocina/www/centrosocial
+cd /home/cocina/www/centro-social
 grunt prod

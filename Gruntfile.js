@@ -80,7 +80,7 @@ module.exports = function (grunt) {
       prod: {
         options: {
           globals: {
-            urlMonitor: '176.16.243.158',
+            urlMonitor: 'localhost',
             urlUsuarios: 'tec.citius.usc.es',
             rutaUrlUsuarios: '/mando-cocina/'
           },
@@ -126,11 +126,11 @@ module.exports = function (grunt) {
     open : {
         usuario: {
           path: 'http://localhost:'+RUNNING_PORT+'/',
-          app: 'Google Chrome'
+          app: 'google-chrome --start-maximized --kiosk'
         },
         pantalla: {
           path: 'http://localhost:'+RUNNING_PORT+'/monitor',
-          app: 'Google Chrome'
+          app: 'google-chrome --start-maximized --kiosk'
         },
         kiosko: {
             path: 'http://localhost:'+RUNNING_PORT+'/monitor',
@@ -138,7 +138,7 @@ module.exports = function (grunt) {
         },
         subl: {
           path: '.',
-          app: 'Sublime Text'
+          app: 'subl'
         }
     },
     imagemin: {                          // Task

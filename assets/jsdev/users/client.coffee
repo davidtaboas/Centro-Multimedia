@@ -107,7 +107,7 @@ $ ->
     return
 
 
-  $changeMask.on "click", () ->
+  $changeMask.on "tap", () ->
     if estadoFiltrado is 0
       socket.emit "filtermsgs", "app"
     else

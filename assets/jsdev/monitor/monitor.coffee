@@ -251,7 +251,7 @@ appImagenes = () ->
   return
 
 datosSensor = (marcoID, titulo, medida, unidad) ->
-  URL = "http://localhost:3000/"
+  URL = "http://172.16.244.156:8000/"
   request =
     query: "getObservationsByInterval"
     params:
