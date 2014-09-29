@@ -4,10 +4,13 @@ Aplicación do TFG "Sistema de entretemento social interactivo para unha pantall
 
 Inclúe código fonte, app para Android e automatización de tarefas.
 
-O manual técnico atópase na wiki.
+
+
+## Desenvolvemento de módulos
+Hai un pequeno tutorial na wiki.
 
 ## Rutas dos clientes
-Se se cambian as rutas de acceso, hai que modificar os arquivos 'layouts > users.jade' e 'assets > jsdev > users > client.coffee'
+Se se cambias as rutas dos clientes hai que modificar o arquivo Gruntfile.js na súa tarefa includereplace.
 
 
 © David Táboas
